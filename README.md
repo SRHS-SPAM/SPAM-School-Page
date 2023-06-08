@@ -21,30 +21,28 @@
 
 ## implementation Pages
 
-1. Main Page
-2. Login Page
-3. Sign Up Page
-4. Community Main Page
-5. Writing Page
-6. Announcement Page
-7. Contact us page
-8. Calendar Page
-9. Profile Page
-10. Cafeteria Page
-11. Ssettings Page
+1. [x] Main Page
+2. [x] Login Page
+3. [x] Sign Up Page
+4. [x] Community Main Page
+5. [x] Writing Page
+6. [x] Announcement Page
+7. [x] Contact us page
+8. [x] Calendar Page
+9. [x] Profile Page 10.[x] Cafeteria Page 11.[x] Ssettings Page
 
 ## Widgets
 
-1. Menu Popup
-2. Menu Bar Buttons
-3. Food(Cafeteria) List
-4. Calendar
-5. Login Input & Buttons
-6. Community List
+1. [x] Menu Popup
+2. [x] Menu Bar Buttons
+3. [x] Food(Cafeteria) List
+4. [x] Calendar
+5. [x] Login Input & Buttons
+6. [x] Community List
 
 ## JavaScript Function
 
-1. Menu Popup Event
+1. [x] Menu Popup Event
 
 ## Responsive Setting
 
