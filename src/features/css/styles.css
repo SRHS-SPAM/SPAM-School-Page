@@ -1,6 +1,5 @@
-@import "../constants/reset.css";
+@import "../../constants/reset.css";
 
-/* Widgets */
+/* Widgets */ /* Pages */
 
-/* Pages */
 @import "../css/components/pages/main.css";
