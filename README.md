@@ -29,7 +29,8 @@
 6. [x] Announcement Page
 7. [x] Contact us page
 8. [x] Calendar Page
-9. [x] Profile Page 10.[x] Cafeteria Page 11.[x] Ssettings Page
+9. [x] Profile Page  
+       10.[x] Cafeteria Page 11.[x] Ssettings Page
 
 ## Widgets
 
