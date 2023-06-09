@@ -1,5 +1,9 @@
 @import "../../constants/reset.css";
 
-/* Widgets */ /* Pages */
+/* Widgets */
+
+@import "../css/components/widgets/menu_pop.css";
+
+/* Pages */
 
 @import "../css/components/pages/main.css";
