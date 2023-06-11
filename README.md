@@ -6,7 +6,7 @@
 
 ### Contributors
 
-- 구현웅
+- woong
 - 정윤환
 
 ### Project Goals
@@ -23,15 +23,15 @@
 
 ### Current Produceable Pages (Designed)
 
-1. [x] Main Page
-2. [x] Cafeteria Page
-3. [ ] Login Page
-4. [ ] Sign Up Page
-5. [ ] Community Main Page
-6. [ ] Community Detail Page
-7. [ ] Writing Page
-8. [ ] Calendar Page
-9. [ ] mypage Page
+1. [x] Main Page - woong
+2. [x] Cafeteria Page- woong
+3. [ ] Login Page - 정윤환
+4. [ ] Sign Up Page - 정윤환
+5. [ ] Community Main Page - woong
+6. [ ] Community Detail Page - woong
+7. [ ] Writing Page - 정윤환
+8. [ ] Calendar Page - 정윤환
+9. [ ] mypage Page - 정윤환
 
 ---
 
