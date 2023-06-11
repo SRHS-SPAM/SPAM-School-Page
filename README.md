@@ -24,12 +24,12 @@
 ### Current Produceable Pages (Designed)
 
 1. [x] Main Page
-2. [ ] Login Page
-3. [ ] Sign Up Page
-4. [ ] Community Main Page
-5. [ ] Community Detail Page
-6. [ ] Writing Page
-7. [ ] Cafeteria Page
+2. [x] Cafeteria Page
+3. [ ] Login Page
+4. [ ] Sign Up Page
+5. [ ] Community Main Page
+6. [ ] Community Detail Page
+7. [ ] Writing Page
 8. [ ] Calendar Page
 9. [ ] mypage Page
 
@@ -42,11 +42,12 @@
 ## Widgets
 
 1. [x] Menu Popup
-2. [ ] Menu Bar Buttons
-3. [ ] Food(Cafeteria) List
-4. [ ] Calendar
-5. [ ] Login Input & Buttons
-6. [ ] Community List
+2. [x] Arrow back
+3. [ ] Menu Bar Buttons
+4. [ ] Food(Cafeteria) List
+5. [ ] Calendar
+6. [ ] Login Input & Buttons
+7. [ ] Community List
 
 ## JavaScript Function
 
