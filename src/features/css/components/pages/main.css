@@ -1,4 +1,5 @@
 @import "../../../../constants/variables.css";
+@import "../../../../constants/sizes.css";
 
 body {
   font-size: 100%;
@@ -14,20 +15,68 @@ body {
 }
 
 .desktop-actions {
-  padding: 1%;
+  padding-left: var(--Sizes-size2);
+  padding-top: var(--Sizes-size2_5);
 }
 
 .nav-left {
   display: flex;
-  gap: 1rem;
+  gap: var(--Sizes-size1_3);
 }
 
 .nav-item {
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--Sizes-size6);
+  height: var(--Sizes-size2_3);
   background-color: var(--primary-color);
-  border-radius: 1rem;
+  border-radius: var(--Sizes-size03);
 }
 
 .label {
   color: var(--menubar-font-color);
+  font-size: var(--Sizes-size1_1);
+  font-weight: 600;
+}
+
+.nav-right {
+  display: flex;
+  padding-right: var(--Sizes-size3);
+  padding-top: var(--Sizes-size1);
+  align-items: end;
+  gap: var(--Sizes-size3);
+}
+
+.aria-expanded {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: var(--Sizes-size05);
+}
+
+.date {
+  font-size: var(--Sizes-size1);
+  letter-spacing: var(--Sizes-size01);
+  font-weight: 700;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--Sizes-size04);
+  cursor: pointer;
+}
+
+.menuline-horizontal {
+  width: var(--Sizes-size2_5);
+  height: var(--Sizes-size05);
+  border-radius: var(--Sizes-size05);
+  background-color: #286246;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-left {
+    display: none;
+  }
 }

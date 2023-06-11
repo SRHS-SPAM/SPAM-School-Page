@@ -1,24 +1,18 @@
 .menubar {
   position: absolute;
-  top: 15px;
-  right: 6px;
+  top: var(--Sizes-size1);
+  right: var(--Sizes-size1_8);
   flex-direction: column;
   align-items: flex-end;
   display: none;
 }
 
-.menuline-horizontal1 {
-  width: 30%;
-  height: 10%;
-  background-color: #286246;
-}
-
 .menu_top {
   background-color: #fffdef;
-  width: 80px;
-  height: 75px;
-  border: 3.5px solid #286246;
-  border-bottom: 0px solid #286246;
+  width: var(--Sizes-size5);
+  height: var(--Sizes-size4_8);
+  border: var(--Sizes-size02) solid var(--primary-color);
+  border-bottom: var(--Sizes-size0);
   display: flex;
   border-radius: 50% 50% 0% 0%;
   justify-content: center;
@@ -27,78 +21,113 @@
 
 .menu_bottom {
   background-color: #fffdef;
-  width: 130px;
-  height: 300px;
-  border: 3.5px solid #286246;
-  border-radius: 5px 0px 5px 5px;
+  width: var(--Sizes-size8_1);
+  height: var(--Sizes-size17);
+  border: var(--Sizes-size02) solid var(--primary-color);
+  border-radius: var(--Sizes-size03) var(--Sizes-size0) var(--Sizes-size03)
+    var(--Sizes-size03);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.menu-bottom-left {
+  display: none;
+}
+
+.menu-bottom-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--Sizes-size1);
 }
 
 .menu_column {
-  width: 105px;
-  height: 50px;
-  background-color: #286246;
+  width: var(--Sizes-size6_5);
+  height: var(--Sizes-size3);
+  background-color: var(--primary-color);
   display: flex;
-  margin-top: 18px;
   align-items: center;
   justify-content: center;
   color: white;
   font-weight: 700;
-  border-radius: 15px;
-  font-size: 14px;
+  border-radius: var(--Sizes-size09);
+  font-size: var(--Sizes-size09);
   cursor: pointer;
 }
 
 .menubar_line {
-  height: 3.5px;
-  width: 80px;
-  background-color: #286246;
+  height: var(--Sizes-size02);
+  width: var(--Sizes-size5);
+  background-color: var(--primary-color);
   position: relative;
   z-index: 0;
 }
 
 .menubar_menuline {
-  left: 22px;
+  left: var(--Sizes-size1_3);
   position: absolute;
-  bottom: 5px;
+  bottom: var(--Sizes-size03);
 }
 
 .menubar_menuline1 {
-  height: 7px;
-  width: 30px;
-  border-radius: 5px;
+  width: var(--Sizes-size2_5);
+  height: var(--Sizes-size05);
+  border-radius: var(--Sizes-size05);
   position: absolute;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    #286246;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    var(--primary-color);
+  box-shadow: var(--Sizes-size0) var(--Sizes-size02) var(--Sizes-size02)
+    rgba(0, 0, 0, 0.25);
   transform: rotate(-60deg);
   z-index: 1;
   cursor: pointer;
 }
 
 .menubar_menuline2 {
-  height: 7px;
-  width: 30px;
-  border-radius: 5px;
+  width: var(--Sizes-size2_5);
+  height: var(--Sizes-size05);
+  border-radius: var(--Sizes-size05);
   position: absolute;
   z-index: 2;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    #286246;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    var(--primary-color);
+  box-shadow: var(--Sizes-size0) var(--Sizes-size02) var(--Sizes-size02)
+    rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
-
 .menubar_menuline3 {
-  height: 7px;
-  width: 30px;
-  border-radius: 5px;
+  width: var(--Sizes-size2_5);
+  height: var(--Sizes-size05);
+  border-radius: var(--Sizes-size05);
   position: absolute;
   z-index: 3;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    #286246;
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    var(--primary-color);
+  box-shadow: var(--Sizes-size0) var(--Sizes-size02) var(--Sizes-size02)
+    rgba(0, 0, 0, 0.25);
   transform: rotate(60deg);
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-bottom-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--Sizes-size1);
+  }
+
+  .menu-bottom-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu_bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: var(--Sizes-size16);
+  }
 }
