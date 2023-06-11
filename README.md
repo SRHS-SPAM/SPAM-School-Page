@@ -21,17 +21,23 @@
 
 ## implementation Pages
 
+### Current Produceable Pages (Designed)
+
 1. [x] Main Page
 2. [ ] Login Page
 3. [ ] Sign Up Page
 4. [ ] Community Main Page
-5. [ ] Writing Page
-6. [ ] Announcement Page
-7. [ ] Contact us page
+5. [ ] Community Detail Page
+6. [ ] Writing Page
+7. [ ] Cafeteria Page
 8. [ ] Calendar Page
 9. [ ] mypage Page
-10. [ ] Cafeteria Page
-11. [ ] Ssettings Page
+
+---
+
+10. [ ] Ssettings Page
+11. [ ] Contact us page
+12. [ ] Announcement Page
 
 ## Widgets
 
