@@ -4,6 +4,7 @@
 
 /* Widgets */
 @import "../css/components/widgets/menu_pop.css";
+@import "../css/components/widgets/arrow_back.css";
 
 /* Pages */
 @import "../css/components/pages/main.css";

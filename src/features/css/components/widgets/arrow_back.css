@@ -1,0 +1,45 @@
+@import "../../../../constants/sizes.css";
+@import "../../../../constants/variables.css";
+
+.arrow {
+  position: relative;
+  left: var(--Sizes-size1_5);
+  top: -1.2rem;
+  width: var(--Sizes-size6_3);
+  height: var(--Sizes-size6_3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scale: 0.8;
+  cursor: pointer;
+}
+
+.one {
+  position: absolute;
+  width: var(--Sizes-size2_5);
+  height: var(--Sizes-size06);
+  border-radius: var(--Sizes-size03);
+  background-color: var(--primary-color);
+  rotate: -45deg;
+  top: var(--Sizes-size2_1);
+  left: 0;
+}
+
+.two {
+  position: absolute;
+  width: 74px;
+  height: var(--Sizes-size06);
+  border-radius: var(--Sizes-size03);
+  background-color: var(--primary-color);
+}
+
+.three {
+  position: absolute;
+  width: var(--Sizes-size2_5);
+  height: var(--Sizes-size06);
+  border-radius: var(--Sizes-size03);
+  background-color: var(--primary-color);
+  rotate: 45deg;
+  bottom: var(--Sizes-size2_1);
+  left: 0;
+}
