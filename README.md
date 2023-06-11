@@ -35,11 +35,11 @@
 ## Widgets
 
 1. [x] Menu Popup
-2. [] Menu Bar Buttons
-3. [] Food(Cafeteria) List
-4. [] Calendar
-5. [] Login Input & Buttons
-6. [] Community List
+2. [ ] Menu Bar Buttons
+3. [ ] Food(Cafeteria) List
+4. [ ] Calendar
+5. [ ] Login Input & Buttons
+6. [ ] Community List
 
 ## JavaScript Function
 
