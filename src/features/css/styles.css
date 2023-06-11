@@ -9,6 +9,7 @@
 /* Pages */
 @import "../css/components/pages/main.css";
 @import "../css/components/pages/cafeteria.css";
+@import "../css/components/pages/login.css";
 
 body {
   font-size: 100%;
