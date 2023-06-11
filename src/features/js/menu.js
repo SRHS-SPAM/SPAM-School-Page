@@ -1,8 +1,8 @@
 function floatBar() {
-  let dis = document.getElementById("menubar_f");
-  if (dis.style.display == "none") {
-    dis.style.display = "flex";
+  let menuDisplay = document.getElementById("menubar_f");
+  if (menuDisplay.style.display == "flex") {
+    menuDisplay.style.display = "none";
   } else {
-    dis.style.display = "none";
+    menuDisplay.style.display = "flex";
   }
 }

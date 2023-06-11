@@ -1,5 +1,9 @@
 :root {
   --primary-color: #286246;
+  --primary-font-color: #ffffff;
   --menubar-font-color: #ffffff;
   --background-color: #fffdefd1;
+  --font-Color-white: #ffffff;
+  --article-background-color: #ffffff;
+  --calendar-background-color: black;
 }
