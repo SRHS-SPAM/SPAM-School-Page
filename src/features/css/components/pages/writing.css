@@ -1,0 +1,6 @@
+@import "../../../../constants/variables.css";
+@import "../../../../constants/sizes.css";
+
+body {
+  height: 100vh;
+}

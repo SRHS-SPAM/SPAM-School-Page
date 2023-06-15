@@ -4,3 +4,41 @@
 body {
   height: 100vh;
 }
+
+.cafe_header {
+  height: var(--Sizes-size9);
+}
+
+.cafe_inner {
+  align-items: center;
+  height: 100%;
+}
+
+.cafe_actions {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  /* align-items: center; */
+  padding-top: var(--Sizes-size1_5);
+}
+
+.center_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: var(--Sizes-size2);
+  width: 45%;
+  height: 70%;
+}
+
+.cafeteria_label {
+  color: var(--font-Color-white);
+  font-size: var(--Sizes-size3_5);
+  font-weight: 700;
+}
+
+.cafe_menu {
+  padding-right: var(--Sizes-size3_2);
+  padding-top: var(--Sizes-size1);
+}
