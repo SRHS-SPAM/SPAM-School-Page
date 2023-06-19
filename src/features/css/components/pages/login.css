@@ -127,6 +127,10 @@ input::placeholder {
   border-radius: 1em;
 }
 
+.login_button:active {
+  background-color: #1c65b9;
+}
+
 .more {
   display: flex;
   justify-content: space-around;
