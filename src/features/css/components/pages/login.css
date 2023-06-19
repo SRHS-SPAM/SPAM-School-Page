@@ -108,6 +108,7 @@ input::placeholder {
   height: 2em;
   cursor: pointer;
   background: #1a1a1a;
+  padding: 0px 0px;
 }
 
 #idckb:checked {
@@ -192,7 +193,7 @@ input::placeholder {
 }
 
 .login_Github {
-  background-color: #1c1c1c;
+  background-color: #792f9e;
   color: white;
 }
 
