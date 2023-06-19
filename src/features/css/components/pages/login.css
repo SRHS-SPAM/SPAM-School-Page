@@ -56,7 +56,7 @@ body {
 .stroke {
   width: 70%;
   height: 100%;
-  background-color: var(--primary-color);
+  background-color: rgb(40, 44, 52);
   border-radius: var(--Sizes-size5_1);
   margin-bottom: var(--Sizes-size3);
 }
@@ -75,11 +75,12 @@ body {
 .id_box input {
   background-color: #1a1a1a;
   border: 1px solid #6a6767;
-  width: 100%;
+  width: 90%;
   height: 15%;
   border-radius: var(--Sizes-size05);
   color: white;
   font-size: var(--Sizes-size1);
+  padding: 0px 20px;
 }
 
 input::placeholder {
@@ -103,8 +104,8 @@ input::placeholder {
 
 #idckb {
   appearance: none;
-  width: 2.5em;
-  height: 2.5em;
+  width: 2em;
+  height: 2em;
   cursor: pointer;
   background: #1a1a1a;
 }
@@ -191,7 +192,7 @@ input::placeholder {
 }
 
 .login_Github {
-  background-color: #7e2fa1;
+  background-color: #1c1c1c;
   color: white;
 }
 
@@ -250,5 +251,13 @@ input::placeholder {
     height: 30%;
     display: flex;
     justify-content: center;
+  }
+
+  #idckb {
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+    background: #1a1a1a;
   }
 }
