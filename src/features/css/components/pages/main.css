@@ -99,7 +99,7 @@ body {
   font-size: var(--Sizes-size3_3);
   font-weight: 600;
   letter-spacing: var(--Sizes-size01);
-  color: var(--primary-color);
+  color: #4c3d3d;
   margin-bottom: var(--Sizes-size1);
 }
 
@@ -107,7 +107,7 @@ body {
   font-size: var(--Sizes-size2);
   font-weight: 700;
   letter-spacing: var(--Sizes-size01);
-  color: var(--primary-color);
+  color: #4c3d3d;
 }
 
 .border {
@@ -235,7 +235,7 @@ body {
 }
 
 .month_year {
-  color: var(--primary-font-color);
+  color: white;
   font-size: var(--Sizes-size1_1);
   margin-top: var(--Sizes-size1_3);
   font-weight: 500;
@@ -255,7 +255,7 @@ body {
   list-style: none;
   justify-content: center;
   align-items: center;
-  color: var(--primary-font-color);
+  color: #ffffff;
   font-size: var(--Sizes-size08);
 }
 
