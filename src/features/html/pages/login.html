@@ -22,8 +22,63 @@
 
     <!-- main -->
 
-    <main class="login_main">
-      <div class="login_container">jioj</div>
-    </main>
+    <form method="post" name="login">
+      <div class="main">
+        <div class="stroke">
+          <div class="box">
+            <h1 class="school_name">
+              Seoul Robotics<br />
+              <em>Highschool</em>
+            </h1>
+            <div class="id_mainbox">
+              <div class="id_box">
+                <input id="userid" type="text" placeholder="아이디" />
+                <input id="pwd" type="password" placeholder="비밀번호" />
+                <div class="id_check">
+                  <input id="idckb" type="checkbox" size="10" />
+                  <span class="idsave">로그인 정보 저장하기</span>
+                </div>
+                <div class="login_button">로그인</div>
+                <div class="more">
+                  <div class="lost">비밀번호를 잊으셨나요?</div>
+                  <div class="signup" id="/signup" onclick="movePage(id)">
+                    회원가입
+                  </div>
+                </div>
+              </div>
+
+              <div class="id_anotherbox">
+                <div class="anotherlogin">
+                  <div class="login_google loginanother">
+                    <div class="login_imgsubbox">
+                      <img src="/src/features/images/Google.png" alt="" />
+                    </div>
+                    <div class="login_googletxt">Sign with Google</div>
+                  </div>
+                  <div class="login_facebook loginanother">
+                    <div class="login_imgsubbox">
+                      <img src="/src/features/images/Facebook.png" alt="" />
+                    </div>
+                    <div class="login_facebooktxt">Sign with Facebook</div>
+                  </div>
+                  <div class="login_Github loginanother">
+                    <div class="login_imgsubbox">
+                      <img src="/src/features/images/Github.png" alt="" />
+                    </div>
+                    <div class="login_Githubtxt">Sign with Github</div>
+                  </div>
+                  <div class="login_apple loginanother">
+                    <div class="login_imgsubbox">
+                      <img src="/src/features/images/Apple.png" alt="" />
+                    </div>
+                    <div class="login_appletxt">Sign with apple</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </body>
 </html>
