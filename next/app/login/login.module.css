@@ -1,123 +1,325 @@
 .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .box {
-    width: 500px;
-    height: 500px;
-    background-color: #1a1a1a;
-    border-radius: 80px;
-    display: flex;
-    color: white;
-    flex-direction: column;
-    align-items: center;
+  width: 95%;
+  height: 40rem;
+  background-color: #1a1a1a;
+  border-radius: var(--Sizes-size5_1);
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
 }
 
 .school_name {
-    font-size: 28px;
-    margin-top: 70px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    line-height: 30px;
-    margin-bottom: 60px;
+  font-size: var(--Sizes-size2);
+  margin: var(--Sizes-size1) var(--Sizes-size1_3);
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1em;
+  text-align: center;
+  margin-bottom: var(--Sizes-size2_5);
 }
 
 .school_name em {
-    letter-spacing: 3px;
+  letter-spacing: 3px;
+}
+
+.id_mainbox {
+  display: flex;
+  width: 80%;
+  height: 80%;
+  justify-content: space-between;
+  gap: var(--Sizes-size3);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.id_anotherbox {
+  display: flex;
+  width: 45%;
+  height: 100%;
+  flex-direction: column;
 }
 
 .stroke {
-    width: 530px;
-    height: 530px;
-    background-color: #286246;
-    border-radius: 110px;
+  width: 70%;
+  height: 100%;
+  background-color: rgb(40, 44, 52);
+  border-radius: var(--Sizes-size5_1);
+  margin-bottom: var(--Sizes-size3);
 }
 
 .id_box {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 45%;
+  height: 100%;
+  gap: var(--Sizes-size2);
+  padding-bottom: 3em;
+  flex: 1;
 }
 
 .id_box input {
-    background-color: #1a1a1a;
-    border: 1px solid #6a6767;
-    width: 330px;
-    height: 55px;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    padding: 10px;
-}
-
-#userid {
-    margin-bottom: 10px;
-}
-
-#pwd {
-    margin-bottom: 15px;
+  background-color: #1a1a1a;
+  border: 1px solid #6a6767;
+  width: 90%;
+  height: 15%;
+  border-radius: var(--Sizes-size05);
+  color: white;
+  font-size: var(--Sizes-size1);
+  padding: 0px 20px;
 }
 
 .id_box input::placeholder {
-    color: white;
-    font-size: 14px;
-    font-weight: 600;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
 }
 
 .id_check {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 5em;
 }
 
 .idsave {
-    color: white;
-    font-size: 14px;
-    margin-left: 10px;
-    font-weight: 600;
+  color: white;
+  font-size: 0.2em;
+  margin-left: 1em;
+  font-weight: 600;
 }
 
 #idckb {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    background: #1a1a1a;
+  appearance: none;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  background: #1a1a1a;
+  padding: 0px 0px;
 }
 
 #idckb:checked {
-    background-color: #4197fc;
+  background-color: #4197fc;
 }
 
 .login_button {
-    width: 330px;
-    height: 50px;
-    background-color: #4197fc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-bottom: 30px;
+  width: 100%;
+  height: 10%;
+  background-color: #4197fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 1em;
+}
+
+.login_button:active {
+  background-color: #1c65b9;
 }
 
 .more {
-    display: flex;
-    justify-content: space-between;
-    width: 55%;
-    align-items: center;
-    font-size: 14px;
-    font-weight: 600;
-    color: #d4ddfc;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 600;
+  color: #d4ddfc;
 }
 
 .lost {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .signup {
+  cursor: pointer;
+}
+
+.loginanother {
+  width: 100%;
+  height: 15%;
+  border: 1px solid #6a6767;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: var(--Sizes-size3);
+  gap: var(--Sizes-size2);
+}
+
+.anotherlogin {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--Sizes-size2_5);
+  padding-top: var(--Sizes-size2);
+}
+
+.login_imgsubbox {
+  width: var(--Sizes-size2_5);
+  height: var(--Sizes-size2_5);
+  display: flex;
+  justify-content: end;
+}
+
+.login_google {
+  background-color: white;
+  color: black;
+}
+
+.login_google img {
+  width: 100%;
+}
+
+.login_facebook {
+  background-color: #1b77f2;
+  color: white;
+}
+
+.login_facebook img {
+  width: 50%;
+}
+
+.login_Github {
+  background-color: #792f9e;
+  color: white;
+}
+
+.login_Github img {
+  width: 100%;
+}
+
+.login_apple {
+  background-color: #1c1c1c;
+  color: white;
+}
+
+.login_apple img {
+  width: 100%;
+}
+
+.cafe_actions {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  /* align-items: center; */
+  padding-top: var(--Sizes-size1_5);
+}
+
+/*미디어 쿼리*/
+
+@media screen and (max-width: 1196px) {
+  .id_mainbox {
+    flex-direction: column;
+    gap: var(--Sizes-size05);
+  }
+
+  .anotherlogin {
+    font-size: 0em;
+    flex-direction: row;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    padding-top: 0em;
+  }
+
+  .loginanother {
+    width: 50%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* 가운데 정렬을 위한 속성 추가 */
+    padding-top: var(--Sizes-size2);
+  }
+
+  .login_imgsubbox {
+    justify-content: center;
+  }
+
+  .id_box {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0em;
+  }
+
+  .id_anotherbox {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #idckb {
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
     cursor: pointer;
+    background: #1a1a1a;
+  }
+}
+
+.writing_header {
+  height: var(--Sizes-size4);
+}
+
+.writing_inner {
+  align-items: center;
+  height: 100%;
+}
+
+.writing_actions {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: var(--Sizes-size1_5);
+}
+
+.writing_menu {
+  padding-right: var(--Sizes-size3_2);
+  padding-top: var(--Sizes-size1);
+}
+
+.writing_main {
+  background-color: blue;
+  width: 100%;
+  height: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.writing_base {
+  background-color: blueviolet;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--Sizes-size2);
+}
+
+.writing_title {
+  background-color: aqua;
+  width: 100%;
+  height: 10%;
+}
+
+.writing_tag {
+  background-color: aqua;
+  width: 100%;
+  height: 10%;
+}
+
+.writing_par {
+  background-color: aqua;
+  width: 100%;
+  height: 80%;
 }

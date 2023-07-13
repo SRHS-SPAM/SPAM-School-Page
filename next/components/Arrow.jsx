@@ -3,7 +3,7 @@ import styles from "./Arrow.module.css";
 
 export default function Arrow({ location }) {
   return (
-    <>
+    <div>
       <Link href={location}>
         <div className={styles.arrow}>
           <div className={styles.one} />
@@ -11,6 +11,6 @@ export default function Arrow({ location }) {
           <div className={styles.three} />
         </div>
       </Link>
-    </>
+    </div>
   );
 }
