@@ -9,17 +9,17 @@
   </head>
   <body>
     <!-- Header -->
-    <header class="cafe_header">
-      <div class="cafe_inner">
-        <div class="cafe_actions">
+    <header class="writing_header">
+      <div class="writing_inner">
+        <div class="writing_actions">
           <div class="arrow">
             <div class="one"></div>
             <div class="two"></div>
             <div class="three"></div>
           </div>
 
-          <div class="cafe_menu">
-            <div class="cafe-menu-wrap">
+          <div class="writing_menu">
+            <div class="writing-menu-wrap">
               <div class="bars" id="bar" onclick="floatBar()">
                 <div class="menuline-horizontal"></div>
                 <div class="menuline-horizontal"></div>
@@ -36,7 +36,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="cafe-menu_bottom">
+                <div class="menu_bottom">
                   <div class="menu-bottom-right">
                     <a href="mypage.html">
                       <div class="menu_column">마이페이지</div>
@@ -58,5 +58,34 @@
         </div>
       </div>
     </header>
+
+    <!-- Main -->
+
+    <main class="writing_main">
+      <div class="writing_base">
+        <div class="writing_title">
+          <input
+            class="writing_titleinput"
+            type="text"
+            placeholder="제목 작성"
+          />
+        </div>
+
+        <div class="writing_tag">
+          <input class="writing_taginput" type="text" placeholder="태그" />
+        </div>
+
+        <div class="writing_par">
+          <textarea
+            class="writing_partextarea"
+            cols="30"
+            rows="10"
+            placeholder="글 쓰기"
+          ></textarea>
+        </div>
+      </div>
+    </main>
+
+    <script src="../../js/menu.js"></script>
   </body>
 </html>

@@ -1,0 +1,84 @@
+.inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.desktop_actions {
+  padding-left: var(--Sizes-size2);
+  padding-top: var(--Sizes-size2_5);
+}
+
+.nav_left {
+  display: flex;
+  gap: var(--Sizes-size1_3);
+}
+
+.primary_navigation {
+  display: flex;
+}
+
+.school_logo_header {
+  display: none;
+}
+
+.nav_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--Sizes-size6);
+  height: var(--Sizes-size2_3);
+  background-color: var(--primary-color);
+  border-radius: var(--Sizes-size03);
+}
+
+.label {
+  color: var(--menubar-font-color);
+  font-size: var(--Sizes-size1_1);
+  font-weight: 600;
+}
+
+.nav_right {
+  display: flex;
+  padding-right: var(--Sizes-size3);
+  padding-top: var(--Sizes-size1);
+  align-items: end;
+  gap: var(--Sizes-size3);
+}
+
+.aria_expanded {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: var(--Sizes-size05);
+}
+
+.date {
+  font-size: var(--Sizes-size1);
+  letter-spacing: var(--Sizes-size01);
+  font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  .nav_left {
+    display: none;
+  }
+
+  .inner {
+    display: flex;
+    align-items: start;
+  }
+
+  .desktop_actions {
+    padding: 0;
+  }
+
+  .school_logo {
+    display: none;
+  }
+
+  .school_logo_header {
+    display: flex;
+    height: 1;
+    width: 0;
+  }
+}

@@ -1,11 +1,3 @@
-@import "../../../../constants/variables.css";
-@import "../../../../constants/sizes.css";
-
-body {
-  height: 100vh;
-  font-size: 100%;
-}
-
 .main {
   display: flex;
   justify-content: center;
@@ -83,7 +75,7 @@ body {
   padding: 0px 20px;
 }
 
-input::placeholder {
+.id_box input::placeholder {
   color: white;
   font-size: 1em;
   font-weight: 600;
@@ -214,6 +206,14 @@ input::placeholder {
   width: 100%;
 }
 
+.cafe_actions {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  /* align-items: center; */
+  padding-top: var(--Sizes-size1_5);
+}
+
 /*미디어 쿼리*/
 
 @media screen and (max-width: 1196px) {
@@ -265,4 +265,61 @@ input::placeholder {
     cursor: pointer;
     background: #1a1a1a;
   }
+}
+
+.writing_header {
+  height: var(--Sizes-size4);
+}
+
+.writing_inner {
+  align-items: center;
+  height: 100%;
+}
+
+.writing_actions {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  padding-top: var(--Sizes-size1_5);
+}
+
+.writing_menu {
+  padding-right: var(--Sizes-size3_2);
+  padding-top: var(--Sizes-size1);
+}
+
+.writing_main {
+  background-color: blue;
+  width: 100%;
+  height: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.writing_base {
+  background-color: blueviolet;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--Sizes-size2);
+}
+
+.writing_title {
+  background-color: aqua;
+  width: 100%;
+  height: 10%;
+}
+
+.writing_tag {
+  background-color: aqua;
+  width: 100%;
+  height: 10%;
+}
+
+.writing_par {
+  background-color: aqua;
+  width: 100%;
+  height: 80%;
 }
