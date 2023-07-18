@@ -1,0 +1,226 @@
+
+.nav_right {
+    display: flex;
+    padding-right: var(--Sizes-size3);
+    padding-top: var(--Sizes-size1);
+    align-items: end;
+    gap: var(--Sizes-size3);
+  }
+
+.cafe_header {
+  height: var(--Sizes-size9);
+}
+
+.cafe_inner {
+  align-items: center;
+  height: 100%;
+}
+
+.cafe_actions {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  /* align-items: center; */
+  padding-top: var(--Sizes-size1_5);
+}
+
+.center_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: var(--Sizes-size2);
+  width: 45%;
+  height: 70%;
+}
+
+.cafeteria_label {
+  color: var(--font-Color-white);
+  font-size: var(--Sizes-size3_5);
+  font-weight: 700;
+}
+
+.cafe_menu {
+  padding-right: var(--Sizes-size3_2);
+  padding-top: var(--Sizes-size1);
+}
+
+/* main */
+
+.cafe_container {
+  height: 49rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cafe_box {
+  background-color: var(--cafe-background-color);
+  padding: 0 var(--Sizes-size5) var(--Sizes-size3) var(--Sizes-size5);
+  border-radius: var(--Sizes-size2);
+  height: 75%;
+  width: 68%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cafe_date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+  margin-bottom: var(--Sizes-size2);
+}
+
+.cafe_date_label {
+  color: var(--font-Color-white);
+  font-size: var(--Sizes-size1_6);
+  font-weight: 700;
+}
+
+.cafe_menu_arti {
+  width: 100%;
+  height: 100%;
+}
+
+.menu_sections {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cafe_food_menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--Sizes-size3);
+  align-items: start;
+}
+
+.cafe_food_info {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: var(--Sizes-size1_2);
+  color: var(--font-Color-white);
+}
+
+.cafe_status_time {
+  border: var(--Sizes-size01) solid var(--font-Color-white);
+  border-radius: var(--Sizes-size06);
+  padding: var(--Sizes-size06) var(--Sizes-size09) var(--Sizes-size06)
+    var(--Sizes-size09);
+}
+
+.current {
+  color: var(--current-food);
+}
+
+.cafe_kcal {
+  font-size: var(--Sizes-size1_1);
+}
+
+.cafe_menu_list {
+  color: var(--font-Color-white);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--Sizes-size2_8);
+  font-weight: 600;
+}
+
+.cafe_menu_list li {
+  font-size: var(--Sizes-size1_3);
+}
+
+/* MediaQuery */
+
+@media screen and (max-width: 768px) {
+  .center_title {
+    width: 30%;
+    height: 50%;
+    border-radius: var(--Sizes-size1_3);
+  }
+
+  .cafeteria_label {
+    font-size: var(--Sizes-size2);
+  }
+
+  .cafe_container {
+    height: 100%;
+    padding-top: var(--Sizes-size3);
+  }
+
+  .cafe_box {
+    width: 40%;
+    padding-top: var(--Sizes-size2);
+    margin-bottom: var(--Sizes-size8);
+  }
+
+  .cafe_food_info {
+    align-items: center;
+  }
+
+  .cafe_menu_list {
+    align-items: center;
+  }
+
+  .cafe_date {
+    margin-bottom: var(--Sizes-size4);
+  }
+
+  .menu_sections {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: var(--Sizes-size8);
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1196px) {
+  .center_title {
+    width: 45%;
+    height: 65%;
+    border-radius: var(--Sizes-size1_5);
+  }
+
+  .cafeteria_label {
+    font-size: var(--Sizes-size3);
+  }
+
+  .cafe_container {
+    height: 100%;
+    padding-top: var(--Sizes-size4);
+  }
+
+  .cafe_box {
+    width: 50%;
+    padding-top: var(--Sizes-size2);
+    margin-bottom: var(--Sizes-size8);
+  }
+
+  .cafe_food_info {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .cafe_date {
+    margin-bottom: var(--Sizes-size4);
+  }
+
+  .cafe_food_menu {
+    flex-direction: row;
+    gap: var(--Sizes-size10);
+  }
+
+  .menu_sections {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: var(--Sizes-size5);
+    align-items: center;
+    justify-content: center;
+  }
+}
