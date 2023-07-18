@@ -4,7 +4,60 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/styles.css" />
     <title>SignUp</title>
   </head>
-  <body></body>
+  <body>
+    <!-- header -->
+
+    <header class="login_header">
+      <div class="cafe_actions">
+        <div class="arrow">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- main -->
+
+    <form method="post" name="login">
+      <div class="main">
+        <div class="stroke">
+          <div class="box">
+            <h1 class="school_name">
+              Seoul Robotics<br />
+              <em>Highschool</em>
+            </h1>
+            <div class="id_mainbox">
+              <div class="id_box">
+                <input id="userid" type="text" placeholder="이메일" />
+                <input id="pwd" type="password" placeholder="비밀번호" />
+                <input id="userid" type="text" placeholder="전화번호" />
+                <input id="pwd" type="password" placeholder="성명" />
+                <nav class="sign_schoolnum">
+                  <input id="pwd" type="password" placeholder="성명" />
+                  <input id="pwd" type="password" placeholder="성명" />
+                  <input id="pwd" type="password" placeholder="성명" />
+                </nav>
+
+                <div class="id_check">
+                  <input id="idckb" type="checkbox" size="10" />
+                  <span class="idsave">로그인 정보 저장하기</span>
+                </div>
+                <div class="login_button">가입</div>
+                <div class="more">
+                  <div class="lost">계정이 있으신가요?</div>
+                  <div class="signup" id="/signup" onclick="movePage(id)">
+                    <a href="">로그인</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
 </html>
