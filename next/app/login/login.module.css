@@ -167,7 +167,7 @@
   width: var(--Sizes-size2_5);
   height: var(--Sizes-size2_5);
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .login_google {

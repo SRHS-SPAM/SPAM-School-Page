@@ -45,17 +45,19 @@ export default async function Nav() {
         <div className={styles.aria_expanded}>
           <div className={styles.date}>{currentDateTimeString}</div>
 
-          <div className={`${styles.nav_item} ${styles.login}`}>
-            {session ? (
+          {session ? (
+            <Link href={"/login"}>
               <div className={styles.home_login_2}>
                 {session.user.name}님 환영합니다.
               </div>
-            ) : (
-              <Link href={"/login"}>
+            </Link>
+          ) : (
+            <Link href={"/login"}>
+              <div className={styles.nav_item}>
                 <div className={styles.label}>LOGIN</div>
-              </Link>
-            )}
-          </div>
+              </div>
+            </Link>
+          )}
         </div>
         <Menubar></Menubar>
       </div>

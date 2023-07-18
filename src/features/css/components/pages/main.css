@@ -50,14 +50,14 @@ body {
   display: flex;
   padding-right: var(--Sizes-size3);
   padding-top: var(--Sizes-size1);
-  align-items: end;
+  align-items: flex-end;
   gap: var(--Sizes-size3);
 }
 
 .aria-expanded {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
   gap: var(--Sizes-size05);
 }
 
@@ -187,8 +187,7 @@ body {
 .food_title_section {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  width: 70%;
+  justify-content: center;
   gap: var(--Sizes-size1_7);
 }
 
@@ -274,11 +273,11 @@ body {
   font-weight: 700;
 }
 
-.today {
-  background-color: var(--primary-color);
-  padding: var(--Sizes-size06);
-  border-radius: var(--Sizes-size1);
-}
+/* .today {
+    background-color: var(--primary-color);
+    padding: var(--Sizes-size06);
+    border-radius: var(--Sizes-size1);
+} */
 
 /* MediaQuery */
 
@@ -289,7 +288,7 @@ body {
 
   .inner {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
   }
 
   .desktop-actions {
