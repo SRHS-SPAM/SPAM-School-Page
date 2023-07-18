@@ -2,7 +2,7 @@
 
 ### Project Period
 
-06.09 ~ 06.18(expected)
+06.09 ~ 08.21(expected)
 
 ### Contributors
 
@@ -29,7 +29,7 @@
 4. [ ] Sign Up Page - 정윤환
 5. [ ] Community Main Page - woong
 6. [ ] Community Detail Page - woong
-7. [ ] Writing Page - 정윤환
+7. [x] Writing Page - woong
 8. [ ] Calendar Page - 정윤환
 9. [ ] mypage Page - 정윤환
 
@@ -54,6 +54,29 @@
 1. [x] Menu Popup Event
 
 ## Responsive Setting
+
+---
+
+# Next.js
+
+## pages
+
+1. [x] Main Page - msg2324
+2. [x] Cafeteria Page- dnjeh
+3. [x] Login Page - msg2324
+4. [ ] Sign Up Page -
+5. [ ] Community Main Page -
+6. [ ] Community Detail Page -
+7. [ ] Writing Page -
+8. [ ] Calendar Page -
+9. [ ] mypage Page -
+
+## components
+
+1. [x] Arrow - msg2324
+2. [x] Menubar Page- msg2324
+3. [x] Nav - msg2324
+4. [x] Seo - msg2324
 
 ---
 
