@@ -31,6 +31,13 @@
   border-radius: var(--Sizes-size03);
 }
 
+.nav_item2 {
+  white-space: nowrap;
+  width: var(--Sizes-size11);
+  color: var(--menubar-font-color);
+  font-weight: 700;
+}
+
 .label {
   color: var(--menubar-font-color);
   font-size: var(--Sizes-size1_1);

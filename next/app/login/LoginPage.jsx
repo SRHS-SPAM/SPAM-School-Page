@@ -30,13 +30,13 @@ export default function LoginPage() {
             </h1>
             <div className={styles.id_mainbox}>
               <div className={styles.id_box}>
-                <input id="userid" type="text" placeholder="아이디" />
-                <input id="pwd" type="password" placeholder="비밀번호" />
+                <input id="id" type="text" placeholder="아이디" />
+                <input id="password" type="password" placeholder="비밀번호" />
                 <div className={styles.id_check}>
                   <input id={styles.idckb} type="checkbox" size="10" />
                   <span className={styles.idsave}>로그인 정보 저장하기</span>
                 </div>
-                <button type="submit" className={styles.login_button}>
+                <button type={"submit"} className={styles.login_button}>
                   로그인
                 </button>
                 <div className={styles.more}>
