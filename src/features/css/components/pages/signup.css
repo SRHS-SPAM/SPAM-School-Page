@@ -51,11 +51,11 @@ body {
   background-color: rgb(40, 44, 52);
   border-radius: var(--Sizes-size5_1);
   margin-bottom: var(--Sizes-size3);
-  height: 120vh;
+  height: 100vh;
 }
 
 .signup_box {
-  height: 120vh;
+  height: 100vh;
 }
 
 .sign_schoolnum {
@@ -79,7 +79,7 @@ body {
 .signup_id_box input {
   background-color: #1a1a1a;
   border: 1px solid #6a6767;
-  height: 15%;
+  height: 10%;
   border-radius: var(--Sizes-size05);
   color: white;
   font-size: var(--Sizes-size1);
@@ -89,7 +89,6 @@ body {
 .sign_schoolnum input {
   height: 100%;
   width: 30%;
-  font-size: var(--Sizes-size05);
 }
 
 input::placeholder {
