@@ -6,10 +6,10 @@ import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 
 export const authOptions = {
   providers: [
-    GithubProvider({
-      clientId: "e7d6d7dbd890450fb7fa",
-      clientSecret: "1234a3e2ba6766d30d5e030ee58cd4c4caaecc8c",
-    }),
+    // GithubProvider({
+    //   clientId: "e7d6d7dbd890450fb7fa",
+    //   clientSecret: "1234a3e2ba6766d30d5e030ee58cd4c4caaecc8c",
+    // }),
     CredentialsProvider({
       //1. 로그인페이지 폼 자동생성해주는 코드
       id: "credentials",
