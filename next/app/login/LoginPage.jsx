@@ -18,6 +18,13 @@ export default function LoginPage() {
       console.log(error);
     }
   };
+  // const githubLogin = async (e) =>{
+  //   e.preventDefault();
+  //   try {
+  //   } catch (error) {
+
+  //   }
+  // }
   return (
     <form method="POST" name="login" onSubmit={login}>
       <div className={styles.main}>
@@ -68,6 +75,12 @@ export default function LoginPage() {
                   </div>
                   <div
                     className={`${styles.login_Github} ${styles.loginanother}`}
+                    onClick={() => {
+                      signIn("github", {
+                        redirect: true,
+                        callbackUrl: "http://localhost:3000/",
+                      });
+                    }}
                   >
                     <div className={styles.login_imgsubbox}>
                       <img src="/images/Github.png" alt={""} />
