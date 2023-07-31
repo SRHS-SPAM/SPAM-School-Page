@@ -46,8 +46,8 @@ export default async function Nav() {
           <div className={styles.date}>{currentDateTimeString}</div>
 
           {session ? (
-            <Link href={"/login"}>
-              <div className={styles.home_login_2}>
+            <Link href={"/mypage"}>
+              <div className={`${styles.nav_item} ${styles.nav_item2}`}>
                 {session.user.name}님 환영합니다.
               </div>
             </Link>
