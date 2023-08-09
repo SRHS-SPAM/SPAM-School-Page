@@ -6,10 +6,10 @@ export default function LoginPage() {
   const login = async (e) => {
     e.preventDefault();
     try {
-      const id = e.target.id.value;
+      const email = e.target.email.value;
       const password = e.target.password.value;
       const response = await signIn("credentials", {
-        id,
+        email,
         password,
         redirect: true,
         callbackUrl: "http://localhost:3000/",
@@ -18,13 +18,17 @@ export default function LoginPage() {
       console.log(error);
     }
   };
-  // const githubLogin = async (e) =>{
-  //   e.preventDefault();
-  //   try {
-  //   } catch (error) {
-
-  //   }
-  // }
+  const socialLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await signIn(e.target.id, {
+        redirect: true,
+        callbackUrl: "http://localhost:3000/",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <form method="POST" name="login" onSubmit={login}>
       <div className={styles.main}>
@@ -37,7 +41,7 @@ export default function LoginPage() {
             </h1>
             <div className={styles.id_mainbox}>
               <div className={styles.id_box}>
-                <input id="id" type="text" placeholder="아이디" />
+                <input id="email" type="text" placeholder="이메일" />
                 <input id="password" type="password" placeholder="비밀번호" />
                 <div className={styles.id_check}>
                   <input id={styles.idckb} type="checkbox" size="10" />
@@ -55,6 +59,8 @@ export default function LoginPage() {
                 <div className={styles.anotherlogin}>
                   <div
                     className={`${styles.login_google} ${styles.loginanother}`}
+                    id="google"
+                    onClick={socialLogin}
                   >
                     <div className={styles.login_imgsubbox}>
                       <img src="/images/Google.png" alt={""} />
@@ -75,12 +81,8 @@ export default function LoginPage() {
                   </div>
                   <div
                     className={`${styles.login_Github} ${styles.loginanother}`}
-                    onClick={() => {
-                      signIn("github", {
-                        redirect: true,
-                        callbackUrl: "http://localhost:3000/",
-                      });
-                    }}
+                    id="github"
+                    onClick={socialLogin}
                   >
                     <div className={styles.login_imgsubbox}>
                       <img src="/images/Github.png" alt={""} />

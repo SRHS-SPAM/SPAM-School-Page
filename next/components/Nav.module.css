@@ -33,7 +33,8 @@
 
 .nav_item2 {
   white-space: nowrap;
-  width: var(--Sizes-size11);
+  width: auto;
+  padding: 0 10px;
   color: var(--menubar-font-color);
   font-weight: 700;
 }
