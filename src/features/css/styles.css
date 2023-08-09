@@ -12,6 +12,7 @@
 @import "../css/components/pages/login.css";
 @import "../css/components/pages/writing.css";
 @import "../css/components/pages/signup.css";
+@import "../css/components/pages/community_main.css";
 
 body {
   font-size: 100%;
