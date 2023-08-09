@@ -11,6 +11,7 @@
 @import "../css/components/pages/cafeteria.css";
 @import "../css/components/pages/login.css";
 @import "../css/components/pages/writing.css";
+@import "../css/components/pages/signup.css";
 
 body {
   font-size: 100%;
