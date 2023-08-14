@@ -22,7 +22,7 @@ body {
   align-items: center;
 }
 
-.school_name {
+.sign_school_name {
   font-size: var(--Sizes-size2);
   margin: var(--Sizes-size1) var(--Sizes-size1_3);
   font-weight: 700;
@@ -30,6 +30,7 @@ body {
   line-height: 1em;
   text-align: center;
   margin-bottom: var(--Sizes-size2_5);
+  margin-top: var(--Sizes-size2_5);
 }
 
 .school_name em {
@@ -47,7 +48,7 @@ body {
 }
 
 .signup_stroke {
-  width: 70%;
+  width: 40%;
   background-color: rgb(40, 44, 52);
   border-radius: var(--Sizes-size5_1);
   margin-bottom: var(--Sizes-size3);
