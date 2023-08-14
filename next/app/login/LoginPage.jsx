@@ -1,8 +1,10 @@
 "use client";
 import { signIn } from "next-auth/react";
 import styles from "./login.module.css";
+import AnotherLogin from "./Anotherlogin";
 
 export default function LoginPage() {
+  const another = ["google", "facebook", "github", "apple"];
   const login = async (e) => {
     e.preventDefault();
     try {
@@ -53,50 +55,18 @@ export default function LoginPage() {
               </div>
               <div className={styles.id_anotherbox}>
                 <div className={styles.anotherlogin}>
-                  <div
-                    className={`${styles.login_google} ${styles.loginanother}`}
-                  >
-                    <div className={styles.login_imgsubbox}>
-                      <img src="/images/Google.png" alt={""} />
-                    </div>
-                    <div className={styles.login_googletxt}>
-                      Sign with Google
-                    </div>
-                  </div>
-                  <div
-                    className={`${styles.login_facebook} ${styles.loginanother}`}
-                  >
-                    <div className={styles.login_imgsubbox}>
-                      <img src="/images/Facebook.png" alt={""} />
-                    </div>
-                    <div className={styles.login_facebooktxt}>
-                      Sign with Facebook
-                    </div>
-                  </div>
-                  <div
-                    className={`${styles.login_Github} ${styles.loginanother}`}
-                    onClick={() => {
-                      signIn("github", {
-                        redirect: true,
-                        callbackUrl: "http://localhost:3000/",
-                      });
-                    }}
-                  >
-                    <div className={styles.login_imgsubbox}>
-                      <img src="/images/Github.png" alt={""} />
-                    </div>
-                    <div className={styles.login_Githubtxt}>
-                      Sign with Github
-                    </div>
-                  </div>
-                  <div
-                    className={`${styles.login_apple} ${styles.loginanother}`}
-                  >
-                    <div className={styles.login_imgsubbox}>
-                      <img src="/images/Apple.png" alt={""} />
-                    </div>
-                    <div className={styles.login_appletxt}>Sign with apple</div>
-                  </div>
+                  {another.map((name, i) => (
+                    <AnotherLogin
+                      name={name}
+                      key={i}
+                      onClick={() => {
+                        signIn("name", {
+                          redirect: true,
+                          callbackUrl: "http://localhost:3000/",
+                        });
+                      }}
+                    ></AnotherLogin>
+                  ))}
                 </div>
               </div>
             </div>
