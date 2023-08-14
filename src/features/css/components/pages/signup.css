@@ -190,4 +190,14 @@ input::placeholder {
     cursor: pointer;
     background: #1a1a1a;
   }
+
+  .signup_stroke {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .signup_stroke {
+    width: 80%;
+  }
 }
