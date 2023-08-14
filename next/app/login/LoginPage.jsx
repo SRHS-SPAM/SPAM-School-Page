@@ -18,6 +18,13 @@ export default function LoginPage() {
       console.log(error);
     }
   };
+  // const githubLogin = async (e) =>{
+  //   e.preventDefault();
+  //   try {
+  //   } catch (error) {
+
+  //   }
+  // }
   return (
     <form method="POST" name="login" onSubmit={login}>
       <div className={styles.main}>
@@ -30,13 +37,13 @@ export default function LoginPage() {
             </h1>
             <div className={styles.id_mainbox}>
               <div className={styles.id_box}>
-                <input id="userid" type="text" placeholder="아이디" />
-                <input id="pwd" type="password" placeholder="비밀번호" />
+                <input id="id" type="text" placeholder="아이디" />
+                <input id="password" type="password" placeholder="비밀번호" />
                 <div className={styles.id_check}>
                   <input id={styles.idckb} type="checkbox" size="10" />
                   <span className={styles.idsave}>로그인 정보 저장하기</span>
                 </div>
-                <button type="submit" className={styles.login_button}>
+                <button type={"submit"} className={styles.login_button}>
                   로그인
                 </button>
                 <div className={styles.more}>
@@ -68,6 +75,12 @@ export default function LoginPage() {
                   </div>
                   <div
                     className={`${styles.login_Github} ${styles.loginanother}`}
+                    onClick={() => {
+                      signIn("github", {
+                        redirect: true,
+                        callbackUrl: "http://localhost:3000/",
+                      });
+                    }}
                   >
                     <div className={styles.login_imgsubbox}>
                       <img src="/images/Github.png" alt={""} />
