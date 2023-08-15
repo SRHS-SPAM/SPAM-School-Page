@@ -193,6 +193,7 @@ body {
 
 .food_name {
   font-weight: 700;
+  margin-right: var(--Sizes-size4);
   font-size: var(--Sizes-size1_1);
 }
 
