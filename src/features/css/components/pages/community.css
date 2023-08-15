@@ -5,6 +5,8 @@ body {
   height: 100vh;
 }
 
+/* Header */
+
 .community_header {
   width: 100%;
   height: var(--Sizes-size8);
@@ -130,6 +132,10 @@ body {
   background-color: var(--background-color);
 }
 
+input {
+  border: none;
+}
+
 .community_search_bar_input::placeholder {
   color: black;
   opacity: 0.8;
@@ -169,6 +175,7 @@ body {
   color: grey;
   font-size: var(--Sizes-size1_1);
   padding-right: var(--Sizes-size05);
+  cursor: pointer;
 }
 
 .community_article_division {
