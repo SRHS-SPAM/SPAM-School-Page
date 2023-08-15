@@ -5,6 +5,8 @@ body {
   height: 100vh;
 }
 
+/* Header */
+
 .community_header {
   width: 100%;
   height: var(--Sizes-size8);
@@ -128,6 +130,10 @@ body {
   font-size: 30px;
   text-overflow: ellipsis;
   background-color: var(--background-color);
+}
+
+input {
+  border: none;
 }
 
 .community_search_bar_input::placeholder {
