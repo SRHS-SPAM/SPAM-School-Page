@@ -169,6 +169,7 @@ body {
   color: grey;
   font-size: var(--Sizes-size1_1);
   padding-right: var(--Sizes-size05);
+  cursor: pointer;
 }
 
 .community_article_division {
