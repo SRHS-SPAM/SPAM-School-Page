@@ -28,7 +28,7 @@
 3. [x] Login Page - 정윤환
 4. [x] Sign Up Page - 정윤환
 5. [x] Community Main Page - woong
-6. [ ] Community Detail Page - woong
+6. [x] Community Detail Page - woong
 7. [x] Writing Page - woong
 8. [ ] Calendar Page - 정윤환
 9. [ ] mypage Page - 정윤환
