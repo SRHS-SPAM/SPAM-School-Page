@@ -3,6 +3,7 @@
 
 body {
   height: 100vh;
+  min-width: 1515px;
 }
 
 /* Header */
@@ -323,7 +324,11 @@ input {
   font-size: var(--Sizes-size1_2);
   letter-spacing: var(--Sizes-size02);
   font-weight: 300;
+  width: var(--Sizes-size17_7);
   cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .community_sub_article_views {
