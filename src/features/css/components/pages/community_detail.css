@@ -1,0 +1,344 @@
+@import "../../../../constants/variables.css";
+@import "../../../../constants/sizes.css";
+
+body {
+  height: 100vh;
+}
+
+/* Header */
+
+.community_detail_header {
+  height: var(--Sizes-size5);
+}
+
+.community_detail_actions {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--Sizes-size1_5);
+}
+
+.community_detail_menu {
+  padding-right: var(--Sizes-size3_2);
+  padding-top: var(--Sizes-size1);
+}
+
+.community_detail_main {
+  width: 100%;
+  height: 300%;
+  display: flex;
+  justify-content: center;
+}
+
+.community_detail_home {
+  width: 75%;
+  height: 100%;
+}
+
+.community_detail_upper {
+  width: 100%;
+  height: 6%;
+  display: flex;
+  flex-direction: column;
+}
+
+.community_detail_title {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.community_detail_title_text {
+  width: 93%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: var(--Sizes-size3_5);
+}
+
+.community_detail_divider1 {
+  width: 100%;
+  height: var(--Sizes-size05);
+  background-color: var(--primary-color);
+}
+
+.community_detail_selc_box {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  height: 25%;
+}
+
+.community_detail_selc {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: var(--Sizes-size1_5);
+  height: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  gap: var(--Sizes-size3);
+}
+
+.selc_btn {
+  font-size: var(--Sizes-size1_5);
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.selc_devider {
+  width: 0.2%;
+  height: 70%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.selc_func {
+  display: flex;
+  align-self: center;
+  justify-content: flex-end;
+  padding-right: var(--Sizes-size1_5);
+  width: 20%;
+  height: 80%;
+  padding-left: var(--Sizes-size1_5);
+  gap: var(--Sizes-size2);
+  overflow: hidden;
+}
+
+.selc_sort {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--Sizes-size08);
+  cursor: pointer;
+  font-size: var(--Sizes-size1);
+  white-space: nowrap;
+}
+
+.sort_type {
+  font-size: var(--Sizes-size1_5);
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+}
+
+.selc_write {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--Sizes-size08);
+  font-size: var(--Sizes-size1);
+  white-space: nowrap;
+}
+
+.selc_write_text {
+  font-size: var(--Sizes-size1_5);
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+}
+
+.community_detail_divider2 {
+  width: 100%;
+  height: 0.1rem;
+  background-color: black;
+}
+
+.writing_class {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.writing_class_inner {
+  display: flex;
+  width: 90%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.class_name {
+  font-size: var(--Sizes-size1_7);
+  white-space: nowrap;
+}
+
+.writing_class_inner_left {
+  display: flex;
+  gap: var(--Sizes-size9);
+}
+
+.writing_class_inner_right {
+  display: flex;
+  gap: var(--Sizes-size3);
+}
+
+.class_au {
+  margin-right: var(--Sizes-size4);
+}
+
+.community_detail_divider3 {
+  width: 100%;
+  height: 0.2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.community_detail_writing_main {
+  width: 100%;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.writing_main_box {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  height: 98%;
+}
+
+.writing_main_class {
+  width: 100%;
+  height: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid black;
+}
+
+.writing_main_class_inner {
+  width: 94%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.main_class_num {
+  width: 100px;
+  text-align: center;
+}
+
+.writing_main_class_inner_left {
+  display: flex;
+  gap: var(--Sizes-size4_5);
+  font-size: var(--Sizes-size1_5);
+}
+
+.writing_main_class_inner_right {
+  font-size: var(--Sizes-size1_2);
+  display: flex;
+  gap: var(--Sizes-size4);
+}
+
+.main_class_name {
+  white-space: nowrap;
+}
+
+.writing_footer {
+  width: 100%;
+  height: 9%;
+  display: flex;
+  justify-content: center;
+}
+
+.writing_footer_box {
+  width: 95%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.writing_button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.writing_button_Text {
+  font-size: var(--Sizes-size1_5);
+  border: 1px solid black;
+  background-color: beige;
+  padding: var(--Sizes-size02);
+  border-radius: var(--Sizes-size03);
+}
+
+.writing_search {
+  margin-top: var(--Sizes-size05);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.writing_search_box {
+  display: flex;
+  justify-content: space-between;
+  width: var(--Sizes-size20);
+  height: var(--Sizes-size2);
+  border: 1px solid black;
+  border-radius: var(--Sizes-size03);
+}
+
+.writing_search_input {
+  width: 90%;
+}
+
+.writing_search_input input {
+  background-color: beige;
+  height: 94%;
+  font-size: var(--Sizes-size1_2);
+  width: 100%;
+  border: none;
+  border-radius: var(--Sizes-size01);
+}
+
+.writing_search_text {
+  display: flex;
+  width: var(--Sizes-size3);
+  align-items: center;
+  justify-content: center;
+  font-size: var(--Sizes-size1_2);
+  background-color: beige;
+  border-left: 1px solid black;
+}
+
+.page_selector {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.page_selector_box {
+  width: 540px;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  background-color: beige;
+}
+
+.community_pages {
+  height: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-right: 1px solid black;
+  padding: 0px 16.4px 0px 16.4px;
+  cursor: pointer;
+}
+
+.page_selector_box i {
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
