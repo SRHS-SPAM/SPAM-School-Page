@@ -4,7 +4,8 @@
 .arrow {
   position: relative;
   left: var(--Sizes-size1_5);
-  top: -1.2rem;
+  /*화살표 위치 문제 생겨서 잠시 주석처리*/
+  /* top: -1.2rem; */
   width: var(--Sizes-size6_3);
   height: var(--Sizes-size6_3);
   display: flex;
