@@ -173,8 +173,8 @@
   display: none;
 }
 
-.gotobox_icon_write > i {
-  font-size: 0px;
+.gotobox_icon_write > img {
+  width: 0px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -192,8 +192,9 @@
     display: flex;
   }
 
-  .gotobox_icon_write > i {
-    font-size: 5.625rem;
+  .gotobox_icon_write > img {
+    width: 90px;
+    height: 90px;
   }
 
   .my_profileimg {
@@ -246,8 +247,9 @@
     display: flex;
   }
 
-  .gotobox_icon_write > i {
-    font-size: 5.625rem;
+  .gotobox_icon_write > img {
+    width: 90px;
+    height: 90px;
   }
 
   .my_profileimg {
@@ -276,11 +278,6 @@
 
   .my_gotobox {
     width: 100%;
-  }
-
-  .gotobox_icon_write > i {
-    font-size: 5.625rem;
-    color: black;
   }
 
   .my_casesubbox {
