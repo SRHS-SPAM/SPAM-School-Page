@@ -87,6 +87,12 @@
   padding: 0px 20px;
 }
 
+.disable_input:read-only {
+  background-color: var(--login-stroke-color);
+  color: white;
+  font-size: var(--Sizes-size1);
+}
+
 .sign_schoolnum input {
   height: 100%;
   width: 30%;

@@ -1,8 +1,12 @@
 import Arrow from "@/components/Arrow";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 import styles from "./signup.module.css";
 
-export default function SignupItem() {
+export default async function SignupItem() {
+  let session = await getServerSession(authOptions);
+  let email = session.user.email;
   return (
     <>
       {/* header */}
@@ -26,12 +30,26 @@ export default function SignupItem() {
               </h1>
               <div className={styles.signup_mainbox}>
                 <div className={styles.signup_id_box}>
-                  <input
-                    name="email"
-                    type="text"
-                    placeholder="이메일"
-                    autoComplete="off"
-                  />
+                  {email && (
+                    <input
+                      name="email"
+                      type="text"
+                      placeholder="이메일"
+                      autoComplete="off"
+                      value={email}
+                      readOnly
+                      className={styles.disable_input}
+                    />
+                  )}
+                  {!email && (
+                    <input
+                      name="email"
+                      type="text"
+                      placeholder="이메일"
+                      autoComplete="off"
+                    />
+                  )}
+
                   <input
                     name="password"
                     type="password"
