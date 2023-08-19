@@ -66,6 +66,7 @@ export const authOptions = {
         token.user.id = user.id;
         token.user.email = user.email;
         token.user.name = user.name;
+        token.user.image = user.image;
       }
       return token;
     },

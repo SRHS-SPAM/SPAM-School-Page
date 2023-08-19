@@ -1,3 +1,8 @@
+.space {
+  height: var(--Sizes-size1_5);
+  width: var(--Sizes-size2_5);
+}
+
 .mypage_mainbox {
   display: grid;
   gap: var(--Sizes-size2);
