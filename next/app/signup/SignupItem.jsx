@@ -26,18 +26,49 @@ export default function SignupItem() {
               </h1>
               <div className={styles.signup_mainbox}>
                 <div className={styles.signup_id_box}>
-                  <input name="email" type="text" placeholder="이메일" />
+                  <input
+                    name="email"
+                    type="text"
+                    placeholder="이메일"
+                    autoComplete="off"
+                  />
                   <input
                     name="password"
                     type="password"
                     placeholder="비밀번호"
+                    autoComplete="off"
                   />
-                  <input name="tel" type="text" placeholder="전화번호" />
-                  <input name="name" type="text" placeholder="성명" />
+                  <input
+                    name="tel"
+                    type="text"
+                    placeholder="전화번호"
+                    autoComplete="off"
+                  />
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="성명"
+                    autoComplete="off"
+                  />
                   <nav className={styles.sign_schoolnum}>
-                    <input name="grade" type="text" placeholder="학년" />
-                    <input name="class" type="text" placeholder="반" />
-                    <input name="number" type="text" placeholder="번호" />
+                    <input
+                      name="grade"
+                      type="text"
+                      placeholder="학년"
+                      autoComplete="off"
+                    />
+                    <input
+                      name="class"
+                      type="text"
+                      placeholder="반"
+                      autoComplete="off"
+                    />
+                    <input
+                      name="number"
+                      type="text"
+                      placeholder="번호"
+                      autoComplete="off"
+                    />
                   </nav>
                   <button type="submit" className={styles.login_button}>
                     가입

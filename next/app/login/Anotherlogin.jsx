@@ -6,7 +6,7 @@ export default function AnotherLogin({ name }) {
     try {
       const response = await signIn(e.target.id, {
         redirect: true,
-        callbackUrl: "http://localhost:3000/",
+        callbackUrl: "http://localhost:3000/signup",
       });
     } catch (error) {
       console.log(error);

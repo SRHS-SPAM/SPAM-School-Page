@@ -69,7 +69,7 @@
 6. [ ] Community Detail Page -
 7. [ ] Writing Page -
 8. [ ] Calendar Page -
-9. [ ] mypage Page -
+9. [x] mypage Page -
 
 ## components
 
