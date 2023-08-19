@@ -151,6 +151,7 @@
   font-weight: bold;
   border-radius: var(--Sizes-size3);
   gap: var(--Sizes-size2);
+  cursor: pointer;
 }
 
 .anotherlogin {

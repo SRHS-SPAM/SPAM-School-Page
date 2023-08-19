@@ -64,7 +64,7 @@
 1. [x] Main Page - msg2324
 2. [x] Cafeteria Page- dnjeh
 3. [x] Login Page - msg2324
-4. [ ] Sign Up Page -
+4. [x] Sign Up Page -
 5. [ ] Community Main Page -
 6. [ ] Community Detail Page -
 7. [ ] Writing Page -

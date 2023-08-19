@@ -1,12 +1,18 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs";
 import GithubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
+import bcrypt from "bcryptjs";
 import { connectDB } from "@/util/database";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 
 export const authOptions = {
   providers: [
+    GoogleProvider({
+      clientId:
+        "556236386209-cjhb2bn5oblv25emhdfmti437jrv6an3.apps.googleusercontent.com",
+      clientSecret: "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",
+    }),
     GithubProvider({
       clientId: "e7d6d7dbd890450fb7fa",
       clientSecret: "1234a3e2ba6766d30d5e030ee58cd4c4caaecc8c",
@@ -17,7 +23,7 @@ export const authOptions = {
       name: "credentials",
       type: "credentials",
       credentials: {
-        id: { label: "id", type: "text" },
+        id: { label: "email", type: "text" },
         password: { label: "password", type: "password" },
       },
 
@@ -26,9 +32,11 @@ export const authOptions = {
       //아이디,비번 맞으면 return 결과, 틀리면 return null 해야함
       async authorize(credentials) {
         let db = (await connectDB).db("SRH-Community");
-        let user = await db.collection("user").findOne({ id: credentials.id });
+        let user = await db
+          .collection("user")
+          .findOne({ email: credentials.email });
         if (!user) {
-          console.log("해당 아이디는 없음");
+          console.log("해당 이메일은 없음");
           return null;
         }
         const pwcheck = await bcrypt.compare(
@@ -58,6 +66,7 @@ export const authOptions = {
         token.user.id = user.id;
         token.user.email = user.email;
         token.user.name = user.name;
+        token.user.image = user.image;
       }
       return token;
     },
