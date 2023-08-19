@@ -2,6 +2,7 @@
 import { signIn } from "next-auth/react";
 import styles from "./login.module.css";
 import AnotherLogin from "./Anotherlogin";
+import Link from "next/link";
 
 export default function LoginPage() {
   const another = ["google", "facebook", "github", "apple"];
@@ -20,17 +21,7 @@ export default function LoginPage() {
       console.log(error);
     }
   };
-  const socialLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await signIn(e.target.id, {
-        redirect: true,
-        callbackUrl: "http://localhost:3000/",
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
   return (
     <form method="POST" name="login" onSubmit={login}>
       <div className={styles.main}>
@@ -54,22 +45,15 @@ export default function LoginPage() {
                 </button>
                 <div className={styles.more}>
                   <div className={styles.lost}>비밀번호를 잊으셨나요?</div>
-                  <div className={styles.signup}>회원가입</div>
+                  <Link href="/signup">
+                    <div className={styles.signup}>회원가입</div>
+                  </Link>
                 </div>
               </div>
               <div className={styles.id_anotherbox}>
                 <div className={styles.anotherlogin}>
                   {another.map((name, i) => (
-                    <AnotherLogin
-                      name={name}
-                      key={i}
-                      onClick={() => {
-                        signIn("name", {
-                          redirect: true,
-                          callbackUrl: "http://localhost:3000/",
-                        });
-                      }}
-                    ></AnotherLogin>
+                    <AnotherLogin name={name} key={i}></AnotherLogin>
                   ))}
                 </div>
               </div>
