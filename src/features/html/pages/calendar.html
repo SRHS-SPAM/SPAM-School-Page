@@ -4,7 +4,92 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/components/pages/calendar.css" />
     <title>Calendar</title>
   </head>
-  <body></body>
+  <body>
+    <div class="calendar_mainbox">
+      <div class="cal_topbox">
+        <div class="cal_arrowbox">
+          <div class="arrow my_arrow" id="/login" onclick="movePage(id)">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+          </div>
+        </div>
+        <div class="cal_maintxt">Calendar</div>
+        <div class="bars mypage_bars" id="bar" onclick="floatBar()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <div class="cal_subbox">
+        <div class="cal_box cal_box1">
+          <div class="cal_box_black">
+            <div class="cal_subbox_top">
+              <div class="cal_box_text">
+                March 2023
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+              <div class="cal_arrow_box">
+                <i class="fa-solid fa-chevron-left"></i>
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+            <div class="cal_subbox_main">
+              <thead>
+                <tr>
+                  <th>Sun</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>28</td>
+                  <td>29</td>
+                  <td>30</td>
+                  <td>31</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>6</td>
+                  <td>7</td>
+                  <td>8</td>
+                  <td>9</td>
+                  <td>10</td>
+                </tr>
+              </tbody>
+            </div>
+          </div>
+        </div>
+        <div class="cal_box cal_box2">
+          <div class="cal_box_black">
+            <div class="cal_subbox_top">
+              <div class="cal_box_text">
+                March 2023
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+              <div class="cal_arrow_box">
+                <i class="fa-solid fa-chevron-left"></i>
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/75ea5a755a.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
