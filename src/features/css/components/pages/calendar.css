@@ -72,6 +72,9 @@ body {
   border-radius: 2rem;
   padding: 4rem;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .cal_box_text {
@@ -102,4 +105,49 @@ body {
   width: 100%;
   height: 100%;
   color: white;
+  font-size: large;
+}
+
+table {
+  table-layout: fixed; /* 테이블의 열 너비를 균일하게 설정 */
+  width: 100%; /* 테이블이 부모 요소의 너비를 100%로 사용 */
+  border-collapse: separate; /* 기본값은 collapse */
+  border-spacing: 10px;
+}
+
+th,
+td {
+  width: 14.28%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+th {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: rgba(240, 255, 255, 0.661);
+}
+
+.disabled_day {
+  color: rgba(240, 255, 255, 0.421);
+}
+
+@media screen and (max-width: 768px) {
+  .cal_subbox {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--Sizes-size3);
+  }
+
+  .cal_box {
+    width: 95%;
+  }
+
+  .bars {
+    display: none;
+  }
+
+  .cal_arrowbox {
+    display: none;
+  }
 }
