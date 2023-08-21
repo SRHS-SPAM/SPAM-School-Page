@@ -1,151 +1,195 @@
+.cafe_actions {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  /* align-items: center; */
+  padding-top: var(--Sizes-size1_5);
+}
+
 .signup_main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 140vh;
+  display: flex;
+  justify-content: center;
 }
 
 .signup_box {
-    width: 500px;
-    height: 820px;
-    background-color: #1a1a1a;
-    border-radius: 80px;
-    display: flex;
-    color: white;
-    flex-direction: column;
-    align-items: center;
+  width: 95%;
+  height: 40rem;
+  background-color: #1a1a1a;
+  border-radius: var(--Sizes-size5_1);
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
 }
 
-.signup_h1 {
-    font-size: 28px;
-    margin-top: 50px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    margin-bottom: 50px;
+.sign_school_name {
+  font-size: var(--Sizes-size2);
+  margin: var(--Sizes-size1) var(--Sizes-size1_3);
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1em;
+  text-align: center;
+  margin-bottom: var(--Sizes-size2_5);
+  margin-top: var(--Sizes-size2_5);
+}
+
+.school_name em {
+  letter-spacing: 3px;
+}
+
+.signup_mainbox {
+  display: flex;
+  width: 80%;
+  height: 80%;
+  justify-content: space-between;
+  gap: var(--Sizes-size3);
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .signup_stroke {
-    width: 530px;
-    height: 850px;
-    background-color: #286246;
-    border-radius: 110px;
+  width: 40%;
+  background-color: rgb(40, 44, 52);
+  border-radius: var(--Sizes-size5_1);
+  margin-bottom: var(--Sizes-size3);
+  height: 100vh;
+}
+
+.signup_box {
+  height: 100vh;
+}
+
+.sign_schoolnum {
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  gap: var(--Sizes-size05);
 }
 
 .signup_id_box {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 45%;
+  height: 100%;
+  gap: var(--Sizes-size2);
+  padding-bottom: 3em;
+  flex: 1;
 }
 
 .signup_id_box input {
-    background-color: #1a1a1a;
-    border: 1px solid #6a6767;
-    width: 330px;
-    height: 55px;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    margin-bottom: 20px;
-    padding: 10px;
+  background-color: #1a1a1a;
+  border: 1px solid #6a6767;
+  height: 10%;
+  border-radius: var(--Sizes-size05);
+  color: white;
+  font-size: var(--Sizes-size1);
+  padding: 0px 20px;
+}
+
+.sign_schoolnum input {
+  height: 100%;
+  width: 30%;
 }
 
 .signup_id_box input::placeholder {
-    color: white;
-    font-size: 14px;
-    font-weight: 600;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
 }
 
 .id_check {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 5em;
 }
 
 .idsave {
-    color: white;
-    font-size: 14px;
-    margin-left: 10px;
-    font-weight: 600;
+  color: white;
+  font-size: 0.2em;
+  margin-left: 1em;
+  font-weight: 600;
 }
 
 #idckb {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    background: #1a1a1a;
+  appearance: none;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+  background: #1a1a1a;
+  padding: 0px 0px;
 }
 
 #idckb:checked {
-    background-color: #4197fc;
+  background-color: #4197fc;
 }
 
-.signup_button {
-    width: 330px;
-    height: 50px;
-    background-color: #4197fc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-bottom: 30px;
+.login_button {
+  width: 100%;
+  height: 10%;
+  background-color: #4197fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 1em;
+}
+
+.login_button:active {
+  background-color: #1c65b9;
+}
+
+.more {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 600;
+  color: #d4ddfc;
 }
 
 .lost {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .signup {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.student_info {
-    display: flex;
-    justify-content: space-between;
-}
+/*미디어 쿼리*/
 
-.student_info input {
-    width: 105px;
-    height: 55px;
-}
+@media screen and (max-width: 1196px) {
+  .id_mainbox {
+    flex-direction: column;
+    gap: var(--Sizes-size05);
+  }
 
-.certification {
-    width: 330px;
-    justify-content: space-between;
-    display: flex;
-}
-
-#signup_cer {
-    width: 235px;
-}
-
-.cer_btn {
-    height: 55px;
-    width: 90px;
-    background-color: #4197fc;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+  .login_imgsubbox {
     justify-content: center;
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: 1px;
-}
+  }
 
-.signup_login {
+  .id_box {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 0em;
+  }
+
+  .id_anotherbox {
+    width: 100%;
+    height: 30%;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 20px;
+  }
+
+  .signup_stroke {
+    width: 50%;
+  }
 }
 
-.signup_login .sdl {
-    color: #4197fc;
-    margin-left: 10px;
-    cursor: pointer;
+@media screen and (max-width: 768px) {
+  .signup_stroke {
+    width: 80%;
+  }
 }
