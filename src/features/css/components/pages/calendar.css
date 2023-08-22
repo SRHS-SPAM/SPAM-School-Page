@@ -132,6 +132,12 @@ th {
   color: rgba(240, 255, 255, 0.421);
 }
 
+@media screen and (max-width: 1024px) {
+  th {
+    font-size: small;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .cal_subbox {
     flex-direction: column;
@@ -149,5 +155,13 @@ th {
 
   .cal_arrowbox {
     display: none;
+  }
+
+  .cal_maintxt {
+    width: 75%;
+  }
+
+  th {
+    font-size: small;
   }
 }
