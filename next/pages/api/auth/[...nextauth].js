@@ -33,7 +33,7 @@ export const authOptions = {
       async authorize(credentials) {
         let db = (await connectDB).db("SRH-Community");
         let user = await db
-          .collection("user")
+          .collection("users")
           .findOne({ email: credentials.email });
         if (!user) {
           console.log("해당 이메일은 없음");

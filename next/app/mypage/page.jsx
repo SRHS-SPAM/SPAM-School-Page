@@ -42,16 +42,14 @@ export default async function mypage() {
   ];
 
   let session = await getServerSession(authOptions);
-  let name,
-    email,
-    image = session.user.image ? session.user.image : "/images/profile.png";
+  let name, email, image;
   let targerPage = "/login";
   if (!session) {
     redirect(targerPage);
   } else {
     name = session.user.name;
     email = session.user.email;
-    image = image;
+    image = session.user.image ? session.user.image : "/images/profile.png";
   }
   console.log(image);
   return (

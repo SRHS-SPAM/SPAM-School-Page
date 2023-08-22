@@ -1,12 +1,14 @@
+"use client";
 import Arrow from "@/components/Arrow";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { useState } from "react";
 import styles from "./signup.module.css";
 
-export default async function SignupItem() {
-  let session = await getServerSession(authOptions);
-  let email = session.user.email;
+export default function SignupItem({ email, nameValue }) {
+  const [name, setName] = useState(nameValue);
+  const handleChange = (e) => {
+    setName(e.target.value);
+  };
   return (
     <>
       {/* header */}
@@ -66,6 +68,8 @@ export default async function SignupItem() {
                     name="name"
                     type="text"
                     placeholder="성명"
+                    value={name}
+                    onChange={handleChange}
                     autoComplete="off"
                   />
                   <nav className={styles.sign_schoolnum}>
