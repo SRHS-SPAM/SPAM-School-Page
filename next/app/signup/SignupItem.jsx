@@ -1,8 +1,14 @@
+"use client";
 import Arrow from "@/components/Arrow";
 import Link from "next/link";
+import { useState } from "react";
 import styles from "./signup.module.css";
 
-export default function SignupItem() {
+export default function SignupItem({ email, nameValue }) {
+  const [name, setName] = useState(nameValue);
+  const handleChange = (e) => {
+    setName(e.target.value);
+  };
   return (
     <>
       {/* header */}
@@ -26,18 +32,65 @@ export default function SignupItem() {
               </h1>
               <div className={styles.signup_mainbox}>
                 <div className={styles.signup_id_box}>
-                  <input name="email" type="text" placeholder="이메일" />
+                  {email && (
+                    <input
+                      name="email"
+                      type="text"
+                      placeholder="이메일"
+                      autoComplete="off"
+                      value={email}
+                      readOnly
+                      className={styles.disable_input}
+                    />
+                  )}
+                  {!email && (
+                    <input
+                      name="email"
+                      type="text"
+                      placeholder="이메일"
+                      autoComplete="off"
+                    />
+                  )}
+
                   <input
                     name="password"
                     type="password"
                     placeholder="비밀번호"
+                    autoComplete="off"
                   />
-                  <input name="tel" type="text" placeholder="전화번호" />
-                  <input name="name" type="text" placeholder="성명" />
+                  <input
+                    name="tel"
+                    type="text"
+                    placeholder="전화번호"
+                    autoComplete="off"
+                  />
+                  <input
+                    name="name"
+                    type="text"
+                    placeholder="성명"
+                    value={name}
+                    onChange={handleChange}
+                    autoComplete="off"
+                  />
                   <nav className={styles.sign_schoolnum}>
-                    <input name="grade" type="text" placeholder="학년" />
-                    <input name="class" type="text" placeholder="반" />
-                    <input name="number" type="text" placeholder="번호" />
+                    <input
+                      name="grade"
+                      type="text"
+                      placeholder="학년"
+                      autoComplete="off"
+                    />
+                    <input
+                      name="class"
+                      type="text"
+                      placeholder="반"
+                      autoComplete="off"
+                    />
+                    <input
+                      name="number"
+                      type="text"
+                      placeholder="번호"
+                      autoComplete="off"
+                    />
                   </nav>
                   <button type="submit" className={styles.login_button}>
                     가입

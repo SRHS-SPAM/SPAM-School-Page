@@ -30,7 +30,7 @@
 5. [x] Community Main Page - woong
 6. [x] Community Detail Page - woong
 7. [x] Writing Page - woong
-8. [ ] Calendar Page - 정윤환
+8. [x] Calendar Page - 정윤환
 9. [x] mypage Page - 정윤환
 
 ---
@@ -69,7 +69,7 @@
 6. [ ] Community Detail Page -
 7. [ ] Writing Page -
 8. [ ] Calendar Page -
-9. [ ] mypage Page -
+9. [x] mypage Page -
 
 ## components
 

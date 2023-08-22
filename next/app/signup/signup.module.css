@@ -14,7 +14,7 @@
 .signup_box {
   width: 95%;
   height: 40rem;
-  background-color: #1a1a1a;
+  background-color: var(--login-form-color);
   border-radius: var(--Sizes-size5_1);
   display: flex;
   color: white;
@@ -49,7 +49,7 @@
 
 .signup_stroke {
   width: 40%;
-  background-color: rgb(40, 44, 52);
+  background-color: var(--login-stroke-color);
   border-radius: var(--Sizes-size5_1);
   margin-bottom: var(--Sizes-size3);
   height: 100vh;
@@ -78,13 +78,19 @@
 }
 
 .signup_id_box input {
-  background-color: #1a1a1a;
+  background-color: var(--login-form-color);
   border: 1px solid #6a6767;
   height: 10%;
   border-radius: var(--Sizes-size05);
   color: white;
   font-size: var(--Sizes-size1);
   padding: 0px 20px;
+}
+
+.disable_input:read-only {
+  background-color: var(--login-stroke-color);
+  color: white;
+  font-size: var(--Sizes-size1);
 }
 
 .sign_schoolnum input {
@@ -97,6 +103,27 @@
   font-size: 1em;
   font-weight: 600;
 }
+
+.signup_id_box input:-webkit-autofill,
+.signup_id_box input:-webkit-autofill:hover,
+.signup_id_box input:-webkit-autofill:focus,
+.signup_id_box input:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px var(--login-form-color) inset;
+  box-shadow: 0 0 0px 1000px var(--login-form-color) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* 
+.signup_id_box input:autofill,
+.signup_id_box input:autofill:hover,
+.signup_id_box input:autofill:focus,
+.signup_id_box input:autofill:active {
+  -webkit-text-fill-color: #000;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  box-shadow: 0 0 0px 1000px #fff inset;
+  transition: background-color 5000s ease-in-out 0s;
+} */
 
 .id_check {
   display: flex;
@@ -116,7 +143,7 @@
   width: 2em;
   height: 2em;
   cursor: pointer;
-  background: #1a1a1a;
+  background: var(--login-form-color);
   padding: 0px 0px;
 }
 
