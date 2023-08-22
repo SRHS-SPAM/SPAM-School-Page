@@ -68,8 +68,8 @@ body {
 }
 
 .my_profileimg {
-  height: 80%;
-  width: 10%;
+  height: 130px;
+  width: 130px;
   border-radius: 50%;
 }
 
@@ -207,7 +207,7 @@ body {
   }
 
   .my_profileimg {
-    width: 30%;
+    width: 30vh;
   }
 
   .my_footerbox {
@@ -256,12 +256,13 @@ body {
     display: flex;
   }
 
-  .gotobox_icon_write > i {
-    font-size: 5.625rem;
-  }
-
   .my_profileimg {
     width: 30%;
+    height: 80%;
+  }
+
+  .gotobox_icon_write > i {
+    font-size: 5.625rem;
   }
 
   .my_rightbox > div {
@@ -275,7 +276,7 @@ body {
   }
 
   .my_userinfo > div {
-    font-size: large;
+    font-size: medium;
     font-weight: bold;
   }
 
@@ -294,6 +295,14 @@ body {
   }
 
   .my_casesubbox {
+    display: none;
+  }
+
+  .my_arrowbox {
+    display: none;
+  }
+
+  .bars {
     display: none;
   }
 }
