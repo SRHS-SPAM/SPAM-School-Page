@@ -192,6 +192,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     height: 50rem;
     width: 50rem;
+    margin-bottom: 5rem;
   }
 
   .my_profilebox {
@@ -218,11 +219,16 @@ body {
     font-size: 5.625rem;
     color: black;
   }
+
+  .my_casesubbox {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .my_topbox {
     gap: 0px;
+    width: 100%;
   }
 
   .arrow {
