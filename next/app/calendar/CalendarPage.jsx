@@ -4,7 +4,6 @@ import Script from "next/script";
 import styles from "./calendar.module.css";
 
 export default function CalendarPage() {
-  const currentDate = new Date();
   let daystr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let monthList = [
     "Jan",
@@ -28,10 +27,14 @@ export default function CalendarPage() {
     [28, 29, 30, 31, 32, 33, 34],
     [35, 36, 37, 38, 39, 40, 41],
   ];
-  let cnt = 29,
-    today = currentDate.getDate(),
+  const currentDate = new Date();
+  let today = currentDate.getDate(),
     month = currentDate.getMonth(),
     year = currentDate.getFullYear();
+  const firstDate = new Date(year, month, 1);
+  const temp = new Date(year, month, 0);
+  const firstCnt = firstDate.getDay();
+  let cnt = 29;
   console.log(today);
   return (
     <div>
@@ -84,62 +87,6 @@ export default function CalendarPage() {
                       ))}
                     </tr>
                   ))}
-                  {/*
-                  <tr>
-                    <td className={styles.disabled_day}>28</td>
-                    <td className={styles.disabled_day}>29</td>
-                    <td className={styles.disabled_day}>30</td>
-                    <td className={styles.disabled_day}>31</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                  </tr>
-                  <tr>
-                    <td>11</td>
-                    <td>12</td>
-                    <td>13</td>
-                    <td>14</td>
-                    <td>15</td>
-                    <td>16</td>
-                    <td>17</td>
-                  </tr>
-                  <tr>
-                    <td>18</td>
-                    <td>19</td>
-                    <td>20</td>
-                    <td>21</td>
-                    <td>22</td>
-                    <td>23</td>
-                    <td>24</td>
-                  </tr>
-                  <tr>
-                    <td>25</td>
-                    <td>26</td>
-                    <td>27</td>
-                    <td>28</td>
-                    <td>29</td>
-                    <td>30</td>
-                    <td>31</td>
-                  </tr>
-                  <tr>
-                    <td className={styles.disabled_day}>1</td>
-                    <td className={styles.disabled_day}>2</td>
-                    <td className={styles.disabled_day}>3</td>
-                    <td className={styles.disabled_day}>4</td>
-                    <td className={styles.disabled_day}>5</td>
-                    <td className={styles.disabled_day}>6</td>
-                    <td className={styles.disabled_day}>7</td>
-                  </tr>
-                  */}
                 </tbody>
               </table>
             </div>
