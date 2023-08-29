@@ -4,9 +4,13 @@ import Link from "next/link";
 import styles from "./community.module.css";
 
 export default function Community() {
+  let info = [
+    { tag: "전공", title: "Lorem ipsum dolor sit amet", good: 23, bad: 24 },
+  ];
   return (
     <>
       {/* header */}
+      <link rel="stylesheet" href="./community.module.css" />
       <header>
         <nav className="community_inner">
           <div className="community_nav_left">
@@ -60,6 +64,7 @@ export default function Community() {
                 <div className="community_article_cotent">
                   <div className="community_article_detail">
                     {/* List 1 */}
+                    {}
                     <div className="community_article_detail_list">
                       <div className="community_article_detail_left">
                         <div className="community_article_major">전공</div>
