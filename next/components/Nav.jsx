@@ -27,7 +27,7 @@ export default async function Nav() {
                 <div className={styles.label}>급식</div>
               </div>
             </Link>
-            <Link href={"coummunity"}>
+            <Link href={"community"}>
               <div className={styles.nav_item}>
                 <div className={styles.label}>커뮤니티</div>
               </div>
