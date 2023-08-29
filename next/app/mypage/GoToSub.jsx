@@ -10,9 +10,8 @@ export default function GoToSub({ location, src, iconName, clplus }) {
   }
   return (
     <Link href={location} className={classes}>
-      <div className={styles.gotobox_icon}>
-        <img src={src} alt={iconName} />
-      </div>
+      <div className={styles.gotobox_icon}></div>
+      {src}
       <div className={styles.gotobox_iconname}>{iconName}</div>
     </Link>
   );

@@ -152,7 +152,7 @@ body {
   font-weight: 400;
 }
 
-.community_search_bar img {
+.search {
   position: absolute;
   left: 0;
   margin-left: var(--Sizes-size2);

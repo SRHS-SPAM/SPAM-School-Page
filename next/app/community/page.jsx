@@ -2,6 +2,10 @@ import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
 import Link from "next/link";
 import styles from "./community.module.css";
+import Sms from "../../public/svg/sms.svg";
+import Thumbup from "../../public/svg/thumbUp.svg";
+import RightArrow from "../../public/svg/rightArrow.svg";
+import Search from "../../public/svg/search.svg";
 
 export default function Community() {
   let info = [
@@ -31,7 +35,7 @@ export default function Community() {
           <div className="community_nav_right">
             <div className="community_aria_expanded">
               <div className="community_date">20XX.XX.XX(X)</div>
-              <Link href={"login"}>
+              <Link href={"mypage"}>
                 <div className="community_nav_item login">
                   <div className="community_label">안녕하세요 OOO님</div>
                 </div>
@@ -49,7 +53,7 @@ export default function Community() {
           <div className="community_left_section">
             <div className="community_left_section_main">
               <div className="community_search_bar">
-                <img src="/svg/search.svg" alt="" />
+                <Search className="search"></Search>
                 <input
                   className="community_search_bar_input"
                   type="text"
@@ -63,10 +67,10 @@ export default function Community() {
                     <div className="community_article_topic">서로고 베스트</div>
                   </Link>
                   <div className="community_article_more">
-                    <Link href={"coummunity_detail"}>
+                    <Link href={"community/1"}>
                       <span className="community_more">더보기</span>
                     </Link>
-                    <img src="/svg/rightArrow.svg" alt="" />
+                    <RightArrow></RightArrow>
                   </div>
                 </div>
                 <div className="community_article_division" />
@@ -84,13 +88,13 @@ export default function Community() {
                         </div>
                         <div className="community_article_detail_right">
                           <div className="community_article_like">
-                            <img src="svg/thumbUp.svg" alt="￿" />
+                            <Thumbup></Thumbup>
                             <span className="community_article_like_value">
                               {arg.good}
                             </span>
                           </div>
                           <div className="community_article_comment">
-                            <img src="svg/sms.svg" alt="￿" />
+                            <Sms></Sms>
                             <span className="community_article_comment_value">
                               {arg.bad}
                             </span>
