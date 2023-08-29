@@ -2,8 +2,20 @@ import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
 import Link from "next/link";
 import style from "./community_detail.module.css";
+import Sms from "../../../public/svg/sms.svg";
 
 export default function Detail() {
+  let info = [
+    {
+      no: "공지",
+      emoji: <Sms></Sms>,
+      title: "Lorem ipsum dolor sit amet",
+      writer: "msg2324",
+      date: "2023/12/13",
+      views: 27178,
+      good: 31,
+    },
+  ];
   return (
     <>
       {/* header */}
@@ -24,7 +36,9 @@ export default function Detail() {
         <div className={style.community_detail_home}>
           <div className={style.community_detail_upper}>
             <div className={style.community_detail_title}>
-              <div className={style.community_detail_title_text}>서로고 베스트</div>
+              <div className={style.community_detail_title_text}>
+                서로고 베스트
+              </div>
             </div>
             <div className={style.community_detail_divider1} />
             <div className={style.community_detail_selc_box}>
@@ -97,259 +111,624 @@ export default function Detail() {
             </div>
             <div className={style.community_detail_divider2} />
             <div className={style.writing_class}>
-              <div className={`${style.class_name} ${style.class_num}`}>번호</div>
-              <div className={`${style.class_name} ${style.class_title}`}>제목</div>
-              <div className={`${style.class_name} ${style.class_au}`}>작성자</div>
-              <div className={`${style.class_name} ${style.class_date}`}>작성일</div>
-              <div className={`${style.class_name} ${style.class_view}`}>조회수</div>
-              <div className={`${style.class_name} ${style.class_reco}`}>추천</div>
+              <div className={`${style.class_name} ${style.class_num}`}>
+                번호
+              </div>
+              <div className={`${style.class_name} ${style.class_title}`}>
+                제목
+              </div>
+              <div className={`${style.class_name} ${style.class_au}`}>
+                작성자
+              </div>
+              <div className={`${style.class_name} ${style.class_date}`}>
+                작성일
+              </div>
+              <div className={`${style.class_name} ${style.class_view}`}>
+                조회수
+              </div>
+              <div className={`${style.class_name} ${style.class_reco}`}>
+                추천
+              </div>
             </div>
             <div className={style.community_detail_divider3} />
           </div>
           {/* write main */}
           <div className={style.community_detail_writing_main}>
             <div className={style.writing_main_box}>
+              {}
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
-                  {/*<i className="fa-regular fa-comments" />*/}
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
+                  <Sms></Sms>
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_main_class}>
-                <div className={`${style.main_class_name} ${style.main_class_num}`}>공지</div>
-                <div className={`${style.main_class_name} ${style.class_title}`}>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_num}`}
+                >
+                  공지
+                </div>
+                <div
+                  className={`${style.main_class_name} ${style.class_title}`}
+                >
                   {/*<i className="fa-regular fa-comments" />*/}
                   <span>Lorem ipsum dolor sit amet</span>
                 </div>
-                <div className={`${style.main_class_name} ${style.main_class_au}`}>msg2324</div>
-                <div className={`${style.main_class_name} ${style.class_date}`}>20XX.XX.XX</div>
-                <div className={`${style.main_class_name} ${style.class_view}`}>12345</div>
-                <div className={`${style.main_class_name} ${style.class_reco}`}>12</div>
+                <div
+                  className={`${style.main_class_name} ${style.main_class_au}`}
+                >
+                  msg2324
+                </div>
+                <div className={`${style.main_class_name} ${style.class_date}`}>
+                  20XX.XX.XX
+                </div>
+                <div className={`${style.main_class_name} ${style.class_view}`}>
+                  12345
+                </div>
+                <div className={`${style.main_class_name} ${style.class_reco}`}>
+                  12
+                </div>
               </div>
               <div className={style.writing_footer}>
                 <div className={style.writing_footer_box}>
