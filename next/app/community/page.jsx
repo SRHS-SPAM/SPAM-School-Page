@@ -6,6 +6,15 @@ import styles from "./community.module.css";
 export default function Community() {
   let info = [
     { tag: "전공", title: "Lorem ipsum dolor sit amet", good: 23, bad: 24 },
+    { tag: "자유", title: "Lorem ipsum dolor sit amet", good: 23, bad: 24 },
+    { tag: "학습", title: "Lorem ipsum dolor sit amet", good: 23, bad: 24 },
+    { tag: "전공", title: "Lorem ipsum dolor sit amet", good: 23, bad: 24 },
+    { tag: "자유", title: "Lorem ipsum dolor sit amet", good: 23, bad: 24 },
+    { tag: "전공", title: "Lorem ipsum dolor sit amet", good: 23, bad: 24 },
+    { tag: "전공", title: "Lorem ipsum dolor sit amet", good: 23, bad: 24 },
+    { tag: "전공", title: "Lorem ipsum dolor sit amet", good: 23, bad: 24 },
+    { tag: "전공", title: "Lorem ipsum dolor sit amet", good: 23, bad: 24 },
+    { tag: "전공", title: "Lorem ipsum dolor sit amet", good: 23, bad: 24 },
   ];
   return (
     <>
@@ -14,7 +23,7 @@ export default function Community() {
       <header>
         <nav className="community_inner">
           <div className="community_nav_left">
-            <Arrow location={""}></Arrow>
+            <Arrow location={"/"}></Arrow>
             <div className="community_title_box">
               <div className="community_title">커뮤니티</div>
             </div>
@@ -63,237 +72,32 @@ export default function Community() {
                 <div className="community_article_division" />
                 <div className="community_article_cotent">
                   <div className="community_article_detail">
-                    {/* List 1 */}
-                    {}
-                    <div className="community_article_detail_list">
-                      <div className="community_article_detail_left">
-                        <div className="community_article_major">전공</div>
-                        <div className="community_article_title">
-                          Lorem ipsum dolor sit amet
+                    {info.map((arg, i) => (
+                      <div key={i} className="community_article_detail_list">
+                        <div className="community_article_detail_left">
+                          <div className="community_article_major">
+                            {arg.tag}
+                          </div>
+                          <div className="community_article_title">
+                            {arg.title}
+                          </div>
+                        </div>
+                        <div className="community_article_detail_right">
+                          <div className="community_article_like">
+                            <img src="svg/thumbUp.svg" alt="￿" />
+                            <span className="community_article_like_value">
+                              {arg.good}
+                            </span>
+                          </div>
+                          <div className="community_article_comment">
+                            <img src="svg/sms.svg" alt="￿" />
+                            <span className="community_article_comment_value">
+                              {arg.bad}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <div className="community_article_detail_right">
-                        <div className="community_article_like">
-                          <img src="svg/thumbUp.svg" alt="￿" />
-                          <span className="community_article_like_value">
-                            24
-                          </span>
-                        </div>
-                        <div className="community_article_comment">
-                          <img src="svg/sms.svg" alt="￿" />
-                          <span className="community_article_comment_value">
-                            23
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* List 2 */}
-                    <div className="community_article_detail_list">
-                      <div className="community_article_detail_left">
-                        <div className="community_article_major">자유</div>
-                        <div className="community_article_title">
-                          Lorem ipsum dolor sit amet
-                        </div>
-                      </div>
-                      <div className="community_article_detail_right">
-                        <div className="community_article_like">
-                          <i className="fa-regular fa-thumbs-up" />
-                          <span className="community_article_like_value">
-                            24
-                          </span>
-                        </div>
-                        <div className="community_article_comment">
-                          <i className="fa-regular fa-message" />
-                          <span className="community_article_comment_value">
-                            23
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* List 3 */}
-                    <div className="community_article_detail_list">
-                      <div className="community_article_detail_left">
-                        <div className="community_article_major">전공</div>
-                        <div className="community_article_title">
-                          Lorem ipsum dolor sit amet
-                        </div>
-                      </div>
-                      <div className="community_article_detail_right">
-                        <div className="community_article_like">
-                          <i className="fa-regular fa-thumbs-up" />
-                          <span className="community_article_like_value">
-                            24
-                          </span>
-                        </div>
-                        <div className="community_article_comment">
-                          <i className="fa-regular fa-message" />
-                          <span className="community_article_comment_value">
-                            23
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* List 4 */}
-                    <div className="community_article_detail_list">
-                      <div className="community_article_detail_left">
-                        <div className="community_article_major">전공</div>
-                        <div className="community_article_title">
-                          Lorem ipsum dolor sit amet
-                        </div>
-                      </div>
-                      <div className="community_article_detail_right">
-                        <div className="community_article_like">
-                          <i className="fa-regular fa-thumbs-up" />
-                          <span className="community_article_like_value">
-                            24
-                          </span>
-                        </div>
-                        <div className="community_article_comment">
-                          <i className="fa-regular fa-message" />
-                          <span className="community_article_comment_value">
-                            23
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* List 5 */}
-                    <div className="community_article_detail_list">
-                      <div className="community_article_detail_left">
-                        <div className="community_article_major">전공</div>
-                        <div className="community_article_title">
-                          Lorem ipsum dolor sit amet
-                        </div>
-                      </div>
-                      <div className="community_article_detail_right">
-                        <div className="community_article_like">
-                          <i className="fa-regular fa-thumbs-up" />
-                          <span className="community_article_like_value">
-                            24
-                          </span>
-                        </div>
-                        <div className="community_article_comment">
-                          <i className="fa-regular fa-message" />
-                          <span className="community_article_comment_value">
-                            23
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* List 6 */}
-                    <div className="community_article_detail_list">
-                      <div className="community_article_detail_left">
-                        <div className="community_article_major">전공</div>
-                        <div className="community_article_title">
-                          Lorem ipsum dolor sit amet
-                        </div>
-                      </div>
-                      <div className="community_article_detail_right">
-                        <div className="community_article_like">
-                          <i className="fa-regular fa-thumbs-up" />
-                          <span className="community_article_like_value">
-                            24
-                          </span>
-                        </div>
-                        <div className="community_article_comment">
-                          <i className="fa-regular fa-message" />
-                          <span className="community_article_comment_value">
-                            23
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* List 7 */}
-                    <div className="community_article_detail_list">
-                      <div className="community_article_detail_left">
-                        <div className="community_article_major">전공</div>
-                        <div className="community_article_title">
-                          Lorem ipsum dolor sit amet
-                        </div>
-                      </div>
-                      <div className="community_article_detail_right">
-                        <div className="community_article_like">
-                          <i className="fa-regular fa-thumbs-up" />
-                          <span className="community_article_like_value">
-                            24
-                          </span>
-                        </div>
-                        <div className="community_article_comment">
-                          <i className="fa-regular fa-message" />
-                          <span className="community_article_comment_value">
-                            23
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* List 8 */}
-                    <div className="community_article_detail_list">
-                      <div className="community_article_detail_left">
-                        <div className="community_article_major">전공</div>
-                        <div className="community_article_title">
-                          Lorem ipsum dolor sit amet
-                        </div>
-                      </div>
-                      <div className="community_article_detail_right">
-                        <div className="community_article_like">
-                          <i className="fa-regular fa-thumbs-up" />
-                          <span className="community_article_like_value">
-                            24
-                          </span>
-                        </div>
-                        <div className="community_article_comment">
-                          <i className="fa-regular fa-message" />
-                          <span className="community_article_comment_value">
-                            23
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* List 9 */}
-                    <div className="community_article_detail_list">
-                      <div className="community_article_detail_left">
-                        <div className="community_article_major">전공</div>
-                        <div className="community_article_title">
-                          Lorem ipsum dolor sit amet
-                        </div>
-                      </div>
-                      <div className="community_article_detail_right">
-                        <div className="community_article_like">
-                          <i className="fa-regular fa-thumbs-up" />
-                          <span className="community_article_like_value">
-                            24
-                          </span>
-                        </div>
-                        <div className="community_article_comment">
-                          <i className="fa-regular fa-message" />
-                          <span className="community_article_comment_value">
-                            23
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    {/* List 10 */}
-                    <div className="community_article_detail_list">
-                      <div className="community_article_detail_left">
-                        <div className="community_article_major">전공</div>
-                        <div className="community_article_title">
-                          Lorem ipsum dolor sit amet
-                        </div>
-                      </div>
-                      <div className="community_article_detail_right">
-                        <div className="community_article_like">
-                          <i className="fa-regular fa-thumbs-up" />
-                          <span className="community_article_like_value">
-                            24
-                          </span>
-                        </div>
-                        <div className="community_article_comment">
-                          <i className="fa-regular fa-message" />
-                          <span className="community_article_comment_value">
-                            23
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
