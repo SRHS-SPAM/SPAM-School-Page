@@ -68,8 +68,8 @@ body {
 }
 
 .my_profileimg {
-  height: 80%;
-  width: 10%;
+  height: 130px;
+  width: 130px;
   border-radius: 50%;
 }
 
@@ -192,6 +192,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     height: 50rem;
     width: 50rem;
+    margin-bottom: 5rem;
   }
 
   .my_profilebox {
@@ -207,7 +208,7 @@ body {
   }
 
   .my_profileimg {
-    width: 30%;
+    width: 30vh;
   }
 
   .my_footerbox {
@@ -218,11 +219,16 @@ body {
     font-size: 5.625rem;
     color: black;
   }
+
+  .my_casesubbox {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .my_topbox {
     gap: 0px;
+    width: 100%;
   }
 
   .arrow {
@@ -256,12 +262,13 @@ body {
     display: flex;
   }
 
-  .gotobox_icon_write > i {
-    font-size: 5.625rem;
-  }
-
   .my_profileimg {
     width: 30%;
+    height: 80%;
+  }
+
+  .gotobox_icon_write > i {
+    font-size: 5.625rem;
   }
 
   .my_rightbox > div {
@@ -275,7 +282,7 @@ body {
   }
 
   .my_userinfo > div {
-    font-size: large;
+    font-size: medium;
     font-weight: bold;
   }
 
@@ -294,6 +301,14 @@ body {
   }
 
   .my_casesubbox {
+    display: none;
+  }
+
+  .my_arrowbox {
+    display: none;
+  }
+
+  .bars {
     display: none;
   }
 }
