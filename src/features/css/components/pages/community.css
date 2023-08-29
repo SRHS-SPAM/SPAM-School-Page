@@ -3,7 +3,6 @@
 
 body {
   height: 100vh;
-  /* min-width: 1515px; */
 }
 
 /* Header */
@@ -18,6 +17,7 @@ body {
   justify-content: space-between;
   border-bottom: 1px solid black;
   padding-bottom: var(--Sizes-size2);
+  min-width: 1120px;
 }
 
 .community_arrow {
@@ -88,6 +88,8 @@ body {
 /* main */
 
 .community_main {
+  min-width: 1120px;
+
   display: flex;
   width: 100%;
   height: 200%;
@@ -98,7 +100,7 @@ body {
   display: flex;
   width: 85%;
   height: 85%;
-  padding-top: var(--Sizes-size5);
+  padding-top: var(--Sizes-size3);
 }
 
 .community_left_section {
@@ -155,6 +157,7 @@ input {
 .community_article {
   width: 100%;
   height: 85%;
+  margin-top: var(--Sizes-size2_3);
 }
 
 .community_article_theme {
@@ -253,6 +256,7 @@ input {
   height: 60%;
   display: flex;
   align-items: flex-end;
+  margin-top: var(--Sizes-size2);
 }
 
 .community_sub_article_list {

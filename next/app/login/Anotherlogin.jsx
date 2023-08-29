@@ -2,11 +2,13 @@ import { signIn } from "next-auth/react";
 import styles from "./login.module.css";
 export default function AnotherLogin({ name }) {
   const socialLogin = async (e) => {
+    console.log("login");
     e.preventDefault();
     try {
+      console.log(e.target.id);
       const response = await signIn(e.target.id, {
         redirect: true,
-        callbackUrl: "http://localhost:3000/",
+        callbackUrl: "/signup",
       });
     } catch (error) {
       console.log(error);

@@ -6,7 +6,7 @@
 .box {
   width: 95%;
   height: 40rem;
-  background-color: #1a1a1a;
+  background-color: var(--login-form-color);
   border-radius: var(--Sizes-size5_1);
   display: flex;
   color: white;
@@ -48,7 +48,7 @@
 .stroke {
   width: 70%;
   height: 100%;
-  background-color: rgb(40, 44, 52);
+  background-color: var(--login-stroke-color);
   border-radius: var(--Sizes-size5_1);
   margin-bottom: var(--Sizes-size3);
 }
@@ -65,7 +65,7 @@
 }
 
 .id_box input {
-  background-color: #1a1a1a;
+  background-color: var(--login-form-color);
   border: 1px solid #6a6767;
   width: 90%;
   height: 15%;
@@ -79,6 +79,16 @@
   color: white;
   font-size: 1em;
   font-weight: 600;
+}
+
+.id_box input:-webkit-autofill,
+.id_box input:-webkit-autofill:hover,
+.id_box input:-webkit-autofill:focus,
+.id_box input:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px var(--login-form-color) inset;
+  box-shadow: 0 0 0px 1000px var(--login-form-color) inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .id_check {
