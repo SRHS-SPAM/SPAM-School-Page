@@ -1,8 +1,16 @@
-@import "../../../../constants/variables.css";
-@import "../../../../constants/sizes.css";
+@import "reset.css";
+@import "variables.css";
+@import "sizes.css";
 
 body {
   height: 100vh;
+}
+
+body {
+  font-size: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--background-color);
 }
 
 /* Header */
@@ -112,7 +120,6 @@ body {
 
 .community_left_section_main {
   width: 100%;
-  height: 35%;
 }
 
 .community_search_bar {
@@ -135,7 +142,7 @@ body {
   background-color: var(--background-color);
 }
 
-input {
+.comunity_main input {
   border: none;
 }
 
@@ -156,7 +163,6 @@ input {
 
 .community_article {
   width: 100%;
-  height: 85%;
   margin-top: var(--Sizes-size2_3);
 }
 
@@ -166,6 +172,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
 
 .community_article_topic {
@@ -189,24 +196,23 @@ input {
 }
 
 .community_article_cotent {
-  height: 84%;
   display: flex;
   align-items: flex-end;
 }
 
 .community_article_detail {
   width: 100%;
-  height: 93%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--Sizes-size1_1);
 }
 
 .community_article_detail_list {
+  margin-top: 12px;
   display: flex;
   width: 100%;
   justify-content: space-between;
-  height: 5%;
+  height: 6%;
   align-items: center;
 }
 
@@ -289,6 +295,7 @@ input {
   font-weight: 700;
   letter-spacing: var(--Sizes-size02);
   padding-left: var(--Sizes-size2);
+  margin-bottom: 5px;
 }
 
 .community_sub_article_more {
