@@ -111,6 +111,10 @@
   width: 14.28%;
   text-align: center;
   vertical-align: middle;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
 }
 
 .calendar_mainbox th {
@@ -123,7 +127,7 @@
   color: rgba(240, 255, 255, 0.421);
 }
 
-.to_day {
+.today {
   color: #0000ff;
 }
 @media screen and (max-width: 1024px) {

@@ -1,41 +1,46 @@
 import Arrow from "@/components/Arrow";
 import styles from "./mypage.module.css";
-import Menubar from "@/components/Menubar";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import GoToSub from "./GoToSub";
+import Pen from "../../public/svg/pen.svg";
+import CalendarSvg from "../../public/svg/calendar.svg";
+import Rice from "../../public/svg/Rice.svg";
+import PenSolid from "../../public/svg/pen_solid.svg";
+import Headset from "../../public/svg/headset.svg";
+import Gear from "../../public/svg/gear.svg";
 
 export default async function mypage() {
   let goToSub = [
     {
       iconName: "캘린더",
-      src: "/images/icon/calendar-days-regular.svg",
+      src: <CalendarSvg></CalendarSvg>,
       location: "calender",
     },
     {
       iconName: "급식",
-      src: "/images/icon/bowl-food-solid.svg",
+      src: <Rice></Rice>,
       location: "cafeteria",
     },
     {
       iconName: "문의하기",
-      src: "/images/icon/headset-solid.svg",
+      src: <PenSolid></PenSolid>,
       location: "calender",
     },
     {
       iconName: "공지사항",
-      src: "/images/icon/bullhorn-solid.svg",
+      src: <Headset></Headset>,
       location: "calender",
     },
     {
       iconName: "설정",
-      src: "/images/icon/gear-solid.svg",
+      src: <Gear></Gear>,
       location: "calender",
     },
     {
       iconName: "글 관리",
-      src: "/images/icon/pen-solid.svg",
+      src: <CalendarSvg></CalendarSvg>,
       location: "calender",
       clplus: true,
     },
@@ -73,7 +78,7 @@ export default async function mypage() {
             </div>
             <div className={styles.my_rightbox}>
               <div className={styles.my_modify}>
-                <img src="/images/icon/pen-to-square-solid.svg" alt="수정" />
+                <Pen />
               </div>
               <div className={styles.my_goto_github}>
                 <img src="/images/MyGithub.png" alt="깃허브" />
