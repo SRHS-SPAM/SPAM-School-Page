@@ -138,6 +138,14 @@ th {
   }
 }
 
+td {
+  border-radius: 50%;
+}
+
+td:hover {
+  background-color: blue;
+}
+
 @media screen and (max-width: 768px) {
   .cal_subbox {
     flex-direction: column;
