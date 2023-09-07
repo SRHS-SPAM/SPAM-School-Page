@@ -372,10 +372,12 @@ body {
   height: 15%;
   gap: var(--Sizes-size1);
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .community_article_modify {
-  width: 50%;
+  width: 75%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -489,4 +491,42 @@ body {
 .community_ranking_now .fa-chevron-up {
   color: red;
   font-size: var(--Sizes-size08);
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  .community_inner {
+    height: 20rem;
+  }
+
+  .community_left_section {
+    display: flex;
+    width: 100%;
+    gap: 50rem;
+    flex-direction: column;
+  }
+
+  .community_right_section {
+    display: none;
+  }
+
+  .community_aria_expanded {
+    display: none;
+  }
+
+  .community_title_box {
+    margin-top: var(--Sizes-size1_7);
+  }
+
+  .community_sub_article_list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .community_article {
+    height: 15rem;
+  }
 }
