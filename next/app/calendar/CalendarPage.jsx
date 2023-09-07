@@ -6,6 +6,7 @@ import Script from "next/script";
 import styles from "./calendar.module.css";
 
 export default function CalendarPage() {
+  let timetable = ["빅데이터", "빅데이터", "빅데이터", "회화", "산업용로봇제어", "산업용로봇제어", "산업용로봇제어"];
   let daystr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let monthList = [
     "Jan",
@@ -125,16 +126,16 @@ export default function CalendarPage() {
           </div>
           <div className={`${styles.cal_box} ${styles.cal_box2}`}>
             <div className={styles.cal_box_black}>
-              <div className={styles.cal_subbox_top}>
-                <div className={styles.cal_box_text}>
-                  March 2023
-                  <i className="fa-solid fa-chevron-right"></i>
-                </div>
-                <div className={styles.cal_arrow_box}>
-                  <i className="fa-solid fa-chevron-left"></i>
-                  <i className="fa-solid fa-chevron-right"></i>
-                </div>
+            <div className={styles.cal_box_right}>
+              <div className={styles.cal_box_right_top}>{month+1}월 {today}일 시간표</div>
+              <div className={styles.cal_box_right_main}>
+                {
+                  timetable.map((ai, i)=>(
+                    <li>{i+1}교시 : {ai}</li>
+                  ))
+                }
               </div>
+            </div>
             </div>
           </div>
         </div>
