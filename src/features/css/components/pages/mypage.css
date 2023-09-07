@@ -90,6 +90,27 @@ body {
   gap: 2rem;
 }
 
+.my_userinfo_top {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.my_userinfo_top1 {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.my_userinfo_top2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  font-weight: bold;
+}
+
 .my_username {
   font-size: var(--Sizes-size2_5);
 }
@@ -276,7 +297,7 @@ body {
   }
 
   .my_userinfo {
-    width: 5rem;
+    width: 30rem;
     font-size: 1rem;
     padding-left: 0rem;
   }
@@ -309,6 +330,18 @@ body {
   }
 
   .bars {
+    display: none;
+  }
+
+  .my_userinfo_top {
+    justify-content: space-around;
+  }
+
+  .my_userinfo_top2 {
+    display: none;
+  }
+
+  .my_userintro {
     display: none;
   }
 }
