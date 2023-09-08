@@ -29,15 +29,11 @@
 4. [x] Sign Up Page - 정윤환
 5. [x] Community Main Page - woong
 6. [x] Community Detail Page - woong
-7. [x] Writing Page - woong
+7. [ ] Writing Page - 정윤환
 8. [x] Calendar Page - 정윤환
 9. [x] mypage Page - 정윤환
-
----
-
 10. [ ] Ssettings Page
-11. [ ] Contact us page
-12. [ ] Announcement Page
+11. [ ] Announcement Page
 
 ## Widgets
 
