@@ -1,7 +1,18 @@
-.arrow {
+.arrow1 {
   position: relative;
   left: var(--Sizes-size1_5);
-  /* top: -1.2rem; */
+  width: var(--Sizes-size6_3);
+  height: var(--Sizes-size6_3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scale: 0.8;
+  cursor: pointer;
+}
+
+.arrow2 {
+  position: absolute;
+  left: var(--Sizes-size1_5);
   width: var(--Sizes-size6_3);
   height: var(--Sizes-size6_3);
   display: flex;

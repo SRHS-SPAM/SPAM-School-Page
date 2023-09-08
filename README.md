@@ -27,12 +27,12 @@
 2. [x] Cafeteria Page- woong
 3. [x] Login Page - 정윤환
 4. [x] Sign Up Page - 정윤환
-5. [x] Community Main Page - woong
-6. [x] Community Detail Page - woong
+5. [x] Community Main Page - woong - 반응형 필요
+6. [x] Community Detail Page - woong - 반응형 필요
 7. [ ] Writing Page - 정윤환
-8. [x] Calendar Page - 정윤환
+8. [x] Calendar Page - 정윤환 - 시간표 미완
 9. [x] mypage Page - 정윤환
-10. [ ] Ssettings Page
+10. [ ] Ssettings Page - 정윤환
 11. [ ] Announcement Page
 
 ## Widgets

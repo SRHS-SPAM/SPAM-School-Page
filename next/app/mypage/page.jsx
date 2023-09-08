@@ -62,7 +62,7 @@ export default async function mypage() {
       <div className={styles.mypage_mainbox}>
         <div className={styles.my_topbox}>
           <div className={styles.my_arrowbox}>
-            <Arrow location="/" />
+            <Arrow location="/" mod={1} />
           </div>
           <div className={styles.my_maintxt}>마이페이지</div>
           <div className={styles.space}></div>

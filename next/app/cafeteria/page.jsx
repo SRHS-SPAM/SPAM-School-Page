@@ -10,7 +10,7 @@ export default function Home() {
       <header className={styles.cafe_header}>
         <div className={styles.cafe_inner}>
           <div className={styles.cafe_actions}>
-            <Arrow location="/" />
+            <Arrow location="/" mod={2} />
             <div className={styles.center_title}>
               <div className={styles.cafeteria_label}>급 식</div>
             </div>

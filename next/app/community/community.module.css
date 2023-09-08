@@ -64,12 +64,11 @@
   height: var(--Sizes-size2_3);
   background-color: var(--primary-color);
   border-radius: var(--Sizes-size03);
-}
-
-.community_label {
   color: var(--menubar-font-color);
-  font-size: var(--Sizes-size1_1);
-  font-weight: 600;
+  font-weight: 700;
+  width: auto;
+  white-space: nowrap;
+  padding: 0 10px;
 }
 
 .community_date {
@@ -85,7 +84,7 @@
 
   display: flex;
   width: 100%;
-  height: 200%;
+  height: 220%;
   justify-content: center;
 }
 
@@ -105,16 +104,16 @@
 
 .community_left_section_main {
   width: 100%;
-  height: 35%;
 }
 
 .community_search_bar {
   width: 100%;
-  height: 15%;
+  height: 60px;
   justify-content: center;
   align-items: center;
   display: flex;
   position: relative;
+  cursor: none;
 }
 
 .community_search_bar_input {
@@ -138,7 +137,7 @@
   font-weight: 400;
 }
 
-.community_search_bar img {
+.search {
   position: absolute;
   left: 0;
   margin-left: var(--Sizes-size2);
@@ -159,6 +158,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 10px;
 }
 
 .community_article_topic {
@@ -169,10 +169,13 @@
 }
 
 .community_article_more {
+  display: flex;
   color: grey;
   font-size: var(--Sizes-size1_1);
   padding-right: var(--Sizes-size05);
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
 .community_article_division {
@@ -188,6 +191,7 @@
 }
 
 .community_article_detail {
+  margin-top: var(--Sizes-size1);
   width: 100%;
   height: 93%;
   display: flex;
@@ -246,10 +250,9 @@
 
 .community_sub_article_main {
   width: 100%;
-  height: 60%;
   display: flex;
   align-items: flex-end;
-  margin-top: var(--Sizes-size2);
+  margin-top: var(--Sizes-size5);
 }
 
 .community_sub_article_list {
@@ -275,6 +278,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-bottom: 10px;
 }
 
 .community_sub_article_topic {
@@ -282,13 +286,6 @@
   font-weight: 700;
   letter-spacing: var(--Sizes-size02);
   padding-left: var(--Sizes-size2);
-}
-
-.community_sub_article_more {
-  color: grey;
-  font-size: var(--Sizes-size1);
-  padding-right: var(--Sizes-size05);
-  cursor: pointer;
 }
 
 .community_sub_article_division {

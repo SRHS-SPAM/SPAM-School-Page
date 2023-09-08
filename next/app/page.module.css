@@ -180,9 +180,8 @@
 .food_title_section {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  width: 70%;
-  gap: var(--Sizes-size1_7);
+  justify-content: center;
+  flex-direction: column;
 }
 
 .food_name {
@@ -199,7 +198,7 @@
   border-radius: var(--Sizes-size03);
   padding: var(--Sizes-size02) var(--Sizes-size04);
   color: blue;
-  margin-top: var(--Sizes-size2);
+  margin-top: var(--Sizes-size05);
 }
 
 .food_list {
