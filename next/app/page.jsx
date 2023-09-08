@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div>
+    <>
       {/* header */}
       <Seo title="Home" description="info" />
       <Nav type="default" />
@@ -143,6 +143,6 @@ export default function Home() {
         </section>
       </main>
       {/* footer */}
-    </div>
+    </>
   );
 }
