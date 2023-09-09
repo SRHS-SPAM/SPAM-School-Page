@@ -8,6 +8,7 @@ import styles from "./calendar.module.css";
 export default function CalendarPage() {
   let timetable = ["빅데이터", "빅데이터", "빅데이터", "회화", "산업용로봇제어", "산업용로봇제어", "산업용로봇제어"];
   let daystr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let handay = ["일", "월", "화", "수", "목", "금", "토"];
   let monthList = [
     "Jan",
     "Feb",
@@ -34,8 +35,9 @@ export default function CalendarPage() {
   const [array, setArray] = useState([currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear()]);
   const today = array[0], month = array[1], year = array[2];
   const firstDate = new Date(year, month, 1);
-  const temp = new Date(month==11?year+1:year, (month+1)%12, 0);
+  const setDate = new Date(year, month, today);
   const temp2 = new Date(year, month, 0);
+  const temp = new Date(month==11?year+1:year, (month+1)%12, 0);
   const firstCnt = firstDate.getDay();
   const days = temp.getDate(), dayys = temp2.getDate();
   const cnt = ( firstCnt == 0 ) ? -7 : -firstCnt;
@@ -127,7 +129,9 @@ export default function CalendarPage() {
           <div className={`${styles.cal_box} ${styles.cal_box2}`}>
             <div className={styles.cal_box_black}>
             <div className={styles.cal_box_right}>
-              <div className={styles.cal_box_right_top}>{month+1}월 {today}일 시간표</div>
+              <div className={styles.cal_box_right_top}>
+                {year == currentDate.getFullYear() ? " ":year+"년 " }{month+1}월 {today}일 {"("+handay[setDate.getDay()]+")"} 시간표
+              </div>
               <div className={styles.cal_box_right_main}>
                 {
                   timetable.map((ai, i)=>(
