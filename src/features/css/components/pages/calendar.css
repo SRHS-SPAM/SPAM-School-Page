@@ -152,6 +152,7 @@ th {
   gap: 1rem;
   flex-wrap: wrap;
   align-content: center;
+  align-items: center;
 }
 
 .cal_box_right_main > li {
@@ -168,6 +169,7 @@ th {
   display: flex;
   justify-content: center;
   white-space: nowrap;
+  text-justify: center;
 }
 
 @media screen and (max-width: 1024px) {
