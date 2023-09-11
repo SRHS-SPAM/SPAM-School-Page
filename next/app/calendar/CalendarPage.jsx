@@ -133,12 +133,15 @@ export default function CalendarPage() {
                 {year == currentDate.getFullYear() ? " ":year+"년 " }{month+1}월 {today}일 {"("+handay[setDate.getDay()]+")"} 시간표
               </div>
               <div className={styles.cal_box_right_main}>
-                {
-                  timetable.map((ai, i)=>(
-                    <li>{i+1}교시 : {ai}</li>
-                  ))
-                }
-              </div>
+                  {timetable.map((ai, i) => (
+                    <li>
+                      <div className={styles.cal_timetable_container}>
+                        {i + 1}교시 :&nbsp;
+                        <span className={styles.cal_timetable_main}>{ai}</span>
+                      </div>
+                    </li>
+                  ))}
+                </div>
             </div>
             </div>
           </div>

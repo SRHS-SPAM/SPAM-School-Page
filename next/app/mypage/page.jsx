@@ -45,18 +45,26 @@ export default async function mypage() {
       clplus: true,
     },
   ];
-
+  const debug = true;
   let session = await getServerSession(authOptions);
   let name, email, image;
   let targerPage = "/login";
-  if (!session) {
-    redirect(targerPage);
+  if (!debug) {
+    if (!session) {
+      redirect(targerPage);
+    } else {
+      name = session.user.name;
+      email = session.user.email;
+      image = session.user.image
+        ? session.user.image
+        : "/public/images/profile.png";
+    }
+    console.log(image);
   } else {
-    name = session.user.name;
-    email = session.user.email;
-    image = session.user.image ? session.user.image : "/images/profile.png";
+    name = "정삼복";
+    email = "samboku@gmail.com";
+    image = "/images/profile.png";
   }
-  console.log(image);
   return (
     <>
       <div className={styles.mypage_mainbox}>
@@ -73,9 +81,24 @@ export default async function mypage() {
               <img src={image} alt="프로필 사진" />
             </div>
             <div className={styles.my_userinfo}>
-              <div className={styles.my_username}>{name}</div>
-              <div className={styles.my_usermail}>{email}</div>
+              <div className={styles.my_userinfo_top}>
+                <div className={styles.my_userinfo_top1}>
+                  <div className={styles.my_username}>{name}</div>
+                  <div className={styles.my_usermail}>{email}</div>
+                </div>
+                <div className={styles.my_userinfo_top2}>
+                  <div className={styles.my_userclass}>1학년 1반 1번</div>
+                </div>
+              </div>
+              <div className={styles.my_userinfo_bottom}>
+                <div className={styles.my_userintro}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Vestibulum non orci bibendum, dictum libero quis, dapibus
+                  massa. Suspendisse in ligula elit.
+                </div>
+              </div>
             </div>
+
             <div className={styles.my_rightbox}>
               <div className={styles.my_modify}>
                 <Pen />
