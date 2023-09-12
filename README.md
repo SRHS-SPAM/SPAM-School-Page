@@ -61,11 +61,12 @@
 2. [x] Cafeteria Page- dnjeh
 3. [x] Login Page - msg2324
 4. [x] Sign Up Page -
-5. [ ] Community Main Page -
-6. [ ] Community Detail Page -
+5. [x] Community Main Page -
+6. [x] Community Detail Page -
 7. [ ] Writing Page -
 8. [ ] Calendar Page -
 9. [x] mypage Page -
+10. [ ] Settings Page -
 
 ## components
 

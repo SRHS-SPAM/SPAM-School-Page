@@ -1,12 +1,23 @@
-"use client"
-import { use, useState } from 'react';
+"use client";
+import { useState } from "react";
 import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
 import Script from "next/script";
 import styles from "./calendar.module.css";
+import LeftArrow from "./svg/arrowLeft.svg";
+import RightArrow from "./svg/arrowRight.svg";
 
 export default function CalendarPage() {
-  let timetable = ["빅데이터", "빅데이터", "빅데이터", "회화", "산업용로봇제어", "산업용로봇제어", "산업용로봇제어"];
+  let arrowColor = "#0067C0";
+  let timetable = [
+    "빅데이터",
+    "빅데이터",
+    "빅데이터",
+    "회화",
+    "산업용로봇제어",
+    "산업용로봇제어",
+    "산업용로봇제어",
+  ];
   let daystr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let handay = ["일", "월", "화", "수", "목", "금", "토"];
   let monthList = [
@@ -32,22 +43,29 @@ export default function CalendarPage() {
     [35, 36, 37, 38, 39, 40, 41],
   ];
   const currentDate = new Date();
-  const [array, setArray] = useState([currentDate.getDate(), currentDate.getMonth(), currentDate.getFullYear()]);
-  const today = array[0], month = array[1], year = array[2];
+  const [array, setArray] = useState([
+    currentDate.getDate(),
+    currentDate.getMonth(),
+    currentDate.getFullYear(),
+  ]);
+  const today = array[0],
+    month = array[1],
+    year = array[2];
   const firstDate = new Date(year, month, 1);
   const setDate = new Date(year, month, today);
   const temp2 = new Date(year, month, 0);
-  const temp = new Date(month==11?year+1:year, (month+1)%12, 0);
+  const temp = new Date(month == 11 ? year + 1 : year, (month + 1) % 12, 0);
   const firstCnt = firstDate.getDay();
-  const days = temp.getDate(), dayys = temp2.getDate();
-  const cnt = ( firstCnt == 0 ) ? -7 : -firstCnt;
+  const days = temp.getDate(),
+    dayys = temp2.getDate();
+  const cnt = firstCnt == 0 ? -7 : -firstCnt;
   console.log("days: " + days + ", dayys: " + dayys);
   return (
     <div>
       <div className={styles.calendar_mainbox}>
         <div className={styles.cal_topbox}>
           <div className={styles.cal_arrowbox}>
-            <Arrow location="/" />
+            <Arrow location="/" mod={1} />
           </div>
           <div className={styles.cal_maintxt}>Calendar</div>
           <div className={`${styles.bars} ${styles.mypage_bars}`} id="bar">
@@ -60,11 +78,20 @@ export default function CalendarPage() {
               <div className={styles.cal_subbox_top}>
                 <div className={styles.cal_box_text}>
                   {`${monthList[month]} ${year} `}
-                  <i className="fa-solid fa-chevron-right"></i>
+                  <RightArrow
+                    fill={arrowColor}
+                    className={styles.svg}
+                  ></RightArrow>
                 </div>
                 <div className={styles.cal_arrow_box}>
-                  <i className="fa-solid fa-chevron-left"></i>
-                  <i className="fa-solid fa-chevron-right"></i>
+                  <LeftArrow
+                    fill={arrowColor}
+                    className={styles.svg}
+                  ></LeftArrow>
+                  <RightArrow
+                    fill={arrowColor}
+                    className={styles.svg}
+                  ></RightArrow>
                 </div>
               </div>
               <table className={styles.cal_subbox_main}>
@@ -77,47 +104,49 @@ export default function CalendarPage() {
                 </thead>
                 <tbody>
                   {mp.map((week, i) => (
-                    <tr>
+                    <tr key={i}>
                       {week.map((day, j) => (
                         <td
-                          className={
-                            cnt + day < 0 || cnt + day >= days
-                              ? `${styles.disabled_day}`
-                              : today == ( cnt + day + 1 )
-                              ? `${styles.today}`
-                              : ``
-                          }
-                          onClick={ ()=>{ 
+                          onClick={() => {
+                            console.log("first");
                             let copy = [...array];
-                            if(cnt + day < 0){
+                            if (cnt + day < 0) {
                               copy[0] = cnt + day + dayys + 1;
                               copy[1]--;
-                              if(copy[1]<0) {
+                              if (copy[1] < 0) {
                                 copy[2]--;
-                                copy[1]+=12;
+                                copy[1] += 12;
                               }
-                            }
-                            else if(cnt + day >= days) {
+                            } else if (cnt + day >= days) {
                               copy[0] = cnt + day - days + 1;
                               copy[1]++;
-                              if(copy[1]>=12) {
+                              if (copy[1] >= 12) {
                                 copy[2]++;
-                                copy[1]-=12;
+                                copy[1] -= 12;
                               }
-                            }
-                            else {
+                            } else {
                               copy[0] = cnt + day + 1;
                             }
                             setArray(copy);
-                          }}  
-                        >
-                          {
-                            cnt + day < 0 
-                            ? cnt + day + dayys + 1
-                            : cnt + day >= days 
-                            ? cnt + day - days + 1
-                            : cnt + day + 1
+                          }}
+                          className={
+                            cnt + day < 0 || cnt + day >= days
+                              ? `${styles.disabled_day}`
+                              : today == cnt + day + 1
+                              ? `${styles.today}`
+                              : ``
                           }
+                          key={j}
+                        >
+                          <div>
+                            <div>
+                              {cnt + day < 0
+                                ? cnt + day + dayys + 1
+                                : cnt + day >= days
+                                ? cnt + day - days + 1
+                                : cnt + day + 1}
+                            </div>
+                          </div>
                         </td>
                       ))}
                     </tr>
@@ -128,13 +157,15 @@ export default function CalendarPage() {
           </div>
           <div className={`${styles.cal_box} ${styles.cal_box2}`}>
             <div className={styles.cal_box_black}>
-            <div className={styles.cal_box_right}>
-              <div className={styles.cal_box_right_top}>
-                {year == currentDate.getFullYear() ? " ":year+"년 " }{month+1}월 {today}일 {"("+handay[setDate.getDay()]+")"} 시간표
-              </div>
-              <div className={styles.cal_box_right_main}>
+              <div className={styles.cal_box_right}>
+                <div className={styles.cal_box_right_top}>
+                  {year == currentDate.getFullYear() ? " " : year + "년 "}
+                  {month + 1}월 {today}일 {"(" + handay[setDate.getDay()] + ")"}{" "}
+                  시간표
+                </div>
+                <div className={styles.cal_box_right_main}>
                   {timetable.map((ai, i) => (
-                    <li>
+                    <li key={i}>
                       <div className={styles.cal_timetable_container}>
                         {i + 1}교시 :&nbsp;
                         <span className={styles.cal_timetable_main}>{ai}</span>
@@ -142,7 +173,7 @@ export default function CalendarPage() {
                     </li>
                   ))}
                 </div>
-            </div>
+              </div>
             </div>
           </div>
         </div>
@@ -154,4 +185,3 @@ export default function CalendarPage() {
     </div>
   );
 }
-

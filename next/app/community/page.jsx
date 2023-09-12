@@ -96,7 +96,6 @@ export default async function Community() {
   return (
     <>
       {/* header */}
-      <link rel="stylesheet" href="./community.module.css" />
       <header>
         <nav className={styles.community_inner}>
           <div className={styles.community_nav_left}>
