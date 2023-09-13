@@ -85,7 +85,7 @@
   width: 60rem;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
   gap: 2rem;
 }
@@ -197,6 +197,7 @@
   align-items: center;
   font-size: var(--Sizes-size3);
   font-weight: bold;
+  cursor: pointer;
 }
 
 .gotobox_write {

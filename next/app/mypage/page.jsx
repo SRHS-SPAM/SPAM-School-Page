@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import GoToSub from "./GoToSub";
+import SignOutButton from "./signOutButton";
+
 import Pen from "../../public/svg/pen.svg";
 import CalendarSvg from "../../public/svg/calendar.svg";
 import Rice from "../../public/svg/Rice.svg";
@@ -47,24 +49,20 @@ export default async function mypage() {
   ];
   const debug = true;
   let session = await getServerSession(authOptions);
-  let name, email, image;
+  let name, email, image, grade, classNumber, number;
   let targerPage = "/login";
-  if (!debug) {
-    if (!session) {
-      redirect(targerPage);
-    } else {
-      name = session.user.name;
-      email = session.user.email;
-      image = session.user.image
-        ? session.user.image
-        : "/public/images/profile.png";
-    }
-    console.log(image);
+
+  if (!session) {
+    redirect(targerPage);
   } else {
-    name = "정삼복";
-    email = "samboku@gmail.com";
-    image = "/images/profile.png";
+    name = session.user.name;
+    email = session.user.email;
+    image = session.user.image ? session.user.image : "/images/profile.png";
+    grade = session.user.grade;
+    classNumber = session.user.class;
+    number = session.user.number;
   }
+
   return (
     <>
       <div className={styles.mypage_mainbox}>
@@ -87,7 +85,9 @@ export default async function mypage() {
                   <div className={styles.my_usermail}>{email}</div>
                 </div>
                 <div className={styles.my_userinfo_top2}>
-                  <div className={styles.my_userclass}>1학년 1반 1번</div>
+                  <div className={styles.my_userclass}>
+                    {grade}학년 {classNumber}반 {number}번
+                  </div>
                 </div>
               </div>
               <div className={styles.my_userinfo_bottom}>
@@ -128,9 +128,7 @@ export default async function mypage() {
           <div className={`${styles.writemanager} ${styles.my_footerbox}`}>
             글 관리
           </div>
-          <div className={`${styles.my_logout} ${styles.my_footerbox}`}>
-            로그아웃
-          </div>
+          <SignOutButton></SignOutButton>
         </div>
       </div>
     </>

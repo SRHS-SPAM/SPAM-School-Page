@@ -6,8 +6,8 @@
 
 ### Contributors
 
-- [woong](https://github.com/woong12)(FE)
 - [정윤환](https://github.com/Torychu)(**FE**)
+- [woong](https://github.com/woong12)(FE)
 - [msg2324](https://github.com/igiza1213)(**Next.js**)
 - [dnjeh](https://github.com/dnjeh)(Next.js)
 - [3boku](https://github.com/3boku)(**devOps**)
@@ -36,24 +36,8 @@
 7. [ ] Writing Page - 정윤환
 8. [x] Calendar Page - 정윤환 - 시간표 미완
 9. [x] mypage Page - 정윤환
-10. [ ] Ssettings Page - 정윤환
-11. [ ] Announcement Page
-
-## Widgets
-
-1. [x] Menu Popup
-2. [x] Arrow back
-3. [ ] Menu Bar Buttons
-4. [ ] Food(Cafeteria) List
-5. [ ] Calendar
-6. [ ] Login Input & Buttons
-7. [ ] Community List
-
-## JavaScript Function
-
-1. [x] Menu Popup Event
-
-## Responsive Setting
+10. [ ] Settings Page - 정윤환
+11. [ ] postManagement - 정윤환
 
 ---
 
