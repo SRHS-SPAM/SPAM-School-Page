@@ -27,3 +27,28 @@ body {
 .mypage_bars {
   font-size: 3rem;
 }
+
+main {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.setting_main {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 20% 80%;
+}
+
+.setting_main_left {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  border-right: 0.1rem solid black;
+}
+
+.setting_logout {
+  background-color: red;
+  margin: 2rem 1rem;
+  height: 5rem;
+  border-radius: var(--Sizes-size1_3);
+}
