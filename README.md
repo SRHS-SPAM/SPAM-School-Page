@@ -2,12 +2,16 @@
 
 ### Project Period
 
-06.09 ~ 08.21(expected)
+06.09 ~ 10.10(expected)
 
 ### Contributors
 
-- woong
-- 정윤환
+- [woong](https://github.com/woong12)(FE)
+- [정윤환](https://github.com/Torychu)(**FE**)
+- [msg2324](https://github.com/igiza1213)(**Next.js**)
+- [dnjeh](https://github.com/dnjeh)(Next.js)
+- [3boku](https://github.com/3boku)(**devOps**)
+- [jmin0714](https://github.com/jmin0714)(**design**)
 
 ### Project Goals
 
