@@ -85,9 +85,30 @@
   width: 60rem;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: start;
   flex-direction: column;
   gap: 2rem;
+}
+
+.my_userinfo_top {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+
+.my_userinfo_top1 {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.my_userinfo_top2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  font-weight: bold;
 }
 
 .my_username {
@@ -104,6 +125,10 @@
   flex-direction: column;
   justify-content: space-around;
   gap: 1.25rem;
+}
+
+.my_modify {
+  font-size: var(--Sizes-size2_5);
 }
 
 .my_goto_github > img {
@@ -187,6 +212,7 @@
     grid-template-columns: repeat(2, 1fr);
     height: 50rem;
     width: 50rem;
+    margin-bottom: 5rem;
   }
 
   .my_profilebox {
@@ -214,11 +240,16 @@
     font-size: 5.625rem;
     color: black;
   }
+
+  .my_casesubbox {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .my_topbox {
     gap: 0px;
+    width: 100%;
   }
 
   .arrow {
@@ -259,6 +290,7 @@
 
   .my_profileimg {
     width: 30%;
+    height: 80%;
   }
 
   .my_rightbox > div {
@@ -266,13 +298,13 @@
   }
 
   .my_userinfo {
-    width: 5rem;
+    width: 30rem;
     font-size: 1rem;
     padding-left: 0rem;
   }
 
   .my_userinfo > div {
-    font-size: large;
+    font-size: medium;
     font-weight: bold;
   }
 
@@ -286,6 +318,26 @@
   }
 
   .my_casesubbox {
+    display: none;
+  }
+
+  .my_arrowbox {
+    display: none;
+  }
+
+  .bars {
+    display: none;
+  }
+
+  .my_userinfo_top {
+    justify-content: space-around;
+  }
+
+  .my_userinfo_top2 {
+    display: none;
+  }
+
+  .my_userintro {
     display: none;
   }
 }

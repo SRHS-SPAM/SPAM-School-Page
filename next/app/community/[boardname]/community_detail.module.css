@@ -1,4 +1,3 @@
-
 /* Header */
 
 .community_detail_header {
@@ -105,12 +104,11 @@
 .selc_func {
   display: flex;
   align-self: center;
-  justify-content: flex-end;
-  padding-right: var(--Sizes-size1_5);
-  width: 20%;
+  justify-content: space-between;
+  padding-right: var(--Sizes-size1);
+  width: 25%;
   height: 80%;
-  padding-left: var(--Sizes-size1_5);
-  gap: var(--Sizes-size2);
+  padding-left: var(--Sizes-size1);
   overflow: hidden;
 }
 
@@ -223,7 +221,7 @@
 }
 
 .writing_footer_box {
-  width: 95%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -236,7 +234,7 @@
 
 .writing_button_Text {
   font-size: var(--Sizes-size1_5);
-  border: 1px solid black;
+  border: 2px solid black;
   background-color: beige;
   padding: var(--Sizes-size02);
   border-radius: var(--Sizes-size03);
@@ -253,12 +251,13 @@
   justify-content: space-between;
   width: var(--Sizes-size20);
   height: var(--Sizes-size2);
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: var(--Sizes-size03);
 }
 
 .writing_search_input {
   width: 90%;
+  height: 99%;
 }
 
 .writing_search_input input {
@@ -290,6 +289,7 @@
 
 .page_selector_box {
   height: 40%;
+  width: 50%;
   display: flex;
   align-items: center;
   border-top: 1px solid black;
@@ -300,11 +300,12 @@
 
 .community_pages {
   height: 100%;
+  width: 20%;
   display: flex;
   text-align: center;
   align-items: center;
+  justify-content: center;
   border-right: 1px solid black;
-  padding: 0px 16.4px 0px 16.4px;
   cursor: pointer;
 }
 

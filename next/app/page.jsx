@@ -39,10 +39,10 @@ export default function Home() {
                 <div className={styles.food_time_li}>
                   <div className={styles.launch}>
                     <section className={styles.food_title_section}>
+                      <div className={styles.food_name}>급식</div>
                       <div className={styles.food_status}>
                         <span>점심</span>
                       </div>
-                      <div className={styles.food_name}>급식</div>
                     </section>
                     <div className={styles.food_li}>
                       <ul className={styles.food_list}>

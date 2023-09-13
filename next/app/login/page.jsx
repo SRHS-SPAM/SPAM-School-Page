@@ -8,7 +8,7 @@ export default async function login() {
       <Seo title="login" />
       <header className={styles.login_header}>
         <div className={styles.cafe_actions}>
-          <Arrow location="/" />
+          <Arrow location="/" mod={1} />
         </div>
       </header>
       <LoginPage></LoginPage>

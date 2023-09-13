@@ -2,12 +2,16 @@
 
 ### Project Period
 
-06.09 ~ 08.21(expected)
+06.09 ~ 10.10(expected)
 
 ### Contributors
 
-- woong
-- 정윤환
+- [woong](https://github.com/woong12)(FE)
+- [정윤환](https://github.com/Torychu)(**FE**)
+- [msg2324](https://github.com/igiza1213)(**Next.js**)
+- [dnjeh](https://github.com/dnjeh)(Next.js)
+- [3boku](https://github.com/3boku)(**devOps**)
+- [jmin0714](https://github.com/jmin0714)(**design**)
 
 ### Project Goals
 
@@ -27,17 +31,13 @@
 2. [x] Cafeteria Page- woong
 3. [x] Login Page - 정윤환
 4. [x] Sign Up Page - 정윤환
-5. [x] Community Main Page - woong
-6. [x] Community Detail Page - woong
-7. [x] Writing Page - woong
-8. [x] Calendar Page - 정윤환
+5. [x] Community Main Page - woong - 반응형 필요
+6. [x] Community Detail Page - woong - 반응형 필요
+7. [ ] Writing Page - 정윤환
+8. [x] Calendar Page - 정윤환 - 시간표 미완
 9. [x] mypage Page - 정윤환
-
----
-
-10. [ ] Ssettings Page
-11. [ ] Contact us page
-12. [ ] Announcement Page
+10. [ ] Ssettings Page - 정윤환
+11. [ ] Announcement Page
 
 ## Widgets
 
@@ -65,11 +65,12 @@
 2. [x] Cafeteria Page- dnjeh
 3. [x] Login Page - msg2324
 4. [x] Sign Up Page -
-5. [ ] Community Main Page -
-6. [ ] Community Detail Page -
+5. [x] Community Main Page -
+6. [x] Community Detail Page -
 7. [ ] Writing Page -
 8. [ ] Calendar Page -
 9. [x] mypage Page -
+10. [ ] Settings Page -
 
 ## components
 

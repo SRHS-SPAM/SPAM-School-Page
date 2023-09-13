@@ -15,7 +15,7 @@ export default function SignupItem({ email, nameValue }) {
 
       <header className={styles.login_header}>
         <div className={styles.cafe_actions}>
-          <Arrow location="/login" />
+          <Arrow location="/login" mod={1} />
         </div>
       </header>
 
