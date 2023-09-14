@@ -86,7 +86,21 @@
   font-weight: bold;
   display: flex;
   align-items: center;
-  margin-left: 3rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.margin_three { margin-left: 3rem; }
+.margin_one { margin-left: 1rem; }
+
+.cal_box_text > .svg {
+  cursor: pointer;
+}
+
+.reset {
+  margin-right: 0.8rem;
 }
 
 .cal_arrow_box {
@@ -96,6 +110,14 @@
   font-weight: bold;
   display: flex;
   align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.cal_arrow_box > .svg {
+  cursor: pointer;
 }
 
 .cal_subbox_top {

@@ -4,6 +4,7 @@ import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
 import Script from "next/script";
 import styles from "./calendar.module.css";
+import Reset from "./svg/reset.svg";
 import LeftArrow from "./svg/arrowLeft.svg";
 import RightArrow from "./svg/arrowRight.svg";
 import Calendar from "@/components/Calendar";
@@ -62,14 +63,14 @@ export default function CalendarPage() {
     month = array[1], //state로서 선언된 array에서 월를 옮겨 닮는다. 이번 달이 아닐 수 도 있다.
     year = array[2], //state로서 선언된 array에서 년도를 옮겨 닮는다. 올해기 아닐 수 도 있다.
     isYear = array[3];
-    const firstDate = new Date(year, month, 1); //설정된 날짜의 첫 날로서 생성한다. 시작 요일을 구하기 위함이다.
-    const setDate = new Date(year, month, today); //설정된 날짜, 그 자체로서 생성한다.
-    const temp2 = new Date(year, month, 0); //설정된 날짜의 달의 날 수를 구하기 위해
-    const temp = new Date(month == 11 ? year + 1 : year, (month + 1) % 12, 0); //다음 달의 날 수를 담는다..?
-    const firstCnt = firstDate.getDay(); //시작 요일을 옮겨 담는다.
-    const days = temp.getDate(), //다음 달의 날 수를 담는다..?
-      dayys = temp2.getDate(); //마지막 날을 담는다.
-    const cnt = firstCnt == 0 ? -7 : -firstCnt; //실질적으로 표시를 하기 위해 가중치를 설정한다.
+  const firstDate = new Date(year, month, 1); //설정된 날짜의 첫 날로서 생성한다. 시작 요일을 구하기 위함이다.
+  const setDate = new Date(year, month, today); //설정된 날짜, 그 자체로서 생성한다.
+  const temp2 = new Date(year, month, 0); //설정된 날짜의 달의 날 수를 구하기 위해
+  const temp = new Date(month == 11 ? year + 1 : year, (month + 1) % 12, 0); //다음 달의 날 수를 담는다..?
+  const firstCnt = firstDate.getDay(); //시작 요일을 옮겨 담는다.
+  const days = temp.getDate(), //다음 달의 날 수를 담는다..?
+    dayys = temp2.getDate(); //마지막 날을 담는다.
+  const cnt = firstCnt == 0 ? -7 : -firstCnt; //실질적으로 표시를 하기 위해 가중치를 설정한다.
   return (
     <div>
       <div className={styles.calendar_mainbox}>
@@ -86,33 +87,63 @@ export default function CalendarPage() {
           <div className={`${styles.cal_box} ${styles.cal_box1}`}>
             <div className={styles.cal_box_black}>
               <div className={styles.cal_subbox_top}>
-                {isYear ? (
-                  <div className={styles.cal_box_text}>
-                    <LeftArrow
+                <div className={
+                  today == currentDate.getDate() &&
+                  month == currentDate.getMonth() &&
+                  year == currentDate.getFullYear() ?
+                  `${styles.cal_box_text} ${styles.margin_three}`
+                  :
+                  `${styles.cal_box_text} ${styles.margin_one}`
+                  }>
+                  {today == currentDate.getDate() &&
+                  month == currentDate.getMonth() &&
+                  year == currentDate.getFullYear() ? (
+                    <></>
+                  ) : (
+                    <Reset
                       fill={arrowColor}
-                      className={styles.svg}
+                      className={`${styles.svg} ${styles.reset}`}
                       onClick={() => {
-                        let copy = [...array];
-                        copy[3] = false;
+                        let copy = [
+                          currentDate.getDate(),
+                          currentDate.getMonth(),
+                          currentDate.getFullYear(),
+                          false,
+                          currentDate.getFullYear(),
+                          currentDate.getMonth(),
+                        ];
                         setArray(copy);
                       }}
-                    ></LeftArrow>
-                    {year}
-                  </div>
-                ) : (
-                  <div className={styles.cal_box_text}>
-                    {`${monthList[month]} ${year} `}
-                    <RightArrow
-                      fill={arrowColor}
-                      className={styles.svg}
-                      onClick={() => {
-                        let copy = [...array];
-                        copy[3] = true;
-                        setArray(copy);
-                      }}
-                    ></RightArrow>
-                  </div>
-                )}
+                    ></Reset>
+                  )}
+                  {isYear ? (
+                    <>
+                      <LeftArrow
+                        fill={arrowColor}
+                        className={styles.svg}
+                        onClick={() => {
+                          let copy = [...array];
+                          copy[3] = false;
+                          setArray(copy);
+                        }}
+                      ></LeftArrow>
+                      {year}
+                    </>
+                  ) : (
+                    <>
+                      {`${monthList[month]} ${year} `}
+                      <RightArrow
+                        fill={arrowColor}
+                        className={styles.svg}
+                        onClick={() => {
+                          let copy = [...array];
+                          copy[3] = true;
+                          setArray(copy);
+                        }}
+                      ></RightArrow>
+                    </>
+                  )}
+                </div>
                 {isYear ? (
                   <div className={styles.cal_arrow_box}>
                     <LeftArrow
@@ -122,7 +153,7 @@ export default function CalendarPage() {
                         console.log("prev-year");
                         let copy = [...array];
                         copy[2]--;
-                        copy[4]=copy[2];
+                        copy[4] = copy[2];
                         setArray(copy);
                       }}
                     ></LeftArrow>
@@ -134,7 +165,7 @@ export default function CalendarPage() {
                         console.log("next-year");
                         let copy = [...array];
                         copy[2]++;
-                        copy[4]=copy[2];
+                        copy[4] = copy[2];
                         setArray(copy);
                       }}
                     ></RightArrow>
@@ -152,8 +183,8 @@ export default function CalendarPage() {
                           copy[1] += 12;
                           copy[2]--;
                         }
-                        copy[4]=copy[2];
-                        copy[5]=copy[1];
+                        copy[4] = copy[2];
+                        copy[5] = copy[1];
                         setArray(copy);
                       }}
                     ></LeftArrow>
@@ -169,8 +200,8 @@ export default function CalendarPage() {
                           copy[1] -= 12;
                           copy[2]++;
                         }
-                        copy[4]=copy[2];
-                        copy[5]=copy[1];
+                        copy[4] = copy[2];
+                        copy[5] = copy[1];
                         setArray(copy);
                       }}
                     ></RightArrow>
@@ -188,24 +219,22 @@ export default function CalendarPage() {
                               let copy = [...array];
                               copy[1] = mon;
                               copy[3] = false;
-                              copy[5]=copy[1];
+                              copy[5] = copy[1];
                               setArray(copy);
                             }}
                             onMouseEnter={() => {
                               let copy = [...array];
-                              copy[4]=year;
-                              copy[5]=mon;
+                              copy[4] = year;
+                              copy[5] = mon;
                               setArray(copy);
                             }}
                             onMouseLeave={() => {
                               let copy = [...array];
-                              copy[4]=year;
-                              copy[5]=month;
+                              copy[4] = year;
+                              copy[5] = month;
                               setArray(copy);
                             }}
-                            className={
-                              mon == month ? `${styles.today}` : ``
-                            }
+                            className={mon == month ? `${styles.today}` : ``}
                             key={j}
                           >
                             <div>
@@ -219,68 +248,68 @@ export default function CalendarPage() {
                 </table>
               ) : (
                 <table className={styles.cal_subbox_main}>
-        <thead>
-          <tr>
-            {daystr.map((day, i) => (
-              <th key={i}>{day}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {mp.map((week, i) => (
-            <tr key={i}>
-              {week.map((day, j) => (
-                <td
-                  onClick={() => {
-                    console.log("first");
-                    let copy = [...array];
-                    if (cnt + day < 0) {
-                      copy[0] = cnt + day + dayys + 1;
-                      copy[1]--;
-                      if (copy[1] < 0) {
-                        copy[2]--;
-                        copy[1] += 12;
-                      }
-                    } else if (cnt + day >= days) {
-                      copy[0] = cnt + day - days + 1;
-                      copy[1]++;
-                      if (copy[1] >= 12) {
-                        copy[2]++;
-                        copy[1] -= 12;
-                      }
-                    } else {
-                      copy[0] = cnt + day + 1;
-                    }
-                    copy[4]=copy[2];
-                    copy[5]=copy[1];
-                    setArray(copy);
-                  }}
-                  className={
-                    cnt + day < 0 || cnt + day >= days
-                      ? `${styles.disabled_day}`
-                      : today == cnt + day + 1
-                      ? `${styles.today}`
-                      : ``
-                  }
-                  key={j}
-                >
-                  <div>
-                    <div>
-                      {
-                        cnt + day < 0 //시작 값과 가중치를 더했을 때 음수라면,
-                          ? cnt + day + dayys + 1 //저번 달의 날짜를 출력한다.
-                          : cnt + day >= days //만약에 양수라서 이리 오고, 또한 이번 달의 날짜 이상이라면?
-                          ? cnt + day - days + 1 //다음 달의 날짜를 표시한다.
-                          : cnt + day + 1 //아니라면 그냥 이번 달의 특정 날짜를 출력한다.
-                      }
-                    </div>
-                  </div>
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                  <thead>
+                    <tr>
+                      {daystr.map((day, i) => (
+                        <th key={i}>{day}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {mp.map((week, i) => (
+                      <tr key={i}>
+                        {week.map((day, j) => (
+                          <td
+                            onClick={() => {
+                              console.log("first");
+                              let copy = [...array];
+                              if (cnt + day < 0) {
+                                copy[0] = cnt + day + dayys + 1;
+                                copy[1]--;
+                                if (copy[1] < 0) {
+                                  copy[2]--;
+                                  copy[1] += 12;
+                                }
+                              } else if (cnt + day >= days) {
+                                copy[0] = cnt + day - days + 1;
+                                copy[1]++;
+                                if (copy[1] >= 12) {
+                                  copy[2]++;
+                                  copy[1] -= 12;
+                                }
+                              } else {
+                                copy[0] = cnt + day + 1;
+                              }
+                              copy[4] = copy[2];
+                              copy[5] = copy[1];
+                              setArray(copy);
+                            }}
+                            className={
+                              cnt + day < 0 || cnt + day >= days
+                                ? `${styles.disabled_day}`
+                                : today == cnt + day + 1
+                                ? `${styles.today}`
+                                : ``
+                            }
+                            key={j}
+                          >
+                            <div>
+                              <div>
+                                {
+                                  cnt + day < 0 //시작 값과 가중치를 더했을 때 음수라면,
+                                    ? cnt + day + dayys + 1 //저번 달의 날짜를 출력한다.
+                                    : cnt + day >= days //만약에 양수라서 이리 오고, 또한 이번 달의 날짜 이상이라면?
+                                    ? cnt + day - days + 1 //다음 달의 날짜를 표시한다.
+                                    : cnt + day + 1 //아니라면 그냥 이번 달의 특정 날짜를 출력한다.
+                                }
+                              </div>
+                            </div>
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               )}
             </div>
           </div>
@@ -290,11 +319,11 @@ export default function CalendarPage() {
               {isYear ? (
                 <div className={styles.cal_box_right}>
                   <div className={styles.cal_subbox_top}>
-                    <div className={styles.cal_box_text}>
+                    <div className={`${styles.cal_box_text} ${styles.margin_three}`}>
                       {`${monthList[array[5]]} ${array[4]} `}
                     </div>
                   </div>
-                  <Calendar Year={array[4]} Month={array[5]} Today={0}/>
+                  <Calendar Year={array[4]} Month={array[5]} Today={0} />
                 </div>
               ) : (
                 <div className={styles.cal_box_right}>
