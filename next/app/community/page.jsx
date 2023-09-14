@@ -151,7 +151,7 @@ export default async function Community() {
               {/* sub article */}
               <div className={styles.community_article}>
                 <div className={styles.community_article_theme}>
-                  <Link href={"coummunity_detail"}>
+                  <Link href={"coummunity/1"}>
                     <div className={styles.community_article_topic}>
                       서로고 베스트
                     </div>
@@ -208,13 +208,17 @@ export default async function Community() {
                 {articles.map((ai, i) => (
                   <div className={styles.community_sub_article}>
                     <div className={styles.community_sub_article_theme}>
+                    <Link href={"community/" + (i+2)}>
                       <div className={styles.community_sub_article_topic}>
                         {ai} 게시판
                       </div>
+                      </Link>
                       <div className={styles.community_article_more}>
+                      <Link href={"community/" + (i+2)}>
                         <span className={styles.community_sub_more}>
                           더보기
                         </span>
+                        </Link>
                         <img src="svg/rightArrow.svg" alt="￿" />
                       </div>
                     </div>
