@@ -42,23 +42,24 @@ export default function CalendarPage() {
     [28, 29, 30, 31, 32, 33, 34],
     [35, 36, 37, 38, 39, 40, 41],
   ];
-  const currentDate = new Date();
-  const [array, setArray] = useState([
+  const [isYear, setIs] = useState(false);
+  const currentDate = new Date(); //현재 날짜
+  const [array, setArray] = useState([ //array는 날짜(25), 월(12), 년도(2023)을 각각 저장한다.
     currentDate.getDate(),
     currentDate.getMonth(),
     currentDate.getFullYear(),
   ]);
-  const today = array[0],
-    month = array[1],
-    year = array[2];
-  const firstDate = new Date(year, month, 1);
-  const setDate = new Date(year, month, today);
-  const temp2 = new Date(year, month, 0);
-  const temp = new Date(month == 11 ? year + 1 : year, (month + 1) % 12, 0);
-  const firstCnt = firstDate.getDay();
-  const days = temp.getDate(),
-    dayys = temp2.getDate();
-  const cnt = firstCnt == 0 ? -7 : -firstCnt;
+  const today = array[0], //state로서 선언된 array에서 날짜를 옮겨 닮는다. 오늘이 아닐 수 도 있다.
+    month = array[1], //state로서 선언된 array에서 월를 옮겨 닮는다. 이번 달이 아닐 수 도 있다.
+    year = array[2]; //state로서 선언된 array에서 년도를 옮겨 닮는다. 올해기 아닐 수 도 있다.
+  const firstDate = new Date(year, month, 1); //설정된 날짜의 첫 날로서 생성한다. 시작 요일을 구하기 위함이다.
+  const setDate = new Date(year, month, today); //설정된 날짜, 그 자체로서 생성한다. 
+  const temp2 = new Date(year, month, 0); //설정된 날짜의 달의 날 수를 구하기 위해 
+  const temp = new Date(month == 11 ? year + 1 : year, (month + 1) % 12, 0); //다음 달의 날 수를 담는다..?
+  const firstCnt = firstDate.getDay(); //시작 요일을 옮겨 담는다.
+  const days = temp.getDate(), //다음 달의 날 수를 담는다..?
+    dayys = temp2.getDate(); //마지막 날을 담는다.
+  const cnt = firstCnt == 0 ? -7 : -firstCnt; //실질적으로 표시를 하기 위해 가중치를 설정한다. 
   console.log("days: " + days + ", dayys: " + dayys);
   return (
     <div>
@@ -76,23 +77,88 @@ export default function CalendarPage() {
           <div className={`${styles.cal_box} ${styles.cal_box1}`}>
             <div className={styles.cal_box_black}>
               <div className={styles.cal_subbox_top}>
+                {
+                isYear ?
+                <div className={styles.cal_box_text}>
+                  <LeftArrow
+                    fill={arrowColor}
+                    className={styles.svg}
+                    onClick={() => {
+                    setIs(false)
+                      }}
+                  ></LeftArrow>
+                  {year}
+                </div>
+                :
                 <div className={styles.cal_box_text}>
                   {`${monthList[month]} ${year} `}
                   <RightArrow
                     fill={arrowColor}
                     className={styles.svg}
+                    onClick={() => {
+                      setIs(true)
+                        }}
                   ></RightArrow>
                 </div>
+                } 
+                {
+                  isYear ?
+                  <div className={styles.cal_arrow_box}>
+                  <LeftArrow
+                    fill={arrowColor}
+                    className={styles.svg}
+                    onClick={() => {
+                      console.log("prev-year");
+                      let copy = [...array];
+                      copy[2]--;
+                      setArray(copy);
+                      }}
+                  ></LeftArrow>
+                  Year
+                  <RightArrow
+                    fill={arrowColor}
+                    className={styles.svg}
+                    onClick={() => {
+                      console.log("next-year");
+                      let copy = [...array];
+                      copy[2]++;
+                      setArray(copy);
+                      }}
+                  ></RightArrow>
+                  </div>
+                :
                 <div className={styles.cal_arrow_box}>
                   <LeftArrow
                     fill={arrowColor}
                     className={styles.svg}
+                    onClick={() => {
+                      console.log("prev-month");
+                      let copy = [...array];
+                      copy[1]--;
+                      if(copy[1]<0) {
+                        copy[1]+=12;
+                        copy[2]--;
+                      }
+                      setArray(copy);
+                      }}
                   ></LeftArrow>
+                  Month
                   <RightArrow
                     fill={arrowColor}
                     className={styles.svg}
+                    onClick={() => {
+                      console.log("next-month");
+                      let copy = [...array];
+                      copy[1]++;
+                      if(copy[1]>=12) {
+                        copy[1]-=12;
+                        copy[2]++;
+                      }
+                      setArray(copy);
+                      }}
                   ></RightArrow>
                 </div>
+                }
               </div>
               <table className={styles.cal_subbox_main}>
                 <thead>
@@ -140,11 +206,12 @@ export default function CalendarPage() {
                         >
                           <div>
                             <div>
-                              {cnt + day < 0
-                                ? cnt + day + dayys + 1
-                                : cnt + day >= days
-                                ? cnt + day - days + 1
-                                : cnt + day + 1}
+                              {cnt + day < 0 //시작 값과 가중치를 더했을 때 음수라면,
+                                ? cnt + day + dayys + 1 //저번 달의 날짜를 출력한다. 
+                                : cnt + day >= days     //만약에 양수라서 이리 오고, 또한 이번 달의 날짜 이상이라면?
+                                ? cnt + day - days + 1 //다음 달의 날짜를 표시한다.
+                                : cnt + day + 1 //아니라면 그냥 이번 달의 특정 날짜를 출력한다.
+                              }
                             </div>
                           </div>
                         </td>

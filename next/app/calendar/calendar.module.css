@@ -91,6 +91,11 @@
 
 .cal_arrow_box {
   margin-right: 1rem;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .cal_subbox_top {
