@@ -71,6 +71,7 @@
   height: 80%;
   width: 10%;
   border-radius: 50%;
+  border: solid #c8c8c8;
 }
 
 .my_profileimg > img {
