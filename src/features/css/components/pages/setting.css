@@ -189,11 +189,38 @@ main {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .setting_main_left {
+    display: none;
+  }
+
+  .setting_main {
+    grid-template-columns: 100%;
+  }
   .setting_logout {
     font-size: 1rem;
   }
 
+  .setting_profile_box {
+    flex-direction: column;
+  }
+
   .select_background {
+    font-size: 1rem;
+  }
+
+  .set_profile_save button {
+    width: 100%;
+  }
+
+  .set_input_sub {
+    width: 30%;
+  }
+
+  .set_input {
     font-size: 1rem;
   }
 }
