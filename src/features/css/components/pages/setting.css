@@ -177,3 +177,23 @@ main {
   height: 3rem;
   background-color: #e7cbcb;
 }
+
+@media screen and (max-width: 1280px) {
+  .setting_logout {
+    font-size: 1.5rem;
+  }
+
+  .select_background {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .setting_logout {
+    font-size: 1rem;
+  }
+
+  .select_background {
+    font-size: 1rem;
+  }
+}
