@@ -18,7 +18,7 @@ export default async function mypage() {
     {
       iconName: "캘린더",
       src: <CalendarSvg></CalendarSvg>,
-      location: "calender",
+      location: "calendar",
     },
     {
       iconName: "급식",
