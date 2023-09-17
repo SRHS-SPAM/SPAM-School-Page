@@ -122,3 +122,58 @@ main {
 .set_profile_change {
   font-size: 1.5rem;
 }
+
+.set_profile {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  font-size: 2rem;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.1rem solid rgb(110, 110, 110);
+}
+
+.set_input::placeholder {
+  color: #969696d2;
+}
+
+.set_input {
+  background-color: #d9d9d9;
+  height: 10rem;
+  border-radius: 1rem;
+  border: 0.1rem solid rgb(110, 110, 110);
+  color: #969696d2;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  word-wrap: break-word;
+  text-align: top;
+}
+
+.set_email_input {
+  background-color: #d9d9d9;
+  height: 3rem;
+  border-radius: 1rem;
+  border: 0.1rem solid rgb(110, 110, 110);
+  color: #969696d2;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+}
+
+.set_class_input {
+  height: 2rem;
+  width: 10%;
+  border-radius: 0.5rem;
+}
+
+.set_profile_save {
+  display: flex;
+  padding: 2rem;
+  justify-content: end;
+}
+
+.set_profile_save button {
+  width: 20%;
+  border-radius: 1rem;
+  height: 3rem;
+  background-color: #e7cbcb;
+}
