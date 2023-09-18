@@ -223,4 +223,14 @@ main {
   .set_input {
     font-size: 1rem;
   }
+
+  .setting_sub_bar {
+    width: 100%;
+    padding: 0;
+    justify-content: space-around;
+  }
+
+  .setting_head_txt {
+    padding-left: 2rem;
+  }
 }
