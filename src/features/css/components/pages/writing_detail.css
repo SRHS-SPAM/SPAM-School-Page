@@ -219,7 +219,7 @@ body {
   font-size: 1.5rem;
 }
 
-.write_d_comment_detail_main > input {
+.write_d_comment_detail_input > input {
   background-color: transparent;
   border: none;
   padding-top: 1rem;
@@ -227,12 +227,13 @@ body {
   font-size: 1.5rem;
 }
 
-.write_d_comment_detail_main > input::placeholder {
+.write_d_comment_detail_input > input::placeholder {
   color: rgb(170, 170, 170);
 }
 
-.write_d_comment_detail {
+.write_d_comment_detail_input {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%;
 }
