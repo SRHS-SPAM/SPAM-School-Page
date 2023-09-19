@@ -27,18 +27,17 @@ export default async function Detail(props) {
     a.category = a.category.toString();
     return a;
   });
-  let countDown = [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-  ], cnt=10;
+  const total = result.writing / 30 + (result.writing % 30) ? 1 : 0;
+  const page = props.searchParams.page
+    ? props.searchParams.page > total
+      ? total
+      : props.searchParams.page < 1
+      ? 1
+      : props.searchParams.page
+    : total;
+  let countDown = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    cnt = total - ((total - page) / 10 + (total - page)?1:0) * 10;
+  console.log(props, result.writing, total, page, cnt);
   return (
     <>
       {/* header */}
@@ -133,25 +132,38 @@ export default async function Detail(props) {
                   </div>
                   <div className={style.page_selector}>
                     <div className={style.page_selector_box}>
-                      <div className={style.community_pages}>
-                        <LeftDoubleArrow></LeftDoubleArrow>
-                      </div>
-                      <div className={style.community_pages}>
-                        <LeftArrow></LeftArrow>
-                      </div>
-                      {
-                        countDown.map((ai, i)=>{
+                      {total != page ? (
+                        <>
+                          <div className={style.community_pages}>
+                            <LeftDoubleArrow></LeftDoubleArrow>
+                          </div>
+                          <div className={style.community_pages}>
+                            <LeftArrow></LeftArrow>
+                          </div>
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                      {countDown.map((ai, i) => {
+                        if (cnt - ai > 0)
                           return (
-                            <div className={style.community_pages}>{cnt-ai}</div>
-                          )
-                        })
-                      }
-                      <div className={style.community_pages}>
-                        <RightArrow></RightArrow>
-                      </div>
-                      <div className={style.community_pages}>
-                        <RightDoubleArrow></RightDoubleArrow>
-                      </div>
+                            <div className={style.community_pages}>
+                              {cnt - ai}
+                            </div>
+                          );
+                      })}
+                      {total != page ? (
+                        <>
+                          <div className={style.community_pages}>
+                            <RightArrow></RightArrow>
+                          </div>
+                          <div className={style.community_pages}>
+                            <RightDoubleArrow></RightDoubleArrow>
+                          </div>
+                        </>
+                      ) : (
+                        <></>
+                      )}
                     </div>
                   </div>
                 </div>
