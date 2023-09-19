@@ -17,7 +17,6 @@ export default async function List({ result }) {
         <div className={styles.community_sub_article_content} key={i}>
           <div className={styles.community_sub_article_detail}>
             <div className={styles.community_sub_article_title}>{ai.title}</div>
-            <span className={styles.comment_style}>[{ai.comment}]</span>
           </div>
         </div>
       ))}

@@ -321,13 +321,12 @@
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
 }
 
 .community_sub_article_title {
   font-size: var(--Sizes-size1);
   font-weight: 3 00;
-  width: var(--Sizes-size20);
+  width: 22 rem;
   cursor: pointer;
   overflow: hidden;
   white-space: nowrap;

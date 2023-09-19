@@ -2,7 +2,6 @@ import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
 import Link from "next/link";
 import style from "./community_detail.module.css";
-import Sms from "../../../public/svg/sms.svg";
 import LeftDoubleArrow from "../../../public/svg/leftDoubleArrow.svg";
 import LeftArrow from "../../../public/svg/leftArrow.svg";
 import RightDoubleArrow from "../../../public/svg/rightDoubleArrow.svg";
@@ -14,6 +13,10 @@ import { ObjectId } from "mongodb";
 import Post from "./post";
 
 export default async function Detail(props) {
+  // if (props.params.id == "6508fbdca79261ba213f5594") {
+  //   let postList = await db.collection("post").find().sort().toArray();
+  // } else {
+  // }
   let db = (await connectDB).db("SRH-Community");
   let result = await db
     .collection("category")
@@ -36,8 +39,8 @@ export default async function Detail(props) {
       : props.searchParams.page
     : total;
   let countDown = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-    cnt = total - ((total - page) / 10 + (total - page)?1:0) * 10;
-  console.log(props, result.writing, total, page, cnt);
+    cnt = total - ((total - page) / 10 + (total - page) ? 1 : 0) * 10;
+  // console.log(props, result.writing, total, page, cnt);
   return (
     <>
       {/* header */}
