@@ -94,7 +94,7 @@ export default async function Community() {
   ];
   let topf = articles;
   topf.sort((a, b) => a.rank - b.rank);
-
+  console.log(topf);
   let session = await getServerSession(authOptions);
   const currentDate = new Date();
   const currentDateTimeString = format(currentDate, "yyyy.MM.dd (E)");
@@ -157,13 +157,13 @@ export default async function Community() {
               {/* sub article */}
               <div className={styles.community_article}>
                 <div className={styles.community_article_theme}>
-                  <Link href={"community/650488578c2c2160409ec336"}>
+                  <Link href={"community/" + articles[0].id}>
                     <div className={styles.community_article_topic}>
                       서로고 게시판
                     </div>
                   </Link>
                   <div className={styles.community_article_more}>
-                    <Link href={"community/650488578c2c2160409ec336"}>
+                    <Link href={"community/" + articles[0].id}>
                       <span className={styles.community_more}>더보기</span>
                     </Link>
                     <RightArrow></RightArrow>
@@ -211,8 +211,8 @@ export default async function Community() {
             </div>
             <div className={styles.community_sub_article_main}>
               <div className={styles.community_sub_article_list}>
-                {articles.map(async (ai, i) => {
-                  if (i > 1)
+                {topf.map(async (ai, i) => {
+                  if (i > 0)
                     return (
                       <div className={styles.community_sub_article} key={i}>
                         <div className={styles.community_sub_article_theme}>
