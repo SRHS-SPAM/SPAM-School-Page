@@ -6,9 +6,14 @@ import Sms from "../../public/svg/sms.svg";
 import Thumbup from "../../public/svg/thumbUp.svg";
 import RightArrow from "../../public/svg/rightArrow.svg";
 import Search from "../../public/svg/search.svg";
+import UpArrow from "./svg/upArrow.svg";
+import DownArrow from "./svg/downArrow.svg";
+import Minus from "../../public/svg/minus.svg";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { format } from "date-fns";
+import { connectDB } from "@/util/database";
+import List from "./list";
 
 export default async function Community() {
   let info = [
@@ -73,22 +78,16 @@ export default async function Community() {
       comments: 24,
     },
   ];
-  let articles = ["자유", "전공", "학습", "시스템", "설계", "제어"];
-  let contents = [
-    { title: "Lorem ipsum dolor sit", views: 5293 },
-    { title: "Lorem ipsum dolor sit", views: 5293 },
-    { title: "Lorem ipsum dolor sit", views: 5293 },
-    { title: "Lorem ipsum dolor sit", views: 5293 },
-    { title: "Lorem ipsum dolor sit", views: 5293 },
-  ];
-  let topf = [
-    { category: "서로고 베스트", drank: 1 },
-    { category: "전공", drank: -1 },
-    { category: "자유", drank: 0 },
-    { category: "시스템", drank: 2 },
-    { category: "학습", drank: -1 },
-  ];
+  let db = (await connectDB).db("SRH-Community");
+  let articles = await db.collection("category").find().toArray();
+  articles = articles.map((a) => {
+    a.id = a._id.toString();
+    a.title = a.title.toString();
+    return a;
+  });
 
+  let topf = articles;
+  topf.sort((a, b) => a.rank - b.rank);
   let session = await getServerSession(authOptions);
   const currentDate = new Date();
   const currentDateTimeString = format(currentDate, "yyyy.MM.dd (E)");
@@ -96,7 +95,6 @@ export default async function Community() {
   return (
     <>
       {/* header */}
-      <link rel="stylesheet" href="./community.module.css" />
       <header>
         <nav className={styles.community_inner}>
           <div className={styles.community_nav_left}>
@@ -152,13 +150,13 @@ export default async function Community() {
               {/* sub article */}
               <div className={styles.community_article}>
                 <div className={styles.community_article_theme}>
-                  <Link href={"coummunity_detail"}>
+                  <Link href={"community/" + articles[0].id}>
                     <div className={styles.community_article_topic}>
-                      서로고 베스트
+                      서로고 게시판
                     </div>
                   </Link>
                   <div className={styles.community_article_more}>
-                    <Link href={"community/1"}>
+                    <Link href={"community/" + articles[0].id}>
                       <span className={styles.community_more}>더보기</span>
                     </Link>
                     <RightArrow></RightArrow>
@@ -206,51 +204,32 @@ export default async function Community() {
             </div>
             <div className={styles.community_sub_article_main}>
               <div className={styles.community_sub_article_list}>
-                {articles.map((ai, i) => (
-                  <div className={styles.community_sub_article}>
-                    <div className={styles.community_sub_article_theme}>
-                      <div className={styles.community_sub_article_topic}>
-                        {ai} 게시판
-                      </div>
-                      <div className={styles.community_article_more}>
-                        <span className={styles.community_sub_more}>
-                          더보기
-                        </span>
-                        <img src="svg/rightArrow.svg" alt="￿" />
-                      </div>
-                    </div>
-                    <div className={styles.community_sub_article_division} />
-                    {contents.map((ai, i) => (
-                      <div className={styles.community_sub_article_content}>
-                        <div className={styles.community_sub_article_detail}>
-                          <div
-                            className={styles.community_sub_article_detail_left}
-                          >
-                            <div className={styles.community_sub_article_title}>
-                              {ai.title}
+                {topf.map(async (ai, i) => {
+                  if (i > 0)
+                    return (
+                      <div className={styles.community_sub_article} key={i}>
+                        <div className={styles.community_sub_article_theme}>
+                          <Link href={"community/" + ai.id}>
+                            <div className={styles.community_sub_article_topic}>
+                              {ai.title} 게시판
                             </div>
-                          </div>
-                          <div
-                            className={
-                              styles.community_sub_article_detail_right
-                            }
-                          >
-                            <div className={styles.community_sub_article_views}>
-                              <img src="svg/eye.svg" alt="￿" />
-                              <span
-                                className={
-                                  styles.community_sub_article_views_value
-                                }
-                              >
-                                {ai.views.toLocaleString()}
+                          </Link>
+                          <div className={styles.community_article_more}>
+                            <Link href={"community/" + ai.id}>
+                              <span className={styles.community_sub_more}>
+                                더보기
                               </span>
-                            </div>
+                            </Link>
+                            <RightArrow></RightArrow>
                           </div>
                         </div>
+                        <div
+                          className={styles.community_sub_article_division}
+                        />
+                        <List result={ai.id}></List>
                       </div>
-                    ))}
-                  </div>
-                ))}
+                    );
+                })}
               </div>
             </div>
           </div>
@@ -264,13 +243,16 @@ export default async function Community() {
                   <div className={styles.community_ranking_division} />
                   <div className={styles.community_ranking_detail_list}>
                     {topf.map((ai, i) => (
-                      <div className={styles.community_ranking_detail_listitem}>
+                      <div
+                        className={styles.community_ranking_detail_listitem}
+                        key={i}
+                      >
                         <div className={styles.community_ranking_detail_left}>
                           <div className={styles.community_ranking_num}>
-                            {i + 1}.
+                            {ai.rank}.
                           </div>
                           <div className={styles.community_ranking_title}>
-                            {ai.category}
+                            {ai.title}
                           </div>
                         </div>
                         <div className={styles.community_ranking_detail_right}>
@@ -283,11 +265,11 @@ export default async function Community() {
                           </div>
                           <div className={styles.community_ranking_now}>
                             {ai.drank == 0 ? (
-                              <img src="svg/minus.svg" alt="￿" />
+                              <Minus></Minus>
                             ) : ai.drank > 0 ? (
-                              <img src="svg/upArrow.svg" alt="￿" />
+                              <UpArrow></UpArrow>
                             ) : (
-                              <img src="svg/downArrow.svg" alt="￿" />
+                              <DownArrow></DownArrow>
                             )}
                           </div>
                         </div>

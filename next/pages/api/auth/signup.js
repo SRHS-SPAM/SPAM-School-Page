@@ -24,7 +24,7 @@ export default async function Singup(req, res) {
       let result = await db
         .collection("users")
         .updateOne(filter, updateDoc, option);
-      res.status(200).json({ message: "가입 성공" });
+      res.status(200).redirect("/login");
     } catch (error) {
       console.log(error);
     }

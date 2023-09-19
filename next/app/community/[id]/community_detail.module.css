@@ -203,13 +203,21 @@
   margin: 0 10px;
 }
 
-.main_class_name > span {
-  margin-left: 15px;
+.comment_style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+  margin-left: 5px;
 }
 
 .class_title {
   display: flex;
   justify-content: flex-start;
+}
+
+.class_title > span {
+  margin-left: 10px;
 }
 
 .writing_footer {

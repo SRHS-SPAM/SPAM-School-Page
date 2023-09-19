@@ -86,21 +86,7 @@
   font-weight: bold;
   display: flex;
   align-items: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.margin_three { margin-left: 3rem; }
-.margin_one { margin-left: 1rem; }
-
-.cal_box_text > .svg {
-  cursor: pointer;
-}
-
-.reset {
-  margin-right: 0.8rem;
+  margin-left: 3rem;
 }
 
 .cal_arrow_box {
@@ -110,14 +96,6 @@
   font-weight: bold;
   display: flex;
   align-items: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.cal_arrow_box > .svg {
-  cursor: pointer;
 }
 
 .cal_subbox_top {
@@ -179,7 +157,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;/*50px;*/
+  width: 50px;
   border-radius: 50%;
   cursor: pointer;
 }
