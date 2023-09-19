@@ -248,6 +248,14 @@
   gap: var(--Sizes-size07);
 }
 
+.comment_style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+  margin-left: 5px;
+}
+
 /* sub article */
 
 .community_sub_article_main {
