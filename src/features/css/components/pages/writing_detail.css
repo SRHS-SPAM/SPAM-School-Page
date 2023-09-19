@@ -192,7 +192,7 @@ body {
 }
 
 .write_d_reply_main {
-  padding-left: 1rem;
+  padding-left: 0.5rem;
 }
 
 .write_d_reply_date {
@@ -231,9 +231,126 @@ body {
   color: rgb(170, 170, 170);
 }
 
-.write_d_comment_detail_input {
+.write_d_comment_detail_main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 9rem;
+}
+
+.comment_detail_sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment_detail_sub_1 {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 2rem;
+}
+
+.comment_detial_sub_2 > button {
+  background-color: #c688a3;
+  width: 10rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+.write_d_reply_writing_sub {
+  display: flex;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.1rem solid rgb(110, 110, 110);
+  gap: 2rem;
+}
+
+.write_d_reply_writing_sub_write {
+  display: flex;
+  justify-content: center;
+  background-color: #c688a3;
+  width: 4rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 1rem;
+  font-weight: bold;
+  border: 0.1rem solid black;
+}
+
+.write_d_reply_writing_sub_comment {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 4rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 1rem;
+  font-weight: bold;
+  border: 0.1rem solid black;
+}
+
+.write_d_post_list {
+  padding: 4rem;
+}
+
+.write_d_post_list_top {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.write_d_post_list_main {
+  margin-top: 2rem;
+  border-top: 0.1rem solid black;
+}
+
+.write_d_post_list_object {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin-top: -0.1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid black;
+  grid-template-columns: 10% 40% 20% 10% 10% 10%;
+}
+
+.write_d_post_list_title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.page_selector {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.page_selector_box {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  background-color: white;
+}
+
+.community_pages {
   height: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-right: 1px solid black;
+  padding: 0px 16.4px 0px 16.4px;
+  cursor: pointer;
+}
+
+.page_selector_box i {
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  align-items: center;
 }
