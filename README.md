@@ -53,7 +53,7 @@
 5. [x] Community Main Page -
 6. [x] Community Detail Page -
 7. [ ] Writing Page -
-8. [ ] Calendar Page -
+8. [x] Calendar Page -
 9. [x] mypage Page -
 10. [ ] Settings Page -
 11. [ ] postManagement -
