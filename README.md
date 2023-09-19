@@ -36,7 +36,7 @@
 7. [ ] Writing Page - 정윤환
 8. [x] Calendar Page - 정윤환 - 시간표 미완
 9. [x] mypage Page - 정윤환
-10. [ ] Settings Page - 정윤환
+10. [x] Settings Page - 정윤환
 11. [ ] postManagement - 정윤환
 12. [ ] postDetail - 정윤환
 
