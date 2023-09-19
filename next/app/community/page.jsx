@@ -10,12 +10,10 @@ import UpArrow from "./svg/upArrow.svg";
 import DownArrow from "./svg/downArrow.svg";
 import Minus from "../../public/svg/minus.svg";
 import Eye from "../../public/svg/eye.svg";
-
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { format } from "date-fns";
 import { connectDB } from "@/util/database";
-import { ObjectId } from "mongodb";
 
 export default async function Community() {
   let info = [
@@ -87,7 +85,6 @@ export default async function Community() {
     a.title = a.title.toString();
     return a;
   });
-  // console.log(articles);
   let contents = [
     { title: "Lorem ipsum dolor sit", views: 5293 },
     { title: "Lorem ipsum dolor sit", views: 5293 },
@@ -97,7 +94,6 @@ export default async function Community() {
   ];
   let topf = articles;
   topf.sort((a, b) => a.rank - b.rank);
-  console.log(topf);
 
   let session = await getServerSession(authOptions);
   const currentDate = new Date();
