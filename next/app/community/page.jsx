@@ -6,6 +6,11 @@ import Sms from "../../public/svg/sms.svg";
 import Thumbup from "../../public/svg/thumbUp.svg";
 import RightArrow from "../../public/svg/rightArrow.svg";
 import Search from "../../public/svg/search.svg";
+import UpArrow from "./svg/upArrow.svg";
+import DownArrow from "./svg/downArrow.svg";
+import Minus from "../../public/svg/minus.svg";
+import Eye from "../../public/svg/eye.svg";
+
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { format } from "date-fns";
@@ -76,16 +81,13 @@ export default async function Community() {
     },
   ];
   let db = (await connectDB).db("SRH-Community");
-  let articles = await db
-    .collection("category")
-    .find() //sex - hyunseo
-    .toArray(); //현서 = 하등쓸모없는 프로젝트매니져
-  articles = articles.map((a) => {  //fuck ㅈㄴ 좆같은 코딩
-    a.id = a._id.toString();  //지용이
-    a.title = a.title.toString(); //설밑제
-    return a; //개추
+  let articles = await db.collection("category").find().toArray();
+  articles = articles.map((a) => {
+    a.id = a._id.toString();
+    a.title = a.title.toString();
+    return a;
   });
-  console.log(articles);
+  // console.log(articles);
   let contents = [
     { title: "Lorem ipsum dolor sit", views: 5293 },
     { title: "Lorem ipsum dolor sit", views: 5293 },
@@ -93,13 +95,9 @@ export default async function Community() {
     { title: "Lorem ipsum dolor sit", views: 5293 },
     { title: "Lorem ipsum dolor sit", views: 5293 },
   ];
-  let topf = [
-    { category: "서로고 베스트", drank: 1 },
-    { category: "전공", drank: -1 },
-    { category: "자유", drank: 0 },
-    { category: "시스템", drank: 2 },
-    { category: "학습", drank: -1 },
-  ];
+  let topf = articles;
+  topf.sort((a, b) => a.rank - b.rank);
+  console.log(topf);
 
   let session = await getServerSession(authOptions);
   const currentDate = new Date();
@@ -218,57 +216,67 @@ export default async function Community() {
             <div className={styles.community_sub_article_main}>
               <div className={styles.community_sub_article_list}>
                 {articles.map(async (ai, i) => {
-                  if(i>1)
-                  return (
-                  <div className={styles.community_sub_article} key={i}>
-                    <div className={styles.community_sub_article_theme}>
-                      <Link href={"community/" + ai.id}>
-                        <div className={styles.community_sub_article_topic}>
-                          {ai.title} 게시판
-                        </div>
-                      </Link>
-                      <div className={styles.community_article_more}>
-                        <Link href={"community/" + ai.id}>
-                          <span className={styles.community_sub_more}>
-                            더보기
-                          </span>
-                        </Link>
-                        <img src="svg/rightArrow.svg" alt="￿" />
-                      </div>
-                    </div>
-                    <div className={styles.community_sub_article_division} />
-                    {
-                    contents.map((ai, i) => (
-                      <div className={styles.community_sub_article_content}>
-                        <div className={styles.community_sub_article_detail}>
-                          <div
-                            className={styles.community_sub_article_detail_left}
-                          >
-                            <div className={styles.community_sub_article_title}>
-                              {ai.title}
+                  if (i > 1)
+                    return (
+                      <div className={styles.community_sub_article} key={i}>
+                        <div className={styles.community_sub_article_theme}>
+                          <Link href={"community/" + ai.id}>
+                            <div className={styles.community_sub_article_topic}>
+                              {ai.title} 게시판
                             </div>
+                          </Link>
+                          <div className={styles.community_article_more}>
+                            <Link href={"community/" + ai.id}>
+                              <span className={styles.community_sub_more}>
+                                더보기
+                              </span>
+                            </Link>
+                            <RightArrow></RightArrow>
                           </div>
-                          <div
-                            className={
-                              styles.community_sub_article_detail_right
-                            }
-                          >
-                            <div className={styles.community_sub_article_views}>
-                              <img src="svg/eye.svg" alt="￿" />
-                              <span
+                        </div>
+                        <div
+                          className={styles.community_sub_article_division}
+                        />
+                        {contents.map((ai, i) => (
+                          <div className={styles.community_sub_article_content}>
+                            <div
+                              className={styles.community_sub_article_detail}
+                            >
+                              <div
                                 className={
-                                  styles.community_sub_article_views_value
+                                  styles.community_sub_article_detail_left
                                 }
                               >
-                                {ai.views.toLocaleString()}
-                              </span>
+                                <div
+                                  className={styles.community_sub_article_title}
+                                >
+                                  {ai.title}
+                                </div>
+                              </div>
+                              <div
+                                className={
+                                  styles.community_sub_article_detail_right
+                                }
+                              >
+                                <div
+                                  className={styles.community_sub_article_views}
+                                >
+                                  <Eye></Eye>
+                                  <span
+                                    className={
+                                      styles.community_sub_article_views_value
+                                    }
+                                  >
+                                    {ai.views.toLocaleString()}
+                                  </span>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                  )})}
+                    );
+                })}
               </div>
             </div>
           </div>
@@ -285,10 +293,10 @@ export default async function Community() {
                       <div className={styles.community_ranking_detail_listitem}>
                         <div className={styles.community_ranking_detail_left}>
                           <div className={styles.community_ranking_num}>
-                            {i + 1}.
+                            {ai.rank}.
                           </div>
                           <div className={styles.community_ranking_title}>
-                            {ai.category}
+                            {ai.title}
                           </div>
                         </div>
                         <div className={styles.community_ranking_detail_right}>
@@ -301,11 +309,11 @@ export default async function Community() {
                           </div>
                           <div className={styles.community_ranking_now}>
                             {ai.drank == 0 ? (
-                              <img src="svg/minus.svg" alt="￿" />
+                              <Minus></Minus>
                             ) : ai.drank > 0 ? (
-                              <img src="svg/upArrow.svg" alt="￿" />
+                              <UpArrow></UpArrow>
                             ) : (
-                              <img src="svg/downArrow.svg" alt="￿" />
+                              <DownArrow></DownArrow>
                             )}
                           </div>
                         </div>
