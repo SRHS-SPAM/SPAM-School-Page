@@ -9,11 +9,11 @@ import Search from "../../public/svg/search.svg";
 import UpArrow from "./svg/upArrow.svg";
 import DownArrow from "./svg/downArrow.svg";
 import Minus from "../../public/svg/minus.svg";
-import Eye from "../../public/svg/eye.svg";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { format } from "date-fns";
 import { connectDB } from "@/util/database";
+import List from "./list";
 
 export default async function Community() {
   let info = [
@@ -85,16 +85,9 @@ export default async function Community() {
     a.title = a.title.toString();
     return a;
   });
-  let contents = [
-    { title: "Lorem ipsum dolor sit", views: 5293 },
-    { title: "Lorem ipsum dolor sit", views: 5293 },
-    { title: "Lorem ipsum dolor sit", views: 5293 },
-    { title: "Lorem ipsum dolor sit", views: 5293 },
-    { title: "Lorem ipsum dolor sit", views: 5293 },
-  ];
+
   let topf = articles;
   topf.sort((a, b) => a.rank - b.rank);
-  console.log(topf);
   let session = await getServerSession(authOptions);
   const currentDate = new Date();
   const currentDateTimeString = format(currentDate, "yyyy.MM.dd (E)");
@@ -233,43 +226,7 @@ export default async function Community() {
                         <div
                           className={styles.community_sub_article_division}
                         />
-                        {contents.map((ai, i) => (
-                          <div className={styles.community_sub_article_content}>
-                            <div
-                              className={styles.community_sub_article_detail}
-                            >
-                              <div
-                                className={
-                                  styles.community_sub_article_detail_left
-                                }
-                              >
-                                <div
-                                  className={styles.community_sub_article_title}
-                                >
-                                  {ai.title}
-                                </div>
-                              </div>
-                              <div
-                                className={
-                                  styles.community_sub_article_detail_right
-                                }
-                              >
-                                <div
-                                  className={styles.community_sub_article_views}
-                                >
-                                  <Eye></Eye>
-                                  <span
-                                    className={
-                                      styles.community_sub_article_views_value
-                                    }
-                                  >
-                                    {ai.views.toLocaleString()}
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
+                        <List result={ai.id}></List>
                       </div>
                     );
                 })}
@@ -286,7 +243,10 @@ export default async function Community() {
                   <div className={styles.community_ranking_division} />
                   <div className={styles.community_ranking_detail_list}>
                     {topf.map((ai, i) => (
-                      <div className={styles.community_ranking_detail_listitem}>
+                      <div
+                        className={styles.community_ranking_detail_listitem}
+                        key={i}
+                      >
                         <div className={styles.community_ranking_detail_left}>
                           <div className={styles.community_ranking_num}>
                             {ai.rank}.
