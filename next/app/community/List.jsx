@@ -1,6 +1,7 @@
 import styles from "./community.module.css";
 import Eye from "../../public/svg/eye.svg";
 import { connectDB } from "@/util/database";
+import { ObjectId } from "mongodb";
 
 export default async function List({ result }) {
   let contents = [
@@ -13,11 +14,12 @@ export default async function List({ result }) {
   let db = (await connectDB).db("SRH-Community");
   let data = await db
     .collection("post")
-    .find({ categoty: result })
+    .find({ categoty: new ObjectId(result) })
     .sort({ good: -1 })
     .limit(5)
     .toArray();
 
+  console.log(data);
   return (
     <>
       {contents.map((ai, i) => (
