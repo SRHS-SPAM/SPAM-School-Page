@@ -31,9 +31,9 @@ export default async function Community() {
     a.title = a.title.toString();
     return a;
   });
-  console.log(articles);
   let topf = articles;
   topf.sort((a, b) => a.rank - b.rank);
+
   let session = await getServerSession(authOptions);
   const currentDate = new Date();
   const currentDateTimeString = format(currentDate, "yyyy.MM.dd (E)");
@@ -118,7 +118,9 @@ export default async function Community() {
                       >
                         <div className={styles.community_article_detail_left}>
                           <div className={styles.community_article_major}>
-                            {articles[0].tag[arg.theme - 1]}
+                            {articles
+                              .filter((obj) => obj.id == arg.category)
+                              .map((obj) => obj.title)}
                           </div>
                           <div className={styles.community_article_title}>
                             {arg.title}
