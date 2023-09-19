@@ -13,79 +13,25 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { format } from "date-fns";
 import { connectDB } from "@/util/database";
-import List from "./list";
+import List from "./List";
+import { ObjectId } from "mongodb";
 
 export default async function Community() {
-  let info = [
-    {
-      tag: "전공",
-      title: "Lorem ipsum dolor sit amet",
-      good: 23,
-      comments: 24,
-    },
-    {
-      tag: "자유",
-      title: "Lorem ipsum dolor sit amet",
-      good: 23,
-      comments: 24,
-    },
-    {
-      tag: "학습",
-      title: "Lorem ipsum dolor sit amet",
-      good: 23,
-      comments: 24,
-    },
-    {
-      tag: "전공",
-      title: "Lorem ipsum dolor sit amet",
-      good: 23,
-      comments: 24,
-    },
-    {
-      tag: "자유",
-      title: "Lorem ipsum dolor sit amet",
-      good: 23,
-      comments: 24,
-    },
-    {
-      tag: "전공",
-      title: "Lorem ipsum dolor sit amet",
-      good: 23,
-      comments: 24,
-    },
-    {
-      tag: "전공",
-      title: "Lorem ipsum dolor sit amet",
-      good: 23,
-      comments: 24,
-    },
-    {
-      tag: "전공",
-      title: "Lorem ipsum dolor sit amet",
-      good: 23,
-      comments: 24,
-    },
-    {
-      tag: "전공",
-      title: "Lorem ipsum dolor sit amet",
-      good: 23,
-      comments: 24,
-    },
-    {
-      tag: "전공",
-      title: "Lorem ipsum dolor sit amet",
-      good: 23,
-      comments: 24,
-    },
-  ];
   let db = (await connectDB).db("SRH-Community");
   let articles = await db.collection("category").find().toArray();
+  let data = await db
+    .collection("post")
+    .find()
+    .sort({ good: -1 })
+    .limit(10)
+    .toArray();
+
   articles = articles.map((a) => {
     a.id = a._id.toString();
     a.title = a.title.toString();
     return a;
   });
-
+  console.log(articles);
   let topf = articles;
   topf.sort((a, b) => a.rank - b.rank);
   let session = await getServerSession(authOptions);
@@ -165,14 +111,14 @@ export default async function Community() {
                 <div className={styles.community_article_division} />
                 <div className={styles.community_article_cotent}>
                   <div className={styles.community_article_detail}>
-                    {info.map((arg, i) => (
+                    {data.map((arg, i) => (
                       <div
                         key={i}
                         className={styles.community_article_detail_list}
                       >
                         <div className={styles.community_article_detail_left}>
                           <div className={styles.community_article_major}>
-                            {arg.tag}
+                            {articles[0].tag[arg.theme - 1]}
                           </div>
                           <div className={styles.community_article_title}>
                             {arg.title}
@@ -192,7 +138,7 @@ export default async function Community() {
                             <span
                               className={styles.community_article_comment_value}
                             >
-                              {arg.comments.toLocaleString()}
+                              {arg.comment.toLocaleString()}
                             </span>
                           </div>
                         </div>
