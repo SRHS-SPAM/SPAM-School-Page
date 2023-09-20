@@ -118,12 +118,20 @@ export default async function Community() {
                       >
                         <div className={styles.community_article_detail_left}>
                           <div className={styles.community_article_major}>
-                            {articles
-                              .filter((obj) => obj.id == arg.category)
-                              .map((obj) => obj.title)}
+                            <Link href={"community/" + arg.category}>
+                              {articles
+                                .filter((obj) => obj.id == arg.category)
+                                .map((obj) => obj.title)}
+                            </Link>
                           </div>
                           <div className={styles.community_article_title}>
-                            {arg.title}
+                            <Link
+                              href={
+                                "community/6508fbdca79261ba213f5594/" + arg._id
+                              }
+                            >
+                              {arg.title}
+                            </Link>
                           </div>
                         </div>
                         <div className={styles.community_article_detail_right}>

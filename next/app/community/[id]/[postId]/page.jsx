@@ -8,15 +8,25 @@ import ImageSvg from "../../../../public/svg/image.svg";
 import Smile from "../../../../public/svg/smile.svg";
 import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
-export default function Post({}) {
+import { connectDB } from "@/util/database";
+import { ObjectId } from "mongodb";
+
+export default async function Post(props) {
+  let db = (await connectDB).db("SRH-Community");
+  let data = await db
+    .collection("post")
+    .findOne({ _id: new ObjectId(props.params.postId) });
+  console.log(data);
   return (
-    <>
-      <header>
-        <div className={styles.write_d_header}>
-          <div className={styles.write_d_bar}>
-            <Arrow location="/community" mod={1}></Arrow>
-            <div className={styles.write_d_sub_bar}>
-              <Menubar></Menubar>
+    <div>
+      <header className={styles.cafe_header}>
+        <div className={styles.cafe_inner}>
+          <div className={styles.cafe_actions}>
+            <Arrow location="/" mod={2} />
+            <div className={styles.cafe_menu}>
+              <div className={styles.cafe_menu_wrap}>
+                <Menubar></Menubar>
+              </div>
             </div>
           </div>
         </div>
@@ -57,7 +67,9 @@ export default function Post({}) {
                   <img src="../../../../public/images/profile.png" />
                 </div>
                 <div className={styles.write_d_usermore_subbox}>
-                  <div className={styles.write_d_usermore_name}>커피중독자</div>
+                  <div className={styles.write_d_usermore_name}>
+                    {data.writer}
+                  </div>
                   <div className={styles.write_d_user_name_sub}>
                     님의 게시글 더 보기
                   </div>
@@ -67,17 +79,17 @@ export default function Post({}) {
                 <div className={styles.write_d_thumbs_up}>
                   {/*<i className={`${styles.fa-regular} ${styles.fa-thumbs-up}`}></i>*/}
                   <ThumbsUp></ThumbsUp>
-                  추천 57
+                  추천 {data.good}
                 </div>
                 <div className={styles.write_d_thumbs_down}>
                   {/*<i className={`${styles.fa-regular} ${styles.fa-thumbs-down}`}></i>*/}
                   <ThumbsDown></ThumbsDown>
-                  비추천 1
+                  비추천 {data.bad}
                 </div>
                 <div className={styles.write_d_reply_count}>
                   {/*<i className={`${styles.fa-regular} ${styles.fa-comment}`}></i>*/}
                   <CommentSvg></CommentSvg>
-                  댓글 5
+                  댓글 {data.commnet}
                 </div>
               </div>
               <div className={styles.write_d_reply_list}>
@@ -333,6 +345,6 @@ export default function Post({}) {
           </div>
         </div>
       </main>
-    </>
+    </div>
   );
 }

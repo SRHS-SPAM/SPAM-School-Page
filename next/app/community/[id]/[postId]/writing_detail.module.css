@@ -1,3 +1,40 @@
+.cafe_header {
+  height: var(--Sizes-size9);
+}
+
+.cafe_inner {
+  align-items: center;
+  height: 100%;
+}
+
+.cafe_actions {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  /* align-items: center; */
+  padding-top: var(--Sizes-size1_5);
+}
+
+.center_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: var(--Sizes-size2);
+  width: 45%;
+  height: 70%;
+}
+
+.cafeteria_label {
+  color: var(--font-Color-white);
+  font-size: var(--Sizes-size3_5);
+  font-weight: 700;
+}
+
+.cafe_menu {
+  padding-right: var(--Sizes-size3_2);
+  padding-top: var(--Sizes-size1);
+}
 
 .write_d_bar {
   display: flex;
@@ -14,7 +51,7 @@
 .write_d_sub_bar {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-flex-end;
   padding: 0 3rem 0 5rem;
   align-items: center;
 }
@@ -119,7 +156,7 @@
 
 .write_d_usermore_subbox {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .write_d_usermore_name {
@@ -337,7 +374,7 @@
   width: 100%;
   height: 4rem;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-flex-end;
   justify-content: center;
 }
 

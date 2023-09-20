@@ -20,7 +20,10 @@ export default async function Detail(props) {
   let db = (await connectDB).db("SRH-Community");
   let result = await db
     .collection("category")
-    .findOne({ _id: new ObjectId(props.params.id) });
+    .findOne(
+      { _id: new ObjectId(props.params.id) },
+      { _id: 1, title: 1, tag: 1 }
+    );
   let postList = await db
     .collection("post")
     .find({ category: new ObjectId(props.params.id) })
