@@ -11,22 +11,28 @@ import Menubar from "@/components/Menubar";
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 import Comment from "./Comment";
+import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export default async function Post(props) {
+  let session = await getServerSession(authOptions);
   let db = (await connectDB).db("SRH-Community");
   let data = await db
     .collection("post")
     .findOne({ _id: new ObjectId(props.params.postId) });
   data._id = data._id.toString();
-
+  data.category = data.category.toString();
+  console.log(data);
   let countDown = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
-
+  let [datePart, timePart] = data.date.split(";");
+  datePart = datePart.replace(/\//g, ".");
   return (
     <div>
       <header className={styles.cafe_header}>
         <div className={styles.cafe_inner}>
           <div className={styles.cafe_actions}>
-            <Arrow location="/" mod={2} />
+            <Arrow location={"/community/" + data.category} mod={2} />
             <div className={styles.cafe_menu}>
               <div className={styles.cafe_menu_wrap}>
                 <Menubar></Menubar>
@@ -40,9 +46,11 @@ export default async function Post(props) {
         <div className={styles.write_d_main_container}>
           <div className={styles.write_d_main_top}>
             <div className={styles.write_d_board}>
-              <a href="">자유게시판 </a>
+              <Link href={"/community/" + data.category}>
+                {props.searchParams.name} 게시판
+              </Link>
             </div>
-            <div className={styles.write_d_title}>부장 국XX을 폭로합니다</div>
+            <div className={styles.write_d_title}>{data.title}</div>
             <div className={styles.write_d_userinfo}>
               <div className={styles.write_d_user_img}>
                 <img src="../../../../public/images/profile.png" />
@@ -50,7 +58,7 @@ export default async function Post(props) {
               <div className={styles.write_d_user_subbox}>
                 <div className={styles.write_d_user_name}>{data.writer}</div>
                 <div className={styles.write_d_date}>
-                  2023.09.17 06:19 조회 {data.views}
+                  {datePart} {timePart} 조회 {data.views}
                 </div>
               </div>
             </div>
@@ -107,7 +115,9 @@ export default async function Post(props) {
                 </div>
               </div>
               <div className={styles.write_d_reply_writing}>
-                <div className={styles.write_d_username}>정삼복</div>
+                <div className={styles.write_d_username}>
+                  {session.user.name}
+                </div>
                 <div className={styles.write_d_comment_detail}>
                   <div className={styles.write_d_comment_detail_main}>
                     <div className={styles.write_d_comment_detail_input}>

@@ -117,7 +117,7 @@ export default async function Detail(props) {
           {/* write main */}
           <div className={style.community_detail_writing_main}>
             <div className={style.writing_main_box}>
-              <Post result={postList}></Post>
+              <Post result={postList} name={result.title}></Post>
               <div className={style.writing_footer}>
                 <div className={style.writing_footer_box}>
                   <div className={style.writing_button}>

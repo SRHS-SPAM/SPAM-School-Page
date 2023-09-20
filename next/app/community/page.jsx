@@ -15,8 +15,13 @@ import { format } from "date-fns";
 import { connectDB } from "@/util/database";
 import List from "./List";
 import { ObjectId } from "mongodb";
+import { redirect } from "next/navigation";
 
 export default async function Community() {
+  let session = await getServerSession(authOptions);
+  if (!session) {
+    redirect("/login");
+  }
   let db = (await connectDB).db("SRH-Community");
   let articles = await db.collection("category").find().toArray();
   let data = await db
@@ -34,7 +39,6 @@ export default async function Community() {
   let topf = articles;
   topf.sort((a, b) => a.rank - b.rank);
 
-  let session = await getServerSession(authOptions);
   const currentDate = new Date();
   const currentDateTimeString = format(currentDate, "yyyy.MM.dd (E)");
 

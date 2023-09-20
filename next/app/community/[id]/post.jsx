@@ -4,7 +4,7 @@ import style from "./community_detail.module.css";
 import Sms from "../../../public/svg/sms.svg";
 import Link from "next/link";
 
-export default function Post({ result }) {
+export default function Post({ result, name }) {
   return (
     <>
       {result.map((post, i) => (
@@ -16,7 +16,14 @@ export default function Post({ result }) {
             <Sms></Sms>
             <span>
               <Link
-                href={"/community/" + post.category + "/" + post._id}
+                href={
+                  "/community/" +
+                  post.category +
+                  "/" +
+                  post._id +
+                  "?name=" +
+                  name
+                }
                 className={style.link}
               >
                 {post.title}

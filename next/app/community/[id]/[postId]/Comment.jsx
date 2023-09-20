@@ -4,14 +4,12 @@ import { useEffect, useState } from "react";
 import styles from "./writing_detail.module.css";
 
 export default function Comment(props) {
-  let [comment, setComment] = useState("");
   const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch("/api/comment/list?id=" + props._id)
       .then((r) => r.json())
       .then((result) => {
-        console.log(result);
         setData(result);
       });
   }, []);
