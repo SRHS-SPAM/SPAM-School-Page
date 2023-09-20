@@ -48,11 +48,6 @@ body {
   gap: var(--Sizes-size2);
 }
 
-.writing_title {
-  width: 100%;
-  height: 15%;
-}
-
 input::placeholder {
   color: rgba(0, 0, 0, 0.3);
   font-size: var(--Sizes-size1_4);
@@ -60,6 +55,8 @@ input::placeholder {
 }
 
 .writing_title {
+  width: 100%;
+  height: 15%;
   background-color: white;
   display: flex;
   align-items: center;
@@ -107,7 +104,7 @@ input::placeholder {
   display: flex;
   justify-content: center;
   border-radius: 1rem;
-  padding-left: 1rem;
+  padding: 1rem 0 1rem 1rem;
 }
 
 .writing_taginput::placeholder {
