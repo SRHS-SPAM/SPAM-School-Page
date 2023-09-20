@@ -63,29 +63,75 @@
 
     <main class="writing_main">
       <div class="writing_base">
+        <div class="writing_page">글 쓰기</div>
         <div class="writing_title">
-          <input
-            class="writing_titleinput"
-            type="text"
-            placeholder="제목 작성"
-          />
+          <select class="writing_select">
+            <option value="" disabled selected hidden>&nbsp;게시판 선택</option>
+            <option value="option1">공지사항</option>
+            <option value="option2">자유게시판</option>
+            <option value="option3">전공게시판</option>
+            <option value="option4">학습게시판</option>
+          </select>
         </div>
 
         <div class="writing_tag">
-          <input class="writing_taginput" type="text" placeholder="태그" />
+          <input
+            class="writing_taginput"
+            type="text"
+            placeholder="제목을 입력하세요"
+          />
         </div>
-
-        <div class="writing_par">
-          <textarea
-            class="writing_partextarea"
-            cols="30"
-            rows="10"
-            placeholder="글 쓰기"
-          ></textarea>
+        <div class="writing_sub">
+          <div class="writing_toolbar">
+            <i class="fa-regular fa-image"></i>
+            <i class="fa-solid fa-video"></i>
+            <i class="fa-regular fa-face-smile"></i>
+            <i class="fa-regular fa-file"></i>
+            <i class="fa-solid fa-link"></i>
+          </div>
+          <div class="writing_text_setting">
+            <select class="writing_fontselecter">
+              <option value="option0">&nbsp;휴먼굴림체</option>
+              <option value="option1">Arial</option>
+              <option value="option2">굴림</option>
+              <option value="option3">궁서</option>
+              <option value="option4">나눔고딕</option>
+            </select>
+            <select class="writing_fontsizeselecter">
+              <option value="option0">&nbsp;12</option>
+              <option value="option1">13</option>
+              <option value="option2">14</option>
+              <option value="option3">15</option>
+              <option value="option4">16</option>
+            </select>
+            <div class="writing_text_sub_setting">
+              <i class="fa-solid fa-bold"></i>
+              <i class="fa-solid fa-italic"></i>
+              <i class="fa-solid fa-underline"></i>
+              <i class="fa-solid fa-strikethrough"></i>
+            </div>
+          </div>
+          <div class="writing_textarea_container">
+            <textarea
+              name="writing_text"
+              class="writing_textarea"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+        </div>
+        <div class="post_save">
+          <div class="post_savebutton">
+            <button>저장</button>
+          </div>
         </div>
       </div>
     </main>
 
     <script src="../../js/menu.js"></script>
+    <script
+      src="https://kit.fontawesome.com/75ea5a755a.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
