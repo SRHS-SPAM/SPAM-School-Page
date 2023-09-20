@@ -1,6 +1,7 @@
+"use client";
 import styles from "./writing_detail.module.css";
 
-export default async function PostPage(props) {
+export default function PostPage(props) {
   // if (props.name == "서로고") {
 
   // } else {
@@ -12,6 +13,7 @@ export default async function PostPage(props) {
   //     .toArray();
   // }
 
+  console.log(props.post);
   return (
     <div className={styles.write_d_post_list_main}>
       {props.post.map((ai, i) => {

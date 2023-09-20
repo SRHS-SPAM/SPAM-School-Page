@@ -13,7 +13,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import PostReply from "./PostReply";
 import PostPage from "./PostPage";
 import Pagination from "./Pagination";
-import MiddlePage from "./middlepage";
+import MiddlePage from "./MiddlePage";
 
 export default async function Post(props) {
   let session = await getServerSession(authOptions);

@@ -81,7 +81,7 @@ export default function MiniCalendar({ Year, Month, Today }) {
 
       <div className={styles.day}>
         {mp.map((week, i) => (
-          <div className={styles.row}>
+          <div className={styles.row} key={i}>
             <li>{daystr[i]}</li>
             {week.map((day, j) => (
               <li
