@@ -131,7 +131,9 @@ export default async function Community() {
                           <div className={styles.community_article_title}>
                             <Link
                               href={
-                                "community/6508fbdca79261ba213f5594/" + arg._id
+                                "community/6508fbdca79261ba213f5594/" +
+                                arg._id +
+                                "?name=서로고"
                               }
                             >
                               {arg.title}
@@ -186,7 +188,7 @@ export default async function Community() {
                         <div
                           className={styles.community_sub_article_division}
                         />
-                        <List result={ai.id}></List>
+                        <List result={ai.id} name={ai.title}></List>
                       </div>
                     );
                 })}

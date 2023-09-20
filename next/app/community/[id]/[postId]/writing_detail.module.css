@@ -245,6 +245,15 @@
   font-size: 0.9rem;
 }
 
+.write_d_reply_date > span {
+  cursor: pointer;
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
 .write_d_comment {
   padding-left: 5rem;
   padding-top: 1rem;
@@ -255,6 +264,15 @@
   border-radius: 0.5rem;
   height: 10rem;
   margin-top: 4rem;
+  background-color: rgb(226, 226, 226);
+  padding: 2rem;
+}
+
+.write_d_reply_writing_s {
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  height: 7rem;
+  margin-top: 1rem;
   background-color: rgb(226, 226, 226);
   padding: 2rem;
 }
@@ -305,6 +323,7 @@
   border-radius: 0.5rem;
   border: 0.15rem solid black;
   font-size: 0.9rem;
+  cursor: pointer;
 }
 
 .write_d_reply_writing_sub {

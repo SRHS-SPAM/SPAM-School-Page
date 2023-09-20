@@ -4,8 +4,6 @@ import RightArrow from "../../../../public/svg/rightArrow.svg";
 import ThumbsUp from "../../../../public/svg/thumbsUp.svg";
 import ThumbsDown from "../../../../public/svg/thumbsDown.svg";
 import CommentSvg from "../../../../public/svg/comment.svg";
-import ImageSvg from "../../../../public/svg/image.svg";
-import Smile from "../../../../public/svg/smile.svg";
 import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
 import { connectDB } from "@/util/database";
@@ -14,6 +12,7 @@ import Comment from "./Comment";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import PostReply from "./PostReply";
 
 export default async function Post(props) {
   let session = await getServerSession(authOptions);
@@ -23,7 +22,6 @@ export default async function Post(props) {
     .findOne({ _id: new ObjectId(props.params.postId) });
   data._id = data._id.toString();
   data.category = data.category.toString();
-  console.log(data);
   let countDown = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
   let [datePart, timePart] = data.date.split(";");
   datePart = datePart.replace(/\//g, ".");
@@ -111,7 +109,7 @@ export default async function Post(props) {
                   </div>
                 </div>
                 <div className={styles.write_d_reply_list_sub}>
-                  <Comment _id={data._id}></Comment>
+                  <Comment _id={data._id} name={session.user.name}></Comment>
                 </div>
               </div>
               <div className={styles.write_d_reply_writing}>
@@ -119,26 +117,11 @@ export default async function Post(props) {
                   {session.user.name}
                 </div>
                 <div className={styles.write_d_comment_detail}>
-                  <div className={styles.write_d_comment_detail_main}>
-                    <div className={styles.write_d_comment_detail_input}>
-                      <input
-                        className={`${styles.set_input} ${styles.set_info_input}`}
-                        type="text"
-                        placeholder="댓글을 남겨보세요"
-                      />
-                    </div>
-                    <div className={styles.comment_detail_sub}>
-                      <div className={styles.comment_detail_sub_1}>
-                        {/*<i className={`${styles.fa-regular} ${styles.fa-image}`}></i>*/}
-                        <ImageSvg></ImageSvg>
-                        {/*<i className={`${styles.fa-regular} ${styles.fa-face-smile}`}></i>*/}
-                        <Smile></Smile>
-                      </div>
-                      <div className={styles.comment_detial_sub_2}>
-                        <button>작성</button>
-                      </div>
-                    </div>
-                  </div>
+                  <PostReply
+                    post={data._id}
+                    id={data.category}
+                    name={props.searchParams.name}
+                  ></PostReply>
                 </div>
               </div>
               <div className={styles.write_d_reply_writing_sub}>
@@ -256,7 +239,9 @@ export default async function Post(props) {
               <div className={styles.page_selector}>
                 <div className={styles.page_selector_box}>
                   {countDown.map((ai, i) => (
-                    <div className={styles.community_pages}>{ai}</div>
+                    <div className={styles.community_pages} key={i}>
+                      {ai}
+                    </div>
                   ))}
 
                   <RightArrow className={styles.community_pages}></RightArrow>

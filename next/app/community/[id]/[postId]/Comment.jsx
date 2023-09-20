@@ -1,10 +1,14 @@
 "use client";
 
+import ImageSvg from "../../../../public/svg/image.svg";
+import Smile from "../../../../public/svg/smile.svg";
 import { useEffect, useState } from "react";
 import styles from "./writing_detail.module.css";
 
 export default function Comment(props) {
   const [data, setData] = useState([]);
+  const [comment, setCommnet] = useState("");
+  const [enable, setEnable] = useState(false);
 
   useEffect(() => {
     fetch("/api/comment/list?id=" + props._id)
@@ -13,7 +17,6 @@ export default function Comment(props) {
         setData(result);
       });
   }, []);
-
   return (
     <>
       <div className={styles.write_d_reply_container}>
@@ -24,25 +27,57 @@ export default function Comment(props) {
           if (ai.parent === "") {
             /*<!--댓글 시작 부분-->*/
             return (
-              <div className={styles.write_d_reply}>
-                <div className={styles.write_d_reply_left}>
-                  <img src="../../../../public/images/profile.png" />
-                </div>
-                <div className={styles.write_d_reply_right}>
-                  <div className={styles.write_d_reply_username}>
-                    {ai.writer}
+              <div key={i}>
+                <div className={styles.write_d_reply}>
+                  <div className={styles.write_d_reply_left}>
+                    <img src="../../../../public/images/profile.png" />
                   </div>
-                  <div className={styles.write_d_reply_main}>{ai.comment}</div>
-                  <div className={styles.write_d_reply_date}>
-                    {datePart} {timePart} 답글쓰기
+                  <div className={styles.write_d_reply_right}>
+                    <div className={styles.write_d_reply_username}>
+                      {ai.writer}
+                    </div>
+                    <div className={styles.write_d_reply_main}>
+                      {ai.comment}
+                    </div>
+                    <div className={styles.write_d_reply_date}>
+                      {datePart} {timePart}{" "}
+                      <span onClick={() => setEnable((r) => !r)}>답글쓰기</span>
+                    </div>
                   </div>
                 </div>
+                {/* {enable ? (
+                  <div className={styles.write_d_reply_writing_s}>
+                    <div className={styles.write_d_username}>{props.name}</div>
+                    <div className={styles.write_d_comment_detail}>
+                      <div className={styles.write_d_comment_detail_main}>
+                        <div className={styles.write_d_comment_detail_input}>
+                          <input
+                            className={`${styles.set_input} ${styles.set_info_input}`}
+                            type="text"
+                            placeholder="댓글을 남겨보세요"
+                          />
+                        </div>
+                        <div className={styles.comment_detail_sub}>
+                          <div className={styles.comment_detail_sub_1}>
+                            <ImageSvg></ImageSvg>
+                            <Smile></Smile>
+                          </div>
+                          <div className={styles.comment_detial_sub_2}>
+                            <button>작성</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <></>
+                )} */}
               </div>
             );
           } else {
             /*<!--답글 시작 부분-->*/
             return (
-              <div className={styles.write_d_comment}>
+              <div className={styles.write_d_comment} key={i}>
                 <div className={styles.write_d_reply}>
                   <div className={styles.write_d_reply_left}>
                     <img src="../../../../public/images/profile.png" />
@@ -63,7 +98,6 @@ export default function Comment(props) {
             );
           }
         })}
-        {/*<!--답글 시작 부분-->*/}
       </div>
     </>
   );
