@@ -395,6 +395,7 @@
   display: flex;
   align-items: flex-flex-end;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .page_selector_box {

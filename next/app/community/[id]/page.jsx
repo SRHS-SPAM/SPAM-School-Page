@@ -43,7 +43,7 @@ export default async function Detail(props) {
     : total;
   let countDown = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     cnt = total - ((total - page) / 10 + (total - page) ? 1 : 0) * 10;
-  // console.log(props, result.writing, total, page, cnt);
+  console.log(props, result.writing, total, page, cnt);
   return (
     <>
       {/* header */}

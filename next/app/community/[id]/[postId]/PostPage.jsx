@@ -1,29 +1,20 @@
-import { connectDB } from "@/util/database";
-import { ObjectId } from "mongodb";
 import styles from "./writing_detail.module.css";
 
 export default async function PostPage(props) {
-  let data;
-  if (props.name == "서로고") {
-    let db = (await connectDB).db("SRH-Community");
-    data = await db
-      .collection("post")
-      .find()
-      .sort({ good: -1 })
-      .limit(6)
-      .toArray();
-  } else {
-    let db = (await connectDB).db("SRH-Community");
-    data = await db
-      .collection("post")
-      .find({ category: new ObjectId(props.id) })
-      .sort({ good: -1 })
-      .limit(6)
-      .toArray();
-  }
+  // if (props.name == "서로고") {
+
+  // } else {
+  //   let db = (await connectDB).db("SRH-Community");
+  //   data = await db
+  //     .collection("post")
+  //     .find({ category: new ObjectId(props.id) })
+  //     .sort({ good: -1 })
+  //     .toArray();
+  // }
+
   return (
     <div className={styles.write_d_post_list_main}>
-      {data.map((ai, i) => {
+      {props.post.map((ai, i) => {
         let [datePart, timePart] = ai.date.split(";");
         return (
           <div className={styles.write_d_post_list_object} key={i}>

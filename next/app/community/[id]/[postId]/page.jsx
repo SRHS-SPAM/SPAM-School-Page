@@ -1,6 +1,4 @@
 import styles from "./writing_detail.module.css";
-import RightDoubleArrow from "../../../../public/svg/rightDoubleArrow.svg";
-import RightArrow from "../../../../public/svg/rightArrow.svg";
 import ThumbsUp from "../../../../public/svg/thumbsUp.svg";
 import ThumbsDown from "../../../../public/svg/thumbsDown.svg";
 import CommentSvg from "../../../../public/svg/comment.svg";
@@ -14,6 +12,8 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import PostReply from "./PostReply";
 import PostPage from "./PostPage";
+import Pagination from "./Pagination";
+import MiddlePage from "./middlepage";
 
 export default async function Post(props) {
   let session = await getServerSession(authOptions);
@@ -25,9 +25,16 @@ export default async function Post(props) {
   data.category = data.category.toString();
   let image = data.image == "" ? "/images/profile.png" : data.image;
 
-  let countDown = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
   let [datePart, timePart] = data.date.split(";");
   datePart = datePart.replace(/\//g, ".");
+
+  let result = await db.collection("post").find().sort({ good: -1 }).toArray();
+  result = result.map((a) => {
+    a._id = a._id.toString();
+    a.category = a.category.toString();
+    return a;
+  });
+
   return (
     <div>
       <header className={styles.cafe_header}>
@@ -137,24 +144,7 @@ export default async function Post(props) {
               </div>
               <div className={styles.write_d_post_list}>
                 <div className={styles.write_d_post_list_top}>전체 글</div>
-                <PostPage
-                  name={props.searchParams.name}
-                  id={props.params.postId}
-                ></PostPage>
-              </div>
-              <div className={styles.page_selector}>
-                <div className={styles.page_selector_box}>
-                  {countDown.map((ai, i) => (
-                    <div className={styles.community_pages} key={i}>
-                      {ai}
-                    </div>
-                  ))}
-
-                  <RightArrow className={styles.community_pages}></RightArrow>
-                  <RightDoubleArrow
-                    className={styles.community_pages}
-                  ></RightDoubleArrow>
-                </div>
+                <MiddlePage result={result}></MiddlePage>
               </div>
             </div>
           </div>
