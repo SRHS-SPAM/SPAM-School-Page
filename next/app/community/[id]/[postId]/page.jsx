@@ -10,13 +10,17 @@ import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
+import Comment from "./Comment";
 
 export default async function Post(props) {
   let db = (await connectDB).db("SRH-Community");
   let data = await db
     .collection("post")
     .findOne({ _id: new ObjectId(props.params.postId) });
-  console.log(data);
+  data._id = data._id.toString();
+
+  let countDown = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
   return (
     <div>
       <header className={styles.cafe_header}>
@@ -44,9 +48,9 @@ export default async function Post(props) {
                 <img src="../../../../public/images/profile.png" />
               </div>
               <div className={styles.write_d_user_subbox}>
-                <div className={styles.write_d_user_name}>커피중독자</div>
+                <div className={styles.write_d_user_name}>{data.writer}</div>
                 <div className={styles.write_d_date}>
-                  2023.09.17 06:19 조회 57
+                  2023.09.17 06:19 조회 {data.views}
                 </div>
               </div>
             </div>
@@ -59,9 +63,7 @@ export default async function Post(props) {
               <div className={styles.write_d_writing_bottom}>
                 <div className={styles.write_d_text}>정실은 이츠키</div>
               </div>
-              <div className={styles.write_d_writing_main}>
-                국XX의 비밀 폴더
-              </div>
+              <div className={styles.write_d_writing_main}>{data.content}</div>
               <div className={styles.write_d_writing_usermore}>
                 <div className={styles.write_d_usermore_img}>
                   <img src="../../../../public/images/profile.png" />
@@ -89,7 +91,7 @@ export default async function Post(props) {
                 <div className={styles.write_d_reply_count}>
                   {/*<i className={`${styles.fa-regular} ${styles.fa-comment}`}></i>*/}
                   <CommentSvg></CommentSvg>
-                  댓글 {data.commnet}
+                  댓글 {data.comment}
                 </div>
               </div>
               <div className={styles.write_d_reply_list}>
@@ -101,90 +103,7 @@ export default async function Post(props) {
                   </div>
                 </div>
                 <div className={styles.write_d_reply_list_sub}>
-                  <div className={styles.write_d_reply_container}>
-                    {/*<!--댓글 시작 부분-->*/}
-                    <div className={styles.write_d_reply}>
-                      <div className={styles.write_d_reply_left}>
-                        <img src="../../../../public/images/profile.png" />
-                      </div>
-                      <div className={styles.write_d_reply_right}>
-                        <div className={styles.write_d_reply_username}>
-                          돌하르방
-                        </div>
-                        <div className={styles.write_d_reply_main}>
-                          글 내리세요.
-                        </div>
-                        <div className={styles.write_d_reply_date}>
-                          2023.09.17 06:25 조회 25 답글쓰기
-                        </div>
-                      </div>
-                    </div>
-                    {/*<!--답글 시작 부분-->*/}
-                    <div className={styles.write_d_comment}>
-                      <div className={styles.write_d_reply}>
-                        <div className={styles.write_d_reply_left}>
-                          <img src="../../../../public/images/profile.png" />
-                        </div>
-                        <div className={styles.write_d_reply_right}>
-                          <div className={styles.write_d_reply_username}>
-                            우주갓겜 이터널리턴
-                          </div>
-                          <div className={styles.write_d_reply_main}>
-                            통한의 비추 1 주인 등장ㅋㅋ
-                          </div>
-                          <div className={styles.write_d_reply_date}>
-                            2023.09.17 06:25 조회 25 답글쓰기
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className={styles.write_d_reply}>
-                      <div className={styles.write_d_reply_left}>
-                        <img src="../../../../public/images/profile.png" />
-                      </div>
-                      <div className={styles.write_d_reply_right}>
-                        <div className={styles.write_d_reply_username}>
-                          이소상무공주머니
-                        </div>
-                        <div className={styles.write_d_reply_main}>섹</div>
-                        <div className={styles.write_d_reply_date}>
-                          2023.09.17 06:25 조회 25 답글쓰기
-                        </div>
-                      </div>
-                    </div>
-                    <div className={styles.write_d_reply}>
-                      <div className={styles.write_d_reply_left}>
-                        <img src="../../../../public/images/profile.png" />
-                      </div>
-                      <div className={styles.write_d_reply_right}>
-                        <div className={styles.write_d_reply_username}>
-                          브로냐의 야벅지 어우 쫩쫩
-                        </div>
-                        <div className={styles.write_d_reply_main}>
-                          와캬파농쭉 쭉빵빵 냠냠
-                        </div>
-                        <div className={styles.write_d_reply_date}>
-                          2023.09.17 06:25 조회 25 답글쓰기
-                        </div>
-                      </div>
-                    </div>
-                    <div className={styles.write_d_reply}>
-                      <div className={styles.write_d_reply_left}>
-                        <img src="../../../../public/images/profile.png" />
-                      </div>
-                      <div className={styles.write_d_reply_right}>
-                        <div className={styles.write_d_reply_username}>
-                          장미새
-                        </div>
-                        <div className={styles.write_d_reply_main}>
-                          롤체 빌지워터 ㅈㄴ 재밌음 다들 해보셈
-                        </div>
-                        <div className={styles.write_d_reply_date}>
-                          2023.09.17 06:25 조회 25 답글쓰기
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <Comment _id={data._id}></Comment>
                 </div>
               </div>
               <div className={styles.write_d_reply_writing}>
@@ -222,6 +141,7 @@ export default async function Post(props) {
               </div>
               <div className={styles.write_d_post_list}>
                 <div className={styles.write_d_post_list_top}>전체 글</div>
+                {/* {.map} */}
                 <div className={styles.write_d_post_list_main}>
                   <div className={styles.write_d_post_list_object}>
                     <div className={styles.write_d_post_list_category}>
@@ -325,16 +245,10 @@ export default async function Post(props) {
               </div>
               <div className={styles.page_selector}>
                 <div className={styles.page_selector_box}>
-                  <div className={styles.community_pages}>1</div>
-                  <div className={styles.community_pages}>2</div>
-                  <div className={styles.community_pages}>3</div>
-                  <div className={styles.community_pages}>4</div>
-                  <div className={styles.community_pages}>5</div>
-                  <div className={styles.community_pages}>6</div>
-                  <div className={styles.community_pages}>7</div>
-                  <div className={styles.community_pages}>8</div>
-                  <div className={styles.community_pages}>9</div>
-                  <div className={styles.community_pages}>10</div>
+                  {countDown.map((ai, i) => (
+                    <div className={styles.community_pages}>{ai}</div>
+                  ))}
+
                   <RightArrow className={styles.community_pages}></RightArrow>
                   <RightDoubleArrow
                     className={styles.community_pages}
