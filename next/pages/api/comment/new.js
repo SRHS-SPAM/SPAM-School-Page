@@ -18,10 +18,10 @@ export default async function Comment(req, res) {
     req.body = JSON.parse(req.body);
 
     let image = session?.user?.image ?? "";
-
+    let id = new ObjectId(req.body._id);
     let data = {
       comment: req.body.comment,
-      post: new ObjectId(req.body._id),
+      post: id,
       author: session.user.email,
       writer: session.user.name,
       parent: "",
@@ -31,6 +31,9 @@ export default async function Comment(req, res) {
     try {
       let db = (await connectDB).db("SRH-Community");
       let result = await db.collection("comment").insertOne(data);
+      let postResult = await db
+        .collection("post")
+        .updateOne({ _id: id }, { $inc: { comment: 1 } });
       res.status(200).json("저장완료");
     } catch (error) {
       console.error(error);

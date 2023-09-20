@@ -30,7 +30,9 @@ export default function Comment(props) {
               <div key={i}>
                 <div className={styles.write_d_reply}>
                   <div className={styles.write_d_reply_left}>
-                    <img src="../../../../public/images/profile.png" />
+                    <img
+                      src={ai.image == "" ? "/images/profile.png" : ai.image}
+                    />
                   </div>
                   <div className={styles.write_d_reply_right}>
                     <div className={styles.write_d_reply_username}>
@@ -80,7 +82,9 @@ export default function Comment(props) {
               <div className={styles.write_d_comment} key={i}>
                 <div className={styles.write_d_reply}>
                   <div className={styles.write_d_reply_left}>
-                    <img src="../../../../public/images/profile.png" />
+                    <img
+                      src={ai.image == "" ? "/images/profile.png" : ai.image}
+                    />
                   </div>
                   <div className={styles.write_d_reply_right}>
                     <div className={styles.write_d_reply_username}>

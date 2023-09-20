@@ -13,6 +13,7 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import PostReply from "./PostReply";
+import PostPage from "./PostPage";
 
 export default async function Post(props) {
   let session = await getServerSession(authOptions);
@@ -22,6 +23,8 @@ export default async function Post(props) {
     .findOne({ _id: new ObjectId(props.params.postId) });
   data._id = data._id.toString();
   data.category = data.category.toString();
+  let image = data.image == "" ? "/images/profile.png" : data.image;
+
   let countDown = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
   let [datePart, timePart] = data.date.split(";");
   datePart = datePart.replace(/\//g, ".");
@@ -51,7 +54,7 @@ export default async function Post(props) {
             <div className={styles.write_d_title}>{data.title}</div>
             <div className={styles.write_d_userinfo}>
               <div className={styles.write_d_user_img}>
-                <img src="../../../../public/images/profile.png" />
+                <img src={image} />
               </div>
               <div className={styles.write_d_user_subbox}>
                 <div className={styles.write_d_user_name}>{data.writer}</div>
@@ -64,7 +67,7 @@ export default async function Post(props) {
           <div className={styles.write_d_main}>
             <div className={styles.write_d_writing}>
               <div className={styles.write_d_writing_img}>
-                <img src="../../../../public/images/etsuki.png" />
+                <img src="/images/etsuki.png" />
               </div>
               <div className={styles.write_d_writing_bottom}>
                 <div className={styles.write_d_text}>정실은 이츠키</div>
@@ -72,7 +75,7 @@ export default async function Post(props) {
               <div className={styles.write_d_writing_main}>{data.content}</div>
               <div className={styles.write_d_writing_usermore}>
                 <div className={styles.write_d_usermore_img}>
-                  <img src="../../../../public/images/profile.png" />
+                  <img src={image} />
                 </div>
                 <div className={styles.write_d_usermore_subbox}>
                   <div className={styles.write_d_usermore_name}>
@@ -134,107 +137,10 @@ export default async function Post(props) {
               </div>
               <div className={styles.write_d_post_list}>
                 <div className={styles.write_d_post_list_top}>전체 글</div>
-                {/* {.map} */}
-                <div className={styles.write_d_post_list_main}>
-                  <div className={styles.write_d_post_list_object}>
-                    <div className={styles.write_d_post_list_category}>
-                      공지
-                    </div>
-                    <div className={styles.write_d_post_list_title}>
-                      아 시발 일하기 존나 싫네
-                    </div>
-                    <div className={styles.write_d_post_list_username}>
-                      우주갓겜 이터널리턴
-                    </div>
-                    <div className={styles.write_d_post_list_date}>
-                      2023.09.19
-                    </div>
-                    <div className={styles.write_d_post_list_view}>1324</div>
-                    <div className={styles.write_d_post_list_thumbsup}>3</div>
-                  </div>
-                  <div className={styles.write_d_post_list_object}>
-                    <div className={styles.write_d_post_list_category}>
-                      공지
-                    </div>
-                    <div className={styles.write_d_post_list_title}>
-                      아 재윤국 시발시치
-                    </div>
-                    <div className={styles.write_d_post_list_username}>
-                      우주갓겜 이터널리턴
-                    </div>
-                    <div className={styles.write_d_post_list_date}>
-                      2023.09.19
-                    </div>
-                    <div className={styles.write_d_post_list_view}>1324</div>
-                    <div className={styles.write_d_post_list_thumbsup}>3</div>
-                  </div>
-                  <div className={styles.write_d_post_list_object}>
-                    <div className={styles.write_d_post_list_category}>
-                      베스트
-                    </div>
-                    <div className={styles.write_d_post_list_title}>
-                      정실은 니노라고 시발
-                    </div>
-                    <div className={styles.write_d_post_list_username}>
-                      정삼복
-                    </div>
-                    <div className={styles.write_d_post_list_date}>
-                      2023.09.19
-                    </div>
-                    <div className={styles.write_d_post_list_view}>1334</div>
-                    <div className={styles.write_d_post_list_thumbsup}>10</div>
-                  </div>
-                  <div className={styles.write_d_post_list_object}>
-                    <div className={styles.write_d_post_list_category}>
-                      자유
-                    </div>
-                    <div className={styles.write_d_post_list_title}>
-                      아무리 봐도 정실은 이츠키다
-                    </div>
-                    <div className={styles.write_d_post_list_username}>
-                      마시쪄
-                    </div>
-                    <div className={styles.write_d_post_list_date}>
-                      2023.09.19
-                    </div>
-                    <div className={styles.write_d_post_list_view}>1324</div>
-                    <div className={styles.write_d_post_list_thumbsup}>15</div>
-                  </div>
-                  <div className={styles.write_d_post_list_object}>
-                    <div className={styles.write_d_post_list_category}>
-                      자유
-                    </div>
-                    <div className={styles.write_d_post_list_title}>
-                      근데 나는 미쿠가 좋음
-                    </div>
-                    <div className={styles.write_d_post_list_username}>
-                      이소상 무공주머니
-                    </div>
-                    <div className={styles.write_d_post_list_date}>
-                      2023.09.19
-                    </div>
-                    <div className={styles.write_d_post_list_view}>135434</div>
-                    <div className={styles.write_d_post_list_thumbsup}>-5</div>
-                  </div>
-                  <div className={styles.write_d_post_list_object}>
-                    <div className={styles.write_d_post_list_category}>
-                      자유
-                    </div>
-                    <div className={styles.write_d_post_list_title}>
-                      각청 죽순 쭈왑 쭈왑 와랄랄라 마렵다
-                    </div>
-                    <div className={styles.write_d_post_list_username}>
-                      마시쪄
-                    </div>
-                    <div className={styles.write_d_post_list_date}>
-                      2023.09.19
-                    </div>
-                    <div className={styles.write_d_post_list_view}>13234</div>
-                    <div className={styles.write_d_post_list_thumbsup}>
-                      -1972
-                    </div>
-                  </div>
-                </div>
+                <PostPage
+                  name={props.searchParams.name}
+                  id={props.params.postId}
+                ></PostPage>
               </div>
               <div className={styles.page_selector}>
                 <div className={styles.page_selector_box}>
