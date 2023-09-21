@@ -5,7 +5,6 @@ import Sms from "../../../public/svg/sms.svg";
 import Link from "next/link";
 
 export default function Post({ post, name }) {
-  console.log(post);
   return (
     <>
       {post.map((ai, i) => {

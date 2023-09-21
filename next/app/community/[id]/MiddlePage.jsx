@@ -13,7 +13,7 @@ import RightArrow from "../../../public/svg/rightArrow.svg";
 export default function MiddlePage({ id, name }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [posts, setPosts] = useState([]);
-  const [postPerPage] = useState(5);
+  const [postPerPage] = useState(30);
   useEffect(() => {
     const fetchPost = () => {
       fetch("/api/community/getList?id=" + id)
@@ -33,7 +33,7 @@ export default function MiddlePage({ id, name }) {
     setCurrentPage(pageNumber);
   };
   return (
-    <div>
+    <>
       <div className={style.writing_main_box}>
         <Post name={name} post={currentPosts}></Post>
         <div className={style.writing_footer}>
@@ -80,6 +80,6 @@ export default function MiddlePage({ id, name }) {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

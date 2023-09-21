@@ -137,7 +137,7 @@ export default async function Post(props) {
               </div>
               <div className={styles.write_d_post_list}>
                 <div className={styles.write_d_post_list_top}>전체 글</div>
-                <MiddlePage result={result}></MiddlePage>
+                <MiddlePage></MiddlePage>
               </div>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Pagination from "./Pagination";
 import PostPage from "./PostPage";
 
-export default function MiddlePage({ result }) {
+export default function MiddlePage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [posts, setPosts] = useState([]);
   const [postPerPage] = useState(6);
