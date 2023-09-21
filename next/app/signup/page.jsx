@@ -12,7 +12,8 @@ export default async function Signup() {
   let session = await getServerSession(authOptions);
   let email = session?.user?.email ?? "";
   let name = session?.user?.name ?? "";
-  if (session.user.tel) {
+  let tel = session?.user?.tel ?? "";
+  if (tel != "") {
     redirect("/");
   }
   return (
