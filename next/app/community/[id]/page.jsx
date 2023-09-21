@@ -9,10 +9,6 @@ import { ObjectId } from "mongodb";
 import MiddlePage from "./MiddlePage";
 
 export default async function Detail(props) {
-  // if (props.params.id == "6508fbdca79261ba213f5594") {
-  //   let postList = await db.collection("post").find().sort().toArray();
-  // } else {
-  // }
   let db = (await connectDB).db("SRH-Community");
   let result = await db
     .collection("category")
