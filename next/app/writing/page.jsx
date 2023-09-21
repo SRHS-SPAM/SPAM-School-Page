@@ -1,7 +1,7 @@
 import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
 import Link from "next/link";
-import style from "./writing.module.css";
+import styles from "./writing.module.css";
 import Image from "@/public/svg/image.svg";
 import Video from "@/public/svg/Videocam.svg";
 import Smile from "@/public/svg/smile.svg";
@@ -38,6 +38,8 @@ export default async function Detail() {
     17,
     18
   ]
+
+export default function Detail() {
   return (
     <div>
       {/* Header */}
