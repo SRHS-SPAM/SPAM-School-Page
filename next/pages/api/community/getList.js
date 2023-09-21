@@ -2,7 +2,8 @@ import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 
 export default async function Comment(req, res) {
-  let id = req.query.id == undefined ? { category: new ObjectId(id) } : "";
+  let id =
+    req.query.id == undefined ? "" : { category: new ObjectId(req.query.id) };
 
   try {
     let db = (await connectDB).db("SRH-Community");

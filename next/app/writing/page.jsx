@@ -22,22 +22,8 @@ export default async function Detail() {
     a.title = a.title.toString();
     return a;
   });
-  let font = [
-    "휴먼굴림체",
-    "Arial",
-    "굴림",
-    "궁서",
-    "나눔고딕",
-  ];
-  let fontsize = [
-    12,
-    13,
-    14,
-    15,
-    16,
-    17,
-    18
-  ]
+  let font = ["휴먼굴림체", "Arial", "굴림", "궁서", "나눔고딕"];
+  let fontsize = [12, 13, 14, 15, 16, 17, 18];
 
   return (
     <div>
@@ -45,7 +31,7 @@ export default async function Detail() {
       <header className={styles.writing_header}>
         <div className={styles.writing_inner}>
           <div className={styles.writing_actions}>
-            <Arrow location={"/"}></Arrow>
+            <Arrow location={"/"} mod={1}></Arrow>
             <div className={styles.writing_menu}>
               <div className={styles.writing_menu_wrap}>
                 <Menubar></Menubar>
@@ -56,18 +42,27 @@ export default async function Detail() {
       </header>
       {/* Main */}
       <main className={styles.writing_main}>
-        <div className={styles.writing_base}>
+        <form
+          action="/api/community/new"
+          method="POST"
+          className={styles.writing_base}
+        >
           <div className={styles.writing_page}>글 쓰기</div>
           <div className={styles.writing_title}>
-            <select className={styles.writing_select}>
-              <option value disabled selected hidden>
+            <select
+              name="category"
+              id="category"
+              className={styles.writing_select}
+              defaultValue="1"
+            >
+              <option value="1" disabled hidden>
                 &nbsp;게시판 선택
               </option>
               {articles.map((ai, i) => {
                 if (i >= 1)
                   return (
-                    <option value={"option" + i} key={i}>
-                      {ai.title}
+                    <option value={ai._id} key={i}>
+                      &nbsp;{ai.title}
                     </option>
                   );
               })}
@@ -77,6 +72,8 @@ export default async function Detail() {
             <input
               className={styles.writing_taginput}
               type="text"
+              name="title"
+              id="title"
               placeholder="제목을 입력하세요"
             />
           </div>
@@ -116,7 +113,8 @@ export default async function Detail() {
             </div>
             <div className={styles.writing_textarea_container}>
               <textarea
-                name="writing_text"
+                name="content"
+                id="content"
                 className={styles.writing_textarea}
                 cols={30}
                 rows={10}
@@ -126,10 +124,10 @@ export default async function Detail() {
           </div>
           <div className={styles.post_save}>
             <div className={styles.post_savebutton}>
-              <button>저장</button>
+              <button type="submit">저장</button>
             </div>
           </div>
-        </div>
+        </form>
       </main>
     </div>
   );

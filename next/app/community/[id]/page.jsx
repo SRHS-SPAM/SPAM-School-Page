@@ -57,8 +57,10 @@ export default async function Detail(props) {
                   <div className={style.sort_type}>최신순</div>
                 </div>
                 <div className={style.selc_write}>
-                  <Edit></Edit>
-                  <Link href="writing.html">
+                  <Link href="/writing">
+                    <Edit></Edit>
+                  </Link>
+                  <Link href="/writing">
                     <div className={style.selc_write_text}>글쓰기</div>
                   </Link>
                 </div>
