@@ -72,7 +72,7 @@ export default async function Detail() {
         image: session.user.image,
         category: new ObjectId(formData.get("category")),
       };
-      // let result = await db.collection("post").insertOne(data);
+      let result = await db.collection("post").insertOne(data);
       // redirect("/community/" + formData.get("category"));
     } catch (error) {
       console.error(error);
