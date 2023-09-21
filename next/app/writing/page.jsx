@@ -1,7 +1,7 @@
 import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
 import Link from "next/link";
-import style from "./writing.module.css";
+import styles from "./writing.module.css";
 
 export default function Detail() {
   return (
