@@ -4,16 +4,11 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import SignupItem from "./SignupItem";
 
-export const metadata = {
-  title: "signup",
-};
-
 export default async function Signup() {
   let session = await getServerSession(authOptions);
   let email = session?.user?.email ?? "";
   let name = session?.user?.name ?? "";
-  let tel = session?.user?.tel ?? "";
-  if (tel != "") {
+  if (session.user.tel) {
     redirect("/");
   }
   return (
