@@ -50,12 +50,12 @@ export default function Home() {
                       </section>
                       <div className={styles.food_li}>
                         <ul className={styles.food_list}>
-                          <li>수수밥</li>
-                          <li>목살김치찌개</li>
-                          <li>추러스고구마맛탕</li>
-                          <li>가지무침</li>
-                          <li>고추치킨마요(와사비)</li>
-                          <li>오미자에이드</li>
+                          <li>카로틴밥</li>
+                          <li>매운쇠고기무국</li>
+                          <li>안동찜닭</li>
+                          <li>콩나물무침</li>
+                          <li>배추김치</li>
+                          <li>수제키위요거트</li>
                         </ul>
                       </div>
                     </div>
@@ -68,12 +68,14 @@ export default function Home() {
                       </section>
                       <div className={styles.food_li}>
                         <ul className={styles.food_list}>
-                          <li>수수밥</li>
-                          <li>목살김치찌개</li>
-                          <li>추러스고구마맛탕</li>
-                          <li>가지무침</li>
-                          <li>고추치킨마요(와사비)</li>
-                          <li>오미자에이드</li>
+                          비빔밥주먹밥(5.6.10.16) 잔치국수(1.5.6.8.9.18)
+                          새우딤섬&초간장(1.5.6.8.9.13) 들나물오이무침(5.6.13)
+                          배추김치(9)
+                          <li>비빔밥주먹밥</li>
+                          <li>잔치국수</li>
+                          <li>새우딤섬&초간장</li>
+                          <li>들나물오이무침</li>
+                          <li>배추김치</li>
                         </ul>
                       </div>
                     </div>
