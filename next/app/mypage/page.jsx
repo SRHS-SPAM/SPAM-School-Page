@@ -13,6 +13,10 @@ import PenSolid from "../../public/svg/pen_solid.svg";
 import Headset from "../../public/svg/headset.svg";
 import Gear from "../../public/svg/gear.svg";
 
+export const metadata = {
+  title: "mypage",
+};
+
 export default async function mypage() {
   let goToSub = [
     {

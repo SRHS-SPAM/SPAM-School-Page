@@ -2,6 +2,11 @@ import Arrow from "@/components/Arrow";
 import Seo from "@/components/Seo";
 import LoginPage from "./LoginPage";
 import styles from "./login.module.css";
+
+export const metadata = {
+  title: "login",
+};
+
 export default async function login() {
   return (
     <div>

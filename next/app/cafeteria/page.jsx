@@ -3,6 +3,10 @@ import styles from "./cafeteria.module.css";
 import Menubar from "@/components/Menubar";
 import Seo from "@/components/Seo";
 
+export const metadata = {
+  title: "cafeteria",
+};
+
 export default function Home() {
   return (
     <div>
