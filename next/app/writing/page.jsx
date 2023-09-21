@@ -31,7 +31,7 @@ export default async function Detail() {
       <header className={styles.writing_header}>
         <div className={styles.writing_inner}>
           <div className={styles.writing_actions}>
-            <Arrow location={"/"}></Arrow>
+            <Arrow location={"/"} mod={1}></Arrow>
             <div className={styles.writing_menu}>
               <div className={styles.writing_menu_wrap}>
                 <Menubar></Menubar>
@@ -53,14 +53,15 @@ export default async function Detail() {
               name="category"
               id="category"
               className={styles.writing_select}
+              defaultValue="1"
             >
-              <option disabled hidden>
+              <option value="1" disabled hidden>
                 &nbsp;게시판 선택
               </option>
               {articles.map((ai, i) => {
                 if (i >= 1)
                   return (
-                    <option value={"option" + i} key={i}>
+                    <option value={ai._id} key={i}>
                       &nbsp;{ai.title}
                     </option>
                   );

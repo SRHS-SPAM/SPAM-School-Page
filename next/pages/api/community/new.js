@@ -1,4 +1,5 @@
 import { connectDB } from "@/util/database";
+import { ObjectId } from "mongodb";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]";
 
@@ -16,10 +17,13 @@ export default async function handler(req, res) {
     let formattedDate = `${year}/${month}/${day};${hours}:${minutes}`;
 
     if (req.body.title == "") {
-      res.status(500).json("please insert title");
+      res.status(500).json("please insert title").redirect("/writing");
     }
     if (req.body.content == "") {
-      res.status(500).json("please insert content");
+      res.status(500).json("please insert content").redirect("/writing");
+    }
+    if (req.body.category == "1") {
+      res.status(500).json("please insert category").redirect("/writing");
     }
 
     try {
@@ -41,11 +45,12 @@ export default async function handler(req, res) {
         bad: 0,
         number: lastDocument ? lastDocument.number + 1 : 1,
         image: session.user.image,
+        category: new ObjectId(req.body.category),
       };
 
       let result = await db.collection("post").insertOne(data);
 
-      res.status(200).json(data);
+      return res.status(200).redirect("/");
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: "Internal Server Error" });
