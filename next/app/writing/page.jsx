@@ -14,6 +14,10 @@ import Underline from "@/public/svg/Underline.svg";
 import StrikeThrough from "@/public/svg/Strikethrough.svg";
 import { connectDB } from "@/util/database";
 
+export const metadata = {
+  title: "signup",
+};
+
 export default async function Detail() {
   let db = (await connectDB).db("SRH-Community");
   let articles = await db.collection("category").find().toArray();
