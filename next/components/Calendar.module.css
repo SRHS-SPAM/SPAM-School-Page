@@ -1,0 +1,245 @@
+.svg {
+  position: relative;
+}
+
+.cal_arrowbox {
+  width: var(--Sizes-size5);
+  height: var(--Sizes-size5);
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  left: 0px;
+}
+
+.calendar_mainbox {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cal_topbox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: var(--Sizes-size10);
+  padding-top: var(--Sizes-size2);
+}
+
+.cal_maintxt {
+  background-color: #286246;
+  width: 50%;
+  height: var(--Sizes-size7);
+  border-radius: var(--Sizes-size1_5);
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 0.5rem;
+}
+
+.mypage_bars {
+  font-size: 3rem;
+}
+
+.cal_subbox {
+  width: 100%;
+  height: 35rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.cal_box {
+  background-color: #286246;
+  width: 45%;
+  height: 100%;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.cal_box_black {
+  background-color: black;
+  width: 98%;
+  height: 98%;
+  border-radius: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 4rem 0;
+  gap: 1rem;
+  z-index: 0;
+}
+
+.cal_box_text {
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-left: 3rem;
+}
+
+.cal_arrow_box {
+  margin-right: 1rem;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.cal_subbox_top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cal_subbox_main {
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: large;
+  min-width: 357px;
+  max-width: 600px;
+}
+
+.calendar_mainbox table {
+  table-layout: fixed; /* 테이블의 열 너비를 균일하게 설정 */
+  width: 100%; /* 테이블이 부모 요소의 너비를 100%로 사용 */
+  border-collapse: separate; /* 기본값은 collapse */
+  border-spacing: 10px;
+}
+
+.calendar_mainbox th,
+.calendar_mainbox td {
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.calendar_mainbox th {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: rgba(240, 255, 255, 0.661);
+}
+
+.disabled_day {
+  color: rgba(240, 255, 255, 0.421);
+}
+
+.today > div > div {
+  border-radius: 50%;
+  background-color: #0067c0;
+}
+.cal_subbox_main td > div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cal_subbox_main td > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.cal_subbox_main td > div > div::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.cal_subbox_main td > div > div:hover {
+  border-radius: 50%;
+  background-color: #0067c0;
+}
+
+.cal_box_right {
+  width: 100%;
+  height: 100%;
+  color: white;
+  list-style-type: none;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cal_box_right_main {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.cal_box_right_main > li {
+  display: flex;
+  width: 100%;
+}
+
+.cal_timetable_main {
+  width: 100%;
+  display: flex;
+}
+
+.cal_timetable_container {
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 1024px) {
+  .calendar_mainbox th {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cal_subbox {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--Sizes-size3);
+  }
+
+  .cal_box {
+    width: 95%;
+  }
+
+  .bars {
+    display: none;
+  }
+
+  .cal_arrowbox {
+    display: none;
+  }
+
+  .cal_maintxt {
+    width: 75%;
+  }
+
+  .calendar_mainbox th {
+    font-size: small;
+  }
+}

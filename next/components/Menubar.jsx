@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Script from "next/script";
 import styles from "./Menubar.module.css";
 import { signOut } from "next-auth/react";
 import Link from "next/link";

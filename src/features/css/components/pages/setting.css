@@ -27,3 +27,210 @@ body {
 .mypage_bars {
   font-size: 3rem;
 }
+
+main {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.setting_main {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 20% 80%;
+}
+
+.setting_main_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border-right: 0.1rem solid black;
+}
+
+.setting_logout {
+  background-color: red;
+  margin: 2rem 1rem;
+  height: 5rem;
+  border-radius: var(--Sizes-size1_3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--Sizes-size2_3);
+  font-weight: bold;
+}
+
+.select_background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 1rem;
+  height: 5rem;
+  border-radius: var(--Sizes-size1_3);
+  font-size: var(--Sizes-size2_1);
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.select_background:hover {
+  background-color: rgb(162, 162, 162);
+}
+
+.select_background:visited {
+  background-color: aliceblue;
+}
+
+.setting_main_right {
+  padding: 1rem;
+}
+
+.setting_main_right_background {
+  background-color: white;
+  border-radius: var(--Sizes-size1_3);
+  width: 100%;
+  height: 100%;
+}
+
+.setting_profile_info {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.setting_profile_section {
+  padding: 2rem;
+}
+
+.setting_profile_box {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  font-size: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.1rem solid rgb(110, 110, 110);
+}
+
+.setting_profile_img > img {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+}
+
+.set_profile_username {
+  gap: 1rem;
+}
+
+.set_profile_change {
+  font-size: 1.5rem;
+}
+
+.set_profile {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  font-size: 2rem;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.1rem solid rgb(110, 110, 110);
+}
+
+.set_input::placeholder {
+  color: #969696d2;
+}
+
+.set_input {
+  background-color: #d9d9d9;
+  height: 10rem;
+  border-radius: 1rem;
+  border: 0.1rem solid rgb(110, 110, 110);
+  color: #969696d2;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+  word-wrap: break-word;
+  text-align: top;
+}
+
+.set_email_input {
+  background-color: #d9d9d9;
+  height: 3rem;
+  border-radius: 1rem;
+  border: 0.1rem solid rgb(110, 110, 110);
+  color: #969696d2;
+  font-size: 1.5rem;
+  padding-left: 1rem;
+}
+
+.set_class_input {
+  height: 2rem;
+  width: 10%;
+  border-radius: 0.5rem;
+}
+
+.set_profile_save {
+  display: flex;
+  padding: 2rem;
+  justify-content: end;
+}
+
+.set_profile_save button {
+  width: 20%;
+  border-radius: 1rem;
+  height: 3rem;
+  background-color: #e7cbcb;
+}
+
+@media screen and (max-width: 1280px) {
+  .setting_logout {
+    font-size: 1.5rem;
+  }
+
+  .select_background {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .setting_main_left {
+    display: none;
+  }
+
+  .setting_main {
+    grid-template-columns: 100%;
+  }
+  .setting_logout {
+    font-size: 1rem;
+  }
+
+  .setting_profile_box {
+    flex-direction: column;
+  }
+
+  .select_background {
+    font-size: 1rem;
+  }
+
+  .set_profile_save button {
+    width: 100%;
+  }
+
+  .set_input_sub {
+    width: 30%;
+  }
+
+  .set_input {
+    font-size: 1rem;
+  }
+
+  .setting_sub_bar {
+    width: 100%;
+    padding: 0;
+    justify-content: space-around;
+  }
+
+  .setting_head_txt {
+    padding-left: 2rem;
+  }
+}
