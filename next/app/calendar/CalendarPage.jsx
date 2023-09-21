@@ -375,7 +375,7 @@ export default function CalendarPage() {
                     ></RightArrow>
                   </div>
                   <div className={styles.cal_box_right_main}>
-                    <Timetable grade={grade} classs={classs} date={(year*10000+(month+1)*100+today)}></Timetable>
+                    <Timetable grade={grade} classs={classs} date={""+(year*10000+month*100+today)}></Timetable>
                   </div>
                 </div>
               )}
