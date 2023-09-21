@@ -39,16 +39,15 @@ export default async function Detail() {
     18
   ]
 
-export default function Detail() {
   return (
     <div>
       {/* Header */}
-      <header className={style.writing_header}>
-        <div className={style.writing_inner}>
-          <div className={style.writing_actions}>
+      <header className={styles.writing_header}>
+        <div className={styles.writing_inner}>
+          <div className={styles.writing_actions}>
             <Arrow location={"/"}></Arrow>
-            <div className={style.writing_menu}>
-              <div className={style.writing_menu_wrap}>
+            <div className={styles.writing_menu}>
+              <div className={styles.writing_menu_wrap}>
                 <Menubar></Menubar>
               </div>
             </div>
@@ -56,11 +55,11 @@ export default function Detail() {
         </div>
       </header>
       {/* Main */}
-      <main className={style.writing_main}>
-        <div className={style.writing_base}>
-          <div className={style.writing_page}>글 쓰기</div>
-          <div className={style.writing_title}>
-            <select className={style.writing_select}>
+      <main className={styles.writing_main}>
+        <div className={styles.writing_base}>
+          <div className={styles.writing_page}>글 쓰기</div>
+          <div className={styles.writing_title}>
+            <select className={styles.writing_select}>
               <option value disabled selected hidden>
                 &nbsp;게시판 선택
               </option>
@@ -74,23 +73,23 @@ export default function Detail() {
               })}
             </select>
           </div>
-          <div className={style.writing_tag}>
+          <div className={styles.writing_tag}>
             <input
-              className={style.writing_taginput}
+              className={styles.writing_taginput}
               type="text"
               placeholder="제목을 입력하세요"
             />
           </div>
-          <div className={style.writing_sub}>
-            <div className={style.writing_toolbar}>
+          <div className={styles.writing_sub}>
+            <div className={styles.writing_toolbar}>
               <Image></Image>
               <Video></Video>
               <Smile></Smile>
               <File></File>
               <LinkSvg></LinkSvg>
             </div>
-            <div className={style.writing_text_setting}>
-              <select className={style.writing_fontselecter}>
+            <div className={styles.writing_text_setting}>
+              <select className={styles.writing_fontselecter}>
                 {font.map((ai, i) => {
                   return (
                     <option value={"option" + i} key={i}>
@@ -99,7 +98,7 @@ export default function Detail() {
                   );
                 })}
               </select>
-              <select className={style.writing_fontsizeselecter}>
+              <select className={styles.writing_fontsizeselecter}>
                 {fontsize.map((ai, i) => {
                   return (
                     <option value={"option" + i} key={i}>
@@ -108,25 +107,25 @@ export default function Detail() {
                   );
                 })}
               </select>
-              <div className={style.writing_text_sub_setting}>
+              <div className={styles.writing_text_sub_setting}>
                 <Bold></Bold>
                 <Italic></Italic>
                 <Underline></Underline>
                 <StrikeThrough></StrikeThrough>
               </div>
             </div>
-            <div className={style.writing_textarea_container}>
+            <div className={styles.writing_textarea_container}>
               <textarea
                 name="writing_text"
-                className={style.writing_textarea}
+                className={styles.writing_textarea}
                 cols={30}
                 rows={10}
                 defaultValue={""}
               />
             </div>
           </div>
-          <div className={style.post_save}>
-            <div className={style.post_savebutton}>
+          <div className={styles.post_save}>
+            <div className={styles.post_savebutton}>
               <button>저장</button>
             </div>
           </div>
