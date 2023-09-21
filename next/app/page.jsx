@@ -10,7 +10,6 @@ export default function Home() {
   return (
     <>
       {/* header */}
-      <Seo title="Home" description="info" />
       <Nav type="default" />
       {/* main */}
       <main>

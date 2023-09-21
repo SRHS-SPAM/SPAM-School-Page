@@ -1,18 +1,23 @@
 import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
-import Link from "next/link";
 import styles from "./writing.module.css";
 import Image from "@/public/svg/image.svg";
 import Video from "@/public/svg/Videocam.svg";
 import Smile from "@/public/svg/smile.svg";
 import File from "@/public/svg/Note.svg";
 import LinkSvg from "@/public/svg/Link.svg";
-
 import Bold from "@/public/svg/Bold.svg";
 import Italic from "@/public/svg/Italic.svg";
 import Underline from "@/public/svg/Underline.svg";
 import StrikeThrough from "@/public/svg/Strikethrough.svg";
 import { connectDB } from "@/util/database";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { ObjectId } from "mongodb";
+
+export const metadata = {
+  title: "writing",
+};
 
 export default async function Detail() {
   let db = (await connectDB).db("SRH-Community");
@@ -25,6 +30,54 @@ export default async function Detail() {
   let font = ["휴먼굴림체", "Arial", "굴림", "궁서", "나눔고딕"];
   let fontsize = [12, 13, 14, 15, 16, 17, 18];
 
+  async function handleSubmit(formData) {
+    "use server";
+
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = String(date.getMonth() + 1).padStart(2, "0");
+    let day = String(date.getDate()).padStart(2, "0");
+    let hours = String(date.getHours()).padStart(2, "0");
+    let minutes = String(date.getMinutes()).padStart(2, "0");
+    let session = await getServerSession(authOptions);
+
+    let formattedDate = `${year}/${month}/${day};${hours}:${minutes}`;
+
+    if (formData.get("title") == "") {
+      return;
+    } else if (formData.get("content") == "") {
+      return;
+    } else if (formData.get("category") == undefined) {
+      console.log("시발 카테고리 설정하라고 ㅄ련아");
+      return;
+    }
+    try {
+      let db = (await connectDB).db("SRH-Community");
+      const lastDocument = await db
+        .collection("post")
+        .findOne({}, { sort: { number: -1 } });
+
+      let data = {
+        title: formData.get("title"),
+        content: formData.get("content"),
+        good: 0,
+        comment: 0,
+        date: formattedDate,
+        views: 0,
+        writer: session.user.name,
+        author: session.user.email,
+        theme: 1,
+        bad: 0,
+        number: lastDocument ? lastDocument.number + 1 : 1,
+        image: session.user.image,
+        category: new ObjectId(formData.get("category")),
+      };
+      // let result = await db.collection("post").insertOne(data);
+      // redirect("/community/" + formData.get("category"));
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
     <div>
       {/* Header */}
@@ -42,11 +95,7 @@ export default async function Detail() {
       </header>
       {/* Main */}
       <main className={styles.writing_main}>
-        <form
-          action="/api/community/new"
-          method="POST"
-          className={styles.writing_base}
-        >
+        <form action={handleSubmit} className={styles.writing_base}>
           <div className={styles.writing_page}>글 쓰기</div>
           <div className={styles.writing_title}>
             <select
@@ -75,6 +124,7 @@ export default async function Detail() {
               name="title"
               id="title"
               placeholder="제목을 입력하세요"
+              required
             />
           </div>
           <div className={styles.writing_sub}>
@@ -119,12 +169,16 @@ export default async function Detail() {
                 cols={30}
                 rows={10}
                 defaultValue={""}
+                required
               />
             </div>
           </div>
           <div className={styles.post_save}>
             <div className={styles.post_savebutton}>
-              <button type="submit">저장</button>
+              <button type="submit">
+                {/* onClick={() => redirect("/community/")} */}
+                저장
+              </button>
             </div>
           </div>
         </form>

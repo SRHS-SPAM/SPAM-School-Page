@@ -4,6 +4,10 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import SignupItem from "./SignupItem";
 
+export const metadata = {
+  title: "signup",
+};
+
 export default async function Signup() {
   let session = await getServerSession(authOptions);
   let email = session?.user?.email ?? "";
