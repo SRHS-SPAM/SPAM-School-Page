@@ -2,15 +2,11 @@ import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
 import Link from "next/link";
 import style from "./community_detail.module.css";
-import LeftDoubleArrow from "../../../public/svg/leftDoubleArrow.svg";
-import LeftArrow from "../../../public/svg/leftArrow.svg";
-import RightDoubleArrow from "../../../public/svg/rightDoubleArrow.svg";
-import RightArrow from "../../../public/svg/rightArrow.svg";
 import Edit from "../../../public/svg/edit.svg";
 import Swap from "../../../public/svg/swap.svg";
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
-import Post from "./post";
+import MiddlePage from "./MiddlePage";
 
 export default async function Detail(props) {
   // if (props.params.id == "6508fbdca79261ba213f5594") {
@@ -24,26 +20,7 @@ export default async function Detail(props) {
       { _id: new ObjectId(props.params.id) },
       { _id: 1, title: 1, tag: 1 }
     );
-  let postList = await db
-    .collection("post")
-    .find({ category: new ObjectId(props.params.id) })
-    .toArray();
-  postList = postList.map((a) => {
-    a._id = a._id.toString();
-    a.category = a.category.toString();
-    return a;
-  });
-  const total = result.writing / 30 + (result.writing % 30) ? 1 : 0;
-  const page = props.searchParams.page
-    ? props.searchParams.page > total
-      ? total
-      : props.searchParams.page < 1
-      ? 1
-      : props.searchParams.page
-    : total;
-  let countDown = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-    cnt = total - ((total - page) / 10 + (total - page) ? 1 : 0) * 10;
-  console.log(props, result.writing, total, page, cnt);
+
   return (
     <>
       {/* header */}
@@ -116,65 +93,7 @@ export default async function Detail(props) {
           </div>
           {/* write main */}
           <div className={style.community_detail_writing_main}>
-            <div className={style.writing_main_box}>
-              <Post result={postList} name={result.title}></Post>
-              <div className={style.writing_footer}>
-                <div className={style.writing_footer_box}>
-                  <div className={style.writing_button}>
-                    <Link href="../../writing">
-                      <div className={style.writing_button_Text}>
-                        {/*<i className="fa-regular fa-pen-to-square" />*/}
-                        글쓰기
-                      </div>
-                    </Link>
-                  </div>
-                  <div className={style.writing_search}>
-                    <div className={style.writing_search_box}>
-                      <div className={style.writing_search_input}>
-                        <input type="text" />
-                      </div>
-                      <div className={style.writing_search_text}>검색</div>
-                    </div>
-                  </div>
-                  <div className={style.page_selector}>
-                    <div className={style.page_selector_box}>
-                      {total != page ? (
-                        <>
-                          <div className={style.community_pages}>
-                            <LeftDoubleArrow></LeftDoubleArrow>
-                          </div>
-                          <div className={style.community_pages}>
-                            <LeftArrow></LeftArrow>
-                          </div>
-                        </>
-                      ) : (
-                        <></>
-                      )}
-                      {countDown.map((ai, i) => {
-                        if (cnt - ai > 0)
-                          return (
-                            <div className={style.community_pages}>
-                              {cnt - ai}
-                            </div>
-                          );
-                      })}
-                      {total != page ? (
-                        <>
-                          <div className={style.community_pages}>
-                            <RightArrow></RightArrow>
-                          </div>
-                          <div className={style.community_pages}>
-                            <RightDoubleArrow></RightDoubleArrow>
-                          </div>
-                        </>
-                      ) : (
-                        <></>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <MiddlePage id={props.params.id} name={result.title}></MiddlePage>
           </div>
         </div>
       </div>

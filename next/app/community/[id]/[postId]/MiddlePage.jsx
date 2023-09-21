@@ -31,7 +31,7 @@ export default function MiddlePage({ result }) {
       <PostPage post={currentPosts}></PostPage>
       <Pagination
         postPerPage={postPerPage}
-        totalPosts={result.length}
+        totalPosts={posts.length}
         paginate={paginate}
       ></Pagination>
     </div>

@@ -1,11 +1,14 @@
 import { connectDB } from "@/util/database";
+import { ObjectId } from "mongodb";
 
 export default async function Comment(req, res) {
+  let id = req.query.id ? req.query.id : "";
+
   try {
     let db = (await connectDB).db("SRH-Community");
     let result = await db
       .collection("post")
-      .find()
+      .find({ category: new ObjectId(id) })
       .sort({ good: -1 })
       .toArray();
     result = result.map((a) => {
@@ -13,6 +16,7 @@ export default async function Comment(req, res) {
       a.category = a.category.toString();
       return a;
     });
+
     res.status(200).json(result);
   } catch (error) {
     console.error(error);

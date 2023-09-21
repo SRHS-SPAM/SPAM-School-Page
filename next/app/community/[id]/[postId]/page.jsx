@@ -28,13 +28,6 @@ export default async function Post(props) {
   let [datePart, timePart] = data.date.split(";");
   datePart = datePart.replace(/\//g, ".");
 
-  let result = await db.collection("post").find().sort({ good: -1 }).toArray();
-  result = result.map((a) => {
-    a._id = a._id.toString();
-    a.category = a.category.toString();
-    return a;
-  });
-
   return (
     <div>
       <header className={styles.cafe_header}>

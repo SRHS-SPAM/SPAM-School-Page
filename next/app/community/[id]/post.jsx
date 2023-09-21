@@ -4,46 +4,42 @@ import style from "./community_detail.module.css";
 import Sms from "../../../public/svg/sms.svg";
 import Link from "next/link";
 
-export default function Post({ result, name }) {
+export default function Post({ post, name }) {
+  console.log(post);
   return (
     <>
-      {result.map((post, i) => {
-        let [datePart, timePart] = post.date.split(";");
+      {post.map((ai, i) => {
+        let [datePart, timePart] = ai.date.split(";");
         return (
           <div className={style.writing_main_class} key={i}>
             <div className={`${style.main_class_name} ${style.main_class_num}`}>
-              {post.number}
+              {ai.number}
             </div>
             <div className={`${style.main_class_name} ${style.class_title}`}>
               <Sms></Sms>
               <span>
                 <Link
                   href={
-                    "/community/" +
-                    post.category +
-                    "/" +
-                    post._id +
-                    "?name=" +
-                    name
+                    "/community/" + ai.category + "/" + ai._id + "?name=" + name
                   }
                   className={style.link}
                 >
-                  {post.title}
+                  {ai.title}
                 </Link>
               </span>
-              <span className={style.comment_style}>[{post.comment}]</span>
+              <span className={style.comment_style}>[{ai.comment}]</span>
             </div>
             <div className={`${style.main_class_name} ${style.main_class_au}`}>
-              {post.writer}
+              {ai.writer}
             </div>
             <div className={`${style.main_class_name} ${style.class_date}`}>
               {datePart}
             </div>
             <div className={`${style.main_class_name} ${style.class_view}`}>
-              {post.views}
+              {ai.views}
             </div>
             <div className={`${style.main_class_name} ${style.class_reco}`}>
-              {post.good}
+              {ai.good}
             </div>
           </div>
         );
