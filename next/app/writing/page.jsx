@@ -2,17 +2,51 @@ import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
 import Link from "next/link";
 import style from "./writing.module.css";
+import Image from "@/public/svg/image.svg";
+import Video from "@/public/svg/Videocam.svg";
+import Smile from "@/public/svg/smile.svg";
+import File from "@/public/svg/Note.svg";
+import LinkSvg from "@/public/svg/Link.svg";
 
-export default function Detail() {
+import Bold from "@/public/svg/Bold.svg";
+import Italic from "@/public/svg/Italic.svg";
+import Underline from "@/public/svg/Underline.svg";
+import StrikeThrough from "@/public/svg/Strikethrough.svg";
+import { connectDB } from "@/util/database";
+
+export default async function Detail() {
+  let db = (await connectDB).db("SRH-Community");
+  let articles = await db.collection("category").find().toArray();
+  articles = articles.map((a) => {
+    a._id = a._id.toString();
+    a.title = a.title.toString();
+    return a;
+  });
+  let font = [
+    "휴먼굴림체",
+    "Arial",
+    "굴림",
+    "궁서",
+    "나눔고딕",
+  ];
+  let fontsize = [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ]
   return (
     <div>
       {/* Header */}
-      <header className="writing_header">
-        <div className="writing_inner">
-          <div className="writing_actions">
+      <header className={style.writing_header}>
+        <div className={style.writing_inner}>
+          <div className={style.writing_actions}>
             <Arrow location={"/"}></Arrow>
-            <div className="writing_menu">
-              <div className="writing-menu-wrap">
+            <div className={style.writing_menu}>
+              <div className={style.writing_menu_wrap}>
                 <Menubar></Menubar>
               </div>
             </div>
@@ -20,69 +54,77 @@ export default function Detail() {
         </div>
       </header>
       {/* Main */}
-      <main className="writing_main">
-        <div className="writing_base">
-          <div className="writing_page">글 쓰기</div>
-          <div className="writing_title">
-            <select className="writing_select">
+      <main className={style.writing_main}>
+        <div className={style.writing_base}>
+          <div className={style.writing_page}>글 쓰기</div>
+          <div className={style.writing_title}>
+            <select className={style.writing_select}>
               <option value disabled selected hidden>
                 &nbsp;게시판 선택
               </option>
-              <option value="option1">공지사항</option>
-              <option value="option2">자유게시판</option>
-              <option value="option3">전공게시판</option>
-              <option value="option4">학습게시판</option>
+              {articles.map((ai, i) => {
+                if (i >= 1)
+                  return (
+                    <option value={"option" + i} key={i}>
+                      {ai.title}
+                    </option>
+                  );
+              })}
             </select>
           </div>
-          <div className="writing_tag">
+          <div className={style.writing_tag}>
             <input
-              className="writing_taginput"
+              className={style.writing_taginput}
               type="text"
               placeholder="제목을 입력하세요"
             />
           </div>
-          <div className="writing_sub">
-            <div className="writing_toolbar">
-              <i className="fa-regular fa-image" />
-              <i className="fa-solid fa-video" />
-              <i className="fa-regular fa-face-smile" />
-              <i className="fa-regular fa-file" />
-              <i className="fa-solid fa-link" />
+          <div className={style.writing_sub}>
+            <div className={style.writing_toolbar}>
+              <Image></Image>
+              <Video></Video>
+              <Smile></Smile>
+              <File></File>
+              <LinkSvg></LinkSvg>
             </div>
-            <div className="writing_text_setting">
-              <select className="writing_fontselecter">
-                <option value="option0">&nbsp;휴먼굴림체</option>
-                <option value="option1">Arial</option>
-                <option value="option2">굴림</option>
-                <option value="option3">궁서</option>
-                <option value="option4">나눔고딕</option>
+            <div className={style.writing_text_setting}>
+              <select className={style.writing_fontselecter}>
+                {font.map((ai, i) => {
+                  return (
+                    <option value={"option" + i} key={i}>
+                      {ai}
+                    </option>
+                  );
+                })}
               </select>
-              <select className="writing_fontsizeselecter">
-                <option value="option0">&nbsp;12</option>
-                <option value="option1">13</option>
-                <option value="option2">14</option>
-                <option value="option3">15</option>
-                <option value="option4">16</option>
+              <select className={style.writing_fontsizeselecter}>
+                {fontsize.map((ai, i) => {
+                  return (
+                    <option value={"option" + i} key={i}>
+                      {ai}
+                    </option>
+                  );
+                })}
               </select>
-              <div className="writing_text_sub_setting">
-                <i className="fa-solid fa-bold" />
-                <i className="fa-solid fa-italic" />
-                <i className="fa-solid fa-underline" />
-                <i className="fa-solid fa-strikethrough" />
+              <div className={style.writing_text_sub_setting}>
+                <Bold></Bold>
+                <Italic></Italic>
+                <Underline></Underline>
+                <StrikeThrough></StrikeThrough>
               </div>
             </div>
-            <div className="writing_textarea_container">
+            <div className={style.writing_textarea_container}>
               <textarea
                 name="writing_text"
-                className="writing_textarea"
+                className={style.writing_textarea}
                 cols={30}
                 rows={10}
                 defaultValue={""}
               />
             </div>
           </div>
-          <div className="post_save">
-            <div className="post_savebutton">
+          <div className={style.post_save}>
+            <div className={style.post_savebutton}>
               <button>저장</button>
             </div>
           </div>

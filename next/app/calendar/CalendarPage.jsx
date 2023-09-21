@@ -79,7 +79,7 @@ export default function CalendarPage() {
     dayys = temp2.getDate(); //마지막 날을 담는다.
   const cnt = firstCnt == 0 ? -7 : -firstCnt; //실질적으로 표시를 하기 위해 가중치를 설정한다.
   return (
-    <div>
+    <>
       <div className={styles.calendar_mainbox}>
         <div className={styles.cal_topbox}>
           <div className={styles.cal_arrowbox}>
@@ -124,7 +124,7 @@ export default function CalendarPage() {
                     ></Reset>
                   )}
                   {isYear ? (
-                    <>
+                    <div>
                       <LeftArrow
                         fill={arrowColor}
                         className={styles.svg}
@@ -135,9 +135,9 @@ export default function CalendarPage() {
                         }}
                       ></LeftArrow>
                       {year}
-                    </>
+                    </div>
                   ) : (
-                    <>
+                    <div>
                       {`${monthList[month]} ${year} `}
                       <RightArrow
                         fill={arrowColor}
@@ -148,7 +148,7 @@ export default function CalendarPage() {
                           setArray(copy);
                         }}
                       ></RightArrow>
-                    </>
+                    </div>
                   )}
                 </div>
                 {isYear ? (
@@ -383,10 +383,7 @@ export default function CalendarPage() {
           </div>
         </div>
       </div>
-      <Script
-        src="https://kit.fontawesome.com/75ea5a755a.js"
-        crossorigin="anonymous"
-      ></Script>
-    </div>
+
+    </>
   );
 }
