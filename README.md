@@ -2,6 +2,8 @@
 
 ### Project Period
 
+this is main
+
 06.09 ~ 10.10(expected)
 
 ### Contributors
