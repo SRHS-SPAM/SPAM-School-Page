@@ -7,7 +7,6 @@ import MiniCalendar from "@/components/MiniCalendar";
 
 export default function Home() {
   const currentDate = new Date();
-  console.log(currentDate);
   return (
     <>
       {/* header */}

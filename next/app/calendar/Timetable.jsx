@@ -15,7 +15,7 @@ export default function Timetable({ grade, classs, date }) {
   ]);
   useEffect(() => {
     console.log(grade + classs + date);
-    let arr = [[], [], [], [], [], [], [],];
+    let arr = [[], [], [], [], [], [], []];
     fetch(
       "https://open.neis.go.kr/hub/hisTimetable?KEY=537d4634e7bf4623bf69fc69593ce4c9&Type=json&pIndex=1&pSize=15&ATPT_OFCDC_SC_CODE=B10&SD_SCHUL_CODE=7010738&GRADE=" +
         grade +
@@ -33,6 +33,7 @@ export default function Timetable({ grade, classs, date }) {
         if (response.RESULT == undefined) {
           response.hisTimetable[1].row.map((ai, i) => {
             console.log(ai);
+            /** @todo error */
             arr[ai.PERIO - 1].push(ai.ITRT_CNTNT);
             if (
               arr[ai.PERIO - 1].length > 1 &&
@@ -58,30 +59,27 @@ export default function Timetable({ grade, classs, date }) {
       {timetable.map((ai, i) => {
         return (
           <>
-        {
-        /*ai.map((aj, j) => (
+            {/*ai.map((aj, j) => (
           <li key={i}>
             <div className={styles.cal_timetable_container}>
               {i + 1}교시 :&nbsp;
               <span className={styles.cal_timetable_main}>{a}</span>
             </div>
           </li>
-        ))*/
-        }
-        {
-          ai[0]!=null?
-        <li key={i}>
-            <div className={styles.cal_timetable_container}>
-              {i + 1}교시 :&nbsp;
-              <span className={styles.cal_timetable_main}>{ai[0]}</span>
-            </div>
-          </li>
-          :
-          <></>
-      }
-        </>
-        )
-        })}
+        ))*/}
+            {ai[0] != null ? (
+              <li key={i}>
+                <div className={styles.cal_timetable_container}>
+                  {i + 1}교시 :&nbsp;
+                  <span className={styles.cal_timetable_main}>{ai[0]}</span>
+                </div>
+              </li>
+            ) : (
+              <></>
+            )}
+          </>
+        );
+      })}
     </>
   );
 }
