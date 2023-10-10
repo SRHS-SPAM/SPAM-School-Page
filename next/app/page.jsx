@@ -6,7 +6,8 @@ import Calendar from "@/components/Calendar";
 import MiniCalendar from "@/components/MiniCalendar";
 
 export default function Home() {
-  const currentDate = new Date(); //설정된 날짜, 그 자체로서 생성한다.
+  const currentDate = new Date();
+  console.log(currentDate);
   return (
     <>
       {/* header */}
@@ -36,8 +37,8 @@ export default function Home() {
               <article className={styles.notice}>
                 <div className={styles.notice_name}>주요 공지</div>
               </article>
-              <article className={styles.food}>
-                <Link href={"cafeteria"}>
+              <Link href={"cafeteria"}>
+                <article className={styles.food}>
                   <div className={styles.food_title}>급식</div>
                   <div className={styles.food_time_li}>
                     <div className={styles.launch}>
@@ -77,8 +78,9 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </Link>
-              </article>
+                </article>
+              </Link>
+
               <article className={styles.caledar_article}>
                 <MiniCalendar
                   Year={currentDate.getFullYear()}

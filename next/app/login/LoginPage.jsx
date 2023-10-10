@@ -6,6 +6,7 @@ import Link from "next/link";
 
 export default function LoginPage() {
   const another = ["google", "facebook", "github", "apple"];
+
   const login = async (e) => {
     e.preventDefault();
     try {

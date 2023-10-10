@@ -21,6 +21,9 @@ export default function SignupItem({ email, nameValue }) {
 
       {/* main */}
 
+      {/**
+       * @todo required redirect fix
+       */}
       <form method="POST" name="login" action="/api/auth/signup">
         <div className={styles.signup_main}>
           <div className={styles.signup_stroke}>
