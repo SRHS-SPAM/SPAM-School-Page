@@ -24,7 +24,7 @@ export default async function Singup(req, res) {
       let result = await db
         .collection("users")
         .updateOne(filter, updateDoc, option);
-      res.status(200).redirect("/login");
+      res.redirect(307, "/login");
     } catch (error) {
       console.log(error);
     }
