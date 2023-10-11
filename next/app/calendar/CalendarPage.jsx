@@ -8,6 +8,7 @@ import Reset from "./svg/reset.svg";
 import LeftArrow from "./svg/arrowLeft.svg";
 import RightArrow from "./svg/arrowRight.svg";
 import Calendar from "@/components/Calendar";
+import Timetable from "./Timetable";
 
 export default function CalendarPage() {
   let arrowColor = "#0067C0";
@@ -59,10 +60,16 @@ export default function CalendarPage() {
     currentDate.getFullYear(),
     currentDate.getMonth(),
   ]);
+  const [timearr, setTimearr] = useState([
+    1,
+    1,
+  ])
   const today = array[0], //state로서 선언된 array에서 날짜를 옮겨 닮는다. 오늘이 아닐 수 도 있다.
     month = array[1], //state로서 선언된 array에서 월를 옮겨 닮는다. 이번 달이 아닐 수 도 있다.
     year = array[2], //state로서 선언된 array에서 년도를 옮겨 닮는다. 올해기 아닐 수 도 있다.
     isYear = array[3];
+  const grade=timearr[0], 
+      classs=timearr[1];
   const firstDate = new Date(year, month, 1); //설정된 날짜의 첫 날로서 생성한다. 시작 요일을 구하기 위함이다.
   const setDate = new Date(year, month, today); //설정된 날짜, 그 자체로서 생성한다.
   const temp2 = new Date(year, month, 0); //설정된 날짜의 달의 날 수를 구하기 위해
@@ -72,7 +79,7 @@ export default function CalendarPage() {
     dayys = temp2.getDate(); //마지막 날을 담는다.
   const cnt = firstCnt == 0 ? -7 : -firstCnt; //실질적으로 표시를 하기 위해 가중치를 설정한다.
   return (
-    <div>
+    <>
       <div className={styles.calendar_mainbox}>
         <div className={styles.cal_topbox}>
           <div className={styles.cal_arrowbox}>
@@ -117,7 +124,7 @@ export default function CalendarPage() {
                     ></Reset>
                   )}
                   {isYear ? (
-                    <>
+                    <div>
                       <LeftArrow
                         fill={arrowColor}
                         className={styles.svg}
@@ -128,9 +135,9 @@ export default function CalendarPage() {
                         }}
                       ></LeftArrow>
                       {year}
-                    </>
+                    </div>
                   ) : (
-                    <>
+                    <div>
                       {`${monthList[month]} ${year} `}
                       <RightArrow
                         fill={arrowColor}
@@ -141,7 +148,7 @@ export default function CalendarPage() {
                           setArray(copy);
                         }}
                       ></RightArrow>
-                    </>
+                    </div>
                   )}
                 </div>
                 {isYear ? (
@@ -331,18 +338,44 @@ export default function CalendarPage() {
                     {year == currentDate.getFullYear() ? " " : year + "년 "}
                     {month + 1}월 {today}일{" "}
                     {"(" + handay[setDate.getDay()] + ")"} 시간표
+                    <LeftArrow
+                      fill={arrowColor}
+                      className={styles.svg}
+                      onClick={() => {
+                        console.log("class--");
+                        let copy = [...timearr];
+                        copy[1]--;
+                        if (copy[1] <= 0) {
+                          copy[1]+=8;
+                          copy[0]--;
+                        }
+                        if(copy[0]<=0) {
+                            copy[0]=3;
+                        }
+                        setTimearr(copy);
+                      }}
+                    ></LeftArrow>
+                    {" (" + grade + "-" + classs + ")"}
+                    <RightArrow
+                      fill={arrowColor}
+                      className={styles.svg}
+                      onClick={() => {
+                        console.log("class--");
+                        let copy = [...timearr];
+                        copy[1]++;
+                        if (copy[1] > 8) {
+                          copy[1]-=8;
+                          copy[0]++;
+                        }
+                        if(copy[0]>=3) {
+                            copy[0]=1;
+                        }
+                        setTimearr(copy);
+                      }}
+                    ></RightArrow>
                   </div>
                   <div className={styles.cal_box_right_main}>
-                    {timetable.map((ai, i) => (
-                      <li key={i}>
-                        <div className={styles.cal_timetable_container}>
-                          {i + 1}교시 :&nbsp;
-                          <span className={styles.cal_timetable_main}>
-                            {ai}
-                          </span>
-                        </div>
-                      </li>
-                    ))}
+                    <Timetable grade={grade} classs={classs} date={(year*10000+(month+1)*100+today)}></Timetable>
                   </div>
                 </div>
               )}
@@ -350,10 +383,7 @@ export default function CalendarPage() {
           </div>
         </div>
       </div>
-      <Script
-        src="https://kit.fontawesome.com/75ea5a755a.js"
-        crossorigin="anonymous"
-      ></Script>
-    </div>
+
+    </>
   );
 }

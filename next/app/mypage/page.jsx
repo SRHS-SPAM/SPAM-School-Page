@@ -47,7 +47,6 @@ export default async function mypage() {
       clplus: true,
     },
   ];
-  const debug = true;
   let session = await getServerSession(authOptions);
   let name, email, image, grade, classNumber, number;
   let targerPage = "/login";

@@ -14,9 +14,15 @@
   padding-top: var(--Sizes-size1_5);
 }
 
+.writing_page {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #c26f93;
+}
+
 .writing_menu {
-  padding-right: var(--Sizes-size3_2);
   padding-top: var(--Sizes-size1);
+  padding-right: var(--Sizes-size3_2);
 }
 
 .writing_main {
@@ -35,41 +41,37 @@
   gap: var(--Sizes-size2);
 }
 
+.writing_main input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: var(--Sizes-size1_4);
+  font-weight: 400;
+}
+
 .writing_title {
   width: 100%;
-  height: 10%;
-}
-
-.writing_title > input::placeholder {
-  color: rgba(0, 0, 0, 0.3);
-  font-size: var(--Sizes-size1_4);
-  font-weight: 400;
-}
-.writing_tag > input::placeholder {
-  color: rgba(0, 0, 0, 0.3);
-  font-size: var(--Sizes-size1_4);
-  font-weight: 400;
-}
-.writing_titleinput,
-.writing_taginput,
-.writing_partextarea {
+  height: 15%;
   background-color: white;
-  width: 95%;
-  padding: 0px 25px;
-  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  border: 0.1rem solid black;
+}
+
+.writing_select {
+  color: rgb(110, 110, 110);
   border: none;
-  border-radius: var(--Sizes-size1);
-  font-size: var(--Sizes-size1_5);
+  font-size: 2rem;
+  width: 100%;
+  font-weight: bold;
+  background-color: transparent;
+  height: 100%;
+  border-radius: 1rem;
 }
 
-.writing_taginput {
-  background-color: #d9d9d9;
-  border: var(--Sizes-size01) solid black;
-}
-
-.writing_partextarea {
-  border: var(--Sizes-size01) solid black;
-  padding: 20px 25px;
+.writing_select option {
+  color: black;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .writing_partextarea:valid {
@@ -77,11 +79,140 @@
 }
 
 .writing_tag {
-  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  color: rgb(110, 110, 110);
   height: 10%;
+  border: 0.1rem solid black;
+}
+
+.writing_taginput {
+  background-color: white;
+  border: none;
+  font-size: 2rem;
+  width: 100%;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  border-radius: 1rem;
+  padding: 1rem 0 1rem 1rem;
+}
+
+.writing_taginput::placeholder {
+  color: rgb(110, 110, 110);
 }
 
 .writing_par {
   width: 100%;
-  height: 60%;
+  height: 100%;
+}
+
+.writing_titleinput::placeholder {
+  color: rgb(110, 110, 110);
+}
+
+.writing_main {
+  display: flex;
+  flex-direction: column;
+}
+
+.writing_toolbar {
+  font-size: 2rem;
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  border-bottom: 0.1rem solid black;
+}
+
+.writing_partextarea {
+  background-color: white;
+  height: 100%;
+  border: none;
+  font-size: var(--Sizes-size1_5);
+}
+
+.writing_sub {
+  border-radius: 1rem;
+  background-color: white;
+  border: 0.1rem solid black;
+  height: 80%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.writing_text_setting {
+  display: flex;
+  height: 2rem;
+  border-bottom: 0.1rem solid black;
+}
+
+.writing_fontselecter,
+.writing_fontsizeselecter {
+  background-color: white;
+  border: none;
+  width: 10%;
+  height: 100%;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.writing_fontsizeselecter {
+  width: 5%;
+}
+
+.writing_text_sub_setting {
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.writing_textarea_container {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.writing_textarea {
+  border: none;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  box-sizing: border-box;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.post_save {
+  display: flex;
+  justify-content: flex-end;
+  height: 5rem;
+  margin-bottom: 5rem;
+}
+
+.post_savebutton button {
+  height: 100%;
+  width: 12rem;
+  background-color: #c688a3;
+  border-radius: 1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .writing_fontselecter {
+    width: 30%;
+  }
+
+  .writing_fontsizeselecter {
+    width: 15%;
+  }
+
+  .writing_base {
+    padding-top: 3rem;
+  }
 }

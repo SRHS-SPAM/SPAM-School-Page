@@ -3,7 +3,7 @@ import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 import Link from "next/link";
 
-export default async function List({ result }) {
+export default async function List({ result, name }) {
   let db = (await connectDB).db("SRH-Community");
   let data = await db
     .collection("post")
@@ -17,7 +17,11 @@ export default async function List({ result }) {
         <div className={styles.community_sub_article_content} key={i}>
           <div className={styles.community_sub_article_detail}>
             <div className={styles.community_sub_article_title}>
-              <Link href={"community/" + ai.category + "/" + ai._id}>
+              <Link
+                href={
+                  "community/" + ai.category + "/" + ai._id + "?name=" + name
+                }
+              >
                 {ai.title}
               </Link>
             </div>
