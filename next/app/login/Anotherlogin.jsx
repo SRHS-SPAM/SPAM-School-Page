@@ -2,9 +2,8 @@ import { signIn } from "next-auth/react";
 import styles from "./login.module.css";
 export default function AnotherLogin({ name }) {
   const socialLogin = async (e) => {
-    console.log("login");
+    e.preventDefault();
     try {
-      console.log(e.target.id);
       const response = await signIn(e.target.id, {
         redirect: true,
         callbackUrl: "/signup",
@@ -20,7 +19,7 @@ export default function AnotherLogin({ name }) {
       onClick={socialLogin}
     >
       <div className={styles.login_imgsubbox}>
-        <img src={`/images/${name}.png`} alt={name} />
+        <img id={name} src={`/images/${name}.png`} alt={name} />
       </div>
       <div className={styles.login_googletxt}>
         Sign with {name.replace(/^[a-z]/, (char) => char.toUpperCase())}

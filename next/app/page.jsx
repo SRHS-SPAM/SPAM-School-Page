@@ -1,5 +1,4 @@
 import Nav from "@/components/Nav";
-import Seo from "@/components/Seo";
 import Link from "next/link";
 import styles from "./page.module.css";
 import MiniCalendar from "@/components/MiniCalendar";
