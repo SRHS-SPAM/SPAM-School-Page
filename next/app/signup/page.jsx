@@ -10,6 +10,7 @@ export const metadata = {
 
 export default async function Signup() {
   let session = await getServerSession(authOptions);
+
   let email = session?.user?.email ?? "";
   let name = session?.user?.name ?? "";
   let tel = session?.user?.tel ?? "";

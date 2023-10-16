@@ -17,10 +17,6 @@ import List from "./List";
 import { ObjectId } from "mongodb";
 import { redirect } from "next/navigation";
 
-export const metadata = {
-  title: "community",
-};
-
 export default async function Community() {
   let session = await getServerSession(authOptions);
   if (!session) {
