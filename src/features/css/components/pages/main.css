@@ -308,7 +308,7 @@ body {
 
   .name_eng {
     margin-top: 3%;
-    width: 50%;
+    width: 70%;
     text-align: center;
     font-size: var(--Sizes-size2_5);
   }
@@ -327,7 +327,7 @@ body {
   }
 
   .dinner {
-    display: block;
+    display: none;
   }
   .food_name {
     display: none;
@@ -352,6 +352,10 @@ body {
   .food_title {
     display: flex;
     margin-bottom: -8rem;
+  }
+
+  .row {
+    font-size: var(--Sizes-size06);
   }
 }
 
@@ -392,5 +396,16 @@ body {
   .food_time_li {
     display: flex;
     gap: var(--Sizes-size6);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .mainbox {
+    border-radius: var(--Sizes-size2_1);
+    padding: var(--Sizes-size1_2);
+  }
+
+  .school_logo_header img {
+    display: none;
   }
 }
