@@ -12,7 +12,7 @@ export default async function Signup() {
   let email = session?.user?.email ?? "";
   let name = session?.user?.name ?? "";
   let tel = session?.user?.tel ?? "";
-  if (session == null) {
+  if (session != null) {
     redirect("/");
   }
   return (
