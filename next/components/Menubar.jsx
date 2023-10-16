@@ -37,7 +37,7 @@ export default function Menubar() {
             <Link href={"cafeteria"}>
               <div className={styles.menu_column}>급식</div>
             </Link>
-            <Link href={"coummunity"}>
+            <Link href={"community"}>
               <div className={styles.menu_column}>커뮤니티</div>
             </Link>
             <Link href={"calendar"}>
