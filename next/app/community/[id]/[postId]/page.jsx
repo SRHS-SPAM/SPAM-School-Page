@@ -10,10 +10,9 @@ import Comment from "./Comment";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import PostReply from "./PostReply";
-import PostPage from "./PostPage";
-import Pagination from "./Pagination";
 import MiddlePage from "./MiddlePage";
+import ImageSvg from "../../../../public/svg/image.svg";
+import Smile from "../../../../public/svg/smile.svg";
 
 export default async function Post(props) {
   let session = await getServerSession(authOptions);
@@ -27,7 +26,6 @@ export default async function Post(props) {
 
   let [datePart, timePart] = data.date.split(";");
   datePart = datePart.replace(/\//g, ".");
-
   return (
     <div>
       <header className={styles.cafe_header}>
@@ -120,11 +118,46 @@ export default async function Post(props) {
                   {session.user.name}
                 </div>
                 <div className={styles.write_d_comment_detail}>
-                  <PostReply
-                    post={data._id}
-                    id={data.category}
-                    name={props.searchParams.name}
-                  ></PostReply>
+                  <form
+                    className={styles.write_d_comment_detail_main}
+                    action={"/api/comment/new"}
+                  >
+                    <div className={styles.write_d_comment_detail_input}>
+                      <input
+                        name={"comment"}
+                        id={"comment"}
+                        className={`${styles.set_input} ${styles.set_info_input}`}
+                        type="text"
+                        placeholder="여기에 댓글을 남겨보세요!"
+                      />
+                      <input
+                        type="hidden"
+                        name={"category"}
+                        value={data.category}
+                      />
+                      <input
+                        type="hidden"
+                        name={"postId"}
+                        value={props.params.postId}
+                      />
+                      <input
+                        type="hidden"
+                        name={"name"}
+                        value={props.searchParams.name}
+                      />
+                    </div>
+                    <div className={styles.comment_detail_sub}>
+                      <div className={styles.comment_detail_sub_1}>
+                        {/*<i className={`${styles.fa-regular} ${styles.fa-image}`}></i>*/}
+                        <ImageSvg></ImageSvg>
+                        {/*<i className={`${styles.fa-regular} ${styles.fa-face-smile}`}></i>*/}
+                        <Smile></Smile>
+                      </div>
+                      <div className={styles.comment_detial_sub_2}>
+                        <button type="submit">작성</button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
               <div className={styles.write_d_reply_writing_sub}>

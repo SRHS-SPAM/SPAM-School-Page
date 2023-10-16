@@ -21,7 +21,7 @@ export default function AnotherLogin({ name }) {
       <div className={styles.login_imgsubbox}>
         <img id={name} src={`/images/${name}.png`} alt={name} />
       </div>
-      <div className={styles.login_googletxt}>
+      <div className={styles.login_googletxt} id={name}>
         Sign with {name.replace(/^[a-z]/, (char) => char.toUpperCase())}
       </div>
     </div>
