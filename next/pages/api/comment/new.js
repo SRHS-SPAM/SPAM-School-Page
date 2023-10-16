@@ -34,7 +34,16 @@ export default async function Comment(req, res) {
       let postResult = await db
         .collection("post")
         .updateOne({ _id: id }, { $inc: { comment: 1 } });
-      res.status(200).json("저장완료");
+      res
+        .status(200)
+        .redirect(
+          "/community/" +
+            req.body._id +
+            "/" +
+            req.body.parentId +
+            "?" +
+            req.body.name
+        );
     } catch (error) {
       console.error(error);
     }

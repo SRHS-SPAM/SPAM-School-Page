@@ -1,12 +1,11 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { useState } from "react";
 import ImageSvg from "../../../../public/svg/image.svg";
 import Smile from "../../../../public/svg/smile.svg";
 import styles from "./writing_detail.module.css";
 
 export default function PostReply(props) {
-  const router = useRouter();
   const [comment, setComment] = useState("");
   return (
     <div className={styles.write_d_comment_detail_main}>
@@ -39,16 +38,9 @@ export default function PostReply(props) {
                   body: JSON.stringify({
                     comment: comment,
                     _id: props.post,
+                    parentId: props.id,
+                    name: props.name,
                   }),
-                }).then(() => {
-                  router.push(
-                    "/community/" +
-                      props.id +
-                      "/" +
-                      props.post +
-                      "?" +
-                      props.name
-                  );
                 });
               }
             }}
