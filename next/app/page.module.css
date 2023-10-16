@@ -266,11 +266,11 @@
   font-weight: 700;
 }
 
-.today {
+/* .today {
   background-color: var(--primary-color);
   padding: var(--Sizes-size06);
   border-radius: var(--Sizes-size1);
-}
+} */
 
 /* MediaQuery */
 

@@ -14,8 +14,11 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { format } from "date-fns";
 import { connectDB } from "@/util/database";
 import List from "./List";
-import { ObjectId } from "mongodb";
 import { redirect } from "next/navigation";
+
+export const metadata = {
+  title: "mypage",
+};
 
 export default async function Community() {
   let session = await getServerSession(authOptions);

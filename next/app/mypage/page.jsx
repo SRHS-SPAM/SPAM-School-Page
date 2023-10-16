@@ -5,13 +5,16 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import GoToSub from "./GoToSub";
 import SignOutButton from "./signOutButton";
-
 import Pen from "../../public/svg/pen.svg";
 import CalendarSvg from "../../public/svg/calendar.svg";
 import Rice from "../../public/svg/Rice.svg";
 import PenSolid from "../../public/svg/pen_solid.svg";
 import Headset from "../../public/svg/headset.svg";
 import Gear from "../../public/svg/gear.svg";
+
+export const metadata = {
+  title: "mypage",
+};
 
 export default async function mypage() {
   let goToSub = [
