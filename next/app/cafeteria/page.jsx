@@ -1,7 +1,6 @@
 import Arrow from "@/components/Arrow";
 import styles from "./cafeteria.module.css";
 import Menubar from "@/components/Menubar";
-import Seo from "@/components/Seo";
 
 export const metadata = {
   title: "cafeteria",
@@ -10,7 +9,6 @@ export const metadata = {
 export default function Home() {
   return (
     <div>
-      <Seo title="cafeteria" />
       <header className={styles.cafe_header}>
         <div className={styles.cafe_inner}>
           <div className={styles.cafe_actions}>

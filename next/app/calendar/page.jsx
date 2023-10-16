@@ -1,5 +1,4 @@
 import Arrow from "@/components/Arrow";
-import Seo from "@/components/Seo";
 import CalendarPage from "./CalendarPage";
 
 export const metadata = {
@@ -9,7 +8,6 @@ export const metadata = {
 export default function Calender() {
   return (
     <>
-      <Seo title="Calendar" />
       <CalendarPage></CalendarPage>
     </>
   );
