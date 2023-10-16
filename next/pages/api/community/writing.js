@@ -36,7 +36,6 @@ export default async function Handler(req, res) {
       category: new ObjectId(req.query.category),
     };
 
-    console.log(data);
     let result = await db.collection("post").insertOne(data);
     res.redirect(307, "/community/" + req.query.category);
   } catch (error) {
