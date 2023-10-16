@@ -66,12 +66,12 @@ export default async function Post(props) {
           </div>
           <div className={styles.write_d_main}>
             <div className={styles.write_d_writing}>
-              <div className={styles.write_d_writing_img}>
+              {/* <div className={styles.write_d_writing_img}>
                 <img src="/images/etsuki.png" />
               </div>
               <div className={styles.write_d_writing_bottom}>
                 <div className={styles.write_d_text}>정실은 이츠키</div>
-              </div>
+              </div> */}
               <div className={styles.write_d_writing_main}>{data.content}</div>
               <div className={styles.write_d_writing_usermore}>
                 <div className={styles.write_d_usermore_img}>

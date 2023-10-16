@@ -47,7 +47,7 @@ export default async function Detail() {
       {/* Main */}
       <main className={styles.writing_main}>
         <form
-          action="/api/community/new"
+          action="/api/community/writing"
           method="POST"
           className={styles.writing_base}
         >

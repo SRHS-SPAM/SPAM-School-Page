@@ -2,7 +2,6 @@ import Nav from "@/components/Nav";
 import Seo from "@/components/Seo";
 import Link from "next/link";
 import styles from "./page.module.css";
-import Calendar from "@/components/Calendar";
 import MiniCalendar from "@/components/MiniCalendar";
 
 export default function Home() {
@@ -10,7 +9,7 @@ export default function Home() {
   return (
     <>
       {/* header */}
-      <Seo title="Home" description="info" />
+
       <Nav type="default" />
       {/* main */}
       <main>
