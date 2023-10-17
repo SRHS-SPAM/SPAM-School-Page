@@ -24,7 +24,7 @@ body {
 }
 
 .my_maintxt {
-  background-color: #286246;
+  background-color: var(--default-background-color);
   width: 50%;
   height: var(--Sizes-size7);
   border-radius: var(--Sizes-size1_5);
@@ -158,7 +158,7 @@ body {
 }
 
 .gotobox_subbox {
-  background-color: #286246;
+  background-color: var(--default-background-color);
   width: 70%;
   height: var(--Sizes-size9);
   border-radius: 1.25rem;
@@ -190,7 +190,7 @@ body {
 .my_footerbox {
   width: 35rem;
   height: 8rem;
-  background-color: #286246;
+  background-color: var(--default-background-color);
   border-radius: 1.25rem;
   color: white;
   display: flex;
