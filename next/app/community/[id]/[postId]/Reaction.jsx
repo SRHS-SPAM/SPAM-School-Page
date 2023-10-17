@@ -38,6 +38,7 @@ export default function Reaction(props) {
          * @todo findOneAndUpdate 사용하면 순차적으로 처리되서 동시성 됨 ㅇㅇ
          * 그걸로 만드셈
          * tlqkf
+         * @todo 아직 미완성임!
          */}
         <ThumbsUp></ThumbsUp>
         추천 {props.good}
