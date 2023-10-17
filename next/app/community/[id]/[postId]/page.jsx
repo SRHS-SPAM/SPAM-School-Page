@@ -87,6 +87,11 @@ export default async function Post(props) {
               <div className={styles.write_d_write_info}>
                 <div className={styles.write_d_thumbs_up}>
                   {/*<i className={`${styles.fa-regular} ${styles.fa-thumbs-up}`}></i>*/}
+                  {/**
+                   * @todo FindAndModify 사용하면 순차적으로 처리되서 동시성 됨 ㅇㅇ
+                   * 그걸로 만드셈
+                   * tlqkf
+                   */}
                   <ThumbsUp></ThumbsUp>
                   추천 {data.good}
                 </div>
