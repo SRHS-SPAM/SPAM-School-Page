@@ -49,6 +49,7 @@ main {
 
 .setting_logout {
   background-color: red;
+  color: white;
   margin: 2rem 1rem;
   height: 5rem;
   border-radius: var(--Sizes-size1_3);
@@ -173,9 +174,12 @@ main {
 
 .set_profile_save button {
   width: 20%;
+  font-size: 1.5rem;
   border-radius: 1rem;
   height: 3rem;
-  background-color: #e7cbcb;
+  color: white;
+  font-weight: bold;
+  background-color: var(--default-background-color);
 }
 
 @media screen and (max-width: 1280px) {
