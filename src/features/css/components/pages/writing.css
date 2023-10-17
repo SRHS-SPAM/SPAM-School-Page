@@ -24,7 +24,7 @@ body {
 .writing_page {
   font-size: 2.5rem;
   font-weight: bold;
-  color: var(writing-page-text);
+  color: var(--writing-page-text);
 }
 
 .writing_menu {
