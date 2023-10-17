@@ -1,6 +1,4 @@
 import styles from "./writing_detail.module.css";
-import ThumbsUp from "../../../../public/svg/thumbsUp.svg";
-import ThumbsDown from "../../../../public/svg/thumbsDown.svg";
 import CommentSvg from "../../../../public/svg/comment.svg";
 import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
@@ -13,6 +11,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import MiddlePage from "./MiddlePage";
 import ImageSvg from "../../../../public/svg/image.svg";
 import Smile from "../../../../public/svg/smile.svg";
+import Reaction from "./Reaction";
 
 export default async function Post(props) {
   let session = await getServerSession(authOptions);
@@ -26,6 +25,7 @@ export default async function Post(props) {
 
   let [datePart, timePart] = data.date.split(";");
   datePart = datePart.replace(/\//g, ".");
+
   return (
     <div>
       <header className={styles.cafe_header}>
@@ -85,16 +85,11 @@ export default async function Post(props) {
                 </div>
               </div>
               <div className={styles.write_d_write_info}>
-                <div className={styles.write_d_thumbs_up}>
-                  {/*<i className={`${styles.fa-regular} ${styles.fa-thumbs-up}`}></i>*/}
-                  <ThumbsUp></ThumbsUp>
-                  추천 {data.good}
-                </div>
-                <div className={styles.write_d_thumbs_down}>
-                  {/*<i className={`${styles.fa-regular} ${styles.fa-thumbs-down}`}></i>*/}
-                  <ThumbsDown></ThumbsDown>
-                  비추천 {data.bad}
-                </div>
+                <Reaction
+                  good={data.good}
+                  bad={data.bad}
+                  id={props.params.postId}
+                ></Reaction>
                 <div className={styles.write_d_reply_count}>
                   {/*<i className={`${styles.fa-regular} ${styles.fa-comment}`}></i>*/}
                   <CommentSvg></CommentSvg>

@@ -54,7 +54,7 @@
 }
 
 .cafe_box {
-  background-color: var(--cafe-background-color);
+  background-color: var(--default-background-color);
   padding: 0 var(--Sizes-size5) var(--Sizes-size3) var(--Sizes-size5);
   border-radius: var(--Sizes-size2);
   height: 75%;

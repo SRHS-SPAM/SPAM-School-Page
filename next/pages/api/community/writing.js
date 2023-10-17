@@ -34,6 +34,7 @@ export default async function Handler(req, res) {
       number: lastDocument ? lastDocument.number + 1 : 1,
       image: session.user.image,
       category: new ObjectId(req.query.category),
+      liker: [],
     };
 
     let result = await db.collection("post").insertOne(data);
