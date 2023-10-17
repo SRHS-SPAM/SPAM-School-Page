@@ -1,6 +1,4 @@
 import styles from "./writing_detail.module.css";
-import ThumbsUp from "../../../../public/svg/thumbsUp.svg";
-import ThumbsDown from "../../../../public/svg/thumbsDown.svg";
 import CommentSvg from "../../../../public/svg/comment.svg";
 import Arrow from "@/components/Arrow";
 import Menubar from "@/components/Menubar";
@@ -10,10 +8,10 @@ import Comment from "./Comment";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import PostReply from "./PostReply";
-import PostPage from "./PostPage";
-import Pagination from "./Pagination";
 import MiddlePage from "./MiddlePage";
+import ImageSvg from "../../../../public/svg/image.svg";
+import Smile from "../../../../public/svg/smile.svg";
+import Reaction from "./Reaction";
 
 export default async function Post(props) {
   let session = await getServerSession(authOptions);
@@ -87,16 +85,11 @@ export default async function Post(props) {
                 </div>
               </div>
               <div className={styles.write_d_write_info}>
-                <div className={styles.write_d_thumbs_up}>
-                  {/*<i className={`${styles.fa-regular} ${styles.fa-thumbs-up}`}></i>*/}
-                  <ThumbsUp></ThumbsUp>
-                  추천 {data.good}
-                </div>
-                <div className={styles.write_d_thumbs_down}>
-                  {/*<i className={`${styles.fa-regular} ${styles.fa-thumbs-down}`}></i>*/}
-                  <ThumbsDown></ThumbsDown>
-                  비추천 {data.bad}
-                </div>
+                <Reaction
+                  good={data.good}
+                  bad={data.bad}
+                  id={props.params.postId}
+                ></Reaction>
                 <div className={styles.write_d_reply_count}>
                   {/*<i className={`${styles.fa-regular} ${styles.fa-comment}`}></i>*/}
                   <CommentSvg></CommentSvg>
@@ -120,11 +113,46 @@ export default async function Post(props) {
                   {session.user.name}
                 </div>
                 <div className={styles.write_d_comment_detail}>
-                  <PostReply
-                    post={data._id}
-                    id={data.category}
-                    name={props.searchParams.name}
-                  ></PostReply>
+                  <form
+                    className={styles.write_d_comment_detail_main}
+                    action={"/api/comment/new"}
+                  >
+                    <div className={styles.write_d_comment_detail_input}>
+                      <input
+                        name={"comment"}
+                        id={"comment"}
+                        className={`${styles.set_input} ${styles.set_info_input}`}
+                        type="text"
+                        placeholder="여기에 댓글을 남겨보세요!"
+                      />
+                      <input
+                        type="hidden"
+                        name={"category"}
+                        value={data.category}
+                      />
+                      <input
+                        type="hidden"
+                        name={"postId"}
+                        value={props.params.postId}
+                      />
+                      <input
+                        type="hidden"
+                        name={"name"}
+                        value={props.searchParams.name}
+                      />
+                    </div>
+                    <div className={styles.comment_detail_sub}>
+                      <div className={styles.comment_detail_sub_1}>
+                        {/*<i className={`${styles.fa-regular} ${styles.fa-image}`}></i>*/}
+                        <ImageSvg></ImageSvg>
+                        {/*<i className={`${styles.fa-regular} ${styles.fa-face-smile}`}></i>*/}
+                        <Smile></Smile>
+                      </div>
+                      <div className={styles.comment_detial_sub_2}>
+                        <button type="submit">작성</button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
               <div className={styles.write_d_reply_writing_sub}>

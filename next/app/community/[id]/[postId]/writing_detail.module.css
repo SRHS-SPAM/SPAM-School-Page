@@ -173,12 +173,14 @@
 }
 
 .write_d_thumbs_up {
+  cursor: pointer;
   display: flex;
   font-size: 1rem;
   gap: 0.5rem;
 }
 
 .write_d_thumbs_down {
+  cursor: pointer;
   display: flex;
   font-size: 1rem;
   gap: 0.5rem;

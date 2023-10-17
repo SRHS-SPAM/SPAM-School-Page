@@ -112,7 +112,9 @@ export default async function Community() {
                     <Link href={"community/" + articles[0].id}>
                       <span className={styles.community_more}>더보기</span>
                     </Link>
-                    <RightArrow></RightArrow>
+                    <Link href={"community/" + articles[0].id}>
+                      <RightArrow></RightArrow>
+                    </Link>
                   </div>
                 </div>
                 <div className={styles.community_article_division} />
