@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --primary-color: #99627a;
   --primary-font-color: #ffffff;
   --menubar-font-color: #ffffff;
@@ -8,4 +8,17 @@
   --calendar-background-color: #643843;
   --cafe-background-color: #643843;
   --current-food: #9df1df;
+} */
+
+:root {
+  --primary-color: #2a374a;
+  --primary-font-color: #ffffff;
+  --menubar-font-color: #ffffff;
+  --background-color: #dfe6ec;
+  --font-Color-white: #ffffff;
+  --article-background-color: #ffffff;
+  --calendar-background-color: #adb1d4;
+  --default-background-color: #2a374a;
+  --current-food: #9df1df;
+  --writing-page-text: #493e3c;
 }
