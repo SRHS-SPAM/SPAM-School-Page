@@ -3,32 +3,30 @@
 import styles from "./writing_detail.module.css";
 import ThumbsUp from "../../../../public/svg/thumbsUp.svg";
 import ThumbsDown from "../../../../public/svg/thumbsDown.svg";
-import { connectDB } from "@/util/database";
-import { ObjectId } from "mongodb";
 
 export default function Reaction(props) {
   const good = async () => {
     try {
-      let db = (await connectDB).db("SRH-Community");
-      let data = await db
-        .collection("post")
-        .findOneAndUpdate(
-          { _id: new ObjectId(props.postId) },
-          { $inc: { good: 1 } }
-        );
+      //   let db = (await connectDB).db("SRH-Community");
+      //   let data = await db
+      //     .collection("post")
+      //     .findOneAndUpdate(
+      //       { _id: new ObjectId(props.postId) },
+      //       { $inc: { good: 1 } }
+      //     );
     } catch (error) {
       console.error(error);
     }
   };
   const bad = async () => {
     try {
-      let db = (await connectDB).db("SRH-Community");
-      let data = await db
-        .collection("post")
-        .findOneAndUpdate(
-          { _id: new ObjectId(props.postId) },
-          { $inc: { good: 1 } }
-        );
+      //   let db = (await connectDB).db("SRH-Community");
+      //   let data = await db
+      //     .collection("post")
+      //     .findOneAndUpdate(
+      //       { _id: new ObjectId(props.postId) },
+      //       { $inc: { good: 1 } }
+      //     );
     } catch (error) {
       console.error(error);
     }
