@@ -64,7 +64,7 @@ body {
   background-color: var(--default-background-color);
   padding: 0 var(--Sizes-size5) var(--Sizes-size3) var(--Sizes-size5);
   border-radius: var(--Sizes-size2);
-  height: 90%;
+  height: 70%;
   width: 68%;
   display: flex;
   align-items: center;
@@ -162,6 +162,7 @@ body {
     width: 40%;
     padding-top: var(--Sizes-size2);
     margin-bottom: var(--Sizes-size8);
+    height: 90%;
   }
 
   .cafe-food_info {
@@ -204,6 +205,7 @@ body {
     width: 50%;
     padding-top: var(--Sizes-size2);
     margin-bottom: var(--Sizes-size8);
+    height: 90%;
   }
 
   .cafe-food_info {
