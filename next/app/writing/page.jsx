@@ -11,10 +11,6 @@ import Italic from "@/public/svg/Italic.svg";
 import Underline from "@/public/svg/Underline.svg";
 import StrikeThrough from "@/public/svg/Strikethrough.svg";
 import { connectDB } from "@/util/database";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { ObjectId } from "mongodb";
-import { redirect } from "next/navigation";
 
 export const metadata = {
   title: "writing",

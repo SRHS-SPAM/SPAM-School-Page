@@ -17,7 +17,7 @@
 .writing_page {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #c26f93;
+  color: var(--writing-page-text);
 }
 
 .writing_menu {
@@ -195,7 +195,7 @@
 .post_savebutton button {
   height: 100%;
   width: 12rem;
-  background-color: #c688a3;
+  background-color: var(--writing-page-text);
   border-radius: 1rem;
   font-weight: bold;
   font-size: 1.5rem;

@@ -243,7 +243,7 @@
 .writing_button_Text {
   font-size: var(--Sizes-size1_5);
   border: 2px solid black;
-  background-color: beige;
+  background-color: white;
   padding: var(--Sizes-size02);
   border-radius: var(--Sizes-size03);
 }
@@ -269,7 +269,6 @@
 }
 
 .writing_search_input input {
-  background-color: beige;
   height: 94%;
   font-size: var(--Sizes-size1_2);
   width: 100%;
@@ -283,7 +282,7 @@
   align-items: center;
   justify-content: center;
   font-size: var(--Sizes-size1_2);
-  background-color: beige;
+  background-color: white;
   border-left: 1px solid black;
 }
 
@@ -303,7 +302,7 @@
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   border-left: 1px solid black;
-  background-color: beige;
+  background-color: white;
 }
 
 .community_pages {

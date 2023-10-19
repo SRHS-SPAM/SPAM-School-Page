@@ -7,6 +7,7 @@ import ThumbsDown from "../../../../public/svg/thumbsDown.svg";
 export default function Reaction(props) {
   const good = async () => {
     try {
+      fetch("/api/community/good");
       //   let db = (await connectDB).db("SRH-Community");
       //   let data = await db
       //     .collection("post")
