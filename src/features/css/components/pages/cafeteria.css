@@ -71,7 +71,7 @@ body {
   flex-direction: column;
 }
 
-.cafe-date {
+.cafe_date {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,7 +80,7 @@ body {
   margin-bottom: var(--Sizes-size2);
 }
 
-.cafe-date_label {
+.cafe_date_label {
   color: var(--font-Color-white);
   font-size: var(--Sizes-size1_6);
   font-weight: 700;
@@ -98,14 +98,14 @@ body {
   justify-content: space-between;
 }
 
-.cafe-food_menu {
+.cafe_food_menu {
   display: flex;
   flex-direction: column;
   gap: var(--Sizes-size3);
   align-items: start;
 }
 
-.cafe-food_info {
+.cafe_food_info {
   align-items: center;
   justify-content: center;
   display: flex;
@@ -113,7 +113,7 @@ body {
   color: var(--font-Color-white);
 }
 
-.cafe-status_time {
+.cafe_status_time {
   border: var(--Sizes-size01) solid var(--font-Color-white);
   border-radius: var(--Sizes-size06);
   padding: var(--Sizes-size06) var(--Sizes-size09) var(--Sizes-size06)
@@ -128,7 +128,7 @@ body {
   font-size: var(--Sizes-size1_1);
 }
 
-.cafe-menu_list {
+.cafe_menu_list {
   color: var(--font-Color-white);
   list-style: none;
   display: flex;
@@ -137,8 +137,16 @@ body {
   font-weight: 600;
 }
 
-.cafe-menu_list li {
+.cafe_menu_list li {
   font-size: var(--Sizes-size1_3);
+}
+
+.cafe_food_info_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--Sizes-size1_2);
+  color: var(--font-Color-white);
 }
 
 /* MediaQuery */
@@ -165,15 +173,15 @@ body {
     height: 90%;
   }
 
-  .cafe-food_info {
+  .cafe_food_info {
     align-items: center;
   }
 
-  .cafe-menu_list {
+  .cafe_menu_list {
     align-items: center;
   }
 
-  .cafe-date {
+  .cafe_date {
     margin-bottom: var(--Sizes-size4);
   }
 
@@ -183,6 +191,10 @@ body {
     gap: var(--Sizes-size8);
     align-items: center;
     justify-content: center;
+  }
+
+  .cafe_food_info_container {
+    width: 100%;
   }
 }
 
@@ -208,15 +220,15 @@ body {
     height: 90%;
   }
 
-  .cafe-food_info {
+  .cafe_food_info {
     flex-direction: column;
   }
 
-  .cafe-date {
+  .cafe_date {
     margin-bottom: var(--Sizes-size4);
   }
 
-  .cafe-food_menu {
+  .cafe_food_menu {
     flex-direction: row;
     gap: var(--Sizes-size10);
   }
@@ -235,11 +247,15 @@ body {
     width: 70%;
   }
 
-  .cafe-date {
+  .cafe_date {
     text-align: center;
   }
 
-  .cafe-menu_list {
+  .cafe_menu_list {
     text-align: center;
+  }
+
+  .cafe_menu_arti {
+    width: 160%;
   }
 }
