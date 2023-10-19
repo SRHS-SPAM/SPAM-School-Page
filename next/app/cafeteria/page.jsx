@@ -8,18 +8,21 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <div className={styles.body}>
       <header className={styles.cafe_header}>
         <div className={styles.cafe_inner}>
           <div className={styles.cafe_actions}>
             <Arrow location="/" mod={2} />
-            <div className={styles.center_title}>
-              <div className={styles.cafeteria_label}>급 식</div>
-            </div>
+
             <div className={styles.cafe_menu}>
               <div className={styles.cafe_menu_wrap}>
                 <Menubar></Menubar>
               </div>
+            </div>
+          </div>
+          <div className={styles.cafetitle_container}>
+            <div className={styles.center_title}>
+              <div className={styles.cafeteria_label}>급 식</div>
             </div>
           </div>
         </div>
