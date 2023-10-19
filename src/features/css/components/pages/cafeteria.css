@@ -6,11 +6,10 @@ body {
   display: flex;
   flex-direction: column;
 }
-}
 
-.cafe_header {
+/* .cafe_header {
   height: var(--Sizes-size9);
-}
+} */
 
 .cafe_inner {
   align-items: center;
