@@ -266,3 +266,14 @@ input::placeholder {
     background: #1a1a1a;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .stroke {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .box {
+    width: 100%;
+  }
+}
