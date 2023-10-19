@@ -231,3 +231,17 @@
     justify-content: center;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .center_title {
+    width: 70%;
+  }
+
+  .cafe-date {
+    text-align: center;
+  }
+
+  .cafe-menu_list {
+    text-align: center;
+  }
+}

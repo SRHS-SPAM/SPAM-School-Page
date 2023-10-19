@@ -228,7 +228,7 @@ body {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 450px) {
   .center_title {
     width: 70%;
   }
