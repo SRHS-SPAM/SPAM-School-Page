@@ -208,7 +208,6 @@ body {
 
   .cafe-food_info {
     flex-direction: column;
-    align-items: start;
   }
 
   .cafe-date {
@@ -226,5 +225,19 @@ body {
     gap: var(--Sizes-size5);
     align-items: center;
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .center_title {
+    width: 70%;
+  }
+
+  .cafe-date {
+    text-align: center;
+  }
+
+  .cafe-menu_list {
+    text-align: center;
   }
 }
