@@ -57,9 +57,8 @@ export default function Timetable({ grade, classs, date }) {
   return (
     <>
       {timetable.map((ai, i) => {
-        return (
-          <>
-            {/*ai.map((aj, j) => (
+        <>
+          {/*ai.map((aj, j) => (
           <li key={i}>
             <div className={styles.cal_timetable_container}>
               {i + 1}교시 :&nbsp;
@@ -67,18 +66,17 @@ export default function Timetable({ grade, classs, date }) {
             </div>
           </li>
         ))*/}
-            {ai[0] != null ? (
-              <li key={i}>
-                <div className={styles.cal_timetable_container}>
-                  {i + 1}교시 :&nbsp;
-                  <span className={styles.cal_timetable_main}>{ai[0]}</span>
-                </div>
-              </li>
-            ) : (
-              <></>
-            )}
-          </>
-        );
+          {ai[0] != null ? (
+            <li key={i}>
+              <div className={styles.cal_timetable_container}>
+                {i + 1}교시 :&nbsp;
+                <span className={styles.cal_timetable_main}>{ai[0]}</span>
+              </div>
+            </li>
+          ) : (
+            <></>
+          )}
+        </>;
       })}
     </>
   );

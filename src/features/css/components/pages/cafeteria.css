@@ -102,7 +102,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--Sizes-size3);
-  align-items: start;
+  align-items: flex-start;
 }
 
 .cafe_food_info {

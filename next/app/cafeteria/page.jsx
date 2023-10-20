@@ -12,7 +12,7 @@ export default function Home() {
       <header className={styles.cafe_header}>
         <div className={styles.cafe_inner}>
           <div className={styles.cafe_actions}>
-            <Arrow location="/" mod={2} />
+            <Arrow location="/" mod={1} />
 
             <div className={styles.cafe_menu}>
               <div className={styles.cafe_menu_wrap}>
@@ -40,9 +40,11 @@ export default function Home() {
             <article className={styles.cafe_menu_arti}>
               <div className={styles.menu_sections}>
                 <div className={styles.cafe_food_menu}>
-                  <div className={styles.cafe_food_info}>
-                    <div className={styles.cafe_status_time}>아침</div>
-                    <div className={styles.cafe_kcal}>1,046kcal</div>
+                  <div class={styles.cafe_food_info_container}>
+                    <div className={styles.cafe_food_info}>
+                      <div className={styles.cafe_status_time}>아침</div>
+                      <div className={styles.cafe_kcal}>1,046kcal</div>
+                    </div>
                   </div>
                   <div className={styles.cafe_menu_list}>
                     <li>수수밥</li>
@@ -56,11 +58,13 @@ export default function Home() {
 
                 <article>
                   <div className={styles.cafe_food_menu}>
-                    <div className={styles.cafe_food_info}>
-                      <div className={styles.cafe_status_time}>
-                        <em className={styles.current}>점심</em>
+                    <div class={styles.cafe_food_info_container}>
+                      <div className={styles.cafe_food_info}>
+                        <div className={styles.cafe_status_time}>
+                          <em className={styles.current}>점심</em>
+                        </div>
+                        <div className={styles.cafe_kcal}>1,352kcal</div>
                       </div>
-                      <div className={styles.cafe_kcal}>1,352kcal</div>
                     </div>
                     <div className={styles.cafe_menu_list}>
                       <li>수수밥</li>
@@ -75,9 +79,11 @@ export default function Home() {
 
                 <article>
                   <div className={styles.cafe_food_menu}>
-                    <div className={styles.cafe_food_info}>
-                      <div className={styles.cafe_status_time}>저녁</div>
-                      <div className={styles.cafe_kcal}>1,098kcal</div>
+                    <div class={styles.cafe_food_info_container}>
+                      <div className={styles.cafe_food_info}>
+                        <div className={styles.cafe_status_time}>저녁</div>
+                        <div className={styles.cafe_kcal}>1,098kcal</div>
+                      </div>
                     </div>
                     <div className={styles.cafe_menu_list}>
                       <li>수수밥</li>
