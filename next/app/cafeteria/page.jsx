@@ -8,18 +8,21 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <div className={styles.body}>
       <header className={styles.cafe_header}>
         <div className={styles.cafe_inner}>
           <div className={styles.cafe_actions}>
-            <Arrow location="/" mod={2} />
-            <div className={styles.center_title}>
-              <div className={styles.cafeteria_label}>급 식</div>
-            </div>
+            <Arrow location="/" mod={1} />
+
             <div className={styles.cafe_menu}>
               <div className={styles.cafe_menu_wrap}>
                 <Menubar></Menubar>
               </div>
+            </div>
+          </div>
+          <div className={styles.cafetitle_container}>
+            <div className={styles.center_title}>
+              <div className={styles.cafeteria_label}>급 식</div>
             </div>
           </div>
         </div>
@@ -37,9 +40,11 @@ export default function Home() {
             <article className={styles.cafe_menu_arti}>
               <div className={styles.menu_sections}>
                 <div className={styles.cafe_food_menu}>
-                  <div className={styles.cafe_food_info}>
-                    <div className={styles.cafe_status_time}>아침</div>
-                    <div className={styles.cafe_kcal}>1,046kcal</div>
+                  <div className={styles.cafe_food_info_container}>
+                    <div className={styles.cafe_food_info}>
+                      <div className={styles.cafe_status_time}>아침</div>
+                      <div className={styles.cafe_kcal}>1,046kcal</div>
+                    </div>
                   </div>
                   <div className={styles.cafe_menu_list}>
                     <li>수수밥</li>
@@ -53,11 +58,13 @@ export default function Home() {
 
                 <article>
                   <div className={styles.cafe_food_menu}>
-                    <div className={styles.cafe_food_info}>
-                      <div className={styles.cafe_status_time}>
-                        <em className={styles.current}>점심</em>
+                    <div className={styles.cafe_food_info_container}>
+                      <div className={styles.cafe_food_info}>
+                        <div className={styles.cafe_status_time}>
+                          <em className={styles.current}>점심</em>
+                        </div>
+                        <div className={styles.cafe_kcal}>1,352kcal</div>
                       </div>
-                      <div className={styles.cafe_kcal}>1,352kcal</div>
                     </div>
                     <div className={styles.cafe_menu_list}>
                       <li>수수밥</li>
@@ -72,9 +79,11 @@ export default function Home() {
 
                 <article>
                   <div className={styles.cafe_food_menu}>
-                    <div className={styles.cafe_food_info}>
-                      <div className={styles.cafe_status_time}>저녁</div>
-                      <div className={styles.cafe_kcal}>1,098kcal</div>
+                    <div className={styles.cafe_food_info_container}>
+                      <div className={styles.cafe_food_info}>
+                        <div className={styles.cafe_status_time}>저녁</div>
+                        <div className={styles.cafe_kcal}>1,098kcal</div>
+                      </div>
                     </div>
                     <div className={styles.cafe_menu_list}>
                       <li>수수밥</li>
