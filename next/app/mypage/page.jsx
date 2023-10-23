@@ -11,6 +11,7 @@ import Rice from "../../public/svg/Rice.svg";
 import PenSolid from "../../public/svg/pen_solid.svg";
 import Headset from "../../public/svg/headset.svg";
 import Gear from "../../public/svg/gear.svg";
+import Menubar from "@/components/Menubar";
 
 export const metadata = {
   title: "mypage",
@@ -73,7 +74,9 @@ export default async function mypage() {
             <Arrow location="/" mod={1} />
           </div>
           <div className={styles.my_maintxt}>마이페이지</div>
-          <div className={styles.space}></div>
+          <div className={styles.bars}>
+            <Menubar></Menubar>
+          </div>
         </div>
         <div className={styles.my_prfilecover}>
           <div className={styles.my_profilebox}>

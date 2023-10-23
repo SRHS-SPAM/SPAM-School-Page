@@ -9,7 +9,7 @@ export default function Menubar() {
   const onClick = () => setOpen((prop) => !prop);
 
   return (
-    <div>
+    <>
       <div className={styles.bars} id="bar" onClick={onClick}>
         <div className={styles.menuline_horizontal}></div>
         <div className={styles.menuline_horizontal}></div>
@@ -67,6 +67,6 @@ export default function Menubar() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
