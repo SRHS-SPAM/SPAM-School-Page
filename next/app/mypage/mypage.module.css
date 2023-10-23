@@ -1,7 +1,7 @@
-.space {
+/* .space {
   height: var(--Sizes-size1_5);
   width: var(--Sizes-size2_5);
-}
+} */
 
 .mypage_mainbox {
   display: grid;
@@ -68,10 +68,9 @@
 }
 
 .my_profileimg {
-  height: 80%;
-  width: 10%;
+  height: 130px;
+  width: 130px;
   border-radius: 50%;
-  border: solid #c8c8c8;
 }
 
 .my_profileimg > img {
@@ -174,8 +173,10 @@
   padding: var(--Sizes-size06);
 }
 
-.gotobox_icon > img {
-  height: 90px;
+/* svg에서 처리 */
+.gotobox_icon > i {
+  font-size: 5.625rem;
+  color: black;
 }
 
 .my_casesubbox {
@@ -198,15 +199,14 @@
   align-items: center;
   font-size: var(--Sizes-size3);
   font-weight: bold;
-  cursor: pointer;
 }
 
 .gotobox_write {
   display: none;
 }
 
-.gotobox_icon_write > img {
-  width: 0px;
+.gotobox_icon_write > i {
+  font-size: 0px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -225,13 +225,12 @@
     display: flex;
   }
 
-  .gotobox_icon_write > img {
-    width: 90px;
-    height: 90px;
+  .gotobox_icon_write > i {
+    font-size: 5.625rem;
   }
 
   .my_profileimg {
-    width: 30%;
+    width: 30vh;
   }
 
   .my_footerbox {
@@ -279,20 +278,34 @@
 
   .my_profilebox {
     width: 100%;
+    flex-direction: column;
+    height: 13rem;
+    padding-top: 2rem;
+  }
+
+  .my_gotomenu {
+    margin-top: 2rem;
+    margin-bottom: 5rem;
   }
 
   .gotobox_write {
     display: flex;
   }
 
-  .gotobox_icon_write > img {
-    width: 90px;
-    height: 90px;
-  }
-
   .my_profileimg {
     width: 30%;
     height: 80%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .my_profileimg img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .gotobox_icon_write > i {
+    font-size: 5.625rem;
   }
 
   .my_rightbox > div {
@@ -319,6 +332,11 @@
     width: 100%;
   }
 
+  .gotobox_icon_write > i {
+    font-size: 5.625rem;
+    color: black;
+  }
+
   .my_casesubbox {
     display: none;
   }
@@ -333,6 +351,12 @@
 
   .my_userinfo_top {
     justify-content: space-around;
+    width: 100%;
+  }
+
+  .my_userinfo_top1 {
+    flex-direction: column;
+    justify-content: center;
   }
 
   .my_userinfo_top2 {

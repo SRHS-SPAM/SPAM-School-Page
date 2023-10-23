@@ -85,7 +85,7 @@ body {
   width: 60rem;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
   gap: 2rem;
 }
@@ -277,6 +277,14 @@ body {
 
   .my_profilebox {
     width: 100%;
+    flex-direction: column;
+    height: 13rem;
+    padding-top: 2rem;
+  }
+
+  .my_gotomenu {
+    margin-top: 2rem;
+    margin-bottom: 5rem;
   }
 
   .gotobox_write {
@@ -286,6 +294,13 @@ body {
   .my_profileimg {
     width: 30%;
     height: 80%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .my_profileimg img {
+    width: 100px;
+    height: 100px;
   }
 
   .gotobox_icon_write > i {
@@ -335,6 +350,12 @@ body {
 
   .my_userinfo_top {
     justify-content: space-around;
+    width: 100%;
+  }
+
+  .my_userinfo_top1 {
+    flex-direction: column;
+    justify-content: center;
   }
 
   .my_userinfo_top2 {

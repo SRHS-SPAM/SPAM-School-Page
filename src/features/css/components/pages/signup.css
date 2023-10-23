@@ -198,6 +198,6 @@ input::placeholder {
 
 @media screen and (max-width: 768px) {
   .signup_stroke {
-    width: 80%;
+    width: 100%;
   }
 }
