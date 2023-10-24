@@ -122,6 +122,11 @@
   color: rgba(240, 255, 255, 0.661);
 }
 
+.today > div > div {
+  border-radius: 50%;
+  background-color: #0067c0;
+}
+
 .disabled_day {
   color: rgba(240, 255, 255, 0.421);
 }

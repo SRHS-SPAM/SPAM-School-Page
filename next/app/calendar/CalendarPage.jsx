@@ -367,7 +367,7 @@ export default function CalendarPage() {
                           copy[1]-=8;
                           copy[0]++;
                         }
-                        if(copy[0]>=3) {
+                        if(copy[0]>3) {
                             copy[0]=1;
                         }
                         setTimearr(copy);
