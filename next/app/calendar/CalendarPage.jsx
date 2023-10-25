@@ -60,16 +60,13 @@ export default function CalendarPage() {
     currentDate.getFullYear(),
     currentDate.getMonth(),
   ]);
-  const [timearr, setTimearr] = useState([
-    1,
-    1,
-  ])
+  const [timearr, setTimearr] = useState([1, 1]);
   const today = array[0], //state로서 선언된 array에서 날짜를 옮겨 닮는다. 오늘이 아닐 수 도 있다.
     month = array[1], //state로서 선언된 array에서 월를 옮겨 닮는다. 이번 달이 아닐 수 도 있다.
     year = array[2], //state로서 선언된 array에서 년도를 옮겨 닮는다. 올해기 아닐 수 도 있다.
     isYear = array[3];
-  const grade=timearr[0], 
-      classs=timearr[1];
+  const grade = timearr[0],
+    classs = timearr[1];
   const firstDate = new Date(year, month, 1); //설정된 날짜의 첫 날로서 생성한다. 시작 요일을 구하기 위함이다.
   const setDate = new Date(year, month, today); //설정된 날짜, 그 자체로서 생성한다.
   const temp2 = new Date(year, month, 0); //설정된 날짜의 달의 날 수를 구하기 위해
@@ -94,14 +91,15 @@ export default function CalendarPage() {
           <div className={`${styles.cal_box} ${styles.cal_box1}`}>
             <div className={styles.cal_box_black}>
               <div className={styles.cal_subbox_top}>
-                <div className={
-                  today == currentDate.getDate() &&
-                  month == currentDate.getMonth() &&
-                  year == currentDate.getFullYear() ?
-                  `${styles.cal_box_text} ${styles.margin_three}`
-                  :
-                  `${styles.cal_box_text} ${styles.margin_one}`
-                  }>
+                <div
+                  className={
+                    today == currentDate.getDate() &&
+                    month == currentDate.getMonth() &&
+                    year == currentDate.getFullYear()
+                      ? `${styles.cal_box_text} ${styles.margin_three}`
+                      : `${styles.cal_box_text} ${styles.margin_one}`
+                  }
+                >
                   {today == currentDate.getDate() &&
                   month == currentDate.getMonth() &&
                   year == currentDate.getFullYear() ? (
@@ -124,7 +122,7 @@ export default function CalendarPage() {
                     ></Reset>
                   )}
                   {isYear ? (
-                    <div>
+                    <div className={styles.Month_Active_text}>
                       <LeftArrow
                         fill={arrowColor}
                         className={styles.svg}
@@ -137,7 +135,7 @@ export default function CalendarPage() {
                       {year}
                     </div>
                   ) : (
-                    <div>
+                    <div className={styles.Month_Text}>
                       {`${monthList[month]} ${year} `}
                       <RightArrow
                         fill={arrowColor}
@@ -326,7 +324,9 @@ export default function CalendarPage() {
               {isYear ? (
                 <div className={styles.cal_box_right}>
                   <div className={styles.cal_subbox_top}>
-                    <div className={`${styles.cal_box_text} ${styles.margin_three}`}>
+                    <div
+                      className={`${styles.cal_box_text} ${styles.margin_three}`}
+                    >
                       {`${monthList[array[5]]} ${array[4]} `}
                     </div>
                   </div>
@@ -346,11 +346,11 @@ export default function CalendarPage() {
                         let copy = [...timearr];
                         copy[1]--;
                         if (copy[1] <= 0) {
-                          copy[1]+=8;
+                          copy[1] += 8;
                           copy[0]--;
                         }
-                        if(copy[0]<=0) {
-                            copy[0]=3;
+                        if (copy[0] <= 0) {
+                          copy[0] = 3;
                         }
                         setTimearr(copy);
                       }}
@@ -364,18 +364,22 @@ export default function CalendarPage() {
                         let copy = [...timearr];
                         copy[1]++;
                         if (copy[1] > 8) {
-                          copy[1]-=8;
+                          copy[1] -= 8;
                           copy[0]++;
                         }
-                        if(copy[0]>3) {
-                            copy[0]=1;
+                        if (copy[0] > 3) {
+                          copy[0] = 1;
                         }
                         setTimearr(copy);
                       }}
                     ></RightArrow>
                   </div>
                   <div className={styles.cal_box_right_main}>
-                    <Timetable grade={grade} classs={classs} date={(year*10000+(month+1)*100+today)}></Timetable>
+                    <Timetable
+                      grade={grade}
+                      classs={classs}
+                      date={year * 10000 + (month + 1) * 100 + today}
+                    ></Timetable>
                   </div>
                 </div>
               )}
@@ -383,7 +387,6 @@ export default function CalendarPage() {
           </div>
         </div>
       </div>
-
     </>
   );
 }

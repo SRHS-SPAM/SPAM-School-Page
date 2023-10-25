@@ -48,6 +48,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  padding-bottom: 10rem;
+  padding-top: 5rem;
 }
 
 .cal_box {
@@ -75,6 +77,20 @@
   color: white;
   font-size: x-large;
   font-weight: bold;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.cal_arrow_box {
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.Month_Text {
+  display: flex;
+  align-items: center;
 }
 
 .fa-chevron-left {
@@ -144,6 +160,11 @@
   align-items: center;
 }
 
+.cal_box_right_top {
+  display: flex;
+  align-items: center;
+}
+
 .cal_box_right_main {
   width: 50%;
   display: flex;
@@ -151,6 +172,17 @@
   gap: 1rem;
   flex-wrap: wrap;
   align-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.reset {
+  display: flex;
+  flex-direction: row;
+}
+
+.Month_Active_text {
+  display: flex;
   align-items: center;
 }
 
