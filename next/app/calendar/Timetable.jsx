@@ -56,7 +56,7 @@ export default function Timetable({ grade, classs, date }) {
   }, [grade, classs, date]);
   return (
     <>
-      {timetable.map((ai, i) => {
+      {timetable.map((ai, i) => (
         <>
           {/*ai.map((aj, j) => (
           <li key={i}>
@@ -76,8 +76,8 @@ export default function Timetable({ grade, classs, date }) {
           ) : (
             <></>
           )}
-        </>;
-      })}
+        </>
+      ))}
     </>
   );
 }
