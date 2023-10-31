@@ -4,16 +4,14 @@
 
 body {
   height: 100vh;
-}
-
-body {
   font-size: 100%;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: var(--background-color);
 }
 
-/* Header */
+/* 이거 뭔지 체크
+ Header 
 
 .community_header {
   width: 100%;
@@ -93,7 +91,7 @@ body {
   font-weight: 700;
 }
 
-/* main */
+ main 
 
 .community_main {
   min-width: 1120px;
@@ -114,7 +112,7 @@ body {
 .community_left_section {
   width: 70%;
   height: 100%;
-  /* background-color: red; */
+  -- background-color: red; --
   padding: 0px var(--Sizes-size2) 0px var(--Sizes-size2);
 }
 
@@ -255,7 +253,7 @@ body {
   gap: var(--Sizes-size07);
 }
 
-/* sub article */
+ sub article --
 
 .community_sub_article_main {
   width: 100%;
@@ -354,7 +352,7 @@ body {
   letter-spacing: 0.07rem;
 }
 
-/* right */
+--right 
 
 .community_right_section {
   width: 30%;
@@ -489,4 +487,5 @@ body {
 .community_ranking_now .fa-chevron-up {
   color: red;
   font-size: var(--Sizes-size08);
-}
+} 
+*/
