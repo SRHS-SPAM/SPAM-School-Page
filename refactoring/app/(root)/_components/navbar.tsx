@@ -10,8 +10,8 @@ const NavList = [
 
 const Navbar = () => {
   return (
-    <div className="z-50 fixed flex justify-between w-full border-b shadow-sm top-0 p-6">
-      <Image src={"/images/logo.png"} height={100} width={200} alt="Logo" />
+    <div className="z-50 fixed flex justify-between w-full border-b shadow-sm top-0 px-6 py-2 h-20">
+      <Image src={"/images/logo.png"} height={60} width={200} alt="Logo" />
       <div className="flex items-center gap-6">
         {NavList.map((arg, i) => (
           <div
