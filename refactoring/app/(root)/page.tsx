@@ -2,8 +2,9 @@ import Image from "next/image";
 import Item from "./_components/item";
 import Navbar from "./_components/navbar";
 import React from "react";
-import CalendarWrap from "./_components/calendarwrap";
 import Carousel from "@/components/ui/carousel";
+import CommunityItem from "./_components/communityItem";
+import Calander from "./_components/calander";
 
 export default function Home() {
   return (
@@ -12,14 +13,44 @@ export default function Home() {
       <div className="flex flex-col items-center">
         <div className="max-w-[1800px] w-full">
           <div className="flex flex-col gap-12 items-center mb-12">
-            <div className="grid grid-cols-2 grid-rows-2 p-12 h-[900px] gap-[100px] w-full">
-              <Item />
-              <Item />
-              <div className="rounded-2xl col-start-2 row-start-1 row-end-3 drop-shadow-2xl flex justify-center items-center text-center font-bold text-7xl bg-white">
-                나 못해<br></br>
-                컴포넌트몰라
+            <div className="grid grid-cols-2 grid-rows-2 p-12 pb-0 h-[800px] gap-[100px] w-full">
+              <Item
+                title="공지사항"
+                link="#"
+                dom={
+                  <div className="flex flex-col text-gray-700 font-bold justify-around h-full w-full">
+                    <p className="text-lg">
+                      졸업생 특강!
+                      <br />
+                      졸업생들이 알려주는 취업 이야기!
+                    </p>
+                    <p>신청기간: 2023/11/21 ~ 2023/11/25</p>
+                    <p>취업이 고민일때! 앞날이 걱정될때!</p>
+                  </div>
+                }
+              />
+              <Item
+                title="시간표"
+                link="#"
+                dom={
+                  <div className="flex flex-col text-gray-700 font-bold justify-around h-full">
+                    <p>
+                      오늘의 수업은 뭘까요?
+                      <br />
+                      2023-11-30일
+                    </p>
+                    <p>오늘의 시간표 확인하러 가기</p>
+                  </div>
+                }
+              />
+              <div className="rounded-2xl col-start-2 row-start-1 row-end-3 drop-shadow-2xl flex justify-center items-center text-center font-bold bg-white">
+                <div className="w-full h-full py-[5%]">
+                  <Calander />
+                </div>
               </div>
-              {/*<CalendarWrap />*/}
+            </div>
+            <div className="px-12 w-full">
+              <CommunityItem />
             </div>
             <Carousel
               options={{
