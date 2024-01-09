@@ -18,7 +18,7 @@ export default function Home() {
                 title="공지사항"
                 link="#"
                 dom={
-                  <div className="flex flex-col text-gray-700 font-bold justify-around h-full w-full">
+                  <div className="flex flex-col text-gray-500 font-bold justify-around h-full w-full">
                     <p className="text-lg">
                       졸업생 특강!
                       <br />
@@ -33,7 +33,7 @@ export default function Home() {
                 title="시간표"
                 link="#"
                 dom={
-                  <div className="flex flex-col text-gray-700 font-bold justify-around h-full">
+                  <div className="flex flex-col text-gray-500 font-bold justify-around h-full">
                     <p>
                       오늘의 수업은 뭘까요?
                       <br />
