@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Item from "./_components/item";
-import Navbar from "./_components/navbar";
 import React from "react";
 import Carousel from "@/components/ui/carousel";
 import CommunityItem from "./_components/communityItem";
-import Calander from "./_components/calander";
+import Calender from "@/components/ui/calendar";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <div className="flex flex-col items-center">
         <div className="max-w-[1800px] w-full">
           <div className="flex flex-col gap-12 items-center mb-12">
@@ -43,9 +41,9 @@ export default function Home() {
                   </div>
                 }
               />
-              <div className="rounded-2xl col-start-2 row-start-1 row-end-3 drop-shadow-2xl flex justify-center items-center text-center font-bold bg-white">
+              <div className="rounded-2xl col-start-2 row-start-1 row-end-3 drop-shadow-2xl flex justify-center items-center text-center bg-white">
                 <div className="w-full h-full py-[5%]">
-                  <Calander />
+                  <Calender />
                 </div>
               </div>
             </div>
