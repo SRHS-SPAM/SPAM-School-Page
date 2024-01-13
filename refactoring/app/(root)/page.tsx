@@ -6,6 +6,10 @@ import CommunityItem from "./_components/communityItem";
 import Calender from "@/components/ui/calendar";
 
 export default function Home() {
+  const currentDate = new Date();
+  const year=currentDate.getFullYear();
+  const month=currentDate.getMonth();
+  const date=currentDate.getDate();
   return (
     <>
       <div className="flex flex-col items-center">
@@ -43,7 +47,7 @@ export default function Home() {
               />
               <div className="rounded-2xl col-start-2 row-start-1 row-end-3 drop-shadow-2xl flex justify-center items-center text-center bg-white">
                 <div className="w-full h-full py-[5%]">
-                  <Calender />
+                  <Calender ymd={[year, month, date]}/>
                 </div>
               </div>
             </div>

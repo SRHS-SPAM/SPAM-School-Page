@@ -30,8 +30,8 @@ const CommunityItem = () => {
           </tr>
         </thead>
         <tbody>
-          {rows.map((row) => (
-            <tr key={row.id} className="text-center">
+          {rows.map((row, i) => (
+            <tr key={i} className="text-center">
               <td className="py-2 px-4">{row.gaysipan}</td>
               <td className="py-2 px-4 text-start">{row.title}</td>
               <td className="py-2 px-4">{row.id}</td>

@@ -39,7 +39,7 @@ export default function Home() {
         <div className="max-w-[1800px] w-full h-full">
           <div className="flex items-center p-8 h-full gap-12">
             <div className="w-[57%] h-full drop-shadow-2xl bg-white rounded-2xl">
-              <Calender ymd={ymd}/>
+              <Calender ymd={ymd} setymd={setYmd}/>
             </div>
             <div className="w-[43%] h-full drop-shadow-2xl bg-white rounded-2xl flex flex-col p-6 justify-stretch">
                 <p className="h-10">음력 2월 18일</p>
