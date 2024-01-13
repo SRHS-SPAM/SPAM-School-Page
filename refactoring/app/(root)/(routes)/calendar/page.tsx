@@ -27,12 +27,16 @@ const Data:EventItemProps[] = [{title: "입학식",
 ]
 
 export default function Home() {
-  const [ymd, setYmd] = useState([2024,0,1]);
+  const [ymd, setYmd] = useState([2024,1,1]);
+  const [isMounted, setIsMounted] = useState(false);
   useEffect(()=>{
     const initDate = new Date();
     setYmd([initDate.getFullYear(), initDate.getMonth(), initDate.getDate()]);
+    setIsMounted(true);
   }, []);
-  
+  if(!isMounted) return (
+    <></>
+  )
   return (
     <>
       <div className="flex flex-col items-center h-full">
