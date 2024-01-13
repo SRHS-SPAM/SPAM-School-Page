@@ -58,23 +58,26 @@ const CalendarAround = ({
       }
     }
   }
-  if (remove!=null) {
+  if (remove != null) {
     Dates.splice(remove[0], remove[1]);
   }
 
   return (
     <>
       {Dates.map((ai, i) => (
-        <tr key={i} className="text-center text-black text-xl font-normal">
+        <div key={i} className="text-center text-black text-xl font-normal h-full items-center w-full flex justify-stretch">
           {ai.map((aj, j) => (
-            <td
+            <div
               key={j}
               className={cn(
-                "",
+                "cursor-pointer select-none hover:bg-yellow-200 w-full h-full",
                 (isgray || aj.mon != "cur") && "text-gray-300",
                 aj.mon == "cur" &&
-                  aj.date == nowd && month == nowm && year == nowy &&
-                  "bg-yellow-300 rounded-full"
+                  aj.date == nowd &&
+                  month == nowm &&
+                  year == nowy &&
+                  "bg-yellow-300 rounded-full",
+                !isgray && aj.mon == "cur" && aj.date == date && "bg-yellow-300"
               )}
               onClick={() => {
                 sendYmd(
@@ -84,9 +87,9 @@ const CalendarAround = ({
               }}
             >
               {aj.date}
-            </td>
+            </div>
           ))}
-        </tr>
+        </div>
       ))}
     </>
   );
