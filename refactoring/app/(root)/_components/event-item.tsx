@@ -1,14 +1,13 @@
 import { MoveRight } from "lucide-react";
 
 interface EventItemProps {
-    key?: number;
     title: string;
     dateStart: string;
     dateEnd: string;
     content: any; //DOM 엘리먼트 뭐임??
 }
 
-const EventItem = ({key, title, dateStart, dateEnd, content}:EventItemProps) => {
+const EventItem = ({title, dateStart, dateEnd, content}:EventItemProps) => {
     return (
         <div className="flex flex-col gap-6">
             <p className="text-4xl font-black">{title}</p>

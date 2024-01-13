@@ -1,6 +1,8 @@
+"use client"
+
 import Image from "next/image";
 import Navbar from "@/app/(root)/_components/navbar";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Calender from "@/components/ui/calendar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Plus } from "lucide-react";
@@ -25,13 +27,19 @@ const Data:EventItemProps[] = [{title: "입학식",
 ]
 
 export default function Home() {
+  const [ymd, setYmd] = useState([2024,0,1]);
+  useEffect(()=>{
+    const initDate = new Date();
+    setYmd([initDate.getFullYear(), initDate.getMonth(), initDate.getDate()]);
+  }, []);
+  
   return (
     <>
       <div className="flex flex-col items-center h-full">
         <div className="max-w-[1800px] w-full h-full">
           <div className="flex items-center p-8 h-full gap-12">
             <div className="w-[57%] h-full drop-shadow-2xl bg-white rounded-2xl">
-              <Calender />
+              <Calender ymd={ymd}/>
             </div>
             <div className="w-[43%] h-full drop-shadow-2xl bg-white rounded-2xl flex flex-col p-6 justify-stretch">
                 <p className="h-10">음력 2월 18일</p>
