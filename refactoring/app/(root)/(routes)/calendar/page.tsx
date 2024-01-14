@@ -7,6 +7,7 @@ import Calender from "@/components/ui/calendar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Plus } from "lucide-react";
 import EventItem from "../../_components/event-item";
+import { lunarConv } from "@/lib/utils";
 
 interface EventItemProps {
     title: string;
@@ -46,7 +47,7 @@ export default function Home() {
               <Calender ymd={ymd} setymd={setYmd}/>
             </div>
             <div className="w-[43%] h-full drop-shadow-2xl bg-white rounded-2xl flex flex-col p-6 justify-stretch">
-                <p className="h-10">음력 2월 18일</p>
+                <p className="h-10">{lunarConv(ymd[0], ymd[1]+1, ymd[2])}</p>
                 <ScrollArea className="h-full p-4">
                     <div className="flex flex-col gap-8 mb-12">
                         {Data.map((ai, i)=>(

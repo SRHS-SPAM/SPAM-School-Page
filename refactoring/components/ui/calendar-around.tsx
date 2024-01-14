@@ -70,14 +70,14 @@ const CalendarAround = ({
             <div
               key={j}
               className={cn(
-                "cursor-pointer select-none hover:bg-yellow-200 w-full h-full",
+                "cursor-pointer select-none hover:bg-yellow-200 w-full h-full flex items-center justify-center",
                 (isgray || aj.mon != "cur") && "text-gray-300",
                 aj.mon == "cur" &&
                   aj.date == nowd &&
                   month == nowm &&
                   year == nowy &&
                   "bg-yellow-300 rounded-full",
-                !isgray && aj.mon == "cur" && aj.date == date && "bg-yellow-300"
+                !isgray && aj.mon == "cur" && aj.date == date && "bg-yellow-300 hover:bg-yellow-300",
               )}
               onClick={() => {
                 sendYmd(

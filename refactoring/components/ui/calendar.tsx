@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import CalendarAround from "./calendar-around";
 import { ElementRef, useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Home, RotateCcw } from "lucide-react";
 
 interface CalendarProps {
   ymd: number[];
@@ -46,11 +47,10 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
   const sendYmd = (tm: number, d: number) => {
     let m = tm + month;
     let y = m < 0 ? year - 1 : m > 11 ? year + 1 : year;
-    if(month == m) {
-        setymd([y, m, d]);
-    }
-    else if (wrapRef.current?.style.top != null) {
-    setIsMoving(true);
+    if (month == m) {
+      setymd([y, m, d]);
+    } else if (wrapRef.current?.style.top != null) {
+      setIsMoving(true);
       if (m < month) wrapRef.current.style.top = "0%";
       else if (m > month) wrapRef.current.style.top = "-200%";
       setTimeout(() => {
@@ -66,14 +66,27 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
 
   return (
     <div className="h-full w-full p-8 flex flex-col items-start">
-      <p className="text-3xl font-bold">
-        {Month[month]} {year}
-      </p>
+      <div className="flex justify-between items-center w-full">
+        <p className="text-3xl font-bold">
+          {Month[month]} {year}
+        </p>
+        {setymd && (
+          <div className="flex items-center gap-2">
+            {(nowy != year ||
+              nowm != month ||
+              nowd != date )&& <RotateCcw className="h-6 w-6" onClick={()=>setymd([nowy, nowm, nowd])} role="button"/>}
+            <ChevronLeft className="h-8 w-8" onClick={()=>sendYmd(-1, date)} role="button"/>
+            <ChevronRight className="h-8 w-8" onClick={()=>sendYmd(1, date)} role="button"/>
+          </div>
+        )}
+      </div>
       <div className="mt-8 text-gray-300 w-full h-full">
         <div className="w-full font-light h-full flex-col flex">
           <div className="text-center w-full bg-white flex justify-stretch">
             {Day.map((ai, i) => (
-              <div key={i} className="w-full">{ai}</div>
+              <div key={i} className="w-full select-none">
+                {ai}
+              </div>
             ))}
           </div>
           <div className="h-full w-full relative overflow-y-hidden">
@@ -81,7 +94,7 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
               ref={wrapRef}
               className={cn(
                 "h-[300%] w-full top-[-100%] absolute flex flex-col justify-stretch",
-                isMoving && "transition-all ease-ease duration-500"
+                isMoving && "transition-all ease-ease duration-300"
               )}
             >
               <CalendarAround
@@ -95,7 +108,7 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
                 year={year}
                 month={month}
                 date={date}
-                sendYmd={isMoving ? () => {} : sendYmd}
+                sendYmd={isMoving || !setymd ? () => {} : sendYmd}
               />
               <CalendarAround
                 year={nxt.getFullYear()}
