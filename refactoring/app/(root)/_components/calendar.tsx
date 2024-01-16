@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, Home, RotateCcw } from "lucide-react";
 
 interface CalendarProps {
   ymd: number[];
-  setymd?: any;
+  setymd?: ([]) => void;
 }
 
 interface DatesFace {
@@ -47,20 +47,22 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
   const sendYmd = (tm: number, d: number) => {
     let m = tm + month;
     let y = m < 0 ? year - 1 : m > 11 ? year + 1 : year;
-    if (month == m) {
-      setymd([y, m, d]);
-    } else if (wrapRef.current?.style.top != null) {
-      setIsMoving(true);
-      if (m < month) wrapRef.current.style.top = "0%";
-      else if (m > month) wrapRef.current.style.top = "-200%";
-      setTimeout(() => {
-        setIsMoving(false);
-        if (wrapRef.current?.style.top != null) {
-          wrapRef.current.style.top = "-100%";
-        }
-        m = (m + 12) % 12;
+    if (setymd) {
+      if (month == m) {
         setymd([y, m, d]);
-      }, 500);
+      } else if (wrapRef.current?.style.top != null) {
+        setIsMoving(true);
+        if (m < month) wrapRef.current.style.top = "0%";
+        else if (m > month) wrapRef.current.style.top = "-200%";
+        setTimeout(() => {
+          setIsMoving(false);
+          if (wrapRef.current?.style.top != null) {
+            wrapRef.current.style.top = "-100%";
+          }
+          m = (m + 12) % 12;
+          setymd([y, m, d]);
+        }, 500);
+      }
     }
   };
 
@@ -119,7 +121,7 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
                 year={year}
                 month={month}
                 date={date}
-                sendYmd={isMoving || !setymd ? () => {} : sendYmd}
+                sendYmd={(isMoving || !setymd) ? undefined : sendYmd }
               />
               <CalendarAround
                 year={nxt.getFullYear()}

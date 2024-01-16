@@ -7,7 +7,7 @@ interface CalendarAroundProps {
   date: number;
   isgray?: boolean;
   remove?: number[];
-  sendYmd?: any;
+  sendYmd?: (tm:number, d:number)=>void;
 }
 interface DatesFace {
   date: number;
@@ -80,7 +80,7 @@ const CalendarAround = ({
                 !isgray && aj.mon == "cur" && aj.date == date && "bg-yellow-300 hover:bg-yellow-300",
               )}
               onClick={() => {
-                sendYmd(
+                sendYmd && sendYmd(
                   aj.mon == "cur" ? 0 : aj.mon == "nxt" ? 1 : -1,
                   aj.date
                 );

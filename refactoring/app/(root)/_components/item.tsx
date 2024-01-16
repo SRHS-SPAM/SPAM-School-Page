@@ -2,10 +2,11 @@
 
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import React from "react";
 
 interface ItemProps {
   title: string;
-  dom: any;
+  dom: React.JSX.Element;
   link: string;
 }
 
