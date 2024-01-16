@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import CalendarAround from "./calendar-around";
+import CalendarAround from "./calendarAround";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Home, RotateCcw } from "lucide-react";
 
@@ -72,11 +72,23 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
         </p>
         {setymd && (
           <div className="flex items-center gap-2">
-            {(nowy != year ||
-              nowm != month ||
-              nowd != date )&& <RotateCcw className="h-6 w-6" onClick={()=>setymd([nowy, nowm, nowd])} role="button"/>}
-            <ChevronLeft className="h-8 w-8" onClick={()=>sendYmd(-1, date)} role="button"/>
-            <ChevronRight className="h-8 w-8" onClick={()=>sendYmd(1, date)} role="button"/>
+            {(nowy != year || nowm != month || nowd != date) && (
+              <RotateCcw
+                className="h-6 w-6"
+                onClick={() => setymd([nowy, nowm, nowd])}
+                role="button"
+              />
+            )}
+            <ChevronLeft
+              className="h-8 w-8"
+              onClick={() => sendYmd(-1, date)}
+              role="button"
+            />
+            <ChevronRight
+              className="h-8 w-8"
+              onClick={() => sendYmd(1, date)}
+              role="button"
+            />
           </div>
         )}
       </div>
@@ -102,7 +114,6 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
                 month={pre.getMonth()}
                 isgray={true}
                 date={pre.getDate()}
-                sendYmd={() => {}}
               />
               <CalendarAround
                 year={year}
@@ -115,7 +126,6 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
                 month={nxt.getMonth()}
                 date={nxt.getDate()}
                 isgray={true}
-                sendYmd={() => {}}
               />
             </div>
           </div>
