@@ -45,7 +45,7 @@ export default function Home() {
                   </div>
                 }
               />
-              <div className="rounded-2xl col-start-2 row-start-1 row-end-3 drop-shadow-2xl flex justify-center items-center text-center bg-white">
+              <div className="rounded-2xl col-start-2 row-start-1 row-end-3 drop-shadow-xl flex justify-center items-center text-center bg-white">
                 <div className="w-full h-full py-[5%]">
                   <Calender ymd={[year, month, date]} />
                 </div>

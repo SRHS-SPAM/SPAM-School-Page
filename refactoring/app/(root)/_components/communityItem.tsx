@@ -1,22 +1,91 @@
-
 const CommunityItem = () => {
   const rows = [
     // You would populate this array with your data
-    { gaysipan: "공지", id: 'msg2324', date: '2023.06.08', view: '271268', good: '24', title: '내가 왜 디자인을 하야하는지에 관하여' },
-    { gaysipan: "자유", id: 'jmin0714', date: '2023.07.14', view: '271268', good: '0', title: '디자인이 하기 싫은 한 인물' },
-    { gaysipan: "공지", id: 'mayu0714', date: '2023.06.08', view: '271268', good: '24', title: 'tlqkf 윤재국' },
-    { gaysipan: "공지", id: 'msg2324', date: '2023.06.08', view: '271268', good: '24', title: '내가 왜 디자인을 하야하는지에 관하여' },
-    { gaysipan: "공지", id: 'msg2324', date: '2023.06.08', view: '271268', good: '24', title: '내가 왜 디자인을 하야하는지에 관하여' },
-    { gaysipan: "공지", id: 'msg2324', date: '2023.06.08', view: '271268', good: '24', title: '내가 왜 디자인을 하야하는지에 관하여' },
-    { gaysipan: "공지", id: 'msg2324', date: '2023.06.08', view: '271268', good: '24', title: '내가 왜 디자인을 하야하는지에 관하여' },
-    { gaysipan: "공지", id: 'msg2324', date: '2023.06.08', view: '271268', good: '24', title: '내가 왜 디자인을 하야하는지에 관하여' },
-    { gaysipan: "공지", id: 'msg2324', date: '2023.06.08', view: '271268', good: '24', title: '내가 왜 디자인을 하야하는지에 관하여' },
-    { gaysipan: "공지", id: 'msg2324', date: '2023.06.08', view: '271268', good: '24', title: '내가 왜 디자인을 하야하는지에 관하여' },
+    {
+      gaysipan: "공지",
+      id: "msg2324",
+      date: "2023.06.08",
+      view: "271268",
+      good: "24",
+      title: "내가 왜 디자인을 하야하는지에 관하여",
+    },
+    {
+      gaysipan: "자유",
+      id: "jmin0714",
+      date: "2023.07.14",
+      view: "271268",
+      good: "0",
+      title: "디자인이 하기 싫은 한 인물",
+    },
+    {
+      gaysipan: "공지",
+      id: "mayu0714",
+      date: "2023.06.08",
+      view: "271268",
+      good: "24",
+      title: "tlqkf 윤재국",
+    },
+    {
+      gaysipan: "공지",
+      id: "msg2324",
+      date: "2023.06.08",
+      view: "271268",
+      good: "24",
+      title: "내가 왜 디자인을 하야하는지에 관하여",
+    },
+    {
+      gaysipan: "공지",
+      id: "msg2324",
+      date: "2023.06.08",
+      view: "271268",
+      good: "24",
+      title: "내가 왜 디자인을 하야하는지에 관하여",
+    },
+    {
+      gaysipan: "공지",
+      id: "msg2324",
+      date: "2023.06.08",
+      view: "271268",
+      good: "24",
+      title: "내가 왜 디자인을 하야하는지에 관하여",
+    },
+    {
+      gaysipan: "공지",
+      id: "msg2324",
+      date: "2023.06.08",
+      view: "271268",
+      good: "24",
+      title: "내가 왜 디자인을 하야하는지에 관하여",
+    },
+    {
+      gaysipan: "공지",
+      id: "msg2324",
+      date: "2023.06.08",
+      view: "271268",
+      good: "24",
+      title: "내가 왜 디자인을 하야하는지에 관하여",
+    },
+    {
+      gaysipan: "공지",
+      id: "msg2324",
+      date: "2023.06.08",
+      view: "271268",
+      good: "24",
+      title: "내가 왜 디자인을 하야하는지에 관하여",
+    },
+    {
+      gaysipan: "공지",
+      id: "msg2324",
+      date: "2023.06.08",
+      view: "271268",
+      good: "24",
+      title: "내가 왜 디자인을 하야하는지에 관하여",
+    },
     // Add more row objects here
   ];
 
   return (
-    <div className="p-10 w-full overflow-x-auto flex flex-col drop-shadow-2xl rounded-2xl bg-white">
+    <div className="p-10 w-full overflow-x-auto flex flex-col drop-shadow-xl rounded-2xl bg-white">
       <p className="text-2xl font-bold">커뮤니티</p>
       <table className="bg-white mt-8 ">
         <thead>

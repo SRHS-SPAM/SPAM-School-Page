@@ -7,7 +7,7 @@ interface CalendarAroundProps {
   date: number;
   isgray?: boolean;
   remove?: number[];
-  sendYmd?: (tm:number, d:number)=>void;
+  sendYmd?: (tm: number, d: number) => void;
 }
 interface DatesFace {
   date: number;
@@ -65,28 +65,39 @@ const CalendarAround = ({
   return (
     <>
       {Dates.map((ai, i) => (
-        <div key={i} className="text-center text-black text-xl font-normal h-full items-center w-full flex justify-stretch">
+        <div
+          key={i}
+          className="text-center text-black text-xl font-normal h-full items-center w-full flex justify-stretch"
+        >
           {ai.map((aj, j) => (
             <div
               key={j}
-              className={cn(
-                "cursor-pointer select-none hover:bg-yellow-200 w-full h-full flex items-center justify-center",
-                (isgray || aj.mon != "cur") && "text-gray-300",
-                aj.mon == "cur" &&
-                  aj.date == nowd &&
-                  month == nowm &&
-                  year == nowy &&
-                  "bg-yellow-300 rounded-full",
-                !isgray && aj.mon == "cur" && aj.date == date && "bg-yellow-300 hover:bg-yellow-300",
-              )}
-              onClick={() => {
-                sendYmd && sendYmd(
-                  aj.mon == "cur" ? 0 : aj.mon == "nxt" ? 1 : -1,
-                  aj.date
-                );
-              }}
+              className="flex items-center justify-center h-full w-full"
             >
-              {aj.date}
+              <div
+                className={cn(
+                  "cursor-pointer select-none hover:bg-yellow-200 w-[60px] h-[60px] flex items-center justify-center rounded-full ",
+                  (isgray || aj.mon != "cur") && "text-gray-300",
+                  aj.mon == "cur" &&
+                    aj.date == nowd &&
+                    month == nowm &&
+                    year == nowy &&
+                    "bg-yellow-300",
+                  !isgray &&
+                    aj.mon == "cur" &&
+                    aj.date == date &&
+                    "bg-yellow-300 hover:bg-yellow-300"
+                )}
+                onClick={() => {
+                  sendYmd &&
+                    sendYmd(
+                      aj.mon == "cur" ? 0 : aj.mon == "nxt" ? 1 : -1,
+                      aj.date
+                    );
+                }}
+              >
+                {aj.date}
+              </div>
             </div>
           ))}
         </div>

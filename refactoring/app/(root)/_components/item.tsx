@@ -12,7 +12,7 @@ interface ItemProps {
 
 const Item = ({ title, dom, link }: ItemProps) => {
   return (
-    <div className="flex flex-col justify-between p-6 h-full w-full rounded-2xl drop-shadow-2xl bg-white">
+    <div className="flex flex-col justify-between p-6 h-full w-full rounded-2xl drop-shadow-xl bg-white">
       <div className="h-full w-full mb-8">
         <p className="text-2xl font-bold">{title}</p>
         {dom}

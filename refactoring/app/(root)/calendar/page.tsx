@@ -74,8 +74,10 @@ export default function Home() {
               <Calender ymd={ymd} setymd={setYmd} />
             </div>
             <div className="w-[43%] h-full drop-shadow-2xl bg-white rounded-2xl flex flex-col p-6 justify-stretch">
-              <p className="h-10">{lunarConv(ymd[0], ymd[1] + 1, ymd[2])}</p>
-              <ScrollArea className="h-full p-4">
+              <span className="h-10 text-base font-medium">
+                {lunarConv(ymd[0], ymd[1] + 1, ymd[2])}
+              </span>
+              <ScrollArea className="flex-1 p-4">
                 <div className="flex flex-col gap-8 mb-12">
                   {Data.map((ai, i) => (
                     <EventItem
@@ -88,12 +90,14 @@ export default function Home() {
                   ))}
                 </div>
               </ScrollArea>
-              <div className="h-[100px] flex justify-between items-end">
+              <div className="h-11 mt-12 flex justify-between items-end">
                 <input
-                  className="w-9/12 h-3/5 rounded-full bg-slate-300 px-8 placeholder:text-white text-white"
-                  placeholder="애 일정 추가"
+                  className="flex-1 h-full rounded-full bg-slate-300 px-8 placeholder:text-white text-white font-semibold text-base"
+                  placeholder={`${ymd[0]}년 ${ymd[1] + 1}월 ${
+                    ymd[2]
+                  }일에 일정 추가`}
                 />
-                <Plus className="max-w-[90px] w-full h-[90px] text-white bg-yellow-300 rounded-full" />
+                <Plus className="h-full w-[44px] ml-4 text-white bg-yellow-300 rounded-full cursor-pointer" />
               </div>
             </div>
           </div>

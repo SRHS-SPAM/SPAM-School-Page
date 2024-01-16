@@ -11,7 +11,8 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Bell, LogOut, MenuIcon, User } from "lucide-react";
+import { Bell, Calendar, LogOut, MenuIcon, User } from "lucide-react";
+import Link from "next/link";
 
 const Menu = () => {
   return (
@@ -22,26 +23,28 @@ const Menu = () => {
             <MenuIcon size={28} />
           </Button>
         </DropdownMenuTrigger>
-
-        <DropdownMenuContent className="w-56">
+        <DropdownMenuContent className="w-56 mr-2">
           <DropdownMenuLabel>Menu</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <User className="mr-2 h-4 w-4" />
               <span>MyPage</span>
-              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Bell className="mr-2 h-4 w-4" />
               <span>Notifition</span>
-              <DropdownMenuShortcut>⇧⌘L</DropdownMenuShortcut>
             </DropdownMenuItem>
+            <Link href={"/calendar"}>
+              <DropdownMenuItem>
+                <Calendar className="mr-2 h-4 w-4" />
+                <span>Calendar</span>
+              </DropdownMenuItem>
+            </Link>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut className="mr-2 h-4 w-4" />
               <span>Log out</span>
-              <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
             </DropdownMenuItem>
           </DropdownMenuGroup>
         </DropdownMenuContent>

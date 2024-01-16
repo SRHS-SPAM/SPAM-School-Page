@@ -1,5 +1,6 @@
 import { Bell, UserRound } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import Menu from "./menu";
 
 const NavList = [
@@ -11,7 +12,9 @@ const NavList = [
 const Navbar = () => {
   return (
     <div className="z-50 fixed flex justify-between w-full border-b shadow-sm top-0 px-6 py-2 h-20 bg-white">
-      <Image src={"/images/logo.png"} height={60} width={200} alt="Logo" />
+      <Link href="/">
+        <Image src={"/images/logo.png"} height={60} width={200} alt="Logo" />
+      </Link>
       <div className="flex items-center gap-6">
         {NavList.map((arg, i) => (
           <div

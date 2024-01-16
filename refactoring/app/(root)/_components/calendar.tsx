@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import CalendarAround from "./calendarAround";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Home, RotateCcw } from "lucide-react";
+import Link from "next/link";
 
 interface CalendarProps {
   ymd: number[];
@@ -69,9 +70,9 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
   return (
     <div className="h-full w-full p-8 flex flex-col items-start">
       <div className="flex justify-between items-center w-full">
-        <p className="text-3xl font-bold">
+        <Link href={"/calendar"} className="text-3xl font-bold">
           {Month[month]} {year}
-        </p>
+        </Link>
         {setymd && (
           <div className="flex items-center gap-2">
             {(nowy != year || nowm != month || nowd != date) && (
@@ -121,7 +122,7 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
                 year={year}
                 month={month}
                 date={date}
-                sendYmd={(isMoving || !setymd) ? undefined : sendYmd }
+                sendYmd={isMoving || !setymd ? undefined : sendYmd}
               />
               <CalendarAround
                 year={nxt.getFullYear()}
