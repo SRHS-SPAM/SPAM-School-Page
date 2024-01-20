@@ -23,7 +23,7 @@ const CalendarYear = ({
         <div
           ref={wrapRef}
           className={cn(
-            "h-[233.33%] w-full top-[-66.66%] absolute flex flex-col justify-stretch opacity-100",
+            "h-[300%] w-full top-[-100%] absolute flex flex-col justify-stretch opacity-100",
             isMoving && "transition-all ease-ease duration-300"
           )}
         >

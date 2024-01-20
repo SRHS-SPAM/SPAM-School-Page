@@ -19,20 +19,19 @@ const CalendarYearAround = ({
 }: CalendarYearAroundProps) => {
   const Years: YearsFace[][] = [];
   const nowy = new Date().getFullYear();
+  const year10 = Math.floor(year / 10) * 10;
 
   for (let i = 0; i < 3; i++) {
     Years.push([]);
-    for (let j = 0; j < 4; j++) {
-      let t = i * 4 + j - 2;
-      Years[i].push({
-        year: t + year,
-        mon: t < 0 ? "pre" : t >= 10 ? "nxt" : "pre",
-      });
+    if (i != rmline) {
+      for (let j = 0; j < 4; j++) {
+        let t = i * 4 + j - 1;
+        Years[i].push({
+          year: t + year10,
+          mon: t < 0 ? "pre" : t >= 10 ? "nxt" : "cur",
+        });
+      }
     }
-  }
-
-  if (rmline != null) {
-    Years.splice(rmline, rmline);
   }
 
   return (
@@ -53,7 +52,7 @@ const CalendarYearAround = ({
                   (isgray || aj.mon != "cur") && "text-gray-300",
                   aj.year == nowy && "bg-yellow-300",
                   !isgray &&
-                    aj.mon == "cur" &&
+                    aj.year == nowy &&
                     "bg-yellow-300 hover:bg-yellow-300"
                 )}
                 onClick={() => {}}
