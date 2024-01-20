@@ -1,12 +1,13 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import CalendarAround from "./calendarAround";
-import { ElementRef, use, useEffect, useRef, useState } from "react";
+import CalendarAround from "./calendar/calendarDate";
+import { ElementRef, RefObject, use, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Home, RotateCcw } from "lucide-react";
 import Link from "next/link";
-import CalendarMonth from "./calendarMonth";
-import CalendarYear from "./calendarYear";
+import CalendarMonth from "./calendar/calendarDateWrap";
+import CalendarYear from "./calendar/calendarYearWrap";
+import CalendarHead from "./calendar/calendarHead";
 
 interface CalendarProps {
   ymd: number[];
@@ -16,6 +17,14 @@ interface CalendarProps {
 interface DatesFace {
   date: number;
   mon: "pre" | "cur" | "nxt";
+}
+
+interface MoveYmdProps {
+  y: number;
+  m: number;
+  d: number;
+  movingway: "pre"|"nxt"|"cur";
+  ref: RefObject<HTMLDivElement>;
 }
 
 const Month = [
@@ -48,38 +57,35 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
   const wrapYearRef = useRef<ElementRef<"div">>(null);
   const wrapWrapRef = useRef<ElementRef<"div">>(null);
 
-  const sendYmd = (tm: number, d: number) => {
-    let m = tm + month;
-    let y = m < 0 ? year - 1 : m > 11 ? year + 1 : year;
+  const moveymd = ({y, m, d, movingway, ref}:MoveYmdProps) => {
     if (setymd) {
-      if (month == m) {
+      if (movingway=="cur") {
         setymd([y, m, d]);
-      } else if (wrapRef.current?.style.top != null) {
+      } else if (ref.current?.style.top != null) {
         setIsMoving(true);
-        if (m < month) wrapRef.current.style.top = "0%";
-        else if (m > month) wrapRef.current.style.top = "-200%";
+        if (movingway=="pre") ref.current.style.top = "0%";
+        else if (movingway=="nxt") ref.current.style.top = "-200%";
         setTimeout(() => {
           setIsMoving(false);
-          if (wrapRef.current?.style.top != null) {
-            wrapRef.current.style.top = "-100%";
+          if (ref.current?.style.top != null) {
+            ref.current.style.top = "-100%";
           }
-          m = (m + 12) % 12;
           setymd([y, m, d]);
         }, 500);
       }
     }
   };
 
-  const fadeymd = (_ymd: number[]) => {
+  const fadeymd = () => {
     if (setymd) {
       setIsMoving(true);
-      if (wrapRef.current?.style.opacity != null) {
-        wrapRef.current.style.opacity = "0";
+      if (wrapWrapRef.current?.style.opacity != null) {
+        wrapWrapRef.current.style.opacity = "0";
       }
       setTimeout(() => {
-        setymd(_ymd);
-        if (wrapRef.current?.style.opacity != null) {
-          wrapRef.current.style.opacity = "1";
+        setymd([nowy, nowm, nowd]);
+        if (wrapWrapRef.current?.style.opacity != null) {
+          wrapWrapRef.current.style.opacity = "1";
         }
         setTimeout(() => {
           setIsMoving(false);
@@ -105,40 +111,21 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
 
   return (
     <div className="h-full w-full p-8 flex flex-col items-start">
-      <div className="flex justify-between items-center w-full">
-        <div onClick={wrapChange} className="text-3xl font-bold cursor-pointer">
-          {isMonth ? (
+      <CalendarHead
+          fadeymd={fadeymd}
+          isequal={nowy == year && nowm == month && nowd == date}
+          issetable={setymd == undefined ? true : false}
+          moveymd={moveymd}
+          title={isMonth?
+            <>
+              {year10} ~ {year10 + 9}
+            </>:
             <>
               {Month[month]} {year}
             </>
-          ) : (
-            <>
-              {year10} ~ {year10 + 9}
-            </>
-          )}
-        </div>
-        {setymd && (
-          <div className="flex items-center gap-2">
-            {(nowy != year || nowm != month || nowd != date) && (
-              <RotateCcw
-                className="h-6 w-6"
-                onClick={() => fadeymd([nowy, nowm, nowd])}
-                role="button"
-              />
-            )}
-            <ChevronLeft
-              className="h-8 w-8"
-              onClick={() => sendYmd(-1, date)}
-              role="button"
-            />
-            <ChevronRight
-              className="h-8 w-8"
-              onClick={() => sendYmd(1, date)}
-              role="button"
-            />
-          </div>
-        )}
-      </div>
+          }
+          wrapChange={wrapChange}
+        />
       <div className="mt-8 text-gray-300 w-full h-full relative overflow-x-hidden font-light">
         <div
           ref={wrapWrapRef}
@@ -151,14 +138,14 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
             isMoving={isMoving}
             wrapRef={wrapRef}
             ymd={ymd}
-            sendYmd={sendYmd}
+            moveymd={moveymd}
             setymd={setymd}
           />
           <CalendarYear
             isMoving={isMoving}
             wrapRef={wrapYearRef}
             ymd={ymd}
-            sendYmd={sendYmd}
+            moveymd={moveymd}
             setymd={setymd}
           />
         </div>

@@ -1,5 +1,14 @@
 import { cn } from "@/lib/utils";
-import CalendarAround from "./calendarAround";
+import CalendarAround from "./calendarDate";
+import { RefObject } from "react";
+
+interface MoveYmdProps {
+  y: number;
+  m: number;
+  d: number;
+  movingway: "pre"|"nxt";
+  ref: RefObject<HTMLDivElement>;
+}
 
 interface CalendarMonthProps {
   ymd: number[];

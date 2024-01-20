@@ -1,13 +1,19 @@
 import { cn } from "@/lib/utils";
-import { useEffect } from "react";
-
+import { RefObject, useEffect } from "react";
+interface MoveYmdProps {
+  y: number;
+  m: number;
+  d: number;
+  movingway: "pre"|"nxt";
+  ref: RefObject<HTMLDivElement>;
+}
 interface CalendarAroundProps {
   year: number;
   month: number;
   date: number;
   isgray?: boolean;
   remove?: number[];
-  sendYmd?: (tm: number, d: number) => void;
+  sendYmd?: ({y,m,d,movingway,ref}:MoveYmdProps) => void;
 }
 interface DatesFace {
   date: number;
@@ -90,10 +96,7 @@ const CalendarAround = ({
                 )}
                 onClick={() => {
                   sendYmd &&
-                    sendYmd(
-                      aj.mon == "cur" ? 0 : aj.mon == "nxt" ? 1 : -1,
-                      aj.date
-                    );
+                    sendYmd({m:month,d:date, movingway:aj.mon});
                 }}
               >
                 {aj.date}

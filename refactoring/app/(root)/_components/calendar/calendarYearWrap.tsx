@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
-import CalendarAround from "./calendarAround";
-import CalendarYearAround from "./calendarYearAround";
+import CalendarAround from "./calendarDate";
+import CalendarYearAround from "./calendarYear";
 
 interface CalendarYearProps {
   ymd: number[];

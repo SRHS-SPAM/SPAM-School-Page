@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { useEffect } from "react";
+import { RefObject, useEffect } from "react";
 
 interface CalendarYearAroundProps {
   year: number;
@@ -10,6 +10,13 @@ interface CalendarYearAroundProps {
 interface YearsFace {
   year: number;
   mon: "pre" | "cur" | "nxt";
+}
+interface MoveYmdProps {
+  y: number;
+  m: number;
+  d: number;
+  movingway: "pre"|"nxt";
+  ref: RefObject<HTMLDivElement>;
 }
 const CalendarYearAround = ({
   year,
