@@ -307,7 +307,7 @@ export default function Community() {
                   />
                 </div>
                 <div className="grid grid-cols-2 grid-rows-3 gap-x-16 gap-y-14">
-                  {Data.map((ai, i) => {
+                  {Data.map((ai, i) => { //그냥 포인터 쓰고 for문 돌리고 싶다
                     if (i)
                       return (
                         <BoardPane
@@ -317,7 +317,7 @@ export default function Community() {
                           title={ai.isSpecial ? ai.title : ai.title + " 게시판"}
                         />
                       );
-                    else return <></>;
+                    else return <div key={i}></div>;
                   })}
                 </div>
               </div>
