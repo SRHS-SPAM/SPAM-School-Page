@@ -297,7 +297,7 @@ export default function Community() {
           <div className="flex flex-col gap-12 items-center mb-12 w-full h-full">
             <div className="p-8 w-full h-full flex">
               {" "}
-              <ScrollArea className="w-3/4 h-full"> 
+              <div className="w-3/4 h-full">
                 <div className="w-full mb-24">
                   <BoardPane
                     data={Data[0].data}
@@ -307,22 +307,22 @@ export default function Community() {
                   />
                 </div>
                 <div className="grid grid-cols-2 grid-rows-3 gap-x-16 gap-y-14">
-                  {Data.map((ai, i) => (
-                    <>
-                      {i != 0 && (
+                  {Data.map((ai, i) => {
+                    if (i)
+                      return (
                         <BoardPane
                           key={i}
                           data={ai.data}
                           link={ai.link}
                           title={ai.isSpecial ? ai.title : ai.title + " 게시판"}
                         />
-                      )}
-                    </>
-                  ))}
+                      );
+                    else return <></>;
+                  })}
                 </div>
-              </ScrollArea>
-              <div className="w-1/4 h-full">
-
+              </div>
+              <div className="w-1/4 h-full relative p-4">
+                <div className="absolute top-0 left-0 w-full h-8" />
               </div>
               <hr />
             </div>
