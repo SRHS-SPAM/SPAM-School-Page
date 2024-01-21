@@ -6,7 +6,7 @@ interface IconCompProps {
 
 const IconComp = ({icon, value}:IconCompProps) => {
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 h-full">
       {icon}
       {value} {/*아, 이것도 쉼표 나눠야지*/}
     </div>
