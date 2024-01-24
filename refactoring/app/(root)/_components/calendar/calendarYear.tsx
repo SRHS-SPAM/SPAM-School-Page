@@ -5,39 +5,44 @@ interface CalendarYearAroundProps {
   year: number;
   isgray?: boolean;
   rmline?: number;
-  sendYmd?: (tm: number, d: number) => void;
+  moveymd?: ({ y, m, d, movingway, ref }: MoveYmdProps) => void;
+  nowref?: RefObject<HTMLDivElement>;
 }
 interface YearsFace {
   year: number;
   mon: "pre" | "cur" | "nxt";
 }
 interface MoveYmdProps {
-  y: number;
-  m: number;
-  d: number;
-  movingway: "pre"|"nxt";
+  y?: number;
+  m?: number;
+  d?: number;
+  top?: string;
+  bot?: string;
+  movingway: "pre" | "nxt" | "cur";
   ref: RefObject<HTMLDivElement>;
 }
-const CalendarYearAround = ({
+const CalendarYear = ({
   year,
   isgray,
   rmline,
-  sendYmd,
+  moveymd,
+  nowref,
 }: CalendarYearAroundProps) => {
   const Years: YearsFace[][] = [];
   const nowy = new Date().getFullYear();
-  const year10 = Math.floor(year / 10) * 10;
-
-  for (let i = 0; i < 3; i++) {
+  const year8 = Math.floor(year / 8) * 8;
+  let lcnt;
+  for (let i = (lcnt = 0); i < 3; i++) {
     Years.push([]);
-    if (i != rmline) {
+    if (!rmline || rmline && i != 2 - rmline) {
       for (let j = 0; j < 4; j++) {
-        let t = i * 4 + j - 1;
+        let t = lcnt * 4 + j - 2;
         Years[i].push({
-          year: t + year10,
-          mon: t < 0 ? "pre" : t >= 10 ? "nxt" : "cur",
+          year: t + year8,
+          mon: t < 0 ? "pre" : t >= 8 ? "nxt" : "cur",
         });
       }
+      lcnt++;
     }
   }
 
@@ -46,7 +51,7 @@ const CalendarYearAround = ({
       {Years.map((ai, i) => (
         <div
           key={i}
-          className="text-center text-black text-xl font-normal h-full items-center w-full flex justify-stretch"
+          className="text-center text-black text-xl font-normal items-center h-full w-full flex justify-stretch"
         >
           {ai.map((aj, j) => (
             <div
@@ -59,10 +64,20 @@ const CalendarYearAround = ({
                   (isgray || aj.mon != "cur") && "text-gray-300",
                   aj.year == nowy && "bg-yellow-300",
                   !isgray &&
-                    aj.year == nowy &&
+                    aj.year == year &&
                     "bg-yellow-300 hover:bg-yellow-300"
                 )}
-                onClick={() => {}}
+                onClick={() => {
+                  moveymd &&
+                    nowref &&
+                    moveymd({
+                      y: aj.year,
+                      movingway: aj.mon,
+                      ref: nowref,
+                      top: "-33.4%",
+                      bot: "-166.6%",
+                    });
+                }}
               >
                 {aj.year}
               </div>
@@ -74,4 +89,4 @@ const CalendarYearAround = ({
   );
 };
 
-export default CalendarYearAround;
+export default CalendarYear;

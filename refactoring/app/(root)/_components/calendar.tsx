@@ -1,13 +1,11 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import CalendarAround from "./calendar/calendarDate";
 import { ElementRef, RefObject, use, useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Home, RotateCcw } from "lucide-react";
 import Link from "next/link";
-import CalendarMonth from "./calendar/calendarDateWrap";
-import CalendarYear from "./calendar/calendarYearWrap";
 import CalendarHead from "./calendar/calendarHead";
+import CalendarDateWrap from "./calendar/calendarDateWrap";
+import CalendarYearWrap from "./calendar/calendarYearWrap";
 
 interface CalendarProps {
   ymd: number[];
@@ -20,10 +18,12 @@ interface DatesFace {
 }
 
 interface MoveYmdProps {
-  y: number;
-  m: number;
-  d: number;
-  movingway: "pre"|"nxt"|"cur";
+  y?: number;
+  m?: number;
+  d?: number;
+  top?: string;
+  bot?: string;
+  movingway: "pre" | "nxt" | "cur";
   ref: RefObject<HTMLDivElement>;
 }
 
@@ -51,26 +51,42 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
   const date = ymd[2];
   const [isMoving, setIsMoving] = useState(false);
   const [isMonth, setIsMonth] = useState(true);
-  const year10 = Math.floor(year / 10) * 10;
+  const year8 = Math.floor(year / 8) * 8;
 
   const wrapRef = useRef<ElementRef<"div">>(null);
   const wrapYearRef = useRef<ElementRef<"div">>(null);
   const wrapWrapRef = useRef<ElementRef<"div">>(null);
+  let nowRef = wrapRef;
 
-  const moveymd = ({y, m, d, movingway, ref}:MoveYmdProps) => {
+  const moveymd = ({ y, m, d, top, bot, movingway, ref }: MoveYmdProps) => {
+    let tt = y ? 0 : movingway == "cur" ? 0 : movingway == "nxt"? 1:-1 ;
+    let ty=0, tm=0, td=0; //나도 오버라이딩 쓸래~!~!~~!~!~!
+    if(isMonth) {
+      tm=tt;
+    }
+    else {
+      ty=tt;
+    }
+    
+    let ry = y ? y+ty : year,
+      rm = m ? m+tm : month,
+      rd = d ? d+td : date;
+    let prepct = top ? top : "0%",
+      nxtpct = bot ? bot : "-200%"; //타입스크립트 왜 썼지
+    console.log(ry, rm, rd, y, m, d, prepct, nxtpct);
     if (setymd) {
-      if (movingway=="cur") {
-        setymd([y, m, d]);
+      if (movingway == "cur") {
+        setymd([ry, rm, rd]);
       } else if (ref.current?.style.top != null) {
         setIsMoving(true);
-        if (movingway=="pre") ref.current.style.top = "0%";
-        else if (movingway=="nxt") ref.current.style.top = "-200%";
+        if (movingway == "pre") ref.current.style.top = prepct;
+        else if (movingway == "nxt") ref.current.style.top = nxtpct;
         setTimeout(() => {
-          setIsMoving(false);
           if (ref.current?.style.top != null) {
             ref.current.style.top = "-100%";
           }
-          setymd([y, m, d]);
+          setIsMoving(false);
+          setymd([ry, rm, rd]);
         }, 500);
       }
     }
@@ -104,6 +120,7 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
       }
       setTimeout(() => {
         setIsMoving(isMoving);
+        nowRef = isMonth ? wrapRef : wrapYearRef;
         setIsMonth(!isMonth);
       }, 300);
     }
@@ -112,20 +129,24 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
   return (
     <div className="h-full w-full p-8 flex flex-col items-start">
       <CalendarHead
-          fadeymd={fadeymd}
-          isequal={nowy == year && nowm == month && nowd == date}
-          issetable={setymd == undefined ? true : false}
-          moveymd={moveymd}
-          title={isMonth?
+        fadeymd={fadeymd}
+        isequal={nowy == year && nowm == month && nowd == date}
+        issetable={setymd == undefined ? false : true}
+        moveymd={moveymd}
+        title={
+          !isMonth ? (
             <>
-              {year10} ~ {year10 + 9}
-            </>:
+              {year8} ~ {year8 + 8}
+            </>
+          ) : (
             <>
               {Month[month]} {year}
             </>
-          }
-          wrapChange={wrapChange}
-        />
+          )
+        }
+        wrapChange={wrapChange}
+        nowref={nowRef}
+      />
       <div className="mt-8 text-gray-300 w-full h-full relative overflow-x-hidden font-light">
         <div
           ref={wrapWrapRef}
@@ -134,20 +155,21 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
             isMoving && "transition-all ease-ease duration-300"
           )}
         >
-          <CalendarMonth
+          <CalendarDateWrap
             isMoving={isMoving}
             wrapRef={wrapRef}
             ymd={ymd}
             moveymd={moveymd}
             setymd={setymd}
           />
-          <CalendarYear
-            isMoving={isMoving}
-            wrapRef={wrapYearRef}
-            ymd={ymd}
-            moveymd={moveymd}
-            setymd={setymd}
-          />
+          {setymd && (
+            <CalendarYearWrap
+              isMoving={isMoving}
+              wrapRef={wrapYearRef}
+              ymd={ymd}
+              moveymd={moveymd}
+            />
+          )}
         </div>
       </div>
     </div>

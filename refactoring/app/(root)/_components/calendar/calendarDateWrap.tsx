@@ -1,25 +1,27 @@
 import { cn } from "@/lib/utils";
-import CalendarAround from "./calendarDate";
 import { RefObject } from "react";
+import CalendarDate from "./calendarDate";
 
 interface MoveYmdProps {
-  y: number;
-  m: number;
-  d: number;
-  movingway: "pre"|"nxt";
+  y?: number;
+  m?: number;
+  d?: number;
+  top?: string;
+  bot?: string;
+  movingway: "pre"|"nxt"|"cur";
   ref: RefObject<HTMLDivElement>;
 }
 
 interface CalendarMonthProps {
   ymd: number[];
   isMoving: boolean;
-  sendYmd?: (tm: number, d: number) => void;
+  moveymd: ({y,m,d,movingway,ref}:MoveYmdProps) =>void;
   setymd?: ([]) => void;
-  wrapRef: any //이건 또 뭘려나
+  wrapRef: RefObject<HTMLDivElement>;
 }
 const Day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-const CalendarMonth = ({ymd, isMoving, sendYmd, setymd, wrapRef}:CalendarMonthProps) => {
+const CalendarDateWrap = ({ymd, isMoving, moveymd, setymd, wrapRef}:CalendarMonthProps) => {
   const year = ymd[0];
   const month = ymd[1];
   const date = ymd[2];
@@ -42,19 +44,20 @@ const CalendarMonth = ({ymd, isMoving, sendYmd, setymd, wrapRef}:CalendarMonthPr
             isMoving && "transition-all ease-ease duration-300"
           )}
         >
-          <CalendarAround
+          <CalendarDate
             year={pre.getFullYear()}
             month={pre.getMonth()}
             isgray={true}
             date={pre.getDate()}
           />
-          <CalendarAround
+          <CalendarDate
             year={year}
             month={month}
             date={date}
-            sendYmd={isMoving || !setymd ? undefined : sendYmd}
+            moveymd={isMoving || !setymd ? undefined : moveymd}
+            nowref={wrapRef}
           />
-          <CalendarAround
+          <CalendarDate
             year={nxt.getFullYear()}
             month={nxt.getMonth()}
             date={nxt.getDate()}
@@ -66,4 +69,4 @@ const CalendarMonth = ({ymd, isMoving, sendYmd, setymd, wrapRef}:CalendarMonthPr
   );
 };
 
-export default CalendarMonth;
+export default CalendarDateWrap;

@@ -1,32 +1,36 @@
 import { cn } from "@/lib/utils";
 import { RefObject, useEffect } from "react";
 interface MoveYmdProps {
-  y: number;
-  m: number;
-  d: number;
-  movingway: "pre"|"nxt";
+  y?: number;
+  m?: number;
+  d?: number;
+  top?: string;
+  bot?: string;
+  movingway: "pre"|"nxt"|"cur";
   ref: RefObject<HTMLDivElement>;
 }
-interface CalendarAroundProps {
+interface CalendarDateProps {
   year: number;
   month: number;
   date: number;
   isgray?: boolean;
   remove?: number[];
-  sendYmd?: ({y,m,d,movingway,ref}:MoveYmdProps) => void;
+  moveymd?: ({y,m,d,movingway,ref}:MoveYmdProps) => void;
+  nowref?: RefObject<HTMLDivElement>;
 }
 interface DatesFace {
   date: number;
   mon: "pre" | "cur" | "nxt";
 }
-const CalendarAround = ({
+const CalendarDate = ({
   year,
   month,
   date,
   isgray,
   remove,
-  sendYmd,
-}: CalendarAroundProps) => {
+  moveymd,
+  nowref,
+}: CalendarDateProps) => {
   const Dates: DatesFace[][] = [];
   const currentDate = new Date();
   const nowy = currentDate.getFullYear();
@@ -95,8 +99,8 @@ const CalendarAround = ({
                     "bg-yellow-300 hover:bg-yellow-300"
                 )}
                 onClick={() => {
-                  sendYmd &&
-                    sendYmd({m:month,d:date, movingway:aj.mon});
+                  moveymd && nowref &&
+                    moveymd({d:aj.date, movingway:aj.mon, ref: nowref});
                 }}
               >
                 {aj.date}
@@ -109,4 +113,4 @@ const CalendarAround = ({
   );
 };
 
-export default CalendarAround;
+export default CalendarDate;

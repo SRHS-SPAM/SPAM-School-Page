@@ -1,19 +1,26 @@
 import { cn } from "@/lib/utils";
-import CalendarAround from "./calendarDate";
-import CalendarYearAround from "./calendarYear";
+import CalendarYear from "./calendarYear";
+import { RefObject } from "react";
 
+interface MoveYmdProps {
+  y?: number;
+  m?: number;
+  d?: number;
+  top?: string;
+  bot?: string;
+  movingway: "pre"|"nxt"|"cur";
+  ref: RefObject<HTMLDivElement>;
+}
 interface CalendarYearProps {
   ymd: number[];
   isMoving: boolean;
-  sendYmd?: (tm: number, d: number) => void;
-  setymd?: ([]) => void;
+  moveymd: ({y,m,d,movingway,ref}:MoveYmdProps) =>void;
   wrapRef: any; //이건 또 뭘려나
 }
-const CalendarYear = ({
+const CalendarYearWrap = ({
   ymd,
   isMoving,
-  sendYmd,
-  setymd,
+  moveymd,
   wrapRef,
 }: CalendarYearProps) => {
   const year = ymd[0];
@@ -23,21 +30,22 @@ const CalendarYear = ({
         <div
           ref={wrapRef}
           className={cn(
-            "h-[300%] w-full top-[-100%] absolute flex flex-col justify-stretch opacity-100",
+            "h-[300%] w-full top-[-100%] absolute flex flex-col justify-center opacity-100",
             isMoving && "transition-all ease-ease duration-300"
           )}
         >
-          <CalendarYearAround
-            year={year-10}
+          <CalendarYear
+            year={year-8}
             isgray={true}
             rmline={2}
           />
-          <CalendarYearAround
+          <CalendarYear
             year={year}
-            sendYmd={isMoving || !setymd ? undefined : sendYmd}
+            moveymd={isMoving ? undefined : moveymd}
+            nowref={wrapRef}
           />
-          <CalendarYearAround
-            year={year+10}
+          <CalendarYear
+            year={year+8}
             isgray={true}
             rmline={0}
         />
@@ -47,4 +55,4 @@ const CalendarYear = ({
   );
 };
 
-export default CalendarYear;
+export default CalendarYearWrap;
