@@ -56,44 +56,51 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
   const wrapRef = useRef<ElementRef<"div">>(null);
   const wrapYearRef = useRef<ElementRef<"div">>(null);
   const wrapWrapRef = useRef<ElementRef<"div">>(null);
-  let nowRef = wrapRef;
+  const [nowRef, setNowRef] = useState(useRef<ElementRef<"div">>(null));
 
   const moveymd = ({ y, m, d, top, bot, movingway, ref }: MoveYmdProps) => {
-    let tt = y ? 0 : movingway == "cur" ? 0 : movingway == "nxt"? 1:-1 ;
-    let ty=0, tm=0, td=0; //나도 오버라이딩 쓸래~!~!~~!~!~!
-    if(isMonth) {
-      tm=tt;
-    }
-    else {
-      ty=tt;
-    }
-    
-    let ry = y ? y+ty : year,
-      rm = m ? m+tm : month,
-      rd = d ? d+td : date;
-    let prepct = top ? top : "0%",
-      nxtpct = bot ? bot : "-200%"; //타입스크립트 왜 썼지
-    console.log(ry, rm, rd, y, m, d, prepct, nxtpct);
-    if (setymd) {
-      if (movingway == "cur") {
-        setymd([ry, rm, rd]);
-      } else if (ref.current?.style.top != null) {
-        setIsMoving(true);
-        if (movingway == "pre") ref.current.style.top = prepct;
-        else if (movingway == "nxt") ref.current.style.top = nxtpct;
-        setTimeout(() => {
-          if (ref.current?.style.top != null) {
-            ref.current.style.top = "-100%";
-          }
-          setIsMoving(false);
+    if (!isMoving) {
+      let tt = y ? 0 : movingway == "cur" ? 0 : movingway == "nxt" ? 1 : -1;
+      let ty = 0,
+        tm = 0,
+        td = 0; //나도 오버라이딩 쓸래~!~!~~!~!~!
+      if (isMonth) {
+        tm = tt;
+      } else {
+        ty = tt*8;
+      }
+      if (tm + month < 0) {
+        ty=-1;
+      } else if (tm + month >= 12) {
+        ty=1;
+      }
+      let ry = y ? y : year + ty,
+        rm = m ? m : (month + tm + 12)%12,
+        rd = d ? d : date + td;
+      let prepct = top ? top : !isMonth?  "-33.4%":"0%",
+        nxtpct = bot ? bot : !isMonth? "-166.6%":"-200%"; //타입스크립트 왜 썼지
+      //console.log(ry, rm, rd, y, m, d, prepct, nxtpct);
+      if (setymd) {
+        if (movingway == "cur") {
           setymd([ry, rm, rd]);
-        }, 500);
+        } else if (ref.current?.style.top != null) {
+          setIsMoving(true);
+          if (movingway == "pre") ref.current.style.top = prepct;
+          else if (movingway == "nxt") ref.current.style.top = nxtpct;
+          setTimeout(() => {
+            if (ref.current?.style.top != null) {
+              ref.current.style.top = "-100%";
+            }
+            setIsMoving(false);
+            setymd([ry, rm, rd]);
+          }, 500);
+        }
       }
     }
   };
 
   const fadeymd = () => {
-    if (setymd) {
+    if (setymd && !isMoving) {
       setIsMoving(true);
       if (wrapWrapRef.current?.style.opacity != null) {
         wrapWrapRef.current.style.opacity = "0";
@@ -111,18 +118,20 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
   };
 
   const wrapChange = () => {
-    setIsMoving(true);
-    if (wrapWrapRef.current?.style.left != null) {
-      if (isMonth) {
-        wrapWrapRef.current.style.left = "-100%";
-      } else {
-        wrapWrapRef.current.style.left = "0%";
+    if (!isMoving) {
+      setIsMoving(true);
+      if (wrapWrapRef.current?.style.left != null) {
+        if (isMonth) {
+          wrapWrapRef.current.style.left = "-100%";
+        } else {
+          wrapWrapRef.current.style.left = "0%";
+        }
+        setTimeout(() => {
+          setIsMoving(isMoving);
+          setNowRef(!isMonth?wrapRef:wrapYearRef)
+          setIsMonth(!isMonth);
+        }, 300);
       }
-      setTimeout(() => {
-        setIsMoving(isMoving);
-        nowRef = isMonth ? wrapRef : wrapYearRef;
-        setIsMonth(!isMonth);
-      }, 300);
     }
   };
 

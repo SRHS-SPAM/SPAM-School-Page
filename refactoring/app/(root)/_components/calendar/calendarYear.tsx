@@ -5,6 +5,7 @@ interface CalendarYearAroundProps {
   year: number;
   isgray?: boolean;
   rmline?: number;
+  apline?: "dwn"|"up";
   moveymd?: ({ y, m, d, movingway, ref }: MoveYmdProps) => void;
   nowref?: RefObject<HTMLDivElement>;
 }
@@ -27,17 +28,18 @@ const CalendarYear = ({
   rmline,
   moveymd,
   nowref,
+  apline,
 }: CalendarYearAroundProps) => {
   const Years: YearsFace[][] = [];
   const nowy = new Date().getFullYear();
   const year8 = Math.floor(year / 8) * 8;
-  let lcnt;
-  for (let i = (lcnt = 0); i < 3; i++) {
-    Years.push([]);
-    if (!rmline || rmline && i != 2 - rmline) {
+  let lcnt
+  for (let i = lcnt = 0; i < 3; i++) {
+    if (rmline===undefined || rmline!==undefined && i != rmline) {
+      Years.push([]);
       for (let j = 0; j < 4; j++) {
-        let t = lcnt * 4 + j - 2;
-        Years[i].push({
+        let t = i * 4 + j - 2;
+        Years[lcnt].push({
           year: t + year8,
           mon: t < 0 ? "pre" : t >= 8 ? "nxt" : "cur",
         });
@@ -45,7 +47,10 @@ const CalendarYear = ({
       lcnt++;
     }
   }
-
+  for(;Years.length<3;) {
+    if(apline!==undefined&&apline=="up") Years.unshift([]);
+    else if(apline!==undefined)  Years.push([]);
+  }
   return (
     <div className="flex h-full w-full flex-col flex-1">
       {Years.map((ai, i) => (

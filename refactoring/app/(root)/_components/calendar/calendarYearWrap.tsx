@@ -38,6 +38,7 @@ const CalendarYearWrap = ({
             year={year-8}
             isgray={true}
             rmline={2}
+            apline={"up"}
           />
           <CalendarYear
             year={year}
@@ -48,6 +49,7 @@ const CalendarYearWrap = ({
             year={year+8}
             isgray={true}
             rmline={0}
+            apline={"dwn"}
         />
         </div>
       </div>
