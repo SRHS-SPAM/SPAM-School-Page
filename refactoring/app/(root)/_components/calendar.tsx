@@ -56,7 +56,7 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
   const wrapRef = useRef<ElementRef<"div">>(null);
   const wrapYearRef = useRef<ElementRef<"div">>(null);
   const wrapWrapRef = useRef<ElementRef<"div">>(null);
-  const [nowRef, setNowRef] = useState(useRef<ElementRef<"div">>(null));
+  const [nowRef, setNowRef] = useState(wrapRef);
 
   const moveymd = ({ y, m, d, top, bot, movingway, ref }: MoveYmdProps) => {
     if (!isMoving) {
