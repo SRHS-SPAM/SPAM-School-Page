@@ -3,7 +3,8 @@ import Item from "./_components/item";
 import React from "react";
 import Carousel from "@/components/ui/carousel";
 import CommunityItem from "./_components/communityItem";
-import Calender from "./_components/calendar";
+import Calendar from "./_components/calendar";
+import Link from "next/link";
 
 export default function Home() {
   const currentDate = new Date();
@@ -47,7 +48,9 @@ export default function Home() {
               />
               <div className="rounded-2xl col-start-2 row-start-1 row-end-3 drop-shadow-xl flex justify-center items-center text-center bg-white">
                 <div className="w-full h-full py-[5%]">
-                  <Calender ymd={[year, month, date]} />
+                  <Link href={"/calendar"}>
+                    <Calendar ymd={[year, month, date]} />
+                  </Link>
                 </div>
               </div>
             </div>

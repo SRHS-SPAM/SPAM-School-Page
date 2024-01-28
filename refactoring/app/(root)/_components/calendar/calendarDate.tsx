@@ -6,7 +6,7 @@ interface MoveYmdProps {
   d?: number;
   top?: string;
   bot?: string;
-  movingway: "pre"|"nxt"|"cur";
+  movingway: "pre" | "nxt" | "cur";
   ref: RefObject<HTMLDivElement>;
 }
 interface CalendarDateProps {
@@ -15,7 +15,7 @@ interface CalendarDateProps {
   date: number;
   isgray?: boolean;
   remove?: number[];
-  moveymd?: ({y,m,d,movingway,ref}:MoveYmdProps) => void;
+  moveymd?: ({ y, m, d, movingway, ref }: MoveYmdProps) => void;
   nowref?: RefObject<HTMLDivElement>;
 }
 interface DatesFace {
@@ -82,11 +82,16 @@ const CalendarDate = ({
           {ai.map((aj, j) => (
             <div
               key={j}
-              className="flex items-center justify-center h-full w-full"
+              className="cursor-pointer flex items-center justify-center h-full w-full"
+              onClick={() => {
+                moveymd &&
+                  nowref &&
+                  moveymd({ d: aj.date, movingway: aj.mon, ref: nowref });
+              }}
             >
               <div
                 className={cn(
-                  "cursor-pointer select-none hover:bg-yellow-200 w-[60px] h-[60px] flex items-center justify-center rounded-full ",
+                  "select-none hover:bg-yellow-200 w-[60px] h-[60px] flex items-center justify-center rounded-full ",
                   (isgray || aj.mon != "cur") && "text-gray-300",
                   aj.mon == "cur" &&
                     aj.date == nowd &&
@@ -96,12 +101,8 @@ const CalendarDate = ({
                   !isgray &&
                     aj.mon == "cur" &&
                     aj.date == date &&
-                    "bg-yellow-300 hover:bg-yellow-300"
+                    "hover:bg-yellow-300 border-yellow-300 border-4"
                 )}
-                onClick={() => {
-                  moveymd && nowref &&
-                    moveymd({d:aj.date, movingway:aj.mon, ref: nowref});
-                }}
               >
                 {aj.date}
               </div>
