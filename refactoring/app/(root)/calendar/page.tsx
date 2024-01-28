@@ -66,7 +66,7 @@ export default function Home() {
   }, []);
   if (!isMounted) return <></>;
   return (
-    <>
+    <div className="h-[calc(100vh-80px)]">
       <div className="flex flex-col items-center h-full">
         <div className="max-w-[1800px] w-full h-full">
           <div className="flex items-center p-8 h-full gap-12">
@@ -103,6 +103,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
