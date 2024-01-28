@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const CommunityItem = () => {
   const rows = [
     // You would populate this array with your data
@@ -86,7 +88,10 @@ const CommunityItem = () => {
 
   return (
     <div className="p-10 w-full overflow-x-auto flex flex-col drop-shadow-xl rounded-2xl bg-white">
-      <p className="text-2xl font-bold">커뮤니티</p>
+      <Link href={"/community"}>
+        <p className="text-2xl font-bold">커뮤니티</p>
+      </Link>
+
       <table className="bg-white mt-8 ">
         <thead>
           <tr className="border-b-2 font-normal border-yellow-300">

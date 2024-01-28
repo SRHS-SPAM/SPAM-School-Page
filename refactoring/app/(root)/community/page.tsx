@@ -296,7 +296,6 @@ export default function Community() {
         <div className="max-w-[1800px] w-full h-full">
           <div className="flex flex-col gap-12 items-center mb-12 w-full h-full">
             <div className="p-8 w-full h-full flex">
-              {" "}
               <div className="w-3/4 h-full">
                 <div className="w-full mb-24">
                   <BoardPane
@@ -307,7 +306,8 @@ export default function Community() {
                   />
                 </div>
                 <div className="grid grid-cols-2 grid-rows-3 gap-x-16 gap-y-14">
-                  {Data.map((ai, i) => { //그냥 포인터 쓰고 for문 돌리고 싶다
+                  {Data.map((ai, i) => {
+                    //그냥 포인터 쓰고 for문 돌리고 싶다
                     if (i)
                       return (
                         <BoardPane
