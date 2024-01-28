@@ -317,8 +317,6 @@ export default function Community() {
                           title={ai.isSpecial ? ai.title : ai.title + " 게시판"}
                         />
                       );
-                    else return;
-                    // <div key={i}></div>
                   })}
                 </div>
               </div>
