@@ -101,7 +101,7 @@ const CalendarDate = ({
                   !isgray &&
                     aj.mon == "cur" &&
                     aj.date == date &&
-                    "hover:bg-yellow-300 border-yellow-300 border-4"
+                    "hover:bg-yellow-300 border-yellow-300 border-2"
                 )}
               >
                 {aj.date}
