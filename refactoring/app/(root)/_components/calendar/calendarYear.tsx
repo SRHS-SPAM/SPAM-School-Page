@@ -5,8 +5,9 @@ interface CalendarYearAroundProps {
   year: number;
   isgray?: boolean;
   rmline?: number;
-  apline?: "dwn"|"up";
+  apline?: "dwn" | "up";
   moveymd?: ({ y, m, d, movingway, ref }: MoveYmdProps) => void;
+  wrapChange?: ()=>void;
   nowref?: RefObject<HTMLDivElement>;
 }
 interface YearsFace {
@@ -27,15 +28,16 @@ const CalendarYear = ({
   isgray,
   rmline,
   moveymd,
+  wrapChange,
   nowref,
   apline,
 }: CalendarYearAroundProps) => {
   const Years: YearsFace[][] = [];
   const nowy = new Date().getFullYear();
   const year8 = Math.floor(year / 8) * 8;
-  let lcnt
-  for (let i = lcnt = 0; i < 3; i++) {
-    if (rmline===undefined || rmline!==undefined && i != rmline) {
+  let lcnt;
+  for (let i = (lcnt = 0); i < 3; i++) {
+    if (rmline === undefined || (rmline !== undefined && i != rmline)) {
       Years.push([]);
       for (let j = 0; j < 4; j++) {
         let t = i * 4 + j - 2;
@@ -47,9 +49,9 @@ const CalendarYear = ({
       lcnt++;
     }
   }
-  for(;Years.length<3;) {
-    if(apline!==undefined&&apline=="up") Years.unshift([]);
-    else if(apline!==undefined)  Years.push([]);
+  for (; Years.length < 3; ) {
+    if (apline !== undefined && apline == "up") Years.unshift([]);
+    else if (apline !== undefined) Years.push([]);
   }
   return (
     <div className="flex h-full w-full flex-col flex-1">
@@ -70,7 +72,7 @@ const CalendarYear = ({
                   aj.year == nowy && "bg-yellow-300",
                   !isgray &&
                     aj.year == year &&
-                    "bg-yellow-300 hover:bg-yellow-300"
+                    "hover:bg-yellow-300 border-yellow-300 border-4"
                 )}
                 onClick={() => {
                   moveymd &&
@@ -82,6 +84,7 @@ const CalendarYear = ({
                       top: "-33.4%",
                       bot: "-166.6%",
                     });
+                    aj.mon == "cur" && wrapChange && wrapChange()
                 }}
               >
                 {aj.year}

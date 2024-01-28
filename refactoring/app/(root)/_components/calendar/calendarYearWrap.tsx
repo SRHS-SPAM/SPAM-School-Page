@@ -16,12 +16,14 @@ interface CalendarYearProps {
   isMoving: boolean;
   moveymd: ({y,m,d,movingway,ref}:MoveYmdProps) =>void;
   wrapRef: any; //이건 또 뭘려나
+  wrapChange: ()=>void;
 }
 const CalendarYearWrap = ({
   ymd,
   isMoving,
   moveymd,
   wrapRef,
+  wrapChange,
 }: CalendarYearProps) => {
   const year = ymd[0];
   return (
@@ -44,6 +46,7 @@ const CalendarYearWrap = ({
             year={year}
             moveymd={isMoving ? undefined : moveymd}
             nowref={wrapRef}
+            wrapChange={wrapChange}
           />
           <CalendarYear
             year={year+8}

@@ -177,6 +177,7 @@ const Calender = ({ ymd, setymd }: CalendarProps) => {
               wrapRef={wrapYearRef}
               ymd={ymd}
               moveymd={moveymd}
+              wrapChange={wrapChange}
             />
           )}
         </div>
