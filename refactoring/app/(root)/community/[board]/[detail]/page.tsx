@@ -293,6 +293,7 @@ export default function Community() {
       <div className="flex flex-col items-center h-full">
         <div className="max-w-[1800px] w-full h-full">
           <div className="flex flex-col gap-12 items-center mb-12 w-full h-full">
+            
           </div>
         </div>
       </div>
