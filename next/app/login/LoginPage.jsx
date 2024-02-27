@@ -24,43 +24,21 @@ export default function LoginPage() {
   };
 
   return (
-    <form method="POST" name="login" onSubmit={login}>
-      <div className={styles.main}>
-        <div className={styles.stroke}>
-          <div className={styles.box}>
-            <h1 className={styles.school_name}>
-              Seoul Robotics
-              <br />
-              <em>Highschool</em>
-            </h1>
-            <div className={styles.id_mainbox}>
-              <div className={styles.id_box}>
-                <input id="email" type="text" placeholder="이메일" />
-                <input id="password" type="password" placeholder="비밀번호" />
-                <div className={styles.id_check}>
-                  <input id={styles.idckb} type="checkbox" size="10" />
-                  <span className={styles.idsave}>로그인 정보 저장하기</span>
-                </div>
-                <button type={"submit"} className={styles.login_button}>
-                  로그인
-                </button>
-                <div className={styles.more}>
-                  <div className={styles.lost}>비밀번호를 잊으셨나요?</div>
-                  <Link href="/signup">
-                    <div className={styles.signup}>회원가입</div>
-                  </Link>
-                </div>
-              </div>
-              <div className={styles.id_anotherbox}>
-                <div className={styles.anotherlogin}>
-                  {another.map((name, i) => (
-                    <AnotherLogin name={name} key={i}></AnotherLogin>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <form className={styles.id_box} method="POST" name="login" onSubmit={login}>
+      <input id="email" type="text" placeholder="이메일" />
+      <input id="password" type="password" placeholder="비밀번호" />
+      <div className={styles.id_check}>
+        <input id={styles.idckb} type="checkbox" size="10" />
+        <span className={styles.idsave}>로그인 정보 저장하기</span>
+      </div>
+      <button type={"submit"} className={styles.login_button}>
+        로그인
+      </button>
+      <div className={styles.more}>
+        <div className={styles.lost}>비밀번호를 잊으셨나요?</div>
+        <Link href="/signup">
+          <div className={styles.signup}>회원가입</div>
+        </Link>
       </div>
     </form>
   );
