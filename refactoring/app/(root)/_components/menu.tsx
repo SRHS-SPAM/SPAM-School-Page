@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,10 +12,21 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Bell, Calendar, LogOut, MenuIcon, MessagesSquareIcon, User } from "lucide-react";
+import {
+  Bell,
+  Calendar,
+  LogIn,
+  LogOut,
+  MenuIcon,
+  MessagesSquareIcon,
+  User,
+} from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 
 const Menu = () => {
+  const { data: session } = useSession();
+
   return (
     <>
       <DropdownMenu>
@@ -29,7 +41,7 @@ const Menu = () => {
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <User className="mr-2 h-4 w-4" />
-              <span>MyPage</span>
+              <span>{session ? session.user.name : "Profile"}</span>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Bell className="mr-2 h-4 w-4" />
@@ -48,10 +60,19 @@ const Menu = () => {
               </DropdownMenuItem>
             </Link>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LogOut className="mr-2 h-4 w-4" />
-              <span>Log out</span>
-            </DropdownMenuItem>
+            {session ? (
+              <DropdownMenuItem onClick={() => signOut()}>
+                <LogOut className="mr-2 h-4 w-4" />
+                <span>Log out</span>
+              </DropdownMenuItem>
+            ) : (
+              <Link href={"/login"}>
+                <DropdownMenuItem>
+                  <LogIn className="mr-2 h-4 w-4" />
+                  <span>Log in</span>
+                </DropdownMenuItem>
+              </Link>
+            )}
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>

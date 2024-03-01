@@ -1,3 +1,4 @@
+import { signJwtAccessToken } from "@/app/lib/jwt";
 import { connectDB } from "@/util/database";
 import bcrypt from "bcryptjs";
 
@@ -7,8 +8,6 @@ interface RequestBody {
 }
 
 export async function POST(request: Request) {
-  console.log("asdadsdasd");
-
   const body: RequestBody = await request.json();
 
   const db = (await connectDB).db("SPAM-School-Page-refactoring");
@@ -16,6 +15,12 @@ export async function POST(request: Request) {
   if (user && (await bcrypt.compare(body.password, user.password))) {
     const { password, ...userWithoutPass } = user;
 
-    return new Response(JSON.stringify(userWithoutPass));
+    const accessToken = signJwtAccessToken(userWithoutPass);
+    const result = {
+      ...userWithoutPass,
+      accessToken,
+    };
+
+    return new Response(JSON.stringify(result));
   } else return new Response(JSON.stringify(null));
 }

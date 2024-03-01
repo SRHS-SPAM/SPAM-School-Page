@@ -28,9 +28,9 @@ const LoginForm = () => {
         onSubmit={login}
         className="flex-col justify-center items-start gap-[29px] flex"
       >
-        <Input placeholder="아이디" type={"text"} id="email" />
+        <Input placeholder="이메일" type={"email"} id="email" />
 
-        <Input placeholder="비밀번호" type={"password"} id="passward" />
+        <Input placeholder="비밀번호" type={"password"} id="password" />
 
         <div className="justify-center items-center gap-[15px] flex">
           <Checkbox id="check" />
