@@ -1,7 +1,8 @@
 "use client";
 
 import React, { ReactNode, useCallback, useEffect, useState } from "react";
-import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
+import useEmblaCarousel from "embla-carousel-react";
+import { EmblaOptionsType } from "embla-carousel";
 
 type PropType = {
   options?: EmblaOptionsType;
@@ -57,4 +58,3 @@ export default function Carousel(props: PropType) {
     </>
   );
 }
-
