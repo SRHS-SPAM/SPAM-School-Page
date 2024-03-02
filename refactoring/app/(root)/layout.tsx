@@ -1,10 +1,10 @@
-import { NavBar } from "./_components/navbar";
+import Navbar from "./_components/navbar";
 
 const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="h-full dark:bg-[#1f1f1f]">
-      <NavBar />
-      <main className="h-full pt-40">{children}</main>
+      <Navbar />
+      <main className="h-full pt-20">{children}</main>
     </div>
   );
 };

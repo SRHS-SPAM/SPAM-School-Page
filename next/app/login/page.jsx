@@ -14,7 +14,29 @@ export default async function login() {
           <Arrow location="/" mod={1} />
         </div>
       </header>
-      <LoginPage></LoginPage>
+      <div>
+        <div className={styles.main}>
+          <div className={styles.stroke}>
+            <div className={styles.box}>
+              <h1 className={styles.school_name}>
+                Seoul Robotics
+                <br />
+                <em>Highschool</em>
+              </h1>
+              <div className={styles.id_mainbox}>
+                <LoginPage></LoginPage>
+                <div className={styles.id_anotherbox}>
+                  <div className={styles.anotherlogin}>
+                    {another.map((name, i) => (
+                      <AnotherLogin name={name} key={i}></AnotherLogin>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

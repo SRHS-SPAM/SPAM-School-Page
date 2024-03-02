@@ -52,11 +52,11 @@
   background-color: var(--login-stroke-color);
   border-radius: var(--Sizes-size5_1);
   margin-bottom: var(--Sizes-size3);
-  height: 100vh;
+  height: 110vh;
 }
 
 .signup_box {
-  height: 100vh;
+  height: 110vh;
 }
 
 .sign_schoolnum {
@@ -85,6 +85,29 @@
   color: white;
   font-size: var(--Sizes-size1);
   padding: 0px 20px;
+}
+
+.email_box {
+  display: flex;
+  height: 10%;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.email_box input {
+  height: 100%;
+  flex: 1 1;
+}
+
+.email_box div {
+  cursor: pointer;
+  height: 100%;
+  background-color: #1c65b9;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
 .disable_input:read-only {
