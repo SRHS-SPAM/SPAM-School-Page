@@ -26,7 +26,6 @@ import Link from "next/link";
 
 const Menu = () => {
   const { data: session } = useSession();
-
   return (
     <>
       <DropdownMenu>
@@ -36,12 +35,14 @@ const Menu = () => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 mr-2">
-          <DropdownMenuLabel>Menu</DropdownMenuLabel>
+          <DropdownMenuLabel>
+            {session ? session.user.name : "Menu"}
+          </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
               <User className="mr-2 h-4 w-4" />
-              <span>{session ? session.user.name : "Profile"}</span>
+              <span>Profile</span>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Bell className="mr-2 h-4 w-4" />
