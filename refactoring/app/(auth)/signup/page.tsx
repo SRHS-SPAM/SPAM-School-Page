@@ -157,7 +157,9 @@ const SignUp = () => {
         onSubmit={onSubmit}
         className="px-[50px] py-[58px] bg-white rounded-[20px] flex-col justify-start items-center gap-[50px] inline-flex"
       >
-        <img className="w-[295px] h-[130px]" src="/images/로고.png" />
+        <Link href={"/"}>
+          <img className="w-[295px] h-[130px]" src="/images/로고.png" />
+        </Link>
         <div className="w-full flex-col justify-center items-center gap-10 flex">
           <div className="w-full flex-col justify-center items-center gap-5 flex">
             <Input required placeholder="닉네임" type={"text"} id="nickName" />
