@@ -13,7 +13,7 @@ interface res {
 
 export async function POST(request: Request) {
   const res = (await request.json()) as res;
-
+  console.log(res);
   if (res) {
     try {
       let hash = await bcrypt.hash(res.password, 10);

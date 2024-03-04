@@ -32,7 +32,7 @@ const LoginForm = () => {
 
         <Input placeholder="비밀번호" type={"password"} id="password" />
 
-        <div className="justify-center items-center gap-[15px] flex">
+        {/* <div className="justify-center items-center gap-[15px] flex">
           <Checkbox id="check" />
           <Label
             htmlFor="check"
@@ -40,7 +40,8 @@ const LoginForm = () => {
           >
             로그인 정보 저장하기
           </Label>
-        </div>
+        </div> */}
+
         <button className="w-[500px] py-5 rounded-lg justify-center items-center gap-2.5 flex bg-amber-300">
           <div className="text-center text-black text-2xl font-semibold font-body tracking-widest">
             가입
